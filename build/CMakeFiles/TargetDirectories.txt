@@ -1,0 +1,3 @@
+/home/muzaodamassa/AC_Project/build/CMakeFiles/Vision.dir
+/home/muzaodamassa/AC_Project/build/CMakeFiles/edit_cache.dir
+/home/muzaodamassa/AC_Project/build/CMakeFiles/rebuild_cache.dir

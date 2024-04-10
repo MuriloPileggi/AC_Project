@@ -1,10 +1,47 @@
 #include <iostream>
-#include "opencv2/opencv.hpp"
+#include "LaneDetection.hpp"
 #include "opencv2/videoio.hpp"
 
 using namespace std;
 
-int main()
+int main(int argc, char** argv)
+{	
+	if (argc != 2) 
+	{ 
+        cout<<"usage: DisplayImage.out <Image_Path>"<<endl; 
+        return -1; 
+    } 
+	
+	LaneDetection lane;
+	cv::Mat image;
+	image = cv::imread(argv[1], 1);
+
+	if (!image.data)
+	{
+		cout<<"No image data!"<<endl;
+		return -1;
+	}
+
+	cv::namedWindow("Test Image", cv::WINDOW_AUTOSIZE);
+	cv::imshow("Test Image", image);
+	cv::waitKey(0);
+	image = lane.grayFrame(image);
+	cv::imshow("GrayScale Image", image);
+	cv::waitKey(0);
+	image = lane.smoothedFrame(image);
+	cv::imshow("Smoothed Frame Image", image);
+	cv::waitKey(0);
+	image = lane.edgesFrame(image);
+	cv::imshow("Egdes Frame Image", image);
+	cv::waitKey(0);
+	image = lane.maskedFrame(image);
+	cv::imshow("Masked Frame Image", image);
+	cv::waitKey(0);
+
+	return 0;
+}
+
+int main2()
 {
 	// Set desired resolution to resize received footage
 	int width = 640;
