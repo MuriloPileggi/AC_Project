@@ -7,7 +7,7 @@
 #include <algorithm>
 #include "opencv2/opencv.hpp"
 
-class LaneDetection
+class FrameProcessing
 {
 private:
     // Use low pass filter to remove noise, removes high frequency stuff like edges

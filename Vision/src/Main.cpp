@@ -1,5 +1,5 @@
 #include <iostream>
-#include "LaneDetection.hpp"
+#include "FrameProcessing.hpp"
 #include "opencv2/videoio.hpp"
 
 using namespace std;
@@ -33,7 +33,7 @@ int main()
     cv::TickMeter tm;
 
 	// Lane detection class
-	LaneDetection lanes;
+	FrameProcessing pFrame;
 
     while (video.isOpened())
     {
@@ -50,16 +50,16 @@ int main()
 		}
 
 		// Convert the frame to grayscale
-		frame = lanes.grayFrame(frame);
+		frame = pFrame.grayFrame(frame);
 
 		// Apply gaussian smoothing to frame
-		frame = lanes.smoothedFrame(frame);
+		frame = pFrame.smoothedFrame(frame);
 
 		// Apply edge detection to frame
-		frame = lanes.edgesFrame(frame);
+		frame = pFrame.edgesFrame(frame);
 
 		// Apply mask to frame
-		frame = lanes.maskedFrame(frame);
+		frame = pFrame.maskedFrame(frame);
 
 		// Calculate FPS
 		tm.stop();
@@ -96,7 +96,7 @@ int main2(int argc, char** argv)
         return -1; 
     } 
 	
-	LaneDetection lane;
+	FrameProcessing pFrame;
 	cv::Mat image;
 	image = cv::imread(argv[1], 1);
 
@@ -109,23 +109,23 @@ int main2(int argc, char** argv)
 	cv::namedWindow("Test Image", cv::WINDOW_AUTOSIZE);
 	cv::imshow("Test Image", image);
 	cv::waitKey(0);
-	image = lane.grayFrame(image);
+	image = pFrame.grayFrame(image);
 	cv::imshow("GrayScale Image", image);
 	cv::waitKey(0);
-	image = lane.smoothedFrame(image);
+	image = pFrame.smoothedFrame(image);
 	cv::imshow("Smoothed Frame Image", image);
 	cv::waitKey(0);
-	image = lane.edgesFrame(image);
+	image = pFrame.edgesFrame(image);
 	cv::imshow("Egdes Frame Image", image);
 	cv::waitKey(0);
-	image = lane.maskedFrame(image);
+	image = pFrame.maskedFrame(image);
 	cv::imshow("Masked Frame Image", image);
 	cv::waitKey(0);
 
 	return 0;
 }
 
-int main2()
+int main3()
 {
 	// Set desired resolution to resize received footage
 	int width = 640;

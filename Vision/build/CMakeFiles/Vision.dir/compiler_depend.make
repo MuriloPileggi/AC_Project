@@ -181,7 +181,7 @@ CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o: /home/
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
-  /home/muzaodamassa/AC_Project/Vision/src/LaneDetection.hpp \
+  /home/muzaodamassa/AC_Project/Vision/src/FrameProcessing.hpp \
   /usr/include/c++/11/vector \
   /usr/include/c++/11/bits/stl_uninitialized.h \
   /usr/include/c++/11/bits/stl_vector.h \
@@ -669,6 +669,10 @@ CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o: /home/
 
 /usr/include/c++/11/algorithm:
 
+/usr/local/include/opencv4/opencv2/stitching/detail/exposure_compensate.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
+
 /usr/local/include/opencv4/opencv2/features2d.hpp:
 
 /usr/include/c++/11/bits/locale_classes.h:
@@ -1105,11 +1109,7 @@ CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o: /home/
 
 /usr/include/c++/11/bits/istream.tcc:
 
-/usr/local/include/opencv4/opencv2/stitching/detail/exposure_compensate.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:
-
-/home/muzaodamassa/AC_Project/Vision/src/LaneDetection.hpp:
+/home/muzaodamassa/AC_Project/Vision/src/FrameProcessing.hpp:
 
 /usr/local/include/opencv4/opencv2/flann/all_indices.h:
 
