@@ -4,7 +4,91 @@
 
 using namespace std;
 
-int main(int argc, char** argv)
+int main()
+{
+	// Set desired resolution to resize received footage
+	int width = 640;
+	int height = 480;
+
+    // Open video file
+    cv::VideoCapture video("/home/muzaodamassa/Downloads/drivingVideo.mp4");
+	//cv::VideoCapture video(0);
+
+    // Check if camera opened successfully
+    if (!video.isOpened())
+    {
+        cerr << "Error opening video stream or file" << endl;
+        return -1;
+    }
+
+    // Create a window to display the video
+    namedWindow("Video Stream", cv::WINDOW_NORMAL);
+    
+	// Set capture resolution
+	video.set(cv::CAP_PROP_FRAME_WIDTH, width);
+	video.set(cv::CAP_PROP_FRAME_HEIGHT, height);
+
+	// Variables for fps calculation
+    double fps;
+    cv::TickMeter tm;
+
+	// Lane detection class
+	LaneDetection lanes;
+
+    while (video.isOpened())
+    {
+		tm.start();
+
+		// Capture frame-by-frame
+		cv::Mat frame;
+		video >> frame;
+
+		// If the frame is empty, break immediately
+		if (frame.empty())
+		{
+			break;
+		}
+
+		// Convert the frame to grayscale
+		frame = lanes.grayFrame(frame);
+
+		// Apply gaussian smoothing to frame
+		frame = lanes.smoothedFrame(frame);
+
+		// Apply edge detection to frame
+		frame = lanes.edgesFrame(frame);
+
+		// Apply mask to frame
+		frame = lanes.maskedFrame(frame);
+
+		// Calculate FPS
+		tm.stop();
+		fps = 1.0 / tm.getTimeSec();
+		tm.reset();
+
+		// Put FPS text on the frame
+		putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
+
+		// Dispay the resulting frame
+		imshow("Video Stream", frame);
+
+		// Press q to exit the loop
+		if (cv::waitKey(1) == 'q')
+		{
+			break;
+		}	
+    }
+
+	// Whene everything is done, release the video capture and video writer objects
+	video.release();
+
+    // Close all windows
+	cv::destroyAllWindows();
+
+    return 0;	
+}
+
+int main2(int argc, char** argv)
 {	
 	if (argc != 2) 
 	{ 
