@@ -11,7 +11,7 @@ int main()
 	int height = 480;
 
     // Open video file
-    cv::VideoCapture video("/home/muzaodamassa/Downloads/drivingVideo.mp4");
+    cv::VideoCapture video("/home/muzaodamassa/AC_Project/Vision/data/Video_Testing/drivingVideo.mp4");
 	//cv::VideoCapture video(0);
 
     // Check if camera opened successfully
@@ -40,43 +40,37 @@ int main()
 		tm.start();
 
 		// Capture frame-by-frame
-		cv::Mat frame;
-		video >> frame;
+		cv::Mat* framePtr = new cv::Mat();
+		video >> *framePtr;
 
 		// If the frame is empty, break immediately
-		if (frame.empty())
+		if (framePtr->empty())
 		{
 			break;
 		}
 
 		// Convert the frame to grayscale
-		frame = pFrame.grayFrame(frame);
+		pFrame.grayFrame(framePtr);
 
 		// Apply gaussian smoothing to frame
-		frame = pFrame.smoothedFrame(frame);
+		pFrame.smoothedFrame(framePtr);
 
 		// Apply edge detection to frame
-		frame = pFrame.edgesFrame(frame);
+		pFrame.edgesFrame(framePtr);
 
 		// Apply mask to frame
-		frame = pFrame.maskedFrame(frame);
-
-		// Calculate FPS
-		tm.stop();
-		fps = 1.0 / tm.getTimeSec();
-		tm.reset();
-
-		// Put FPS text on the frame
-		putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
+		pFrame.maskedFrame(framePtr);
 
 		// Dispay the resulting frame
-		imshow("Video Stream", frame);
+		imshow("Video Stream", *framePtr);
 
 		// Press q to exit the loop
 		if (cv::waitKey(1) == 'q')
 		{
 			break;
 		}	
+
+		delete framePtr;
     }
 
 	// Whene everything is done, release the video capture and video writer objects
@@ -97,29 +91,29 @@ int main2(int argc, char** argv)
     } 
 	
 	FrameProcessing pFrame;
-	cv::Mat image;
-	image = cv::imread(argv[1], 1);
+	cv::Mat* image = new cv::Mat();
+	*image = cv::imread(argv[1], 1);
 
-	if (!image.data)
+	if (!image->data)
 	{
 		cout<<"No image data!"<<endl;
 		return -1;
 	}
 
 	cv::namedWindow("Test Image", cv::WINDOW_AUTOSIZE);
-	cv::imshow("Test Image", image);
+	cv::imshow("Test Image", *image);
 	cv::waitKey(0);
-	image = pFrame.grayFrame(image);
-	cv::imshow("GrayScale Image", image);
+	pFrame.grayFrame(image);
+	cv::imshow("GrayScale Image", *image);
 	cv::waitKey(0);
-	image = pFrame.smoothedFrame(image);
-	cv::imshow("Smoothed Frame Image", image);
+	pFrame.smoothedFrame(image);
+	cv::imshow("Smoothed Frame Image", *image);
 	cv::waitKey(0);
-	image = pFrame.edgesFrame(image);
-	cv::imshow("Egdes Frame Image", image);
+	pFrame.edgesFrame(image);
+	cv::imshow("Egdes Frame Image", *image);
 	cv::waitKey(0);
-	image = pFrame.maskedFrame(image);
-	cv::imshow("Masked Frame Image", image);
+	pFrame.maskedFrame(image);
+	cv::imshow("Masked Frame Image", *image);
 	cv::waitKey(0);
 
 	return 0;

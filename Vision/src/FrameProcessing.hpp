@@ -65,45 +65,28 @@ public:
     }
 
     // Method for converting the current frame to grayscale
-    cv::Mat grayFrame(cv::Mat frame)
+    void grayFrame(cv::Mat* framePtr)
     {   
-        // Define grayscale frame
-        cv::Mat grayFrame;
-
         // Convert frame to grayscale
-        cv::cvtColor(frame, grayFrame, cv::COLOR_BGR2GRAY);
-
-        // Return grayscale frame
-        return grayFrame;
+        cv::cvtColor(*framePtr, *framePtr, cv::COLOR_BGR2GRAY);
     }
 
     // Method to apply gaussian smoothing 
-    cv::Mat smoothedFrame(cv::Mat grayFrame)
+    void smoothedFrame(cv::Mat* grayFramePtr)
     {   
-        // Define and apply gaussian filter to smoothed frame
-        cv::Mat smoothedFrame;
-        cv::GaussianBlur(grayFrame, smoothedFrame, cv::Size(kernelSize, kernelSize), 0, 0);
-
-        // Return smoothed frame
-        return smoothedFrame;
+        cv::GaussianBlur(*grayFramePtr, *grayFramePtr, cv::Size(kernelSize, kernelSize), 0, 0);
     }
 
     // Edge detection method
     // Finds gradient in x, y directions, gradient direction is perpendicular to edges
-    cv::Mat edgesFrame(cv::Mat smoothedFrame)
+    void edgesFrame(cv::Mat* smoothedFramePtr)
     {   
-        // Define edge detection frame
-        cv::Mat edgesFrame;
-
         // Perform edge detection
-        cv::Canny(smoothedFrame, edgesFrame, minVal, maxVal);
-
-        // Return edge detection frame
-        return edgesFrame;
+        cv::Canny(*smoothedFramePtr, *smoothedFramePtr, minVal, maxVal);
     }
 
     // Method for creating and applying mask to frame
-    cv::Mat maskedFrame(cv::Mat edgesFrame)
+    void maskedFrame(cv::Mat* edgesFramePtr)
     {
         // Create mask to only keep area define by four corners
         // And black out every area outside
@@ -111,13 +94,13 @@ public:
         // Define masked frame
         // Create all black frame with same dimensions as original
         // 3rd arg is CV_<bit-depth>{U|S|F}C(<number_of_channels>), so this is 8bit, unsigned int, channels: 1
-        cv::Mat mask(edgesFrame.size().height, edgesFrame.size().width, CV_8UC1, cv::Scalar(0)); // CV_8UC3 to make it a 3 channel
+        cv::Mat mask(edgesFramePtr->size().height, edgesFramePtr->size().width, CV_8UC1, cv::Scalar(0)); // CV_8UC3 to make it a 3 channel
 
         // Define the points for the mask
-        cv::Point p1 = cv::Point(0, edgesFrame.size().height);
+        cv::Point p1 = cv::Point(0, edgesFramePtr->size().height);
         cv::Point p2 = cv::Point(455, 320);
         cv::Point p3 = cv::Point(505, 320);
-        cv::Point p4 = cv::Point(edgesFrame.size().width, edgesFrame.size().height);
+        cv::Point p4 = cv::Point(edgesFramePtr->size().width, edgesFramePtr->size().height);
 
         // Create vector from array with defined points
         cv::Point vertices1[] = {p1, p2, p3, p4};
@@ -132,11 +115,8 @@ public:
 
         // Create frame only where mask and edge detection frame are the same
         // Create masked frame, which takes 2 inputs and outputs only where the two frames overlap
-        cv::Mat maskedFrame = edgesFrame.clone();
-        cv::bitwise_and(edgesFrame, mask, maskedFrame);
-
-        // Return mask applied frame
-        return maskedFrame;
+        cv::Mat maskedFrame = edgesFramePtr->clone();
+        cv::bitwise_and(*edgesFramePtr, mask, *edgesFramePtr);
     }
 
     // Method for calculating hough lines
