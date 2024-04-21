@@ -117,41 +117,78 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Vision
+# Target rules for targets named GeneralVision
 
 # Build rule for target.
-Vision: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Vision
-.PHONY : Vision
+GeneralVision: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GeneralVision
+.PHONY : GeneralVision
 
 # fast build rule for target.
-Vision/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/build
-.PHONY : Vision/fast
+GeneralVision/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneralVision.dir/build.make CMakeFiles/GeneralVision.dir/build
+.PHONY : GeneralVision/fast
 
-home/muzaodamassa/AC_Project/Vision/src/main_vision.o: home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.o
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.o
+#=============================================================================
+# Target rules for targets named RoadVision
+
+# Build rule for target.
+RoadVision: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 RoadVision
+.PHONY : RoadVision
+
+# fast build rule for target.
+RoadVision/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadVision.dir/build.make CMakeFiles/RoadVision.dir/build
+.PHONY : RoadVision/fast
+
+home/muzaodamassa/AC_Project/Vision/src/main_general.o: home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.o
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_general.o
 
 # target to build an object file
-home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.o
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.o
+home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneralVision.dir/build.make CMakeFiles/GeneralVision.dir/home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.o
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.o
 
-home/muzaodamassa/AC_Project/Vision/src/main_vision.i: home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.i
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.i
+home/muzaodamassa/AC_Project/Vision/src/main_general.i: home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.i
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_general.i
 
 # target to preprocess a source file
-home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.i
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.i
+home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneralVision.dir/build.make CMakeFiles/GeneralVision.dir/home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.i
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.i
 
-home/muzaodamassa/AC_Project/Vision/src/main_vision.s: home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.s
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.s
+home/muzaodamassa/AC_Project/Vision/src/main_general.s: home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.s
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_general.s
 
 # target to generate assembly for a file
-home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.s
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.s
+home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneralVision.dir/build.make CMakeFiles/GeneralVision.dir/home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.s
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_general.cpp.s
+
+home/muzaodamassa/AC_Project/Vision/src/main_road.o: home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_road.o
+
+# target to build an object file
+home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadVision.dir/build.make CMakeFiles/RoadVision.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o
+
+home/muzaodamassa/AC_Project/Vision/src/main_road.i: home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.i
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_road.i
+
+# target to preprocess a source file
+home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadVision.dir/build.make CMakeFiles/RoadVision.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.i
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.i
+
+home/muzaodamassa/AC_Project/Vision/src/main_road.s: home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.s
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_road.s
+
+# target to generate assembly for a file
+home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadVision.dir/build.make CMakeFiles/RoadVision.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.s
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.s
 
 # Help Target
 help:
@@ -161,10 +198,14 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Vision"
-	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_vision.o"
-	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_vision.i"
-	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_vision.s"
+	@echo "... GeneralVision"
+	@echo "... RoadVision"
+	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_general.o"
+	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_general.i"
+	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_general.s"
+	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_road.o"
+	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_road.i"
+	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_road.s"
 .PHONY : help
 
 

@@ -145,7 +145,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Vision
+CMAKE_PROJECT_NAME:STATIC=RoadVision
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -209,17 +209,26 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Value Computed by CMake
+GeneralVision_BINARY_DIR:STATIC=/home/muzaodamassa/AC_Project/Vision/build
+
+//Value Computed by CMake
+GeneralVision_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+GeneralVision_SOURCE_DIR:STATIC=/home/muzaodamassa/AC_Project/Vision/build
+
 //The directory containing a CMake configuration file for OpenCV.
 OpenCV_DIR:PATH=/usr/local/lib/cmake/opencv4
 
 //Value Computed by CMake
-Vision_BINARY_DIR:STATIC=/home/muzaodamassa/AC_Project/Vision/build
+RoadVision_BINARY_DIR:STATIC=/home/muzaodamassa/AC_Project/Vision/build
 
 //Value Computed by CMake
-Vision_IS_TOP_LEVEL:STATIC=ON
+RoadVision_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-Vision_SOURCE_DIR:STATIC=/home/muzaodamassa/AC_Project/Vision/build
+RoadVision_SOURCE_DIR:STATIC=/home/muzaodamassa/AC_Project/Vision/build
 
 
 ########################

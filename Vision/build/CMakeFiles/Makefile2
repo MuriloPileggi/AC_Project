@@ -63,7 +63,8 @@ CMAKE_BINARY_DIR = /home/muzaodamassa/AC_Project/Vision/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Vision.dir/all
+all: CMakeFiles/GeneralVision.dir/all
+all: CMakeFiles/RoadVision.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +72,61 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Vision.dir/clean
+clean: CMakeFiles/GeneralVision.dir/clean
+clean: CMakeFiles/RoadVision.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Vision.dir
+# Target rules for target CMakeFiles/GeneralVision.dir
 
 # All Build rule for target.
-CMakeFiles/Vision.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muzaodamassa/AC_Project/Vision/build/CMakeFiles --progress-num=1,2 "Built target Vision"
-.PHONY : CMakeFiles/Vision.dir/all
+CMakeFiles/GeneralVision.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneralVision.dir/build.make CMakeFiles/GeneralVision.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneralVision.dir/build.make CMakeFiles/GeneralVision.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muzaodamassa/AC_Project/Vision/build/CMakeFiles --progress-num=1,2 "Built target GeneralVision"
+.PHONY : CMakeFiles/GeneralVision.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Vision.dir/rule: cmake_check_build_system
+CMakeFiles/GeneralVision.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/muzaodamassa/AC_Project/Vision/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Vision.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/GeneralVision.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/muzaodamassa/AC_Project/Vision/build/CMakeFiles 0
-.PHONY : CMakeFiles/Vision.dir/rule
+.PHONY : CMakeFiles/GeneralVision.dir/rule
 
 # Convenience name for target.
-Vision: CMakeFiles/Vision.dir/rule
-.PHONY : Vision
+GeneralVision: CMakeFiles/GeneralVision.dir/rule
+.PHONY : GeneralVision
 
 # clean rule for target.
-CMakeFiles/Vision.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/clean
-.PHONY : CMakeFiles/Vision.dir/clean
+CMakeFiles/GeneralVision.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GeneralVision.dir/build.make CMakeFiles/GeneralVision.dir/clean
+.PHONY : CMakeFiles/GeneralVision.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/RoadVision.dir
+
+# All Build rule for target.
+CMakeFiles/RoadVision.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadVision.dir/build.make CMakeFiles/RoadVision.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadVision.dir/build.make CMakeFiles/RoadVision.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/muzaodamassa/AC_Project/Vision/build/CMakeFiles --progress-num=3,4 "Built target RoadVision"
+.PHONY : CMakeFiles/RoadVision.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/RoadVision.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muzaodamassa/AC_Project/Vision/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/RoadVision.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/muzaodamassa/AC_Project/Vision/build/CMakeFiles 0
+.PHONY : CMakeFiles/RoadVision.dir/rule
+
+# Convenience name for target.
+RoadVision: CMakeFiles/RoadVision.dir/rule
+.PHONY : RoadVision
+
+# clean rule for target.
+CMakeFiles/RoadVision.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/RoadVision.dir/build.make CMakeFiles/RoadVision.dir/clean
+.PHONY : CMakeFiles/RoadVision.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
