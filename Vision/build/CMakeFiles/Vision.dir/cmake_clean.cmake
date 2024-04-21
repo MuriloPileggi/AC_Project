@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o"
-  "CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o.d"
+  "CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o"
+  "CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o.d"
   "Vision"
   "Vision.pdb"
 )

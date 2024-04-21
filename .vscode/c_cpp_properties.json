@@ -5,7 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/Vision/src/**",
-                "/usr/local/include/opencv4"
+                "/usr/local/include/opencv4",
+                "/usr/include/libserial",
+                "${workspaceFolder}/Serial/src"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

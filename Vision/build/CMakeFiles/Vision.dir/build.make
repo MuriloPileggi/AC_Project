@@ -69,28 +69,28 @@ include CMakeFiles/Vision.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Vision.dir/flags.make
 
-CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o: CMakeFiles/Vision.dir/flags.make
-CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o: /home/muzaodamassa/AC_Project/Vision/src/Main.cpp
-CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o: CMakeFiles/Vision.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/muzaodamassa/AC_Project/Vision/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o -MF CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o.d -o CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o -c /home/muzaodamassa/AC_Project/Vision/src/Main.cpp
+CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o: CMakeFiles/Vision.dir/flags.make
+CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o: /home/muzaodamassa/AC_Project/Vision/src/main.cpp
+CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o: CMakeFiles/Vision.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/muzaodamassa/AC_Project/Vision/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o -MF CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o.d -o CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o -c /home/muzaodamassa/AC_Project/Vision/src/main.cpp
 
-CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/muzaodamassa/AC_Project/Vision/src/Main.cpp > CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.i
+CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/muzaodamassa/AC_Project/Vision/src/main.cpp > CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.i
 
-CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/muzaodamassa/AC_Project/Vision/src/Main.cpp -o CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.s
+CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/muzaodamassa/AC_Project/Vision/src/main.cpp -o CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.s
 
 # Object files for target Vision
 Vision_OBJECTS = \
-"CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o"
+"CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o"
 
 # External object files for target Vision
 Vision_EXTERNAL_OBJECTS =
 
-Vision: CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/Main.cpp.o
+Vision: CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o
 Vision: CMakeFiles/Vision.dir/build.make
 Vision: /usr/local/lib/libopencv_gapi.so.4.9.0
 Vision: /usr/local/lib/libopencv_highgui.so.4.9.0

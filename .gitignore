@@ -1,2 +1,12 @@
 .vscode/settings.json
 build/compile_commands.json
+.vscode/c_cpp_properties.json
+Vision/build/Vision
+Vision/build/CMakeFiles/CMakeOutput.log
+Vision/build/CMakeFiles/3.22.1/CMakeSystem.cmake
+Vision/build/CMakeFiles/Vision.dir/build.make
+Vision/build/CMakeFiles/Vision.dir/cmake_clean.cmake
+Vision/build/CMakeFiles/Vision.dir/compiler_depend.internal
+Vision/build/CMakeFiles/Vision.dir/compiler_depend.make
+Vision/build/CMakeFiles/Vision.dir/DependInfo.cmake
+Vision/build/CMakeFiles/Vision.dir/link.txt
