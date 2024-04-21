@@ -1,0 +1,3 @@
+/home/muzaodamassa/AC_Project/Serial/build/CMakeFiles/Serial.dir
+/home/muzaodamassa/AC_Project/Serial/build/CMakeFiles/edit_cache.dir
+/home/muzaodamassa/AC_Project/Serial/build/CMakeFiles/rebuild_cache.dir

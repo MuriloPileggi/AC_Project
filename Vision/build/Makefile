@@ -129,29 +129,29 @@ Vision/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/build
 .PHONY : Vision/fast
 
-home/muzaodamassa/AC_Project/Vision/src/main.o: home/muzaodamassa/AC_Project/Vision/src/main.cpp.o
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main.o
+home/muzaodamassa/AC_Project/Vision/src/main_vision.o: home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.o
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.o
 
 # target to build an object file
-home/muzaodamassa/AC_Project/Vision/src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.o
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main.cpp.o
+home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.o
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.o
 
-home/muzaodamassa/AC_Project/Vision/src/main.i: home/muzaodamassa/AC_Project/Vision/src/main.cpp.i
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main.i
+home/muzaodamassa/AC_Project/Vision/src/main_vision.i: home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.i
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.i
 
 # target to preprocess a source file
-home/muzaodamassa/AC_Project/Vision/src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.i
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main.cpp.i
+home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.i
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.i
 
-home/muzaodamassa/AC_Project/Vision/src/main.s: home/muzaodamassa/AC_Project/Vision/src/main.cpp.s
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main.s
+home/muzaodamassa/AC_Project/Vision/src/main_vision.s: home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.s
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.s
 
 # target to generate assembly for a file
-home/muzaodamassa/AC_Project/Vision/src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main.cpp.s
-.PHONY : home/muzaodamassa/AC_Project/Vision/src/main.cpp.s
+home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Vision.dir/build.make CMakeFiles/Vision.dir/home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.s
+.PHONY : home/muzaodamassa/AC_Project/Vision/src/main_vision.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Vision"
-	@echo "... home/muzaodamassa/AC_Project/Vision/src/main.o"
-	@echo "... home/muzaodamassa/AC_Project/Vision/src/main.i"
-	@echo "... home/muzaodamassa/AC_Project/Vision/src/main.s"
+	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_vision.o"
+	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_vision.i"
+	@echo "... home/muzaodamassa/AC_Project/Vision/src/main_vision.s"
 .PHONY : help
 
 
