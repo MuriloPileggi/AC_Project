@@ -12,4 +12,4 @@ https://www.geeksforgeeks.org/how-to-install-opencv-in-c-on-linux/
 
 PID vs MPC Curves: https://youtu.be/TS15OB0LAVo?si=KfBVJb-vgMQue3PD
 
-MPC: 
+MPC: https://youtube.com/playlist?list=PLn8PRpmsu08ozoeoXgxPSBKLyd4YEHww8&si=D_9AgT8qWhPl7NCq
