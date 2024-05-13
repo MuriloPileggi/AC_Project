@@ -9,3 +9,7 @@ https://medium.com/@vladakuc/compile-opencv-4-7-0-with-ffmpeg-5-compiled-from-th
 https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu
 
 https://www.geeksforgeeks.org/how-to-install-opencv-in-c-on-linux/
+
+PID vs MPC Curves: https://youtu.be/TS15OB0LAVo?si=KfBVJb-vgMQue3PD
+
+MPC: 
