@@ -53,7 +53,7 @@ int main(int argc, char * argv[])
 
 	// Create neural network class to load model into
 	NeuralNetwork cnn;
-	cnn.load_model("../models/model_r2_alpha.bin");
+	cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/model_r2_alpha.bin");
 
     while (cap.isOpened())
     {
