@@ -1,0 +1,4 @@
+source;share/road_vision/local_setup.bash
+source;share/road_vision/local_setup.dsv
+source;share/road_vision/local_setup.sh
+source;share/road_vision/local_setup.zsh

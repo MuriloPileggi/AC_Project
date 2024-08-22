@@ -2,6 +2,7 @@
 #include "../../Serial/src/serialCommunication.cpp"
 #include "frameProcessing.cpp"
 #include "opencv2/videoio.hpp"
+#include "../ai_libraries/mlpp.hpp"
 
 using namespace std;
 

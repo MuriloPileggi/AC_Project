@@ -38,20 +38,20 @@ double frameProcessing::median(std::vector<double> vector)
 }
 
  // Method for converting the current frame to grayscale
-void frameProcessing::grayFrame(cv::Mat *framePtr) 
+void frameProcessing::apply_gray_scale_to_frame(cv::Mat *resizedFramePtr) 
 {
-    cv::cvtColor(*framePtr, *framePtr, cv::COLOR_BGR2GRAY);
+    cv::cvtColor(*resizedFramePtr, *resizedFramePtr, cv::COLOR_BGR2GRAY);
 }
 
 // Method to apply gaussian smoothing
-void frameProcessing::smoothedFrame(cv::Mat *grayFramePtr) 
+void frameProcessing::apply_smoothing_to_frame(cv::Mat *grayFramePtr) 
 {
     cv::GaussianBlur(*grayFramePtr, *grayFramePtr, cv::Size(kernelSize, kernelSize), 0, 0);
 }
 
 // Edge detection method
 // Finds gradient in x, y directions, gradient direction is perpendicular to edges
-void frameProcessing::edgesFrame(cv::Mat *smoothedFramePtr) 
+void frameProcessing::apply_edge_detection_to_frame(cv::Mat *smoothedFramePtr) 
 {
     cv::Canny(*smoothedFramePtr, *smoothedFramePtr, minVal, maxVal);
 }
@@ -90,4 +90,10 @@ void frameProcessing::maskedFrame(cv::Mat *edgesFramePtr)
     // frames overlap
     cv::Mat maskedFrame = edgesFramePtr->clone();
     cv::bitwise_and(*edgesFramePtr, mask, *edgesFramePtr);
+}
+
+// Method for reisizing frames implementation
+void frameProcessing::resize_frame(cv::Mat* framePtr, const size_t& x, const size_t& y)
+{
+    cv::resize(*framePtr, *framePtr, cv::Size(x,y));
 }

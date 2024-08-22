@@ -1,0 +1,2 @@
+source;share/road_vision/environment/ament_prefix_path.sh
+source;share/road_vision/environment/path.sh

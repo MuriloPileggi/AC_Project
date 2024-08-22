@@ -1,16 +1,30 @@
-cmake_minimum_required(VERSION 3.1)
-project(GeneralVision)
-project(RoadVision)
+cmake_minimum_required(VERSION 3.8)
+
+list(APPEND CMAKE_PREFIX_PATH "/opt/ros/iron")
+
+#project(general_vision)
+project(road_vision)
+
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(OpenCV REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
-add_executable(GeneralVision ../src/main_general.cpp)
-add_executable(RoadVision ../src/main_road.cpp)
-target_link_libraries(GeneralVision ${OpenCV_LIBS})
-target_link_libraries(RoadVision ${OpenCV_LIBS})
 
+include_directories(${OpenCV_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src)
 
-# CPack configuration - Package executable for Raspberry Pi testing
-#set(CPACK_GENERATOR "DEB")
-#set(CPACK_DEBIAN_PACKAGE_MAINTAINER "AC_VISION")
-#set(CPACK_PACKAGE_VERSION "1.0.0")
-#include(CPack)
+#add_executable(general_vision ../src/main_general.cpp)
+add_executable(road_vision ../src/main_road.cpp)
+
+#target_link_libraries(general_vision ${OpenCV_LIBS})
+target_link_libraries(road_vision ${OpenCV_LIBS})
+
+#ament_target_dependencies(general_vision rclcpp std_msgs)
+ament_target_dependencies(road_vision rclcpp std_msgs)
+
+install(TARGETS
+  #general_vision
+  road_vision
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+ament_package()
