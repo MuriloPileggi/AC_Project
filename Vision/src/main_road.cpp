@@ -17,14 +17,14 @@ int main(int argc, char * argv[])
 	// Create a ROS 2 node
 	auto node = std::make_shared<rclcpp::Node>("vision_talker_1");
 	// Create a ROS 2 publisher
-	auto publisher = node->create_publisher<std_msgs::msg::String>("frame_class", 10);
+	auto publisher = node->create_publisher<std_msgs::msg::String>("frame_classification", 10);
 	// Set loop rate
 	rclcpp::Rate loop_rate(10);
 	#pragma endregion
 
 	// Set desired resolution to resize received footage
-	int width = 512;
-	int height = 512;
+	int width = 500;
+	int height = 500;
 	
     // Open video file
     //cv::VideoCapture cap("../data/Video_Testing/drivingVideo.mp4");
@@ -53,7 +53,7 @@ int main(int argc, char * argv[])
 
 	// Create neural network class to load model into
 	NeuralNetwork cnn;
-	cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/model_r2_alpha.bin");
+	cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/model_r2_test.bin");
 
     while (cap.isOpened())
     {
@@ -71,9 +71,9 @@ int main(int argc, char * argv[])
 
 		cv::Mat* processed_frame_ptr = new cv::Mat();
 		*processed_frame_ptr = *framePtr;
-        pFrame.resize_frame(processed_frame_ptr, 16, 16); // Resize frame to desired spacial dimensions (Rows and Columns)
+        pFrame.resize_frame(processed_frame_ptr, 28, 28); // Resize frame to desired spacial dimensions (Rows and Columns)
 		pFrame.apply_gray_scale_to_frame(processed_frame_ptr); // Convert the frame to grayscale
-		//pFrame.apply_smoothing_to_frame(framePtr); // Apply gaussian smoothing to frame
+		//pFrame.apply_smoothing_to_frame(processed_frame_ptr); // Apply gaussian smoothing to frame
 		//pFrame.apply_edge_detection_to_frame(framePtr); // Apply edge detection to frame
 		//pFrame.maskedFrame(framePtr); // Apply mask to frame
 		// Convert frame into MLPP matrix data structure

@@ -1,0 +1,3 @@
+[console_scripts]
+listener = ros_python_pkg.listener:main
+
