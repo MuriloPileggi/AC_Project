@@ -4243,7 +4243,6 @@ namespace MLPP
             
             output = m_current_output;
             std::vector<T>* result = std::any_cast<std::vector<T>>(&output);
-            
             size_t prediction = NumPP::get_max_element_pos(*result);            
             return prediction;
         }

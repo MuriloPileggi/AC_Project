@@ -1,0 +1,33 @@
+[35m[1mConsolidate compiler generated dependencies of target road_vision_talker[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o[0m
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:31:105:[m[K [01;35m[Kwarning: [m[Kmissing terminating " character
+   31 |         cv::VideoCapture cap(/home/muzaodamassa/Downloads/VideosPista/Pista/Curva_interior_direita_2.mp4[01;35m[K"[m[K);
+      |                                                                                                         [01;35m[K^[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:31:105:[m[K [01;31m[Kerror: [m[Kmissing terminating " character
+   31 |         cv::VideoCapture cap(/home/muzaodamassa/Downloads/VideosPista/Pista/Curva_interior_direita_2.mp4[01;31m[K");[m[K
+      |                                                                                                         [01;31m[K^~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:31:30:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K/[m[K’ token
+   31 |         cv::VideoCapture cap([01;31m[K/[m[Khome/muzaodamassa/Downloads/VideosPista/Pista/Curva_interior_direita_2.mp4");
+      |                              [01;31m[K^[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:31:31:[m[K [01;31m[Kerror: [m[K‘[01m[Khome[m[K’ was not declared in this scope
+   31 |         cv::VideoCapture cap(/[01;31m[Khome[m[K/muzaodamassa/Downloads/VideosPista/Pista/Curva_interior_direita_2.mp4");
+      |                               [01;31m[K^~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:31:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kmuzaodamassa[m[K’ was not declared in this scope
+   31 |         cv::VideoCapture cap(/home/[01;31m[Kmuzaodamassa[m[K/Downloads/VideosPista/Pista/Curva_interior_direita_2.mp4");
+      |                                    [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:31:49:[m[K [01;31m[Kerror: [m[K‘[01m[KDownloads[m[K’ was not declared in this scope
+   31 |         cv::VideoCapture cap(/home/muzaodamassa/[01;31m[KDownloads[m[K/VideosPista/Pista/Curva_interior_direita_2.mp4");
+      |                                                 [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:31:59:[m[K [01;31m[Kerror: [m[K‘[01m[KVideosPista[m[K’ was not declared in this scope
+   31 |         cv::VideoCapture cap(/home/muzaodamassa/Downloads/[01;31m[KVideosPista[m[K/Pista/Curva_interior_direita_2.mp4");
+      |                                                           [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:31:71:[m[K [01;31m[Kerror: [m[K‘[01m[KPista[m[K’ was not declared in this scope
+   31 |         cv::VideoCapture cap(/home/muzaodamassa/Downloads/VideosPista/[01;31m[KPista[m[K/Curva_interior_direita_2.mp4");
+      |                                                                       [01;31m[K^~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:31:77:[m[K [01;31m[Kerror: [m[K‘[01m[KCurva_interior_direita_2[m[K’ was not declared in this scope
+   31 |         cv::VideoCapture cap(/home/muzaodamassa/Downloads/VideosPista/Pista/[01;31m[KCurva_interior_direita_2[m[K.mp4");
+      |                                                                             [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/road_vision_talker.dir/build.make:76: CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_talker.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -19,7 +19,7 @@ int main(int argc, char * argv[])
 	// Create a ROS 2 publisher
 	auto publisher = node->create_publisher<std_msgs::msg::String>("frame_classification", 10);
 	// Set loop rate
-	rclcpp::Rate loop_rate(10);
+	//rclcpp::Rate loop_rate(10);
 	#pragma endregion
 
 	// Set desired resolution to resize received footage
@@ -28,7 +28,7 @@ int main(int argc, char * argv[])
 	
     // Open video file
     //cv::VideoCapture cap("../data/Video_Testing/drivingVideo.mp4");
-	cv::VideoCapture cap(0);
+	cv::VideoCapture cap("0");
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -53,7 +53,14 @@ int main(int argc, char * argv[])
 
 	// Create neural network class to load model into
 	NeuralNetwork cnn;
-	cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/model_r2_test.bin");
+	cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/high_angle5_model_100.bin");
+
+	// TESTING
+	int class_0_counter = 0;
+	int class_1_counter = 0;
+	int class_2_counter = 0;
+	int class_3_counter = 0;
+	int class_4_counter = 0;
 
     while (cap.isOpened())
     {
@@ -71,10 +78,10 @@ int main(int argc, char * argv[])
 
 		cv::Mat* processed_frame_ptr = new cv::Mat();
 		*processed_frame_ptr = *framePtr;
-        pFrame.resize_frame(processed_frame_ptr, 28, 28); // Resize frame to desired spacial dimensions (Rows and Columns)
 		pFrame.apply_gray_scale_to_frame(processed_frame_ptr); // Convert the frame to grayscale
-		//pFrame.apply_smoothing_to_frame(processed_frame_ptr); // Apply gaussian smoothing to frame
-		//pFrame.apply_edge_detection_to_frame(framePtr); // Apply edge detection to frame
+		pFrame.apply_smoothing_to_frame(processed_frame_ptr); // Apply gaussian smoothing to frame
+		pFrame.apply_edge_detection_to_frame(processed_frame_ptr); // Apply edge detection to frame
+        pFrame.resize_frame(processed_frame_ptr, 28, 28); // Resize frame to desired spacial dimensions (Rows and Columns)
 		//pFrame.maskedFrame(framePtr); // Apply mask to frame
 		// Convert frame into MLPP matrix data structure
         Mat3d<double>* converted_frame = OpenCvIntegration::convert_gray_image<double>(processed_frame_ptr);
@@ -82,6 +89,25 @@ int main(int argc, char * argv[])
         Mat3d<double> normalized_frame = ComputerVision::normalize_pixels<double>(converted_frame);
         // Feed converted frame data into neural network model so it can predict its class
         size_t frame_predicted_class = cnn.predict_frame<double>(normalized_frame); 
+
+		switch (frame_predicted_class)
+		{
+		case 0:
+			class_0_counter++;
+			break;
+		case 1:
+			class_1_counter++;
+			break;
+		case 2:
+			class_2_counter++;
+			break;
+		case 3:
+			class_3_counter++;
+			break;
+		default:
+			class_4_counter++;
+			break;
+		}
 		
 		// Convert frame class into ROS 2 message data structure
 		auto message = std_msgs::msg::String();
@@ -89,7 +115,7 @@ int main(int argc, char * argv[])
 		RCLCPP_INFO(node->get_logger(), "Publishing: '%s'", message.data.c_str());
 		publisher->publish(message);
 		rclcpp::spin_some(node);
-		loop_rate.sleep();
+		//loop_rate.sleep();
 
 		// Calculate FPS
 		tm.stop();
@@ -97,9 +123,9 @@ int main(int argc, char * argv[])
 		tm.reset();
 
 		// Display purpose only
-		//pFrame.apply_gray_scale_to_frame(framePtr); // Convert the frame to grayscale
-		//pFrame.apply_smoothing_to_frame(framePtr); // Apply gaussian smoothing to frame
-		//pFrame.apply_edge_detection_to_frame(framePtr); // Apply edge detection to frame
+		pFrame.apply_gray_scale_to_frame(framePtr); // Convert the frame to grayscale
+		pFrame.apply_smoothing_to_frame(framePtr); // Apply gaussian smoothing to frame
+		pFrame.apply_edge_detection_to_frame(framePtr); // Apply edge detection to frame
 
 		// Put detected frame class on Video Stream window
         cv::putText(*framePtr, "Frame Class: " + to_string(frame_predicted_class), cv::Point(350, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
@@ -125,7 +151,13 @@ int main(int argc, char * argv[])
 	cv::destroyAllWindows();
 
     // Shut down ROS 2
-	rclcpp::shutdown();
+	//rclcpp::shutdown();
+	std::cout << class_0_counter << std::endl;
+	std::cout << class_1_counter << std::endl;
+	std::cout << class_2_counter << std::endl;
+	std::cout << class_3_counter << std::endl;
+	std::cout << class_4_counter << std::endl;
+	
 	return 0;
 }
 

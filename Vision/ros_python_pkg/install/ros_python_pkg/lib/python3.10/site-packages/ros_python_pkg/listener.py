@@ -18,15 +18,15 @@ class FrameClassificationSubscriber(Node):
         self.subscription  # prevent unused variable warning
 
         # Initialize serial connection
-        self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-        if self.serial_port is None:
-            self.get_logger().error('Failed to initialize serial connection')
-            return
-        time.sleep(2)  # Wait for the connection to settle
+        #self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+        #if self.serial_port is None:
+            #self.get_logger().error('Failed to initialize serial connection')
+            #return
+        #time.sleep(2)  # Wait for the connection to settle
   
     def listener_callback(self, msg):
         self.get_logger().info('Received: "%s"' % msg.data)
-        self.send_to_arduino(msg.data)
+        #self.send_to_arduino(msg.data)
 
     def send_to_arduino(self, data):
         if self.serial_port is None:

@@ -11,10 +11,10 @@ class frameProcessing
 {
 private:
     // Use low pass filter to remove noise, removes high frequency stuff like edges
-    const int kernelSize = 9; // bigger kernel = more smoothing
+    const int kernelSize = 5; // bigger kernel = more smoothing
     // Define values for edge detection
-	const int minVal = 50;
-	const int maxVal = 250;
+	const int minVal = 150;
+	const int maxVal = 300;
     // Define values for hough lines calculations
     const float rho = 2;
 	const float pi = 3.14159265358979323846;
