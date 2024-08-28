@@ -28,7 +28,7 @@ int main(int argc, char * argv[])
 	
     // Open video file
     //cv::VideoCapture cap("../data/Video_Testing/drivingVideo.mp4");
-	cv::VideoCapture cap("0");
+	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/Pista/Reta_1.mp4");
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -53,7 +53,7 @@ int main(int argc, char * argv[])
 
 	// Create neural network class to load model into
 	NeuralNetwork cnn;
-	cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/high_angle5_model_100.bin");
+	cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/high_angle3_model_50.bin");
 
 	// TESTING
 	int class_0_counter = 0;
@@ -81,7 +81,7 @@ int main(int argc, char * argv[])
 		pFrame.apply_gray_scale_to_frame(processed_frame_ptr); // Convert the frame to grayscale
 		pFrame.apply_smoothing_to_frame(processed_frame_ptr); // Apply gaussian smoothing to frame
 		pFrame.apply_edge_detection_to_frame(processed_frame_ptr); // Apply edge detection to frame
-        pFrame.resize_frame(processed_frame_ptr, 28, 28); // Resize frame to desired spacial dimensions (Rows and Columns)
+        pFrame.resize_frame(processed_frame_ptr, 32, 23); // Resize frame to desired spacial dimensions (Rows and Columns)
 		//pFrame.maskedFrame(framePtr); // Apply mask to frame
 		// Convert frame into MLPP matrix data structure
         Mat3d<double>* converted_frame = OpenCvIntegration::convert_gray_image<double>(processed_frame_ptr);
