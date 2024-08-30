@@ -863,6 +863,10 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
   /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
   /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
   /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
+  /opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp \
+  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp \
+  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp \
+  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp \
   /home/muzaodamassa/AC_Project/Vision/ai_libraries/mlpp.hpp \
   /usr/include/c++/11/any \
   /usr/include/c++/11/filesystem \
@@ -958,6 +962,8 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 /usr/include/c++/11/bits/fs_dir.h:
 
 /usr/include/c++/11/bits/fs_fwd.h:
+
+/opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp:
 
 /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp:
 
@@ -2103,6 +2109,8 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 
 /usr/include/linux/limits.h:
 
+/opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp:
+
 /usr/include/c++/11/bits/shared_ptr_base.h:
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
@@ -2287,6 +2295,8 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 
 /usr/include/c++/11/bits/stl_map.h:
 
+/opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp:
+
 /opt/ros/iron/include/rosidl_dynamic_typesupport/rosidl_dynamic_typesupport/identifier.h:
 
 /usr/local/include/opencv4/opencv2/dnn/layer.hpp:
@@ -2386,6 +2396,8 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 /opt/ros/iron/include/rmw/rmw/qos_policy_kind.h:
 
 /usr/local/include/opencv4/opencv2/flann/lsh_index.h:
+
+/opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp:
 
 /usr/include/c++/11/bits/locale_facets_nonio.h:
 

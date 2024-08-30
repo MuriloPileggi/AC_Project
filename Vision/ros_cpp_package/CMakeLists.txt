@@ -8,6 +8,7 @@ project(road_vision_pkg)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(std_srvs REQUIRED)
 find_package(OpenCV REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src)
@@ -19,7 +20,7 @@ add_executable(road_vision_talker ../src/main_road.cpp)
 target_link_libraries(road_vision_talker ${OpenCV_LIBS})
 
 #ament_target_dependencies(general_vision rclcpp std_msgs)
-ament_target_dependencies(road_vision_talker rclcpp std_msgs)
+ament_target_dependencies(road_vision_talker rclcpp std_msgs std_srvs)
 
 install(TARGETS
   #general_vision
