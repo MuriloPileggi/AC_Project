@@ -29,8 +29,8 @@ int main(int argc, char * argv[])
 	int height = 500;
 	
     // Open video file
-    cv::VideoCapture cap(0);
-	//cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/Pista/Reta_4_2.mp4");
+    //cv::VideoCapture cap(0);
+	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/1.mp4");
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -55,7 +55,7 @@ int main(int argc, char * argv[])
 
 	// Create neural network class to load model into
 	NeuralNetwork cnn;
-	cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/high_angle3_model_25.bin");
+	cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/road_vision_high3_25.bin");
 
 	// TESTING
 	int class_0_counter = 0;
@@ -81,9 +81,10 @@ int main(int argc, char * argv[])
 		cv::Mat* processed_frame_ptr = new cv::Mat();
 		*processed_frame_ptr = *framePtr;
 		pFrame.apply_gray_scale_to_frame(processed_frame_ptr); // Convert the frame to grayscale
-		pFrame.apply_smoothing_to_frame(processed_frame_ptr); // Apply gaussian smoothing to frame
-		pFrame.apply_edge_detection_to_frame(processed_frame_ptr); // Apply edge detection to frame
-        pFrame.resize_frame(processed_frame_ptr, 32, 32); // Resize frame to desired spacial dimensions (Rows and Columns)
+		//pFrame.apply_smoothing_to_frame(processed_frame_ptr); // Apply gaussian smoothing to frame
+		//pFrame.apply_edge_detection_to_frame(processed_frame_ptr); // Apply edge detection to frame
+        pFrame.resize_frame(processed_frame_ptr, 24, 24); // Resize frame to desired spacial dimensions (Rows and Columns)
+		
 		// Convert frame into MLPP matrix data structure
         Mat3d<double>* converted_frame = OpenCvIntegration::convert_gray_image<double>(processed_frame_ptr);
         // Normalize pixel data
@@ -138,7 +139,7 @@ int main(int argc, char * argv[])
 		else {
             RCLCPP_ERROR(node->get_logger(), "Service call failed");
         }
-
+		
 		// Calculate FPS
 		tm.stop();
 		fps = 1.0 / tm.getTimeSec();
@@ -146,8 +147,8 @@ int main(int argc, char * argv[])
 
 		// Display purpose only
 		pFrame.apply_gray_scale_to_frame(framePtr); // Convert the frame to grayscale
-		pFrame.apply_smoothing_to_frame(framePtr); // Apply gaussian smoothing to frame
-		pFrame.apply_edge_detection_to_frame(framePtr); // Apply edge detection to frame
+		//pFrame.apply_smoothing_to_frame(framePtr); // Apply gaussian smoothing to frame
+		//pFrame.apply_edge_detection_to_frame(framePtr); // Apply edge detection to frame
 
 		// Put detected frame class on Video Stream window
         cv::putText(*framePtr, "Frame Class: " + to_string(frame_predicted_class), cv::Point(350, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);

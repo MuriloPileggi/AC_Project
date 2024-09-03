@@ -1,0 +1,26 @@
+[0.006s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_package/build/road_vision_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/build/road_vision_pkg -- -j16 -l16
+[0.033s] [35m[1mConsolidate compiler generated dependencies of target road_vision_talker[0m
+[0.043s] [ 50%] [32mBuilding CXX object CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o[0m
+[3.776s] [100%] [32m[1mLinking CXX executable road_vision_talker[0m
+[3.967s] [100%] Built target road_vision_talker
+[3.975s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_package/build/road_vision_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/build/road_vision_pkg -- -j16 -l16
+[3.997s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_package/build/road_vision_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --install /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/build/road_vision_pkg
+[4.001s] -- Install configuration: ""
+[4.001s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/lib/road_vision_pkg/road_vision_talker
+[4.003s] -- Set runtime path of "/home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/lib/road_vision_pkg/road_vision_talker" to ""
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/ament_index/resource_index/package_run_dependencies/road_vision_pkg
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/ament_index/resource_index/parent_prefix_path/road_vision_pkg
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/environment/ament_prefix_path.sh
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/environment/ament_prefix_path.dsv
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/environment/path.sh
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/environment/path.dsv
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/local_setup.bash
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/local_setup.sh
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/local_setup.zsh
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/local_setup.dsv
+[4.003s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/package.dsv
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/ament_index/resource_index/packages/road_vision_pkg
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/cmake/road_vision_pkgConfig.cmake
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/cmake/road_vision_pkgConfig-version.cmake
+[4.003s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/package.xml
+[4.004s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_package/build/road_vision_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --install /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/build/road_vision_pkg
