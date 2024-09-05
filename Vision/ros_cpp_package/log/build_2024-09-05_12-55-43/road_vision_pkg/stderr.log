@@ -1,0 +1,5 @@
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:[m[K In member function ‘[01m[KMLPP::Mat2d<float> FrameProcessing::calc_pos_and_neg_slope_avrg(MLPP::Mat3d<double>&)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:159:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+  159 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K

@@ -790,14 +790,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
  /opt/ros/iron/include/rclcpp/rclcpp/parameter_map.hpp \
  /opt/ros/iron/include/rclcpp/rclcpp/parameter_event_handler.hpp \
  /opt/ros/iron/include/rclcpp/rclcpp/parameter_service.hpp \
- /opt/ros/iron/include/std_msgs/std_msgs/msg/string.hpp \
- /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
- /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
- /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
- /opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp \
- /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp \
- /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp \
- /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp \
  /home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp \
  /usr/include/c++/11/any /usr/include/c++/11/filesystem \
  /usr/include/c++/11/bits/fs_fwd.h /usr/include/c++/11/bits/fs_path.h \
@@ -818,21 +810,11 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
  /usr/include/c++/11/bits/gslice_array.h \
  /usr/include/c++/11/bits/mask_array.h \
  /usr/include/c++/11/bits/indirect_array.h \
- /home/muzaodamassa/AC_Project/Vision/src/../../Serial/src/serialCommunication.cpp \
- /home/muzaodamassa/AC_Project/Vision/src/../../Serial/src/serialCommunication.hpp \
- /usr/include/termios.h /usr/include/x86_64-linux-gnu/bits/termios.h \
- /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
- /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
- /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
- /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
- /usr/include/x86_64-linux-gnu/sys/ttydefaults.h /usr/include/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl.h \
- /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
- /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
- /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/include/x86_64-linux-gnu/bits/struct_stat.h
+ /opt/ros/iron/include/std_msgs/std_msgs/msg/string.hpp \
+ /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+ /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+ /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
+ /opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp \
+ /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp \
+ /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp \
+ /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp

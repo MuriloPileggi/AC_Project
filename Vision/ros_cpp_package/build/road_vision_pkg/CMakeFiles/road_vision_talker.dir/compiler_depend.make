@@ -859,14 +859,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
   /opt/ros/iron/include/rclcpp/rclcpp/parameter_map.hpp \
   /opt/ros/iron/include/rclcpp/rclcpp/parameter_event_handler.hpp \
   /opt/ros/iron/include/rclcpp/rclcpp/parameter_service.hpp \
-  /opt/ros/iron/include/std_msgs/std_msgs/msg/string.hpp \
-  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
-  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
-  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
-  /opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp \
-  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp \
-  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp \
-  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp \
   /home/muzaodamassa/AC_Project/Vision/ai_libraries/mlpp.hpp \
   /usr/include/c++/11/any \
   /usr/include/c++/11/filesystem \
@@ -892,46 +884,19 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
   /usr/include/c++/11/bits/gslice_array.h \
   /usr/include/c++/11/bits/mask_array.h \
   /usr/include/c++/11/bits/indirect_array.h \
-  /home/muzaodamassa/AC_Project/Serial/src/serialCommunication.cpp \
-  /home/muzaodamassa/AC_Project/Serial/src/serialCommunication.hpp \
-  /usr/include/termios.h \
-  /usr/include/x86_64-linux-gnu/bits/termios.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
-  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
-  /usr/include/fcntl.h \
-  /usr/include/x86_64-linux-gnu/bits/fcntl.h \
-  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
-  /usr/include/linux/falloc.h \
-  /usr/include/x86_64-linux-gnu/bits/stat.h \
-  /usr/include/x86_64-linux-gnu/bits/struct_stat.h
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
+  /opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp \
+  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp \
+  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp \
+  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp
 
 
-/usr/include/x86_64-linux-gnu/bits/fcntl-linux.h:
+/opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp:
 
-/usr/include/fcntl.h:
-
-/usr/include/x86_64-linux-gnu/sys/ttydefaults.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-misc.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_cc.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-struct.h:
+/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp:
 
 /usr/include/c++/11/bits/indirect_array.h:
 
@@ -962,10 +927,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 /usr/include/c++/11/bits/fs_dir.h:
 
 /usr/include/c++/11/bits/fs_fwd.h:
-
-/opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp:
-
-/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp:
 
 /opt/ros/iron/include/rclcpp/rclcpp/parameter_service.hpp:
 
@@ -1067,15 +1028,11 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 
 /opt/ros/iron/include/rclcpp/rclcpp/node_interfaces/node_clock_interface.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:
-
 /opt/ros/iron/include/rclcpp/rclcpp/parameter_map.hpp:
 
 /opt/ros/iron/include/rcl_yaml_param_parser/rcl_yaml_param_parser/parser.h:
 
 /opt/ros/iron/include/rclcpp/rclcpp/typesupport_helpers.hpp:
-
-/usr/include/termios.h:
 
 /opt/ros/iron/include/rclcpp/rclcpp/node_interfaces/node_timers_interface.hpp:
 
@@ -1294,8 +1251,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 /opt/ros/iron/include/rclcpp/rclcpp/clock.hpp:
 
 /opt/ros/iron/include/rcl/rcl/error_handling.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-baud.h:
 
 /usr/include/c++/11/variant:
 
@@ -1579,8 +1534,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 
 /usr/include/x86_64-linux-gnu/bits/signum-arch.h:
 
-/home/muzaodamassa/AC_Project/Serial/src/serialCommunication.cpp:
-
 /usr/include/c++/11/cerrno:
 
 /usr/include/stdio.h:
@@ -1709,11 +1662,7 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 
 /usr/local/include/opencv4/opencv2/flann/saving.h:
 
-/usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h:
-
 /usr/include/c++/11/cwchar:
-
-/usr/include/linux/falloc.h:
 
 /opt/ros/iron/include/rcl_interfaces/rcl_interfaces/srv/detail/get_parameter_types__struct.hpp:
 
@@ -1738,8 +1687,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 /opt/ros/iron/include/rclcpp/rclcpp/experimental/executors/events_executor/simple_events_queue.hpp:
 
 /opt/ros/iron/include/rcutils/rcutils/types/rcutils_ret.h:
-
-/usr/include/x86_64-linux-gnu/bits/fcntl.h:
 
 /opt/ros/iron/include/rclcpp/rclcpp/node_interfaces/get_node_clock_interface.hpp:
 
@@ -1890,8 +1837,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 /opt/ros/iron/include/rmw/rmw/events_statuses/offered_deadline_missed.h:
 
 /usr/include/x86_64-linux-gnu/bits/siginfo-consts-arch.h:
-
-/usr/include/x86_64-linux-gnu/bits/stat.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
@@ -2283,8 +2228,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 
 /usr/local/include/opencv4/opencv2/dnn/dnn.hpp:
 
-/home/muzaodamassa/AC_Project/Serial/src/serialCommunication.hpp:
-
 /usr/local/include/opencv4/opencv2/dnn/dict.hpp:
 
 /usr/local/include/opencv4/opencv2/imgcodecs.hpp:
@@ -2401,8 +2344,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 
 /usr/include/c++/11/bits/locale_facets_nonio.h:
 
-/usr/include/x86_64-linux-gnu/bits/termios.h:
-
 /opt/ros/iron/include/rclcpp/rclcpp/logging.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h:
@@ -2442,8 +2383,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 /usr/local/include/opencv4/opencv2/videoio.hpp:
 
 /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
 
 /usr/include/x86_64-linux-gnu/sys/ucontext.h:
 
@@ -2628,8 +2567,6 @@ CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_r
 /usr/include/c++/11/valarray:
 
 /opt/ros/iron/include/rcutils/rcutils/snprintf.h:
-
-/usr/include/x86_64-linux-gnu/bits/struct_stat.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 

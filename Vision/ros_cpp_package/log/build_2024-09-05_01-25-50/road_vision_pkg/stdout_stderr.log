@@ -1,0 +1,33 @@
+[35m[1mConsolidate compiler generated dependencies of target road_vision_talker[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o[0m
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:[m[K In function ‘[01m[Kint main1(int, char**)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:83:50:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kcv::Mat[m[K’ to ‘[01m[Kcv::Mat*[m[K’
+   83 |                 pFrame.apply_gray_scale_to_frame([01;31m[K*processed_frame_ptr[m[K); // Convert the frame to grayscale
+      |                                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                  [01;31m[K|[m[K
+      |                                                  [01;31m[Kcv::Mat[m[K
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:41:57:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid FrameProcessing::apply_gray_scale_to_frame(cv::Mat*)[m[K’
+   41 | void FrameProcessing::apply_gray_scale_to_frame([01;36m[Kcv::Mat*frame[m[K)
+      |                                                 [01;36m[K~~~~~~~~^~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:86:29:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kcv::Mat[m[K’ to ‘[01m[Kcv::Mat*[m[K’
+   86 |         pFrame.resize_frame([01;31m[K*processed_frame_ptr[m[K, 24, 24); // Resize frame to desired spacial dimensions (Rows and Columns)
+      |                             [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+      |                             [01;31m[K|[m[K
+      |                             [01;31m[Kcv::Mat[m[K
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:96:45:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid FrameProcessing::resize_frame(cv::Mat*, const size_t&, const size_t&)[m[K’
+   96 | void FrameProcessing::resize_frame([01;36m[Kcv::Mat* frame[m[K, const size_t& x, const size_t& y)
+      |                                    [01;36m[K~~~~~~~~~^~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:149:50:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kcv::Mat[m[K’ to ‘[01m[Kcv::Mat*[m[K’
+  149 |                 pFrame.apply_gray_scale_to_frame([01;31m[K*framePtr[m[K); // Convert the frame to grayscale
+      |                                                  [01;31m[K^~~~~~~~~[m[K
+      |                                                  [01;31m[K|[m[K
+      |                                                  [01;31m[Kcv::Mat[m[K
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:41:57:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid FrameProcessing::apply_gray_scale_to_frame(cv::Mat*)[m[K’
+   41 | void FrameProcessing::apply_gray_scale_to_frame([01;36m[Kcv::Mat*frame[m[K)
+      |                                                 [01;36m[K~~~~~~~~^~~~~[m[K
+gmake[2]: *** [CMakeFiles/road_vision_talker.dir/build.make:76: CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_talker.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

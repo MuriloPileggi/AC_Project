@@ -1,0 +1,37 @@
+[35m[1mConsolidate compiler generated dependencies of target road_vision_talker[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o[0m
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:3:8:[m[K [01;31m[Kerror: [m[K‘[01m[KframeProcessing[m[K’ has not been declared
+    3 | double [01;31m[KframeProcessing[m[K::median(std::vector<double> vector)
+      |        [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:41:6:[m[K [01;31m[Kerror: [m[K‘[01m[KframeProcessing[m[K’ has not been declared
+   41 | void [01;31m[KframeProcessing[m[K::apply_gray_scale_to_frame(const cv::Mat& frame)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:47:6:[m[K [01;31m[Kerror: [m[K‘[01m[KframeProcessing[m[K’ has not been declared
+   47 | void [01;31m[KframeProcessing[m[K::apply_smoothing_to_frame(const cv::Mat& frame)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:[m[K In function ‘[01m[Kvoid apply_smoothing_to_frame(const cv::Mat&)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:49:45:[m[K [01;31m[Kerror: [m[K‘[01m[KkernelSize[m[K’ was not declared in this scope
+   49 |     cv::GaussianBlur(frame, frame, cv::Size([01;31m[KkernelSize[m[K, kernelSize), 0, 0);
+      |                                             [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:[m[K At global scope:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:54:6:[m[K [01;31m[Kerror: [m[K‘[01m[KframeProcessing[m[K’ has not been declared
+   54 | void [01;31m[KframeProcessing[m[K::apply_edge_detection_to_frame(const cv::Mat& frame)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:[m[K In function ‘[01m[Kvoid apply_edge_detection_to_frame(const cv::Mat&)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:56:29:[m[K [01;31m[Kerror: [m[K‘[01m[KminVal[m[K’ was not declared in this scope
+   56 |     cv::Canny(frame, frame, [01;31m[KminVal[m[K, maxVal);
+      |                             [01;31m[K^~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:56:37:[m[K [01;31m[Kerror: [m[K‘[01m[KmaxVal[m[K’ was not declared in this scope
+   56 |     cv::Canny(frame, frame, minVal, [01;31m[KmaxVal[m[K);
+      |                                     [01;31m[K^~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:[m[K At global scope:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:60:6:[m[K [01;31m[Kerror: [m[K‘[01m[KframeProcessing[m[K’ has not been declared
+   60 | void [01;31m[KframeProcessing[m[K::maskedFrame(const cv::Mat& frame)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:96:6:[m[K [01;31m[Kerror: [m[K‘[01m[KframeProcessing[m[K’ has not been declared
+   96 | void [01;31m[KframeProcessing[m[K::resize_frame(const cv::Mat& frame, const size_t& x, const size_t& y)
+      |      [01;31m[K^~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/road_vision_talker.dir/build.make:76: CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_talker.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

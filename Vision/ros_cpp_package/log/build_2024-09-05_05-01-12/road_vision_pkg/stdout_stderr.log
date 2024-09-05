@@ -1,0 +1,30 @@
+[35m[1mConsolidate compiler generated dependencies of target road_vision_talker[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/road_vision_talker.dir/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp.o[0m
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:[m[K In member function ‘[01m[Kdouble FrameProcessing::calc_steering_angle(const cv::Mat&)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:87:16:[m[K [01;35m[Kwarning: [m[Kconverting to non-pointer type ‘[01m[Kdouble[m[K’ from NULL [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wconversion-null-Wconversion-null]8;;[m[K]
+   87 |         return [01;35m[KNULL[m[K; // or some default value
+      |                [01;35m[K^~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:102:16:[m[K [01;35m[Kwarning: [m[Kconverting to non-pointer type ‘[01m[Kdouble[m[K’ from NULL [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wconversion-null-Wconversion-null]8;;[m[K]
+  102 |         return [01;35m[KNULL[m[K; // or some default value
+      |                [01;35m[K^~~~[m[K
+[100%] [32m[1mLinking CXX executable road_vision_talker[0m
+[100%] Built target road_vision_talker
+-- Install configuration: ""
+-- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/lib/road_vision_pkg/road_vision_talker
+-- Set runtime path of "/home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/lib/road_vision_pkg/road_vision_talker" to ""
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/ament_index/resource_index/package_run_dependencies/road_vision_pkg
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/ament_index/resource_index/parent_prefix_path/road_vision_pkg
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/environment/ament_prefix_path.sh
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/environment/path.sh
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/environment/path.dsv
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/local_setup.bash
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/local_setup.sh
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/local_setup.zsh
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/local_setup.dsv
+-- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/package.dsv
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/ament_index/resource_index/packages/road_vision_pkg
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/cmake/road_vision_pkgConfig.cmake
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/cmake/road_vision_pkgConfig-version.cmake
+-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_package/install/road_vision_pkg/share/road_vision_pkg/package.xml
