@@ -1,8 +1,0 @@
-In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road.cpp:2[m[K:
-[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:[m[K In member function ‘[01m[Kdouble FrameProcessing::calc_steering_angle(const cv::Mat&)[m[K’:
-[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:87:16:[m[K [01;35m[Kwarning: [m[Kconverting to non-pointer type ‘[01m[Kdouble[m[K’ from NULL [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wconversion-null-Wconversion-null]8;;[m[K]
-   87 |         return [01;35m[KNULL[m[K; // or some default value
-      |                [01;35m[K^~~~[m[K
-[01m[K/home/muzaodamassa/AC_Project/Vision/src/frameProcessing.cpp:102:16:[m[K [01;35m[Kwarning: [m[Kconverting to non-pointer type ‘[01m[Kdouble[m[K’ from NULL [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wconversion-null-Wconversion-null]8;;[m[K]
-  102 |         return [01;35m[KNULL[m[K; // or some default value
-      |                [01;35m[K^~~~[m[K

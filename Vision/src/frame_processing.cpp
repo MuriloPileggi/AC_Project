@@ -1,0 +1,610 @@
+#include "frame_processing.hpp"
+
+// Edge detection method
+// Finds gradient in x, y directions, gradient direction is perpendicular to edges
+void FrameProcessing::apply_edge_detection_to_frame(cv::Mat& frame) 
+{
+    cv::Canny(frame, frame, min_val, max_val);
+}
+
+// Method for converting the current frame to grayscale
+void FrameProcessing::apply_gray_scale_to_frame(cv::Mat& frame) 
+{
+    cv::cvtColor(frame, frame, cv::COLOR_BGR2GRAY);
+}
+
+// Method for creating and applying mask to frame
+// Create mask to only keep area defined by four corners
+// Black out every area outside area
+void FrameProcessing::apply_mask_to_frame(cv::Mat& frame) 
+{
+    // Define masked image
+	// Create all black image with same dimensions as original image
+	// 3rd arg is CV_<bit-depth>{U|S|F}C(<number_of_channels>), so this is 8bit, unsigned int, channels: 1
+	cv::Mat mask(frame.rows, frame.cols, CV_8UC1, cv::Scalar(0));
+
+    // Define the points for the mask
+	// Use cv::Point type for x,y points
+	cv::Point bottom_left = cv::Point(frame.cols/3, frame.rows);
+	cv::Point top_left = cv::Point(frame.cols/3, frame.rows/3);
+	cv::Point top_right = cv::Point(frame.cols, frame.rows/3);
+	cv::Point bottom_right = cv::Point(frame.cols, frame.rows);
+    //cv::Point bottom_left = cv::Point(0, frame.rows);
+	//cv::Point top_left = cv::Point(455, 320);
+	//cv::Point top_right = cv::Point(505, 320);
+	//cv::Point bottom_right = cv::Point(frame.cols, frame.rows);
+    
+
+    // create vector from array with points we just defined
+	cv::Point vertices1[] = {bottom_left,top_left,top_right,bottom_right};
+	std::vector<cv::Point> vertices (vertices1, vertices1 + sizeof(vertices1) / sizeof(cv::Point));
+
+    // Create vector of vectors, add the vertices we defined above
+	// (you could add multiple other similar contours to this vector)
+	std::vector<std::vector<cv::Point> > vertices_to_fill;
+	vertices_to_fill.push_back(vertices);
+
+    // Fill in the vertices on the blank image, showing what the mask is
+	cv::fillPoly(mask, vertices_to_fill, cv::Scalar(255,255,255));
+
+    // Show the mask
+    //cv::namedWindow("Mask", cv::WINDOW_NORMAL);
+    //cv::imshow("Mask", mask);
+    //cv::waitKey(0);
+
+    // Create masked im, which takes input1, input2, and output. Only keeps where two images overlap
+	cv::bitwise_and(frame, mask, frame);
+}
+
+// Method to apply gaussian smoothing
+void FrameProcessing::apply_smoothing_to_frame(cv::Mat& frame) 
+{
+    cv::GaussianBlur(frame, frame, cv::Size(kernel_size, kernel_size), 0, 0);
+}
+
+// Implementation of blend frame method
+cv::Mat FrameProcessing::blend_frame(const cv::Mat& frame, const LineParameters& positive_line_parameters, const LineParameters& negative_line_parameters)
+{
+    // Create image, lane lines on real image
+    cv::Mat lane_filled_image = frame.clone();
+
+    // Use cv::Point type for x,y points
+    cv::Point v1 = cv::Point(positive_line_parameters.x1, frame.rows - positive_line_parameters.y1);
+    cv::Point v2 = cv::Point(positive_line_parameters.x2, frame.rows - positive_line_parameters.y2);
+    cv::Point v3 = cv::Point(negative_line_parameters.x1, frame.rows - negative_line_parameters.y1);
+    cv::Point v4 = cv::Point(negative_line_parameters.x2, frame.rows - negative_line_parameters.y2);
+
+    // create vector from array of corner points of lane
+    cv::Point vertices_blend[] = {v1, v3, v4, v2}; 
+    std::vector<cv::Point> vertices_vector_blend(vertices_blend, vertices_blend + sizeof(vertices_blend) / sizeof(cv::Point));
+
+    // Create vector of vectors to be used in fillPoly, add the vertices we defined above
+    std::vector<std::vector<cv::Point>> vertices_fill_poly;
+    vertices_fill_poly.push_back(vertices_vector_blend);
+
+    // Fill area created from vector points
+    cv::fillPoly(lane_filled_image, vertices_fill_poly, cv::Scalar(0, 255, 255));
+
+    // Blend image
+    float opacity  {0.25};
+    cv::Mat blended_image;
+    cv::addWeighted(lane_filled_image, opacity, frame, 1 - opacity, 0, blended_image);
+
+    // Plot lane lines
+    cv::line(blended_image, cv::Point(positive_line_parameters.x1, frame.rows - positive_line_parameters.y1),
+                cv::Point(positive_line_parameters.x2, frame.rows - positive_line_parameters.y2),
+                    cv::Scalar(0, 255, 0), 8, 8);
+    cv::line(blended_image, cv::Point(negative_line_parameters.x1, frame.rows - negative_line_parameters.y1),
+                     cv::Point(negative_line_parameters.x2, frame.rows - negative_line_parameters.y2),
+                     cv::Scalar(0, 255, 0), 8, 8);
+
+    return blended_image;
+}
+
+// Implementation of classify hough lines method
+// This will return 2 2d matrices
+// Mat3d[0] = Positive slope lines i.e., Right Lines
+// Mat3d[1] = Negative slope lines i.e., Left Lines
+MLPP::Mat3d<double> FrameProcessing::classify_hough_lines(const std::vector<cv::Vec4i>& h_lines)
+{
+    // Create empty 2d matrices to store positive and negative slope lines
+    MLPP::Mat2d<double> positive_slope_lines; // format will be [x1 y1 x2 y2 slope]
+    MLPP::Mat2d<double> negative_slope_lines; // format will be [x1 y1 x2 y2 slope]
+    std::vector<float> y_values; // Vector to store all y values
+
+    // keep track of if we added one of each, want at least one of each to proceed
+	bool added_positive = false;
+	bool added_negative = false;
+
+    // array counter for appending new lines
+	int negative_counter = 0;
+	int positive_counter = 0;
+
+    // Loop through all lines
+	for (size_t i = 0; i != h_lines.size(); ++i) {
+		// Get points for current line
+		float x1 = h_lines[i][0];
+		float y1 = h_lines[i][1];
+		float x2 = h_lines[i][2];
+		float y2 = h_lines[i][3];
+
+		// Get line length
+		float line_length =  std::pow(std::pow(x2-x1,2) + std::pow(y2-y1,2), 0.5);
+
+		// if line is long enough
+		if (line_length > 30) {
+			// Dont divide by zero check
+			if (x2 != x1) {
+				// Get slope
+				float slope = (y2-y1)/(x2-x1);
+
+				// Check if slope is positive
+				if (slope > 0) {
+					// Find angle of line wrt x axis.
+					float tan_theta = std::tan((std::abs(y2-y1))/(std::abs(x2-x1))); // tan(theta) value
+					float angle = atan (tan_theta) * 180/pi;
+					// Only pass good line angles,  dont want verticalish/horizontalish lines
+					if (std::abs(angle) < 85 && std::abs(angle) > 20) {
+					    // Add a row to the matrix
+						negative_slope_lines.resize(negative_counter+1);
+
+					    // Reshape current row to 5 columns [x1, y1, x2, y2, slope]
+					    negative_slope_lines[negative_counter].resize(5);
+
+						// Add values to row
+						negative_slope_lines[negative_counter][0] = x1;
+						negative_slope_lines[negative_counter][1] = y1;
+						negative_slope_lines[negative_counter][2] = x2;
+						negative_slope_lines[negative_counter][3] = y2;
+						negative_slope_lines[negative_counter][4] = -slope;
+
+					    // add yValues
+					    y_values.push_back(y1);
+					    y_values.push_back(y2);
+
+						// Note that we added a positive slope line
+						added_positive = true;
+
+						// iterate the counter
+						negative_counter++;
+					}
+				}
+
+				// Check if slope is Negative
+				if (slope < 0) {
+				    // Find angle of line wrt x axis.
+					float tan_theta = std::tan ((std::abs(y2-y1))/(std::abs(x2-x1))); // tan(theta) value
+					float angle = std::atan (tan_theta) * 180/pi;
+
+					// Only pass good line angles,  dont want verticalish/horizontalish lines
+					if (std::abs(angle) < 85 && std::abs(angle) > 20) {                        
+						// Add a row to the matrix
+						positive_slope_lines.resize(positive_counter+1);
+
+						// Reshape current row to 5 columns [x1, y1, x2, y2, slope]
+						positive_slope_lines[positive_counter].resize(5);
+
+						// Add values to row
+						positive_slope_lines[positive_counter][0] = x1;
+						positive_slope_lines[positive_counter][1] = y1;
+						positive_slope_lines[positive_counter][2] = x2;
+						positive_slope_lines[positive_counter][3] = y2;
+						positive_slope_lines[positive_counter][4] = -slope;
+
+						// add yValues
+						y_values.push_back(y1);
+						y_values.push_back(y2);
+							 
+                        // Note that we added a positive slope line
+					    added_negative = true;
+
+						// iterate counter
+						positive_counter++;
+
+					}
+				} // if slope < 0
+                
+			} 
+		}
+	} 
+
+    // If we didn't get any positive lines, go though again and just add any
+    // positive slope lines Be less strict
+    if (added_positive == false) { // if we didnt add any positive lines
+
+        // Loop through lines
+        for (size_t i = 0; i != h_lines.size(); ++i) {
+
+            // Get points for current line
+            float x1 = h_lines[i][0];
+            float y1 = h_lines[i][1];
+            float x2 = h_lines[i][2];
+            float y2 = h_lines[i][3];
+
+            // Get slope
+            float slope = (y2 - y1) / (x2 - x1);
+
+            // Check if slope is positive
+            if (slope > 0 && x2 != x1) {
+
+                // Find angle of line wrt x axis.
+                float tan_theta = std::tan((std::abs(y2 - y1))/(std::abs(x2 - x1))); // tan(theta) value
+                float angle = std::atan(tan_theta) * 180/pi;
+
+                // Only pass good line angles,  dont want
+                // verticalish/horizontalish lines
+                if (std::abs(angle) < 85 && std::abs(angle) > 15) {
+                    // Add a row to the matrix
+                    negative_slope_lines.resize(negative_counter + 1);
+
+                    // Reshape current row to 5 columns [x1, y1, x2, y2, slope]
+                    negative_slope_lines[negative_counter].resize(5);
+
+                    // Add values to row
+                    negative_slope_lines[negative_counter][0] = x1;
+                    negative_slope_lines[negative_counter][1] = y1;
+                    negative_slope_lines[negative_counter][2] = x2;
+                    negative_slope_lines[negative_counter][3] = y2;
+                    negative_slope_lines[negative_counter][4] = -slope;
+
+                    // add yValues
+                    y_values.push_back(y1);
+                    y_values.push_back(y2);
+
+                    // Note that we added a positive slope line
+                    added_positive = true;
+
+                    // iterate the counter
+                    negative_counter++;
+                }
+            }
+        }
+    }
+
+    // If we didn't get any negative lines, go though again and just add any
+    // positive slope lines Be less strict
+    if (added_negative == false) { // if we didnt add any positive lines
+
+        // Loop through lines
+        for (size_t i = 0; i != h_lines.size(); ++i) {
+
+            // Get points for current line
+            float x1 = h_lines[i][0];
+            float y1 = h_lines[i][1];
+            float x2 = h_lines[i][2];
+            float y2 = h_lines[i][3];
+
+            // Get slope
+            float slope = (y2 - y1) / (x2 - x1);
+
+            // Check if slope is positive
+            if (slope > 0 && x2 != x1) {
+
+                // Find angle of line wrt x axis.
+                float tan_theta = std::tan((std::abs(y2 - y1))/(std::abs(x2 - x1))); // tan(theta) value
+                float angle = std::atan(tan_theta) * 180 / pi;
+
+                // Only pass good line angles,  dont want
+                // verticalish/horizontalish lines
+                if (std::abs(angle) < 85 && std::abs(angle) > 15) {
+                    // Add a row to the matrix
+                    positive_slope_lines.resize(positive_counter + 1);
+
+                    // Reshape current row to 5 columns [x1, y1, x2, y2, slope]
+                    positive_slope_lines[positive_counter].resize(5);
+
+                    // Add values to row
+                    positive_slope_lines[positive_counter][0] = x1;
+                    positive_slope_lines[positive_counter][1] = y1;
+                    positive_slope_lines[positive_counter][2] = x2;
+                    positive_slope_lines[positive_counter][3] = y2;
+                    positive_slope_lines[positive_counter][4] = -slope;
+
+                    // add yValues
+                    y_values.push_back(y1);
+                    y_values.push_back(y2);
+
+                    // Note that we added a positive slope line
+                    added_negative = true;
+
+                    // iterate the counter
+                    positive_counter++;
+                }
+            }
+        }
+    } 
+
+    // If we still dont have lines then display error
+    if (added_positive == false || added_negative == false) {
+        std::cout << "Not enough lines found" << std::endl;
+        return MLPP::Mat3d<double>();
+    }
+
+    MLPP::Mat3d<double> result;
+    result.push_back(positive_slope_lines);
+    result.push_back(negative_slope_lines);
+
+    return result;
+}
+
+// Implementation of extract hough lines method
+std::vector<cv::Vec4i> FrameProcessing::extract_hough_lines(const cv::Mat& frame)
+{
+    std::vector<cv::Vec4i> lines; // A Vec4i is a type holding 4 integers
+	cv::HoughLinesP(frame, lines, rho, theta, threshold, min_line_length, max_line_gap);
+    return lines;
+}
+
+// Implementation of get average slopes method
+// First value is positive slopes average
+// Second value is negative slopes average
+std::pair<float, float> FrameProcessing::get_average_positive_and_negative_slopes_lines(const MLPP::Mat3d<double>& slope_lines)
+{
+    // Add positive slopes from slope_lines[0] into a vector positive slopes
+    std::vector<float> positive_slopes;
+    for (size_t i = 0; i != slope_lines[0].size(); ++i) {
+        positive_slopes.push_back(slope_lines[0][i][4]);
+    }
+
+    // Get median of positive slopes
+    std::sort(positive_slopes.begin(), positive_slopes.end()); // sort slopes
+    int middle_positive; // Define middle value
+    double positive_slope_median; // Define positive slope median
+
+    // If even number of elements in vector, take average of two middle values
+    if (positive_slopes.size() % 2 == 0) {
+        // Get middle index of vector
+        middle_positive = positive_slopes.size() / 2;
+        // Take average of middle values
+        positive_slope_median = (positive_slopes[middle_positive-1] + positive_slopes[middle_positive+1]) / 2;
+    }
+    // Odd number of values in the vector
+    else {
+        // Get middle index of vector
+        middle_positive = positive_slopes.size() / 2;
+        // Get middle value
+        positive_slope_median = positive_slopes[middle_positive];
+    }
+
+    // Define vector of valid positive slopes, outliers are discarded
+    std::vector<float> valid_positive_slopes;
+    float positive_sum {0.0}; // Initialize sum so we can get the mean
+
+    // Loop through positive slopes and discard the outliers
+    for (size_t i = 0; i != positive_slopes.size(); i++)
+    {
+        // Check difference between current slope and the median
+        // If difference is too big we consider it an outlier and ignore
+        if (std::abs(positive_slopes[i] - positive_slope_median) < positive_slope_median * 0.2) {
+            valid_positive_slopes.push_back(positive_slopes[i]); // Add slope to valid slopes vector
+            positive_sum += positive_slopes[i]; // Add to sum
+        }
+    }
+
+    // Get mean of valid positive slopes
+    float positive_slope_mean = positive_sum / valid_positive_slopes.size();
+
+    // Now we do the same for negative slopes
+
+    // Add negative slopes from slope_lines[1] into a vector negative slopes
+    std::vector<float> negative_slopes;
+    for (size_t i = 0; i != slope_lines[1].size(); ++i) {
+        negative_slopes.push_back(slope_lines[1][i][4]);
+    }
+
+    // Get median of negative slopes
+    std::sort(negative_slopes.begin(), negative_slopes.end()); // sort slopes
+    int middle_negative; // Define middle value
+    double negative_slope_median; // Define negative slope median
+
+    // If even number of elements in vector, take average of two middle values
+    if (negative_slopes.size() % 2 == 0) {
+        // Get middle index of vector
+        middle_negative = negative_slopes.size() / 2;
+        // Take average of middle values
+        negative_slope_median = (negative_slopes[middle_negative-1] + negative_slopes[middle_negative+1]) / 2;
+    }
+    // Odd number of values in the vector
+    else {
+        // Get middle index of vector
+        middle_negative = negative_slopes.size() / 2;
+        // Get middle value
+        negative_slope_median = negative_slopes[middle_negative];
+    }
+
+    // Define vector of valid negative slopes, outliers are discarded
+    std::vector<float> valid_negative_slopes;
+    float negative_sum {0.0}; // Initialize sum so we can get the mean
+
+    // Loop through negative slopes and discard the outliers
+    for (size_t i = 0; i != negative_slopes.size(); i++)
+    {
+        // Check difference between current slope and the median
+        // If difference is too big we consider it an outlier and ignore
+        if (std::abs(negative_slopes[i] - negative_slope_median) < 0.9) {
+            valid_negative_slopes.push_back(negative_slopes[i]); // Add slope to valid slopes vector
+            negative_sum += negative_slopes[i]; // Add to sum
+        }
+    }
+
+    // Get mean of valid positive slopes
+    float negative_slope_mean = negative_sum / valid_negative_slopes.size();
+
+    return std::make_pair(positive_slope_mean, negative_slope_mean); 
+}
+
+// Implementation of get X intercept coordinates method
+// First value is average positive slopes X coordinate
+// Second value is average negative slopes X coordinate
+std::pair<double, double>  FrameProcessing::get_x_intercept_coordinates(const cv::Mat& frame, const MLPP::Mat3d<double>& slope_lines)
+{
+    // Define vector for X intercept coordinates for positive slope lines
+    std::vector<double> positive_slope_lines_x_intercept_coordinates;
+
+    // Loop through positive slope lines, find and store x intercept values
+    for (size_t i = 0; i != slope_lines[0].size(); i++)
+    {
+        double x1 = slope_lines[0][i][0]; // Get current x value
+        double y1 = frame.rows - slope_lines[0][i][1]; // Get current y value
+        double slope = slope_lines[0][i][4];
+        double y_intercept = y1 - slope * x1; // Y intercept of current line
+        double x_intercept = -y_intercept/slope; // Find x intercept based off y = mx+b
+        // Check for nan
+        if (std::isnan(x_intercept) == 0) {
+            positive_slope_lines_x_intercept_coordinates.push_back(x_intercept); // Add value to vector
+        }
+    }
+
+    // Get median of X intercepts for positive slope lines
+    double x_intercept_positive_median = median(positive_slope_lines_x_intercept_coordinates);
+    
+    // Define vector for storing valid X intercept values, outliers are discarded
+    std::vector<double> valid_positive_x_intercept_values;
+    double x_intercept_positive_sum; // Necessary for finding average
+
+    // Now that we have the median, loop through lines and compare values against median
+    for (size_t i = 0; i != slope_lines[0].size(); i++) {
+        double x1 = slope_lines[0][i][0]; // Get current x value
+        double y1 = frame.rows - slope_lines[0][i][1]; // Get current y value
+        double slope = slope_lines[0][i][4];
+        double y_intercept = y1 - slope * x1; // Y intercept of current line
+        double x_intercept = -y_intercept/slope; // Find x intercept based off y = mx+b
+        // Check for nan
+        if (std::isnan(x_intercept) == 0 && std::abs(x_intercept - x_intercept_positive_median) < x_intercept_positive_median * 0.35) {
+            valid_positive_x_intercept_values.push_back(x_intercept); // Add value to valid vector
+            x_intercept_positive_sum += x_intercept;
+        }
+    }
+
+    // Get mean x intercept value for positive slope lines
+    double positive_x_intercept_mean = x_intercept_positive_sum / valid_positive_x_intercept_values.size();
+
+    // Now we do the same for negative slope lines
+
+    // Define vector for X intercept coordinates for positive slope lines
+    std::vector<double> negative_slope_lines_x_intercept_coordinates;
+
+    // Loop through negative slope lines, find and store x intercept values
+    for (size_t i = 0; i != slope_lines[1].size(); i++)
+    {
+        double x1 = slope_lines[1][i][0]; // Get current x value
+        double y1 = frame.rows - slope_lines[1][i][1]; // Get current y value
+        double slope = slope_lines[1][i][4];
+        double y_intercept = y1 - slope * x1; // Y intercept of current line
+        double x_intercept = -y_intercept/slope; // Find x intercept based off y = mx+b
+        // Check for nan
+        if (std::isnan(x_intercept) == 0) {
+            negative_slope_lines_x_intercept_coordinates.push_back(x_intercept); // Add value to vector
+        }
+    }
+
+    // Get median of X intercepts for negative slope lines
+    double negative_x_intercept_median = median(negative_slope_lines_x_intercept_coordinates);
+    
+    // Define vector for storing valid X intercept values, outliers are discarded
+    std::vector<double> valid_negative_x_intercept_values;
+    double x_intercept_negative_sum; // Necessary for finding average
+
+    // Now that we have the median, loop through lines and compare values against median
+    for (size_t i = 0; i != slope_lines[1].size(); i++) {
+        double x1 = slope_lines[1][i][0]; // Get current x value
+        double y1 = frame.rows - slope_lines[1][i][1]; // Get current y value
+        double slope = slope_lines[1][i][4];
+        double y_intercept = y1 - slope * x1; // Y intercept of current line
+        double x_intercept = -y_intercept/slope; // Find x intercept based off y = mx+b
+        // Check for nan
+        if (std::isnan(x_intercept) == 0 && std::abs(x_intercept - negative_x_intercept_median) < negative_x_intercept_median * 0.35) {
+            valid_negative_x_intercept_values.push_back(x_intercept); // Add value to valid vector
+            x_intercept_negative_sum += x_intercept;
+        }
+    }
+
+    // Get mean x intercept value for negative slope lines
+    double negative_x_intercept_mean = x_intercept_negative_sum / valid_negative_x_intercept_values.size();
+    
+    return std::make_pair(positive_x_intercept_mean, negative_x_intercept_mean);
+}
+
+// Calculate median method
+double FrameProcessing::median(std::vector<double> vector)
+{
+    // Get size of vector
+    int vectorSize = vector.size();
+
+    // If vector is empty throw error
+    if (vectorSize == 0) {
+        throw std::domain_error("Vector is empty!");
+    }
+
+    // Sort Vector
+    std::sort(vector.begin(), vector.end());
+
+    // Define middle and median
+    int middle;
+    double median;
+
+    // If vector size is even, take average of two middle values
+    if (vectorSize % 2 == 0) {
+        // A value representing the middle of the vector
+        middle = vectorSize / 2;
+
+        // Take average of middle values, assume vector [1,2,3,4], take average
+        // of 2 and 3
+        median = (vector[middle - 1] + vector[middle]) / 2;
+    }
+
+    // Odd numbered vector size
+    else {
+        // Result will be lowest int, so if vectorSize = 5, middle will be 2
+        middle = vectorSize / 2;
+        median = vector[middle];
+    }
+
+    return median;
+}
+
+// Implementation of plot lane line method
+void FrameProcessing::plot_lane_lines(const cv::Mat& frame, const std::pair<float,float>& avrg_slope_lines, const std::pair<double,double>& x_intercept_coord, 
+                            LineParameters& positive_slope_parameters, LineParameters& negative_slope_parameters)
+{
+    // Positive Slope Line
+    float positive_slope = avrg_slope_lines.first;
+    double positive_x1  = x_intercept_coord.first;
+    int positive_y1 = 0;
+    double positive_y2 = frame.rows - (frame.rows - frame.rows * 0.35);
+    double positive_x2  = (positive_y2 - positive_y1) / positive_slope + positive_x1;
+
+    positive_x1 = int(positive_x1 + 0.5);
+    positive_x2 = int(positive_x2 + 0.5);
+    positive_y1 = int(positive_y1 + 0.5);
+    positive_y2 = int(positive_y2 + 0.5);
+
+    positive_slope_parameters.slope = positive_slope;
+    positive_slope_parameters.x1 = positive_x1;
+    positive_slope_parameters.x2 = positive_x2;
+    positive_slope_parameters.y1 = positive_y1;
+    positive_slope_parameters.y2 = positive_y2;
+
+    // Negative Slope Line
+    float negative_slope = avrg_slope_lines.second;
+    double negative_x1  = x_intercept_coord.second;
+    int negative_y1 = 0;
+    double negative_y2 = frame.rows - (frame.rows - frame.rows * 0.35);
+    double negative_x2  = (negative_y2 - negative_y1) / negative_slope + negative_x1;
+
+    negative_x1 = int(negative_x1 + 0.5);
+    negative_x2 = int(negative_x2 + 0.5);
+    negative_y1 = int(negative_y1 + 0.5);
+
+    negative_slope_parameters.slope = negative_slope;
+    negative_slope_parameters.x1 = negative_x1;
+    negative_slope_parameters.x2 = negative_x2;
+    negative_slope_parameters.y1 = negative_y1;
+    negative_slope_parameters.y2 = negative_y2;
+}
+
+// Method for reisizing frames implementation
+void FrameProcessing::resize_frame(cv::Mat& frame, const size_t& x, const size_t& y)
+{
+    cv::resize(frame, frame, cv::Size(x,y));
+}
