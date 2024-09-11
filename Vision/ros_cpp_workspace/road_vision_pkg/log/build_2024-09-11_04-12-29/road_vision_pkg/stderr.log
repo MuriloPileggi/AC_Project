@@ -1,0 +1,33 @@
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:37:41:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Krclcpp::Node::create_wall_timer(std::chrono::milliseconds, std::_Bind_helper<false, void (&)(std::shared_ptr<rclcpp::Publisher<std_msgs::msg::String_<std::allocator<void> > > >, std::shared_ptr<rclcpp::Node>, double), std::shared_ptr<rclcpp::Publisher<std_msgs::msg::String_<std::allocator<void> >, std::allocator<void> > >&, std::shared_ptr<rclcpp::Node>&, double&>::type)[m[K’
+   37 |     auto timer = [01;31m[Knode->create_wall_timer([m[K
+      |                  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+   38 | [01;31m[K        20ms,[m[K
+      |         [01;31m[K~~~~~[m[K                            
+   39 | [01;31m[K        std::bind(timer_callback, publisher, node, steering_angle)[m[K
+      |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+   40 | [01;31m[K    )[m[K;
+      |     [01;31m[K~[m[K                                    
+In file included from [01m[K/opt/ros/iron/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+                 from [01m[K/opt/ros/iron/include/rclcpp/rclcpp/executors.hpp:22[m[K,
+                 from [01m[K/opt/ros/iron/include/rclcpp/rclcpp/rclcpp.hpp:167[m[K,
+                 from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:5[m[K:
+[01m[K/opt/ros/iron/include/rclcpp/rclcpp/node.hpp:239:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class DurationRepT, class DurationT, class CallbackT> typename rclcpp::WallTimer<CallbackT>::SharedPtr rclcpp::Node::create_wall_timer(std::chrono::duration<_Rep1, _Period1>, CallbackT, rclcpp::CallbackGroup::SharedPtr)[m[K’
+  239 |   [01;36m[Kcreate_wall_timer[m[K(
+      |   [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/iron/include/rclcpp/rclcpp/node.hpp:239:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+In file included from [01m[K/opt/ros/iron/include/rclcpp/rclcpp/node.hpp:1611[m[K,
+                 from [01m[K/opt/ros/iron/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+                 from [01m[K/opt/ros/iron/include/rclcpp/rclcpp/executors.hpp:22[m[K,
+                 from [01m[K/opt/ros/iron/include/rclcpp/rclcpp/rclcpp.hpp:167[m[K,
+                 from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:5[m[K:
+/opt/ros/iron/include/rclcpp/rclcpp/node_impl.hpp: In substitution of ‘[01m[Ktemplate<class DurationRepT, class DurationT, class CallbackT> typename rclcpp::WallTimer<CallbackT>::SharedPtr rclcpp::Node::create_wall_timer(std::chrono::duration<_Rep1, _Period1>, CallbackT, rclcpp::CallbackGroup::SharedPtr) [with DurationRepT = long int; DurationT = std::ratio<1, 1000>; CallbackT = std::_Bind<void (*(std::shared_ptr<rclcpp::Publisher<std_msgs::msg::String_<std::allocator<void> > > >, std::shared_ptr<rclcpp::Node>, double))(std::shared_ptr<rclcpp::Publisher<std_msgs::msg::String_<std::allocator<void> > > >, std::shared_ptr<rclcpp::Node>, double)>][m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:37:41:[m[K   required from here
+[01m[K/opt/ros/iron/include/rclcpp/rclcpp/node_impl.hpp:110:1:[m[K [01;31m[Kerror: [m[Kno type named ‘[01m[Ktype[m[K’ in ‘[01m[Kstruct std::enable_if<false, void>[m[K’
+  110 | [01;31m[KNode[m[K::create_wall_timer(
+      | [01;31m[K^~~~[m[K
+[01m[K/opt/ros/iron/include/rclcpp/rclcpp/node_impl.hpp:110:1:[m[K [01;31m[Kerror: [m[Kno type named ‘[01m[Ktype[m[K’ in ‘[01m[Kstruct std::enable_if<false, void>[m[K’
+[01m[K/opt/ros/iron/include/rclcpp/rclcpp/node_impl.hpp:110:1:[m[K [01;36m[Knote: [m[Kinvalid template non-type parameter
+gmake[2]: *** [CMakeFiles/road_vision_node.dir/build.make:76: CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
