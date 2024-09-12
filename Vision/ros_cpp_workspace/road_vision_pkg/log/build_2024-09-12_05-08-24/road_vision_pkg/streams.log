@@ -1,0 +1,13 @@
+[0.006s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg -- -j16 -l16
+[0.034s] [35m[1mConsolidate compiler generated dependencies of target road_vision_node[0m
+[0.044s] [ 50%] [32mBuilding CXX object CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o[0m
+[2.105s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:286:5:[m[K [01;31m[Kerror: [m[Kconflicting declaration of C function ‘[01m[Kint main()[m[K’
+[2.105s]   286 | int [01;31m[Kmain[m[K()
+[2.105s]       |     [01;31m[K^~~~[m[K
+[2.105s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:24:5:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kint main(int, char**)[m[K’
+[2.105s]    24 | int [01;36m[Kmain[m[K(int argc, char * argv[])
+[2.105s]       |     [01;36m[K^~~~[m[K
+[2.821s] gmake[2]: *** [CMakeFiles/road_vision_node.dir/build.make:76: CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o] Error 1
+[2.821s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_node.dir/all] Error 2
+[2.821s] gmake: *** [Makefile:146: all] Error 2
+[2.822s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg -- -j16 -l16

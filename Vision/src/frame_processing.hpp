@@ -51,19 +51,19 @@ public:
 
     // Method that classifies extracted hough lines found into left and right lines
     // Classification is based on line slope
-    MLPP::Mat3d<double> classify_hough_lines(const std::vector<cv::Vec4i>& h_lines);
+    MLPP::Mat3d<double> classify_hough_lines(const cv::Mat& frame, const std::vector<cv::Vec4i>& h_lines);
 
     // Method to extract hough lines from masked frame
     std::vector<cv::Vec4i> extract_hough_lines(const cv::Mat& frame);
 
     // Method that finds positive and negative slope lines average
     // Average the position of lines and extrapolate to the top and bottom of the lane.
-    std::pair<float, float>  get_average_positive_and_negative_slopes_lines(const MLPP::Mat3d<double>& slope_lines);
+    std::vector<float>  get_average_positive_and_negative_slopes_lines(const MLPP::Mat3d<double>& slope_lines);
 
     // Method that finds X coordinate for positive and negative average slope lines
     // I.E., we find X coordinate for average positive slope line when Y = 0
     // The same for average negative slope line
-    std::pair<double, double>  get_x_intercept_coordinates(const cv::Mat& frame, const MLPP::Mat3d<double>& slope_lines);
+    std::vector<double>  get_x_intercept_coordinates(const cv::Mat& frame, const MLPP::Mat3d<double>& slope_lines);
 
     // Method for finding median between lanes
     double median(std::vector<double> vector);
@@ -73,7 +73,7 @@ public:
     // (xIntercept,im.shape[1]) where im.shape[1] is the bottom of the
     // image. take y2 as some num (min/max y in the good lines?) then
     // find corresponding x
-    void plot_lane_lines(const cv::Mat& frame, const std::pair<float,float>& avrg_slope_lines, const std::pair<double,double>& x_intercept_coord, 
+    void plot_lane_lines(const cv::Mat& frame, const std::vector<float>& avrg_slope_lines, const std::vector<double>& x_intercept_coord, 
                             LineParameters& positive_slope_parameters, LineParameters& negative_slope_parameters);
 
     // Method to resize images

@@ -19,10 +19,10 @@ class FrameClassificationSubscriber(Node):
         #self.subscription  # prevent unused variable warning
 
         #self.service = self.create_service(Trigger, 'trigger_action', self.handle_trigger_action)
-        #self.received_data = None
+        self.received_data = None
 
         # Create a timer to execute callback every 20 ms (50 Hz)
-        self.timer_period = 0.02  # 20 ms
+        self.timer_period = 0.05  # 20 ms
         self.timer = self.create_timer(self.timer_period, self.timer_callback)
 
         # Initialize serial connection
@@ -31,16 +31,23 @@ class FrameClassificationSubscriber(Node):
             #self.get_logger().error('Failed to initialize serial connection')
             #return
         #time.sleep(2)  # Wait for the connection to settle
+        self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+        if self.serial_port is None:
+            self.get_logger().error('Failed to initialize serial connection')
+            return
+        time.sleep(2)  # Wait for the connection to settle
   
     def listener_callback(self, msg):
-        self.get_logger().info('Received: "%s"' % msg.data)
+        #self.get_logger().info('Received: "%s"' % msg.data)
         self.received_data = msg.data
-        #self.send_to_arduino(msg.data)
     
     def timer_callback(self):
         # This method will run at 50 Hz
-        self.get_logger().info('Timer triggered, sending data to Arduino...')
-        # self.send_to_arduino(self.received_data)  # Uncomment to send data
+        if self.received_data is not None:
+            self.get_logger().info('Timer triggered, sending data: %s' % str(self.received_data))
+            self.send_to_arduino(self.received_data)  # Uncomment to send data
+        else:
+            self.get_logger().info('Timer triggered, but no message received yet.')
 
     def handle_trigger_action(self, request, response):
         self.get_logger().info('Action Triggered!')
@@ -77,8 +84,7 @@ class FrameClassificationSubscriber(Node):
             self.get_logger().info('Sent to Arduino: "%s"' % data)
         except serial.SerialException as e:
             self.get_logger().error('Failed to send data to Arduino: %s' % str(e))
-    
-    
+     
     #def receive_from_arduino(self):
        #if self.serial_port is None:
            #self.get_logger().error('Serial port not initialized')

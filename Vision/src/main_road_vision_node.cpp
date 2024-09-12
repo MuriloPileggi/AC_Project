@@ -36,7 +36,7 @@ int main(int argc, char * argv[])
     auto steering_angle = std::make_shared<double>(0.0);
 	// Create a timer with a lambda function, so we publish steering angle every 20 ms (50Hz)
     auto timer = node->create_wall_timer(
-        20ms, 
+        50ms, 
         [publisher, node, steering_angle]() {
             timer_callback(publisher, node, steering_angle);
         }
@@ -55,8 +55,8 @@ int main(int argc, char * argv[])
 	int height = 500;
 	
     // Open video file
-    cv::VideoCapture cap(0);
-	//cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/Pista/Curva_exterior_direita_2.mp4");
+    //cv::VideoCapture cap(0);
+	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/Pista/Reta_2.mp4");
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -106,13 +106,13 @@ int main(int argc, char * argv[])
 
 		if (!h_lines.empty() && h_lines.size() > 2) {
 			// Separate Hough lines into posistive and negative sloped lines
-			Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(h_lines);
+			Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(p_frame, h_lines);
 
 			if (!positive_and_negative_h_lines.empty()) {
 				// Get average of positive of and negative sloped hough lines
-				std::pair<float, float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
+				std::vector<float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
 				// Get X intercet coordinates for average positive and negative sloped hough lines 
-				std::pair<double, double> x_intercept_coordinates = frame_processing.get_x_intercept_coordinates(p_frame, positive_and_negative_h_lines);
+				std::vector<double> x_intercept_coordinates = frame_processing.get_x_intercept_coordinates(p_frame, positive_and_negative_h_lines);
 
 				// Initialize structs to hold positive and negative sloped line parameters
 				FrameProcessing::LineParameters positive_slope_line_parameters;
@@ -122,42 +122,8 @@ int main(int argc, char * argv[])
 				frame_processing.plot_lane_lines(p_frame, avrg_pos_and_neg_lines, x_intercept_coordinates, 
 													positive_slope_line_parameters, negative_slope_line_parameters);
 
-				//std::cout << positive_slope_line_parameters.x1 << std::endl;
-				//std::cout << negative_slope_line_parameters.x1 << std::endl;
-
 				// Calculate steering angle based on plotted lane lines
 				*steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
-
-				// Get calculated steering angle and publish result
-				//auto message = std_msgs::msg::String();
-				//message.data = std::to_string(steering_angle);  
-				//RCLCPP_INFO(node->get_logger(), "Publishing: '%s'", message.data.c_str());
-				//publisher->publish(message);
-
-				/*
-
-				// Wait for the service to be available
-				while (!client->wait_for_service(1s)) {
-					if (!rclcpp::ok()) {
-						RCLCPP_ERROR(node->get_logger(), "Error: Interrupted while waiting for the service. Exiting.");
-						return -1;
-					}
-					RCLCPP_INFO(node->get_logger(), "Waiting for service to appear...");
-				}
-				
-				// Call the service and wait for the response
-				auto request = std::make_shared<std_srvs::srv::Trigger::Request>();
-				auto future = client->async_send_request(request);
-
-				// Wait for service actions to complete
-				if (rclcpp::spin_until_future_complete(node, future) == rclcpp::FutureReturnCode::SUCCESS) {
-					auto response = future.get();
-					RCLCPP_INFO(node->get_logger(), "Service responded with: %s", response->message.c_str());
-				}
-				else {
-					RCLCPP_ERROR(node->get_logger(), "Service call failed");
-				} */
-					
 
 				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 
@@ -269,13 +235,13 @@ int main2()
 
 		if (!h_lines.empty() && h_lines.size() > 2) {
 			// Separate Hough lines into posistive and negative sloped lines
-			Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(h_lines);
+			Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(p_frame, h_lines);
 
 			if (!positive_and_negative_h_lines.empty()) {
 				// Get average of positive of and negative sloped hough lines
-				std::pair<float, float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
+				std::vector<float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
 				// Get X intercet coordinates for average positive and negative sloped hough lines 
-				std::pair<double, double> x_intercept_coordinates = frame_processing.get_x_intercept_coordinates(p_frame, positive_and_negative_h_lines);
+				std::vector<double> x_intercept_coordinates = frame_processing.get_x_intercept_coordinates(p_frame, positive_and_negative_h_lines);
 
 				// Initialize structs to hold positive and negative sloped line parameters
 				FrameProcessing::LineParameters positive_slope_line_parameters;
@@ -320,9 +286,10 @@ int main2()
 int main3()
 {
 	FrameProcessing frame_processing;
+	GuidanceSystem guidance_system;
 
 	cv::Mat image = cv::imread(
-        "/home/muzaodamassa/Downloads/High_Angle_Straight.jpg"); // read the image into mat type variable, image, if
+        "/home/muzaodamassa/Downloads/WhatsApp Image 2024-09-12 at 02.24.02(3).jpeg"); // read the image into mat type variable, image, if
                         // funning from cmd line, path is ../src/1.jpg
 
     // Check for failure in reading the image
@@ -334,6 +301,8 @@ int main3()
 
     // name of window to show original image
     cv::String originalWindowName = "Original Image";
+
+	frame_processing.resize_frame(image, 500, 500);
 
     // Show the original image
 	cv::namedWindow(originalWindowName, cv::WINDOW_NORMAL);
@@ -405,24 +374,27 @@ int main3()
         cv::imshow("Hough Lines", allLinesIm);
         cv::waitKey(0);
 
-		Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(h_lines);
-		std::pair<float, float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
-		std::pair<double, double> x_intercept_coordinates = frame_processing.get_x_intercept_coordinates(image, positive_and_negative_h_lines);
+		Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(p_frame, h_lines);
+		std::vector<float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
+		std::vector<double> x_intercept_coordinates = frame_processing.get_x_intercept_coordinates(image, positive_and_negative_h_lines);
 
 		// Initialize structs to hold positive and negative sloped line parameters
 		FrameProcessing::LineParameters positive_slope_line_parameters;
 		FrameProcessing::LineParameters negative_slope_line_parameters;
 			
 		// Fill structs constructed above with x1,y1,x2,y2 and slope values for positive and negative slope lines
-		frame_processing.plot_lane_lines(image, avrg_pos_and_neg_lines, x_intercept_coordinates, 
+		frame_processing.plot_lane_lines(allLinesIm, avrg_pos_and_neg_lines, x_intercept_coordinates, 
 												positive_slope_line_parameters, negative_slope_line_parameters);
+ 
+		double steering_angle = guidance_system.calc_steering_angle(image, positive_slope_line_parameters, negative_slope_line_parameters);
+		std::cout << steering_angle << std::endl;
 
 		cv::Mat blended_image = frame_processing.blend_frame(image, positive_slope_line_parameters, negative_slope_line_parameters);
 
         // Plot positive and negative lane lines
 		cv::namedWindow("Final Output", cv::WINDOW_NORMAL);
         cv::imshow("Final Output", blended_image);
-        cv::waitKey(0); // wait for a key press
+        cv::waitKey(0); // wait for a key press  
 	}
 
 	return 0;

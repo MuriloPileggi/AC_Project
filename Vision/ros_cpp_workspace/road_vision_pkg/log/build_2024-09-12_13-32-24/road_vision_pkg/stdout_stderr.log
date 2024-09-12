@@ -1,0 +1,53 @@
+[35m[1mConsolidate compiler generated dependencies of target road_vision_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o[0m
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:113:145:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kstd::vector<float>[m[K’ to non-scalar type ‘[01m[Kstd::pair<float, float>[m[K’ requested
+  113 |                                 std::pair<float, float> avrg_pos_and_neg_lines = [01;31m[Kframe_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines)[m[K;
+      |                                                                                  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:115:129:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kstd::vector<double, std::allocator<double> >[m[K’ to non-scalar type ‘[01m[Kstd::pair<double, double>[m[K’ requested
+  115 |                                 std::pair<double, double> x_intercept_coordinates = [01;31m[Kframe_processing.get_x_intercept_coordinates(p_frame, positive_and_negative_h_lines)[m[K;
+      |                                                                                     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:122:75:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::pair<float, float>[m[K’ to ‘[01m[Kconst std::vector<float>&[m[K’
+  122 |                                 frame_processing.plot_lane_lines(p_frame, [01;31m[Kavrg_pos_and_neg_lines[m[K, x_intercept_coordinates,
+      |                                                                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                           [01;31m[K|[m[K
+      |                                                                           [01;31m[Kstd::pair<float, float>[m[K
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:719:87:[m[K [01;36m[Knote: [m[K  initializing argument 2 of ‘[01m[Kvoid FrameProcessing::plot_lane_lines(const cv::Mat&, const std::vector<float>&, const std::vector<double, std::allocator<double> >&, FrameProcessing::LineParameters&, FrameProcessing::LineParameters&)[m[K’
+  719 | void FrameProcessing::plot_lane_lines(const cv::Mat& frame, [01;36m[Kconst std::vector<float>& avrg_slope_lines[m[K, const std::vector<double>& x_intercept_coord,
+      |                                                             [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:[m[K In function ‘[01m[Kint main2()[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:242:145:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kstd::vector<float>[m[K’ to non-scalar type ‘[01m[Kstd::pair<float, float>[m[K’ requested
+  242 |                                 std::pair<float, float> avrg_pos_and_neg_lines = [01;31m[Kframe_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines)[m[K;
+      |                                                                                  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:244:129:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kstd::vector<double, std::allocator<double> >[m[K’ to non-scalar type ‘[01m[Kstd::pair<double, double>[m[K’ requested
+  244 |                                 std::pair<double, double> x_intercept_coordinates = [01;31m[Kframe_processing.get_x_intercept_coordinates(p_frame, positive_and_negative_h_lines)[m[K;
+      |                                                                                     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:251:75:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::pair<float, float>[m[K’ to ‘[01m[Kconst std::vector<float>&[m[K’
+  251 |                                 frame_processing.plot_lane_lines(p_frame, [01;31m[Kavrg_pos_and_neg_lines[m[K, x_intercept_coordinates,
+      |                                                                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                           [01;31m[K|[m[K
+      |                                                                           [01;31m[Kstd::pair<float, float>[m[K
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:719:87:[m[K [01;36m[Knote: [m[K  initializing argument 2 of ‘[01m[Kvoid FrameProcessing::plot_lane_lines(const cv::Mat&, const std::vector<float>&, const std::vector<double, std::allocator<double> >&, FrameProcessing::LineParameters&, FrameProcessing::LineParameters&)[m[K’
+  719 | void FrameProcessing::plot_lane_lines(const cv::Mat& frame, [01;36m[Kconst std::vector<float>& avrg_slope_lines[m[K, const std::vector<double>& x_intercept_coord,
+      |                                                             [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:[m[K In function ‘[01m[Kint main3()[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:378:129:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kstd::vector<float>[m[K’ to non-scalar type ‘[01m[Kstd::pair<float, float>[m[K’ requested
+  378 |                 std::pair<float, float> avrg_pos_and_neg_lines = [01;31m[Kframe_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines)[m[K;
+      |                                                                  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:379:113:[m[K [01;31m[Kerror: [m[Kconversion from ‘[01m[Kstd::vector<double, std::allocator<double> >[m[K’ to non-scalar type ‘[01m[Kstd::pair<double, double>[m[K’ requested
+  379 |                 std::pair<double, double> x_intercept_coordinates = [01;31m[Kframe_processing.get_x_intercept_coordinates(image, positive_and_negative_h_lines)[m[K;
+      |                                                                     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:386:62:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kstd::pair<float, float>[m[K’ to ‘[01m[Kconst std::vector<float>&[m[K’
+  386 |                 frame_processing.plot_lane_lines(allLinesIm, [01;31m[Kavrg_pos_and_neg_lines[m[K, x_intercept_coordinates,
+      |                                                              [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                              [01;31m[K|[m[K
+      |                                                              [01;31m[Kstd::pair<float, float>[m[K
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:719:87:[m[K [01;36m[Knote: [m[K  initializing argument 2 of ‘[01m[Kvoid FrameProcessing::plot_lane_lines(const cv::Mat&, const std::vector<float>&, const std::vector<double, std::allocator<double> >&, FrameProcessing::LineParameters&, FrameProcessing::LineParameters&)[m[K’
+  719 | void FrameProcessing::plot_lane_lines(const cv::Mat& frame, [01;36m[Kconst std::vector<float>& avrg_slope_lines[m[K, const std::vector<double>& x_intercept_coord,
+      |                                                             [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/road_vision_node.dir/build.make:76: CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

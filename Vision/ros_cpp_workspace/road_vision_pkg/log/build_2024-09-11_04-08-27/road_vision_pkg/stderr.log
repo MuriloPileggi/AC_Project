@@ -1,7 +1,0 @@
-[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
-[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:36:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass std::shared_ptr<rclcpp::Node>[m[K’ has no member named ‘[01m[Kcreate_wall_timer[m[K’
-   36 |         auto timer = node.[01;31m[Kcreate_wall_timer[m[K(20ms, bind(timer_callback, publisher, node, steering_angle));
-      |                           [01;31m[K^~~~~~~~~~~~~~~~~[m[K
-gmake[2]: *** [CMakeFiles/road_vision_node.dir/build.make:76: CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_node.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2
