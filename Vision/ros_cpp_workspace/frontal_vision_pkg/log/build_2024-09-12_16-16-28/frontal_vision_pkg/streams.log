@@ -1,0 +1,1440 @@
+[0.006s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg -- -j16 -l16
+[0.033s] [35m[1mConsolidate compiler generated dependencies of target frontal_vision_node[0m
+[0.043s] [ 50%] [32mBuilding CXX object CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp.o[0m
+[2.063s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[2.063s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:39:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator*[m[K’ (operand type is ‘[01m[Kcv::Mat[m[K’)
+[2.063s]   124 |                         cv::rectangle([01;31m[K*frame[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.063s]       |                                       [01;31m[K^~~~~~[m[K
+[2.063s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:47[m[K,
+[2.063s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3419[m[K,
+[2.063s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.063s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.063s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.063s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.063s] [01m[K/usr/include/c++/11/complex:392:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const std::complex<_Tp>&)[m[K’
+[2.063s]   392 |     [01;36m[Koperator[m[K*(const complex<_Tp>& __x, const complex<_Tp>& __y)
+[2.063s]       |     [01;36m[K^~~~~~~~[m[K
+[2.064s] [01m[K/usr/include/c++/11/complex:392:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.064s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::complex<_Tp>[m[K’
+[2.064s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.064s]       |                                        [01;36m[K^~~~~[m[K
+[2.064s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:47[m[K,
+[2.064s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3419[m[K,
+[2.064s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.064s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.064s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.064s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.064s] [01m[K/usr/include/c++/11/complex:401:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const _Tp&)[m[K’
+[2.064s]   401 |     [01;36m[Koperator[m[K*(const complex<_Tp>& __x, const _Tp& __y)
+[2.064s]       |     [01;36m[K^~~~~~~~[m[K
+[2.064s] [01m[K/usr/include/c++/11/complex:401:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.064s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::complex<_Tp>[m[K’
+[2.064s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.064s]       |                                        [01;36m[K^~~~~[m[K
+[2.064s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:47[m[K,
+[2.064s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3419[m[K,
+[2.064s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.064s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.064s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.064s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.064s] [01m[K/usr/include/c++/11/complex:410:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::complex<_Tp> std::operator*(const _Tp&, const std::complex<_Tp>&)[m[K’
+[2.064s]   410 |     [01;36m[Koperator[m[K*(const _Tp& __x, const complex<_Tp>& __y)
+[2.064s]       |     [01;36m[K^~~~~~~~[m[K
+[2.064s] [01m[K/usr/include/c++/11/complex:410:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.064s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.064s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.064s]       |                                        [01;36m[K^~~~~[m[K
+[2.065s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.065s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.065s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.065s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.065s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.065s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom1, class _Dom2> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Expr, std::_Expr, _Dom1, _Dom2>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const std::_Expr<_Dom1, typename _Dom1::value_type>&, const std::_Expr<_Dom2, typename _Dom2::value_type>&)[m[K’
+[2.065s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.065s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.065s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.065s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::_Expr<_Dom1, typename _Dom1::value_type>[m[K’
+[2.065s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.065s]       |                                        [01;36m[K^~~~~[m[K
+[2.065s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.065s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.065s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.065s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.065s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.065s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Expr, std::_Constant, _Dom, typename _Dom::value_type>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const std::_Expr<_Dom1, typename _Dom1::value_type>&, const typename _Dom::value_type&)[m[K’
+[2.065s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.065s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.065s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.065s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::_Expr<_Dom1, typename _Dom1::value_type>[m[K’
+[2.065s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.065s]       |                                        [01;36m[K^~~~~[m[K
+[2.065s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.065s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.066s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.066s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.066s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.066s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Constant, std::_Expr, typename _Dom::value_type, _Dom>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const typename _Dom::value_type&, const std::_Expr<_Dom1, typename _Dom1::value_type>&)[m[K’
+[2.066s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.066s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.066s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.066s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.066s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.066s]       |                                        [01;36m[K^~~~~[m[K
+[2.066s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.066s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.066s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.066s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.066s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.066s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Expr, std::_ValArray, _Dom, typename _Dom::value_type>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const std::_Expr<_Dom1, typename _Dom1::value_type>&, const std::valarray<typename _Dom::value_type>&)[m[K’
+[2.066s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.066s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.066s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.066s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::_Expr<_Dom1, typename _Dom1::value_type>[m[K’
+[2.066s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.066s]       |                                        [01;36m[K^~~~~[m[K
+[2.067s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.067s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_ValArray, std::_Expr, typename _Dom::value_type, _Dom>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const std::valarray<typename _Dom::value_type>&, const std::_Expr<_Dom1, typename _Dom1::value_type>&)[m[K’
+[2.067s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.067s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.067s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.067s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.067s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.067s]       |                                        [01;36m[K^~~~~[m[K
+[2.067s] In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.067s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_ValArray, std::_ValArray, _Tp, _Tp>, typename std::__fun<std::__multiplies, _Tp>::result_type> std::operator*(const std::valarray<_Tp>&, const std::valarray<_Tp>&)[m[K’
+[2.067s]  1188 | [01;36m[K_DEFINE_BINARY_OPERATOR[m[K(*, __multiplies)
+[2.067s]       | [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.067s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.067s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::valarray<_Tp>[m[K’
+[2.067s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.067s]       |                                        [01;36m[K^~~~~[m[K
+[2.067s] In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.067s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.067s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_ValArray, std::_Constant, _Tp, _Tp>, typename std::__fun<std::__multiplies, _Tp>::result_type> std::operator*(const std::valarray<_Tp>&, const typename std::valarray<_Tp>::value_type&)[m[K’
+[2.067s]  1188 | [01;36m[K_DEFINE_BINARY_OPERATOR[m[K(*, __multiplies)
+[2.067s]       | [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.068s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.068s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::valarray<_Tp>[m[K’
+[2.068s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.068s]       |                                        [01;36m[K^~~~~[m[K
+[2.068s] In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.068s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.068s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.068s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.068s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Constant, std::_ValArray, _Tp, _Tp>, typename std::__fun<std::__multiplies, _Tp>::result_type> std::operator*(const typename std::valarray<_Tp>::value_type&, const std::valarray<_Tp>&)[m[K’
+[2.068s]  1188 | [01;36m[K_DEFINE_BINARY_OPERATOR[m[K(*, __multiplies)
+[2.068s]       | [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.068s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.068s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.068s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.068s]       |                                        [01;36m[K^~~~~[m[K
+[2.068s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.068s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.068s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.068s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.068s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.068s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.068s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:606:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(const cv::Matx<_Tp, m, n>&, int)[m[K’
+[2.068s]   606 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, int alpha)
+[2.068s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.068s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:606:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.068s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.068s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.068s]       |                                        [01;36m[K^~~~~[m[K
+[2.068s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.068s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.069s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.069s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.069s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.069s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.069s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:612:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(const cv::Matx<_Tp, m, n>&, float)[m[K’
+[2.069s]   612 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, float alpha)
+[2.069s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.069s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:612:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.069s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.069s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.069s]       |                                        [01;36m[K^~~~~[m[K
+[2.069s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.069s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.069s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.069s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.069s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.069s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.069s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:618:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(const cv::Matx<_Tp, m, n>&, double)[m[K’
+[2.069s]   618 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, double alpha)
+[2.069s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.069s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:618:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.069s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.069s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.069s]       |                                        [01;36m[K^~~~~[m[K
+[2.069s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.069s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.069s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.069s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.069s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.069s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.069s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:624:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(int, const cv::Matx<_Tp, m, n>&)[m[K’
+[2.069s]   624 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (int alpha, const Matx<_Tp, m, n>& a)
+[2.069s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.069s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:624:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.069s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.069s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.069s]       |                                        [01;36m[K^~~~~[m[K
+[2.069s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.069s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.070s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.070s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:630:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(float, const cv::Matx<_Tp, m, n>&)[m[K’
+[2.070s]   630 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (float alpha, const Matx<_Tp, m, n>& a)
+[2.070s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.070s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:630:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.070s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.070s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.070s]       |                                        [01;36m[K^~~~~[m[K
+[2.070s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.070s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.070s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.070s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:636:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(double, const cv::Matx<_Tp, m, n>&)[m[K’
+[2.070s]   636 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (double alpha, const Matx<_Tp, m, n>& a)
+[2.070s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.070s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:636:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.070s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.070s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.070s]       |                                        [01;36m[K^~~~~[m[K
+[2.070s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.070s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.070s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.070s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:676:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n, int l> cv::Matx<_Tp, m, n> cv::operator*(const cv::Matx<_Tp, m, l>&, const cv::Matx<_Tp, l, n>&)[m[K’
+[2.070s]   676 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (const Matx<_Tp, m, l>& a, const Matx<_Tp, l, n>& b)
+[2.070s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.070s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:676:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.070s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, l>[m[K’
+[2.070s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.070s]       |                                        [01;36m[K^~~~~[m[K
+[2.070s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.070s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.070s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.070s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.070s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:682:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Vec<_Tp, m> cv::operator*(const cv::Matx<_Tp, m, n>&, const cv::Vec<_Tp, n>&)[m[K’
+[2.070s]   682 | Vec<_Tp, m> [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, const Vec<_Tp, n>& b)
+[2.070s]       |             [01;36m[K^~~~~~~~[m[K
+[2.070s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:682:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.071s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.071s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.071s]       |                                        [01;36m[K^~~~~[m[K
+[2.071s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.071s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.071s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.071s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.071s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.071s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.071s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1038:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(const cv::Vec<_Tp, m>&, int)[m[K’
+[2.071s]  1038 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (const Vec<_Tp, cn>& a, int alpha)
+[2.071s]       |              [01;36m[K^~~~~~~~[m[K
+[2.071s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1038:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.071s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, m>[m[K’
+[2.071s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.071s]       |                                        [01;36m[K^~~~~[m[K
+[2.071s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.071s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.071s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.071s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.071s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.071s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.071s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1044:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(int, const cv::Vec<_Tp, m>&)[m[K’
+[2.071s]  1044 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (int alpha, const Vec<_Tp, cn>& a)
+[2.071s]       |              [01;36m[K^~~~~~~~[m[K
+[2.071s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1044:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.071s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.071s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.071s]       |                                        [01;36m[K^~~~~[m[K
+[2.071s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.071s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.071s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.071s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.071s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.071s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.071s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1050:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(const cv::Vec<_Tp, m>&, float)[m[K’
+[2.071s]  1050 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (const Vec<_Tp, cn>& a, float alpha)
+[2.071s]       |              [01;36m[K^~~~~~~~[m[K
+[2.071s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1050:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.071s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, m>[m[K’
+[2.071s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.071s]       |                                        [01;36m[K^~~~~[m[K
+[2.071s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.071s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.072s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.072s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1056:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(float, const cv::Vec<_Tp, m>&)[m[K’
+[2.072s]  1056 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (float alpha, const Vec<_Tp, cn>& a)
+[2.072s]       |              [01;36m[K^~~~~~~~[m[K
+[2.072s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1056:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.072s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.072s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.072s]       |                                        [01;36m[K^~~~~[m[K
+[2.072s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.072s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.072s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.072s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1062:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(const cv::Vec<_Tp, m>&, double)[m[K’
+[2.072s]  1062 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (const Vec<_Tp, cn>& a, double alpha)
+[2.072s]       |              [01;36m[K^~~~~~~~[m[K
+[2.072s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1062:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.072s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, m>[m[K’
+[2.072s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.072s]       |                                        [01;36m[K^~~~~[m[K
+[2.072s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.072s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.072s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.072s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1068:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(double, const cv::Vec<_Tp, m>&)[m[K’
+[2.072s]  1068 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (double alpha, const Vec<_Tp, cn>& a)
+[2.072s]       |              [01;36m[K^~~~~~~~[m[K
+[2.072s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1068:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.072s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.072s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.072s]       |                                        [01;36m[K^~~~~[m[K
+[2.072s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.072s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.072s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.072s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.072s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1099:43:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Vec<_Tp, 4> cv::operator*(const cv::Vec<_Tp, 4>&, const cv::Vec<_Tp, 4>&)[m[K’
+[2.072s]  1099 | template<typename _Tp> inline Vec<_Tp, 4> [01;36m[Koperator[m[K * (const Vec<_Tp, 4>& v1, const Vec<_Tp, 4>& v2)
+[2.073s]       |                                           [01;36m[K^~~~~~~~[m[K
+[2.073s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1099:43:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.073s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, 4>[m[K’
+[2.073s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.073s]       |                                        [01;36m[K^~~~~[m[K
+[2.073s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.073s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.073s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1090:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Complex<_Tp> cv::operator*(const cv::Complex<_Tp>&, const cv::Complex<_Tp>&)[m[K’
+[2.073s]  1090 | Complex<_Tp> [01;36m[Koperator[m[K * (const Complex<_Tp>& a, const Complex<_Tp>& b)
+[2.073s]       |              [01;36m[K^~~~~~~~[m[K
+[2.073s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1090:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.073s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Complex<_Tp>[m[K’
+[2.073s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.073s]       |                                        [01;36m[K^~~~~[m[K
+[2.073s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.073s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.073s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1096:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Complex<_Tp> cv::operator*(const cv::Complex<_Tp>&, _Tp)[m[K’
+[2.073s]  1096 | Complex<_Tp> [01;36m[Koperator[m[K * (const Complex<_Tp>& a, _Tp b)
+[2.073s]       |              [01;36m[K^~~~~~~~[m[K
+[2.073s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1096:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.073s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Complex<_Tp>[m[K’
+[2.073s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.073s]       |                                        [01;36m[K^~~~~[m[K
+[2.073s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.073s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.073s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1102:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Complex<_Tp> cv::operator*(_Tp, const cv::Complex<_Tp>&)[m[K’
+[2.073s]  1102 | Complex<_Tp> [01;36m[Koperator[m[K * (_Tp b, const Complex<_Tp>& a)
+[2.073s]       |              [01;36m[K^~~~~~~~[m[K
+[2.073s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1102:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.073s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.073s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.073s]       |                                        [01;36m[K^~~~~[m[K
+[2.073s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.073s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.073s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.073s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1361:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(const cv::Point_<_Tp>&, int)[m[K’
+[2.074s]  1361 | Point_<_Tp> [01;36m[Koperator[m[K * (const Point_<_Tp>& a, int b)
+[2.074s]       |             [01;36m[K^~~~~~~~[m[K
+[2.074s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1361:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.074s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point_<_Tp>[m[K’
+[2.074s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.074s]       |                                        [01;36m[K^~~~~[m[K
+[2.074s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.074s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.074s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1367:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(int, const cv::Point_<_Tp>&)[m[K’
+[2.074s]  1367 | Point_<_Tp> [01;36m[Koperator[m[K * (int a, const Point_<_Tp>& b)
+[2.074s]       |             [01;36m[K^~~~~~~~[m[K
+[2.074s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1367:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.074s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.074s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.074s]       |                                        [01;36m[K^~~~~[m[K
+[2.074s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.074s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.074s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1373:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(const cv::Point_<_Tp>&, float)[m[K’
+[2.074s]  1373 | Point_<_Tp> [01;36m[Koperator[m[K * (const Point_<_Tp>& a, float b)
+[2.074s]       |             [01;36m[K^~~~~~~~[m[K
+[2.074s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1373:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.074s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point_<_Tp>[m[K’
+[2.074s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.074s]       |                                        [01;36m[K^~~~~[m[K
+[2.074s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.074s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.074s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1379:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(float, const cv::Point_<_Tp>&)[m[K’
+[2.074s]  1379 | Point_<_Tp> [01;36m[Koperator[m[K * (float a, const Point_<_Tp>& b)
+[2.074s]       |             [01;36m[K^~~~~~~~[m[K
+[2.074s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1379:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.074s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.074s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.074s]       |                                        [01;36m[K^~~~~[m[K
+[2.074s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.074s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.074s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.074s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1385:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(const cv::Point_<_Tp>&, double)[m[K’
+[2.075s]  1385 | Point_<_Tp> [01;36m[Koperator[m[K * (const Point_<_Tp>& a, double b)
+[2.075s]       |             [01;36m[K^~~~~~~~[m[K
+[2.075s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1385:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.075s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point_<_Tp>[m[K’
+[2.075s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.075s]       |                                        [01;36m[K^~~~~[m[K
+[2.075s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.075s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.075s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1391:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(double, const cv::Point_<_Tp>&)[m[K’
+[2.075s]  1391 | Point_<_Tp> [01;36m[Koperator[m[K * (double a, const Point_<_Tp>& b)
+[2.075s]       |             [01;36m[K^~~~~~~~[m[K
+[2.075s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1391:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.075s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.075s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.075s]       |                                        [01;36m[K^~~~~[m[K
+[2.075s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.075s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.075s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1397:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(const cv::Matx<_Tp, 2, 2>&, const cv::Point_<_Tp>&)[m[K’
+[2.075s]  1397 | Point_<_Tp> [01;36m[Koperator[m[K * (const Matx<_Tp, 2, 2>& a, const Point_<_Tp>& b)
+[2.075s]       |             [01;36m[K^~~~~~~~[m[K
+[2.075s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1397:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.075s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 2, 2>[m[K’
+[2.075s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.075s]       |                                        [01;36m[K^~~~~[m[K
+[2.075s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.075s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.075s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1404:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Matx<_Tp, 3, 3>&, const cv::Point_<_Tp>&)[m[K’
+[2.075s]  1404 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Matx<_Tp, 3, 3>& a, const Point_<_Tp>& b)
+[2.075s]       |              [01;36m[K^~~~~~~~[m[K
+[2.075s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1404:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.075s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 3, 3>[m[K’
+[2.075s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.075s]       |                                        [01;36m[K^~~~~[m[K
+[2.075s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.075s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.075s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.076s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1608:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Point3_<_Tp>&, int)[m[K’
+[2.076s]  1608 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Point3_<_Tp>& a, int b)
+[2.076s]       |              [01;36m[K^~~~~~~~[m[K
+[2.076s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1608:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.076s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point3_<_Tp>[m[K’
+[2.076s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.076s]       |                                        [01;36m[K^~~~~[m[K
+[2.076s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.076s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.076s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1614:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(int, const cv::Point3_<_Tp>&)[m[K’
+[2.076s]  1614 | Point3_<_Tp> [01;36m[Koperator[m[K * (int a, const Point3_<_Tp>& b)
+[2.076s]       |              [01;36m[K^~~~~~~~[m[K
+[2.076s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1614:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.076s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.076s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.076s]       |                                        [01;36m[K^~~~~[m[K
+[2.076s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.076s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.076s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1620:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Point3_<_Tp>&, float)[m[K’
+[2.076s]  1620 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Point3_<_Tp>& a, float b)
+[2.076s]       |              [01;36m[K^~~~~~~~[m[K
+[2.076s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1620:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.076s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point3_<_Tp>[m[K’
+[2.076s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.076s]       |                                        [01;36m[K^~~~~[m[K
+[2.076s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.076s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.076s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1626:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(float, const cv::Point3_<_Tp>&)[m[K’
+[2.076s]  1626 | Point3_<_Tp> [01;36m[Koperator[m[K * (float a, const Point3_<_Tp>& b)
+[2.076s]       |              [01;36m[K^~~~~~~~[m[K
+[2.076s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1626:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.076s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.076s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.076s]       |                                        [01;36m[K^~~~~[m[K
+[2.076s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.076s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.076s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.077s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1632:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Point3_<_Tp>&, double)[m[K’
+[2.077s]  1632 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Point3_<_Tp>& a, double b)
+[2.077s]       |              [01;36m[K^~~~~~~~[m[K
+[2.077s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1632:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.077s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point3_<_Tp>[m[K’
+[2.077s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.077s]       |                                        [01;36m[K^~~~~[m[K
+[2.077s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.077s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.077s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1638:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(double, const cv::Point3_<_Tp>&)[m[K’
+[2.077s]  1638 | Point3_<_Tp> [01;36m[Koperator[m[K * (double a, const Point3_<_Tp>& b)
+[2.077s]       |              [01;36m[K^~~~~~~~[m[K
+[2.077s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1638:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.077s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.077s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.077s]       |                                        [01;36m[K^~~~~[m[K
+[2.077s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.077s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.077s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1644:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Matx<_Tp, 3, 3>&, const cv::Point3_<_Tp>&)[m[K’
+[2.077s]  1644 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Matx<_Tp, 3, 3>& a, const Point3_<_Tp>& b)
+[2.077s]       |              [01;36m[K^~~~~~~~[m[K
+[2.077s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1644:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.077s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 3, 3>[m[K’
+[2.077s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.077s]       |                                        [01;36m[K^~~~~[m[K
+[2.077s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.077s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.077s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1651:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Matx<T2, 4, 1> cv::operator*(const cv::Matx<_Tp, 4, 4>&, const cv::Point3_<_Tp>&)[m[K’
+[2.077s]  1651 | Matx<_Tp, 4, 1> [01;36m[Koperator[m[K * (const Matx<_Tp, 4, 4>& a, const Point3_<_Tp>& b)
+[2.077s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.077s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1651:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.077s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 4, 4>[m[K’
+[2.077s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.077s]       |                                        [01;36m[K^~~~~[m[K
+[2.077s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.077s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.077s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.078s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1733:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Size_<_Tp> cv::operator*(const cv::Size_<_Tp>&, _Tp)[m[K’
+[2.078s]  1733 | Size_<_Tp> [01;36m[Koperator[m[K * (const Size_<_Tp>& a, _Tp b)
+[2.078s]       |            [01;36m[K^~~~~~~~[m[K
+[2.078s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1733:12:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.078s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Size_<_Tp>[m[K’
+[2.078s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.078s]       |                                        [01;36m[K^~~~~[m[K
+[2.078s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.078s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.078s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2301:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Scalar_<_Tp> cv::operator*(const cv::Scalar_<_Tp>&, _Tp)[m[K’
+[2.078s]  2301 | Scalar_<_Tp> [01;36m[Koperator[m[K * (const Scalar_<_Tp>& a, _Tp alpha)
+[2.078s]       |              [01;36m[K^~~~~~~~[m[K
+[2.078s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2301:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.078s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Scalar_<_Tp>[m[K’
+[2.078s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.078s]       |                                        [01;36m[K^~~~~[m[K
+[2.078s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.078s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.078s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2310:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Scalar_<_Tp> cv::operator*(_Tp, const cv::Scalar_<_Tp>&)[m[K’
+[2.078s]  2310 | Scalar_<_Tp> [01;36m[Koperator[m[K * (_Tp alpha, const Scalar_<_Tp>& a)
+[2.078s]       |              [01;36m[K^~~~~~~~[m[K
+[2.078s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2310:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.078s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.078s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.078s]       |                                        [01;36m[K^~~~~[m[K
+[2.078s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.078s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.078s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2326:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Scalar_<_Tp> cv::operator*(const cv::Scalar_<_Tp>&, const cv::Scalar_<_Tp>&)[m[K’
+[2.078s]  2326 | Scalar_<_Tp> [01;36m[Koperator[m[K * (const Scalar_<_Tp>& a, const Scalar_<_Tp>& b)
+[2.078s]       |              [01;36m[K^~~~~~~~[m[K
+[2.078s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2326:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.078s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Scalar_<_Tp>[m[K’
+[2.078s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.078s]       |                                        [01;36m[K^~~~~[m[K
+[2.078s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.078s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.078s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.079s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2392:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Scalar cv::operator*(const cv::Matx<_Tp, 4, 4>&, const Scalar&)[m[K’
+[2.079s]  2392 | Scalar [01;36m[Koperator[m[K * (const Matx<_Tp, 4, 4>& a, const Scalar& b)
+[2.079s]       |        [01;36m[K^~~~~~~~[m[K
+[2.079s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2392:8:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.079s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 4, 4>[m[K’
+[2.079s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.079s]       |                                        [01;36m[K^~~~~[m[K
+[2.079s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:58[m[K,
+[2.079s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.079s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3666:9:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::MatExpr cv::operator*(const cv::Mat&, const cv::Matx<_Tp, m, n>&)[m[K’
+[2.079s]  3666 | MatExpr [01;36m[Koperator[m[K * (const Mat& a, const Matx<_Tp, m, n>& b) { return a * Mat(b); }
+[2.079s]       |         [01;36m[K^~~~~~~~[m[K
+[2.079s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3666:9:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.079s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.079s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.079s]       |                                        [01;36m[K^~~~~[m[K
+[2.079s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:58[m[K,
+[2.079s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.079s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3668:9:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::MatExpr cv::operator*(const cv::Matx<_Tp, m, n>&, const cv::Mat&)[m[K’
+[2.079s]  3668 | MatExpr [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, const Mat& b) { return Mat(a) * b; }
+[2.079s]       |         [01;36m[K^~~~~~~~[m[K
+[2.079s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3668:9:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.079s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.079s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.079s]       |                                        [01;36m[K^~~~~[m[K
+[2.079s] In file included from [01m[K/usr/local/include/opencv4/opencv2/calib3d.hpp:50[m[K,
+[2.079s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:56[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.079s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:601:16:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> cv::Affine3<T> cv::operator*(const cv::Affine3<T>&, const cv::Affine3<T>&)[m[K’
+[2.079s]   601 | cv::Affine3<T> [01;36m[Kcv[m[K::operator*(const cv::Affine3<T>& affine1, const cv::Affine3<T>& affine2)
+[2.079s]       |                [01;36m[K^~[m[K
+[2.079s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:601:16:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.079s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Affine3<T>[m[K’
+[2.079s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.079s]       |                                        [01;36m[K^~~~~[m[K
+[2.079s] In file included from [01m[K/usr/local/include/opencv4/opencv2/calib3d.hpp:50[m[K,
+[2.079s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:56[m[K,
+[2.079s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.080s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.080s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:607:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T, class V> V cv::operator*(const cv::Affine3<T>&, const V&)[m[K’
+[2.080s]   607 | V [01;36m[Kcv[m[K::operator*(const cv::Affine3<T>& affine, const V& v)
+[2.080s]       |   [01;36m[K^~[m[K
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:607:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.080s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:124:40:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Affine3<T>[m[K’
+[2.080s]   124 |                         cv::rectangle(*[01;36m[Kframe[m[K, rect, cv::Scalar(255, 0, 0), 2);
+[2.080s]       |                                        [01;36m[K^~~~~[m[K
+[2.080s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:58[m[K,
+[2.080s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.080s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.080s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.080s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3657:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::Mat&, const cv::Mat&)[m[K’
+[2.080s]  3657 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const Mat& a, const Mat& b);
+[2.080s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3657:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3658:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::Mat&, double)[m[K’
+[2.080s]  3658 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const Mat& a, double s);
+[2.080s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3658:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3659:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(double, const cv::Mat&)[m[K’
+[2.080s]  3659 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (double s, const Mat& a);
+[2.080s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3659:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3660:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::MatExpr&, const cv::Mat&)[m[K’
+[2.080s]  3660 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const MatExpr& e, const Mat& m);
+[2.080s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3660:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3661:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::Mat&, const cv::MatExpr&)[m[K’
+[2.080s]  3661 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const Mat& m, const MatExpr& e);
+[2.080s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3661:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3662:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::MatExpr&, double)[m[K’
+[2.080s]  3662 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const MatExpr& e, double s);
+[2.080s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3662:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3663:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(double, const cv::MatExpr&)[m[K’
+[2.080s]  3663 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (double s, const MatExpr& e);
+[2.080s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3663:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3664:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::MatExpr&, const cv::MatExpr&)[m[K’
+[2.080s]  3664 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const MatExpr& e1, const MatExpr& e2);
+[2.080s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.080s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3664:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.080s] In file included from [01m[K/usr/local/include/opencv4/opencv2/calib3d.hpp:50[m[K,
+[2.080s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:56[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.081s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:619:11:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::Vec3f cv::operator*(const Affine3f&, const Vec3f&)[m[K’
+[2.081s]   619 | cv::Vec3f [01;36m[Kcv[m[K::operator*(const cv::Affine3f& affine, const cv::Vec3f& v)
+[2.081s]       |           [01;36m[K^~[m[K
+[2.081s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:619:11:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.081s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:630:11:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::Vec3d cv::operator*(const Affine3d&, const Vec3d&)[m[K’
+[2.081s]   630 | cv::Vec3d [01;36m[Kcv[m[K::operator*(const cv::Affine3d& affine, const cv::Vec3d& v)
+[2.081s]       |           [01;36m[K^~[m[K
+[2.081s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:630:11:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.081s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:37:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator*[m[K’ (operand type is ‘[01m[Kcv::Mat[m[K’)
+[2.081s]   125 |                         cv::putText([01;31m[K*frame[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.081s]       |                                     [01;31m[K^~~~~~[m[K
+[2.081s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:47[m[K,
+[2.081s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3419[m[K,
+[2.081s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.081s] [01m[K/usr/include/c++/11/complex:392:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const std::complex<_Tp>&)[m[K’
+[2.081s]   392 |     [01;36m[Koperator[m[K*(const complex<_Tp>& __x, const complex<_Tp>& __y)
+[2.081s]       |     [01;36m[K^~~~~~~~[m[K
+[2.081s] [01m[K/usr/include/c++/11/complex:392:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.081s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::complex<_Tp>[m[K’
+[2.081s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.081s]       |                                      [01;36m[K^~~~~[m[K
+[2.081s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:47[m[K,
+[2.081s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3419[m[K,
+[2.081s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.081s] [01m[K/usr/include/c++/11/complex:401:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::complex<_Tp> std::operator*(const std::complex<_Tp>&, const _Tp&)[m[K’
+[2.081s]   401 |     [01;36m[Koperator[m[K*(const complex<_Tp>& __x, const _Tp& __y)
+[2.081s]       |     [01;36m[K^~~~~~~~[m[K
+[2.081s] [01m[K/usr/include/c++/11/complex:401:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.081s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::complex<_Tp>[m[K’
+[2.081s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.081s]       |                                      [01;36m[K^~~~~[m[K
+[2.081s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/cvstd.inl.hpp:47[m[K,
+[2.081s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:3419[m[K,
+[2.081s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.081s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.081s] [01m[K/usr/include/c++/11/complex:410:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::complex<_Tp> std::operator*(const _Tp&, const std::complex<_Tp>&)[m[K’
+[2.082s]   410 |     [01;36m[Koperator[m[K*(const _Tp& __x, const complex<_Tp>& __y)
+[2.082s]       |     [01;36m[K^~~~~~~~[m[K
+[2.082s] [01m[K/usr/include/c++/11/complex:410:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.082s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.082s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.082s]       |                                      [01;36m[K^~~~~[m[K
+[2.082s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.082s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom1, class _Dom2> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Expr, std::_Expr, _Dom1, _Dom2>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const std::_Expr<_Dom1, typename _Dom1::value_type>&, const std::_Expr<_Dom2, typename _Dom2::value_type>&)[m[K’
+[2.082s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.082s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.082s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.082s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::_Expr<_Dom1, typename _Dom1::value_type>[m[K’
+[2.082s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.082s]       |                                      [01;36m[K^~~~~[m[K
+[2.082s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.082s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Expr, std::_Constant, _Dom, typename _Dom::value_type>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const std::_Expr<_Dom1, typename _Dom1::value_type>&, const typename _Dom::value_type&)[m[K’
+[2.082s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.082s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.082s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.082s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::_Expr<_Dom1, typename _Dom1::value_type>[m[K’
+[2.082s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.082s]       |                                      [01;36m[K^~~~~[m[K
+[2.082s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.082s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Constant, std::_Expr, typename _Dom::value_type, _Dom>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const typename _Dom::value_type&, const std::_Expr<_Dom1, typename _Dom1::value_type>&)[m[K’
+[2.082s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.082s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.082s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.082s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.082s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.082s]       |                                      [01;36m[K^~~~~[m[K
+[2.082s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.082s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.083s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Expr, std::_ValArray, _Dom, typename _Dom::value_type>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const std::_Expr<_Dom1, typename _Dom1::value_type>&, const std::valarray<typename _Dom::value_type>&)[m[K’
+[2.083s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.083s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.083s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.083s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::_Expr<_Dom1, typename _Dom1::value_type>[m[K’
+[2.083s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.083s]       |                                      [01;36m[K^~~~~[m[K
+[2.083s] In file included from [01m[K/usr/include/c++/11/valarray:603[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.083s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Dom> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_ValArray, std::_Expr, typename _Dom::value_type, _Dom>, typename std::__fun<std::__multiplies, typename _Dom1::value_type>::result_type> std::operator*(const std::valarray<typename _Dom::value_type>&, const std::_Expr<_Dom1, typename _Dom1::value_type>&)[m[K’
+[2.083s]   407 |     [01;36m[K_DEFINE_EXPR_BINARY_OPERATOR[m[K(*, struct std::__multiplies)
+[2.083s]       |     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.083s] [01m[K/usr/include/c++/11/bits/valarray_after.h:407:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.083s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.083s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.083s]       |                                      [01;36m[K^~~~~[m[K
+[2.083s] In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.083s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_ValArray, std::_ValArray, _Tp, _Tp>, typename std::__fun<std::__multiplies, _Tp>::result_type> std::operator*(const std::valarray<_Tp>&, const std::valarray<_Tp>&)[m[K’
+[2.083s]  1188 | [01;36m[K_DEFINE_BINARY_OPERATOR[m[K(*, __multiplies)
+[2.083s]       | [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.083s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.083s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::valarray<_Tp>[m[K’
+[2.083s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.083s]       |                                      [01;36m[K^~~~~[m[K
+[2.083s] In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.083s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_ValArray, std::_Constant, _Tp, _Tp>, typename std::__fun<std::__multiplies, _Tp>::result_type> std::operator*(const std::valarray<_Tp>&, const typename std::valarray<_Tp>::value_type&)[m[K’
+[2.083s]  1188 | [01;36m[K_DEFINE_BINARY_OPERATOR[m[K(*, __multiplies)
+[2.083s]       | [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.083s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.083s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst std::valarray<_Tp>[m[K’
+[2.083s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.083s]       |                                      [01;36m[K^~~~~[m[K
+[2.083s] In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/../ai_libraries/mlpp.hpp:45[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:9[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.083s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.083s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> std::_Expr<std::__detail::_BinClos<std::__multiplies, std::_Constant, std::_ValArray, _Tp, _Tp>, typename std::__fun<std::__multiplies, _Tp>::result_type> std::operator*(const typename std::valarray<_Tp>::value_type&, const std::valarray<_Tp>&)[m[K’
+[2.083s]  1188 | [01;36m[K_DEFINE_BINARY_OPERATOR[m[K(*, __multiplies)
+[2.084s]       | [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.084s] [01m[K/usr/include/c++/11/valarray:1188:1:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.084s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.084s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.084s]       |                                      [01;36m[K^~~~~[m[K
+[2.084s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.084s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.084s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.084s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.084s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.084s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.084s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:606:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(const cv::Matx<_Tp, m, n>&, int)[m[K’
+[2.084s]   606 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, int alpha)
+[2.084s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.084s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:606:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.084s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.084s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.084s]       |                                      [01;36m[K^~~~~[m[K
+[2.084s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.084s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.084s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.084s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.084s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.084s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.084s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:612:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(const cv::Matx<_Tp, m, n>&, float)[m[K’
+[2.084s]   612 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, float alpha)
+[2.084s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.084s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:612:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.084s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.084s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.084s]       |                                      [01;36m[K^~~~~[m[K
+[2.084s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.084s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.084s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.084s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.084s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.084s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.084s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:618:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(const cv::Matx<_Tp, m, n>&, double)[m[K’
+[2.084s]   618 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, double alpha)
+[2.084s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.084s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:618:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.084s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.084s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.084s]       |                                      [01;36m[K^~~~~[m[K
+[2.084s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.084s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.084s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.085s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:624:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(int, const cv::Matx<_Tp, m, n>&)[m[K’
+[2.085s]   624 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (int alpha, const Matx<_Tp, m, n>& a)
+[2.085s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.085s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:624:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.085s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.085s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.085s]       |                                      [01;36m[K^~~~~[m[K
+[2.085s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.085s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.085s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.085s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:630:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(float, const cv::Matx<_Tp, m, n>&)[m[K’
+[2.085s]   630 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (float alpha, const Matx<_Tp, m, n>& a)
+[2.085s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.085s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:630:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.085s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.085s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.085s]       |                                      [01;36m[K^~~~~[m[K
+[2.085s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.085s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.085s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.085s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:636:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Matx<_Tp, m, n> cv::operator*(double, const cv::Matx<_Tp, m, n>&)[m[K’
+[2.085s]   636 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (double alpha, const Matx<_Tp, m, n>& a)
+[2.085s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.085s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:636:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.085s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.085s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.085s]       |                                      [01;36m[K^~~~~[m[K
+[2.085s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.085s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.085s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.085s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.085s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:676:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n, int l> cv::Matx<_Tp, m, n> cv::operator*(const cv::Matx<_Tp, m, l>&, const cv::Matx<_Tp, l, n>&)[m[K’
+[2.085s]   676 | Matx<_Tp, m, n> [01;36m[Koperator[m[K * (const Matx<_Tp, m, l>& a, const Matx<_Tp, l, n>& b)
+[2.085s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.085s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:676:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.085s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, l>[m[K’
+[2.086s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.086s]       |                                      [01;36m[K^~~~~[m[K
+[2.086s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.086s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.086s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.086s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.086s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.086s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.086s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:682:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::Vec<_Tp, m> cv::operator*(const cv::Matx<_Tp, m, n>&, const cv::Vec<_Tp, n>&)[m[K’
+[2.086s]   682 | Vec<_Tp, m> [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, const Vec<_Tp, n>& b)
+[2.086s]       |             [01;36m[K^~~~~~~~[m[K
+[2.086s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:682:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.086s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.086s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.086s]       |                                      [01;36m[K^~~~~[m[K
+[2.086s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.086s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.086s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.086s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.086s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.086s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.086s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1038:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(const cv::Vec<_Tp, m>&, int)[m[K’
+[2.086s]  1038 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (const Vec<_Tp, cn>& a, int alpha)
+[2.086s]       |              [01;36m[K^~~~~~~~[m[K
+[2.086s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1038:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.086s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, m>[m[K’
+[2.086s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.086s]       |                                      [01;36m[K^~~~~[m[K
+[2.086s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.086s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.086s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.086s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.086s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.086s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.086s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1044:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(int, const cv::Vec<_Tp, m>&)[m[K’
+[2.086s]  1044 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (int alpha, const Vec<_Tp, cn>& a)
+[2.086s]       |              [01;36m[K^~~~~~~~[m[K
+[2.086s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1044:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.086s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.086s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.086s]       |                                      [01;36m[K^~~~~[m[K
+[2.087s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.087s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.087s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.087s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1050:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(const cv::Vec<_Tp, m>&, float)[m[K’
+[2.087s]  1050 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (const Vec<_Tp, cn>& a, float alpha)
+[2.087s]       |              [01;36m[K^~~~~~~~[m[K
+[2.087s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1050:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.087s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, m>[m[K’
+[2.087s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.087s]       |                                      [01;36m[K^~~~~[m[K
+[2.087s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.087s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.087s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.087s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1056:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(float, const cv::Vec<_Tp, m>&)[m[K’
+[2.087s]  1056 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (float alpha, const Vec<_Tp, cn>& a)
+[2.087s]       |              [01;36m[K^~~~~~~~[m[K
+[2.087s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1056:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.087s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.087s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.087s]       |                                      [01;36m[K^~~~~[m[K
+[2.087s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.087s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.087s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.087s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1062:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(const cv::Vec<_Tp, m>&, double)[m[K’
+[2.087s]  1062 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (const Vec<_Tp, cn>& a, double alpha)
+[2.087s]       |              [01;36m[K^~~~~~~~[m[K
+[2.087s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1062:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.087s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, m>[m[K’
+[2.087s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.087s]       |                                      [01;36m[K^~~~~[m[K
+[2.087s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.087s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.087s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.087s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.088s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1068:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int cn> cv::Vec<_Tp, m> cv::operator*(double, const cv::Vec<_Tp, m>&)[m[K’
+[2.088s]  1068 | Vec<_Tp, cn> [01;36m[Koperator[m[K * (double alpha, const Vec<_Tp, cn>& a)
+[2.088s]       |              [01;36m[K^~~~~~~~[m[K
+[2.088s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1068:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.088s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.088s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.088s]       |                                      [01;36m[K^~~~~[m[K
+[2.088s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core/matx.hpp:542[m[K,
+[2.088s]                  from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:56[m[K,
+[2.088s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.088s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1099:43:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Vec<_Tp, 4> cv::operator*(const cv::Vec<_Tp, 4>&, const cv::Vec<_Tp, 4>&)[m[K’
+[2.088s]  1099 | template<typename _Tp> inline Vec<_Tp, 4> [01;36m[Koperator[m[K * (const Vec<_Tp, 4>& v1, const Vec<_Tp, 4>& v2)
+[2.088s]       |                                           [01;36m[K^~~~~~~~[m[K
+[2.088s] [01m[K/usr/local/include/opencv4/opencv2/core/matx.inl.hpp:1099:43:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.088s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Vec<_Tp, 4>[m[K’
+[2.088s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.088s]       |                                      [01;36m[K^~~~~[m[K
+[2.088s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.088s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.088s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1090:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Complex<_Tp> cv::operator*(const cv::Complex<_Tp>&, const cv::Complex<_Tp>&)[m[K’
+[2.088s]  1090 | Complex<_Tp> [01;36m[Koperator[m[K * (const Complex<_Tp>& a, const Complex<_Tp>& b)
+[2.088s]       |              [01;36m[K^~~~~~~~[m[K
+[2.088s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1090:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.088s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Complex<_Tp>[m[K’
+[2.088s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.088s]       |                                      [01;36m[K^~~~~[m[K
+[2.088s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.088s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.088s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.088s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1096:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Complex<_Tp> cv::operator*(const cv::Complex<_Tp>&, _Tp)[m[K’
+[2.088s]  1096 | Complex<_Tp> [01;36m[Koperator[m[K * (const Complex<_Tp>& a, _Tp b)
+[2.088s]       |              [01;36m[K^~~~~~~~[m[K
+[2.088s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1096:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.088s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Complex<_Tp>[m[K’
+[2.088s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.088s]       |                                      [01;36m[K^~~~~[m[K
+[2.088s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.089s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.089s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1102:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Complex<_Tp> cv::operator*(_Tp, const cv::Complex<_Tp>&)[m[K’
+[2.089s]  1102 | Complex<_Tp> [01;36m[Koperator[m[K * (_Tp b, const Complex<_Tp>& a)
+[2.089s]       |              [01;36m[K^~~~~~~~[m[K
+[2.089s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1102:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.089s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.089s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.089s]       |                                      [01;36m[K^~~~~[m[K
+[2.089s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.089s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.089s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1361:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(const cv::Point_<_Tp>&, int)[m[K’
+[2.089s]  1361 | Point_<_Tp> [01;36m[Koperator[m[K * (const Point_<_Tp>& a, int b)
+[2.089s]       |             [01;36m[K^~~~~~~~[m[K
+[2.089s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1361:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.089s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point_<_Tp>[m[K’
+[2.089s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.089s]       |                                      [01;36m[K^~~~~[m[K
+[2.089s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.089s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.089s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1367:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(int, const cv::Point_<_Tp>&)[m[K’
+[2.089s]  1367 | Point_<_Tp> [01;36m[Koperator[m[K * (int a, const Point_<_Tp>& b)
+[2.089s]       |             [01;36m[K^~~~~~~~[m[K
+[2.089s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1367:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.089s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.089s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.089s]       |                                      [01;36m[K^~~~~[m[K
+[2.089s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.089s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.089s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1373:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(const cv::Point_<_Tp>&, float)[m[K’
+[2.089s]  1373 | Point_<_Tp> [01;36m[Koperator[m[K * (const Point_<_Tp>& a, float b)
+[2.089s]       |             [01;36m[K^~~~~~~~[m[K
+[2.089s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1373:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.089s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point_<_Tp>[m[K’
+[2.089s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.089s]       |                                      [01;36m[K^~~~~[m[K
+[2.089s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.089s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.089s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.090s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1379:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(float, const cv::Point_<_Tp>&)[m[K’
+[2.090s]  1379 | Point_<_Tp> [01;36m[Koperator[m[K * (float a, const Point_<_Tp>& b)
+[2.090s]       |             [01;36m[K^~~~~~~~[m[K
+[2.090s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1379:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.090s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.090s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.090s]       |                                      [01;36m[K^~~~~[m[K
+[2.090s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.090s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.090s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1385:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(const cv::Point_<_Tp>&, double)[m[K’
+[2.090s]  1385 | Point_<_Tp> [01;36m[Koperator[m[K * (const Point_<_Tp>& a, double b)
+[2.090s]       |             [01;36m[K^~~~~~~~[m[K
+[2.090s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1385:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.090s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point_<_Tp>[m[K’
+[2.090s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.090s]       |                                      [01;36m[K^~~~~[m[K
+[2.090s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.090s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.090s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1391:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(double, const cv::Point_<_Tp>&)[m[K’
+[2.090s]  1391 | Point_<_Tp> [01;36m[Koperator[m[K * (double a, const Point_<_Tp>& b)
+[2.090s]       |             [01;36m[K^~~~~~~~[m[K
+[2.090s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1391:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.090s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.090s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.090s]       |                                      [01;36m[K^~~~~[m[K
+[2.090s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.090s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.090s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1397:13:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point_<_Tp> cv::operator*(const cv::Matx<_Tp, 2, 2>&, const cv::Point_<_Tp>&)[m[K’
+[2.090s]  1397 | Point_<_Tp> [01;36m[Koperator[m[K * (const Matx<_Tp, 2, 2>& a, const Point_<_Tp>& b)
+[2.090s]       |             [01;36m[K^~~~~~~~[m[K
+[2.090s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1397:13:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.090s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 2, 2>[m[K’
+[2.090s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.090s]       |                                      [01;36m[K^~~~~[m[K
+[2.090s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.090s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.090s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.091s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1404:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Matx<_Tp, 3, 3>&, const cv::Point_<_Tp>&)[m[K’
+[2.091s]  1404 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Matx<_Tp, 3, 3>& a, const Point_<_Tp>& b)
+[2.091s]       |              [01;36m[K^~~~~~~~[m[K
+[2.091s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1404:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.091s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 3, 3>[m[K’
+[2.091s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.091s]       |                                      [01;36m[K^~~~~[m[K
+[2.091s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.091s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.091s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1608:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Point3_<_Tp>&, int)[m[K’
+[2.091s]  1608 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Point3_<_Tp>& a, int b)
+[2.091s]       |              [01;36m[K^~~~~~~~[m[K
+[2.091s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1608:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.091s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point3_<_Tp>[m[K’
+[2.091s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.091s]       |                                      [01;36m[K^~~~~[m[K
+[2.091s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.091s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.091s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1614:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(int, const cv::Point3_<_Tp>&)[m[K’
+[2.091s]  1614 | Point3_<_Tp> [01;36m[Koperator[m[K * (int a, const Point3_<_Tp>& b)
+[2.091s]       |              [01;36m[K^~~~~~~~[m[K
+[2.091s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1614:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.091s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.091s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.091s]       |                                      [01;36m[K^~~~~[m[K
+[2.091s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.091s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.091s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1620:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Point3_<_Tp>&, float)[m[K’
+[2.091s]  1620 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Point3_<_Tp>& a, float b)
+[2.091s]       |              [01;36m[K^~~~~~~~[m[K
+[2.091s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1620:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.091s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point3_<_Tp>[m[K’
+[2.091s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.091s]       |                                      [01;36m[K^~~~~[m[K
+[2.091s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.091s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.091s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.091s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1626:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(float, const cv::Point3_<_Tp>&)[m[K’
+[2.092s]  1626 | Point3_<_Tp> [01;36m[Koperator[m[K * (float a, const Point3_<_Tp>& b)
+[2.092s]       |              [01;36m[K^~~~~~~~[m[K
+[2.092s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1626:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.092s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.092s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.092s]       |                                      [01;36m[K^~~~~[m[K
+[2.092s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.092s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.092s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1632:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Point3_<_Tp>&, double)[m[K’
+[2.092s]  1632 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Point3_<_Tp>& a, double b)
+[2.092s]       |              [01;36m[K^~~~~~~~[m[K
+[2.092s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1632:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.092s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Point3_<_Tp>[m[K’
+[2.092s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.092s]       |                                      [01;36m[K^~~~~[m[K
+[2.092s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.092s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.092s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1638:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(double, const cv::Point3_<_Tp>&)[m[K’
+[2.092s]  1638 | Point3_<_Tp> [01;36m[Koperator[m[K * (double a, const Point3_<_Tp>& b)
+[2.092s]       |              [01;36m[K^~~~~~~~[m[K
+[2.092s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1638:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.092s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.092s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.092s]       |                                      [01;36m[K^~~~~[m[K
+[2.092s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.092s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.092s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1644:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Point3_<_Tp> cv::operator*(const cv::Matx<_Tp, 3, 3>&, const cv::Point3_<_Tp>&)[m[K’
+[2.092s]  1644 | Point3_<_Tp> [01;36m[Koperator[m[K * (const Matx<_Tp, 3, 3>& a, const Point3_<_Tp>& b)
+[2.092s]       |              [01;36m[K^~~~~~~~[m[K
+[2.092s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1644:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.092s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 3, 3>[m[K’
+[2.092s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.092s]       |                                      [01;36m[K^~~~~[m[K
+[2.092s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.092s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.092s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.092s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1651:17:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Matx<T2, 4, 1> cv::operator*(const cv::Matx<_Tp, 4, 4>&, const cv::Point3_<_Tp>&)[m[K’
+[2.092s]  1651 | Matx<_Tp, 4, 1> [01;36m[Koperator[m[K * (const Matx<_Tp, 4, 4>& a, const Point3_<_Tp>& b)
+[2.092s]       |                 [01;36m[K^~~~~~~~[m[K
+[2.093s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1651:17:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.093s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 4, 4>[m[K’
+[2.093s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.093s]       |                                      [01;36m[K^~~~~[m[K
+[2.093s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.093s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.093s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1733:12:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Size_<_Tp> cv::operator*(const cv::Size_<_Tp>&, _Tp)[m[K’
+[2.093s]  1733 | Size_<_Tp> [01;36m[Koperator[m[K * (const Size_<_Tp>& a, _Tp b)
+[2.093s]       |            [01;36m[K^~~~~~~~[m[K
+[2.093s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:1733:12:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.093s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Size_<_Tp>[m[K’
+[2.093s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.093s]       |                                      [01;36m[K^~~~~[m[K
+[2.093s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.093s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.093s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2301:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Scalar_<_Tp> cv::operator*(const cv::Scalar_<_Tp>&, _Tp)[m[K’
+[2.093s]  2301 | Scalar_<_Tp> [01;36m[Koperator[m[K * (const Scalar_<_Tp>& a, _Tp alpha)
+[2.093s]       |              [01;36m[K^~~~~~~~[m[K
+[2.093s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2301:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.093s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Scalar_<_Tp>[m[K’
+[2.093s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.093s]       |                                      [01;36m[K^~~~~[m[K
+[2.093s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.093s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.093s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2310:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Scalar_<_Tp> cv::operator*(_Tp, const cv::Scalar_<_Tp>&)[m[K’
+[2.093s]  2310 | Scalar_<_Tp> [01;36m[Koperator[m[K * (_Tp alpha, const Scalar_<_Tp>& a)
+[2.093s]       |              [01;36m[K^~~~~~~~[m[K
+[2.093s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2310:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.093s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.093s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.093s]       |                                      [01;36m[K^~~~~[m[K
+[2.093s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.093s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.093s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.093s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2326:14:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Scalar_<_Tp> cv::operator*(const cv::Scalar_<_Tp>&, const cv::Scalar_<_Tp>&)[m[K’
+[2.093s]  2326 | Scalar_<_Tp> [01;36m[Koperator[m[K * (const Scalar_<_Tp>& a, const Scalar_<_Tp>& b)
+[2.093s]       |              [01;36m[K^~~~~~~~[m[K
+[2.093s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2326:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.094s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Scalar_<_Tp>[m[K’
+[2.094s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.094s]       |                                      [01;36m[K^~~~~[m[K
+[2.094s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:57[m[K,
+[2.094s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.094s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2392:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp> cv::Scalar cv::operator*(const cv::Matx<_Tp, 4, 4>&, const Scalar&)[m[K’
+[2.094s]  2392 | Scalar [01;36m[Koperator[m[K * (const Matx<_Tp, 4, 4>& a, const Scalar& b)
+[2.094s]       |        [01;36m[K^~~~~~~~[m[K
+[2.094s] [01m[K/usr/local/include/opencv4/opencv2/core/types.hpp:2392:8:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.094s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, 4, 4>[m[K’
+[2.094s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.094s]       |                                      [01;36m[K^~~~~[m[K
+[2.094s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:58[m[K,
+[2.094s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.094s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3666:9:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::MatExpr cv::operator*(const cv::Mat&, const cv::Matx<_Tp, m, n>&)[m[K’
+[2.094s]  3666 | MatExpr [01;36m[Koperator[m[K * (const Mat& a, const Matx<_Tp, m, n>& b) { return a * Mat(b); }
+[2.094s]       |         [01;36m[K^~~~~~~~[m[K
+[2.094s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3666:9:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.094s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.094s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.094s]       |                                      [01;36m[K^~~~~[m[K
+[2.094s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:58[m[K,
+[2.094s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.094s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3668:9:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Tp, int m, int n> cv::MatExpr cv::operator*(const cv::Matx<_Tp, m, n>&, const cv::Mat&)[m[K’
+[2.094s]  3668 | MatExpr [01;36m[Koperator[m[K * (const Matx<_Tp, m, n>& a, const Mat& b) { return Mat(a) * b; }
+[2.094s]       |         [01;36m[K^~~~~~~~[m[K
+[2.094s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3668:9:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.094s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Matx<_Tp, m, n>[m[K’
+[2.094s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.094s]       |                                      [01;36m[K^~~~~[m[K
+[2.094s] In file included from [01m[K/usr/local/include/opencv4/opencv2/calib3d.hpp:50[m[K,
+[2.094s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:56[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.094s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.094s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:601:16:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T> cv::Affine3<T> cv::operator*(const cv::Affine3<T>&, const cv::Affine3<T>&)[m[K’
+[2.094s]   601 | cv::Affine3<T> [01;36m[Kcv[m[K::operator*(const cv::Affine3<T>& affine1, const cv::Affine3<T>& affine2)
+[2.094s]       |                [01;36m[K^~[m[K
+[2.094s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:601:16:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.094s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Affine3<T>[m[K’
+[2.094s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.095s]       |                                      [01;36m[K^~~~~[m[K
+[2.095s] In file included from [01m[K/usr/local/include/opencv4/opencv2/calib3d.hpp:50[m[K,
+[2.095s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:56[m[K,
+[2.095s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.095s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.095s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:607:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class T, class V> V cv::operator*(const cv::Affine3<T>&, const V&)[m[K’
+[2.095s]   607 | V [01;36m[Kcv[m[K::operator*(const cv::Affine3<T>& affine, const V& v)
+[2.095s]       |   [01;36m[K^~[m[K
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:607:3:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[2.095s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:125:38:[m[K [01;36m[Knote: [m[K  ‘[01m[Kcv::Mat[m[K’ is not derived from ‘[01m[Kconst cv::Affine3<T>[m[K’
+[2.095s]   125 |                         cv::putText(*[01;36m[Kframe[m[K, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+[2.095s]       |                                      [01;36m[K^~~~~[m[K
+[2.095s] In file included from [01m[K/usr/local/include/opencv4/opencv2/core.hpp:58[m[K,
+[2.095s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:52[m[K,
+[2.095s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.095s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.095s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3657:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::Mat&, const cv::Mat&)[m[K’
+[2.095s]  3657 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const Mat& a, const Mat& b);
+[2.095s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3657:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3658:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::Mat&, double)[m[K’
+[2.095s]  3658 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const Mat& a, double s);
+[2.095s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3658:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3659:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(double, const cv::Mat&)[m[K’
+[2.095s]  3659 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (double s, const Mat& a);
+[2.095s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3659:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3660:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::MatExpr&, const cv::Mat&)[m[K’
+[2.095s]  3660 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const MatExpr& e, const Mat& m);
+[2.095s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3660:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3661:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::Mat&, const cv::MatExpr&)[m[K’
+[2.095s]  3661 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const Mat& m, const MatExpr& e);
+[2.095s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3661:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3662:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::MatExpr&, double)[m[K’
+[2.095s]  3662 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const MatExpr& e, double s);
+[2.095s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3662:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3663:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(double, const cv::MatExpr&)[m[K’
+[2.095s]  3663 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (double s, const MatExpr& e);
+[2.095s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3663:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.095s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3664:20:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::MatExpr cv::operator*(const cv::MatExpr&, const cv::MatExpr&)[m[K’
+[2.095s]  3664 | CV_EXPORTS MatExpr [01;36m[Koperator[m[K * (const MatExpr& e1, const MatExpr& e2);
+[2.095s]       |                    [01;36m[K^~~~~~~~[m[K
+[2.096s] [01m[K/usr/local/include/opencv4/opencv2/core/mat.hpp:3664:20:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.096s] In file included from [01m[K/usr/local/include/opencv4/opencv2/calib3d.hpp:50[m[K,
+[2.096s]                  from [01m[K/usr/local/include/opencv4/opencv2/opencv.hpp:56[m[K,
+[2.096s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8[m[K,
+[2.096s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1[m[K,
+[2.096s]                  from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:2[m[K:
+[2.096s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:619:11:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::Vec3f cv::operator*(const Affine3f&, const Vec3f&)[m[K’
+[2.096s]   619 | cv::Vec3f [01;36m[Kcv[m[K::operator*(const cv::Affine3f& affine, const cv::Vec3f& v)
+[2.096s]       |           [01;36m[K^~[m[K
+[2.096s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:619:11:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.096s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:630:11:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kcv::Vec3d cv::operator*(const Affine3d&, const Vec3d&)[m[K’
+[2.096s]   630 | cv::Vec3d [01;36m[Kcv[m[K::operator*(const cv::Affine3d& affine, const cv::Vec3d& v)
+[2.096s]       |           [01;36m[K^~[m[K
+[2.096s] [01m[K/usr/local/include/opencv4/opencv2/core/affine.hpp:630:11:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+[2.772s] gmake[2]: *** [CMakeFiles/frontal_vision_node.dir/build.make:76: CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp.o] Error 1
+[2.772s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/frontal_vision_node.dir/all] Error 2
+[2.772s] gmake: *** [Makefile:146: all] Error 2
+[2.774s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg -- -j16 -l16

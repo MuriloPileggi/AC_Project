@@ -1,0 +1,57 @@
+[0.005s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg -DCMAKE_INSTALL_PREFIX=/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg
+[0.053s] -- The C compiler identification is GNU 11.4.0
+[0.087s] -- The CXX compiler identification is GNU 11.4.0
+[0.091s] -- Detecting C compiler ABI info
+[0.135s] -- Detecting C compiler ABI info - done
+[0.139s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.139s] -- Detecting C compile features
+[0.139s] -- Detecting C compile features - done
+[0.141s] -- Detecting CXX compiler ABI info
+[0.189s] -- Detecting CXX compiler ABI info - done
+[0.193s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.193s] -- Detecting CXX compile features
+[0.193s] -- Detecting CXX compile features - done
+[0.195s] -- Found ament_cmake: 2.0.6 (/opt/ros/iron/share/ament_cmake/cmake)
+[0.289s] -- Found Python3: /usr/bin/python3.10 (found version "3.10.12") found components: Interpreter 
+[0.339s] -- Found rclcpp: 21.0.7 (/opt/ros/iron/share/rclcpp/cmake)
+[0.363s] -- Found rosidl_generator_c: 4.0.1 (/opt/ros/iron/share/rosidl_generator_c/cmake)
+[0.369s] -- Found rosidl_generator_cpp: 4.0.1 (/opt/ros/iron/share/rosidl_generator_cpp/cmake)
+[0.377s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.387s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.475s] -- Found rmw_implementation_cmake: 7.1.0 (/opt/ros/iron/share/rmw_implementation_cmake/cmake)
+[0.476s] -- Found rmw_fastrtps_cpp: 7.1.4 (/opt/ros/iron/share/rmw_fastrtps_cpp/cmake)
+[0.537s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.552s] -- Found FastRTPS: /opt/ros/iron/include  
+[0.578s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.675s] -- Found std_msgs: 5.0.1 (/opt/ros/iron/share/std_msgs/cmake)
+[0.693s] -- Found std_srvs: 5.0.1 (/opt/ros/iron/share/std_srvs/cmake)
+[0.721s] -- Found OpenCV: /usr/local (found version "4.9.0") 
+[0.757s] -- Configuring done
+[0.762s] -- Generating done
+[0.763s] -- Build files have been written to: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg
+[0.768s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg -DCMAKE_INSTALL_PREFIX=/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg
+[0.769s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg -- -j16 -l16
+[0.801s] [ 50%] [32mBuilding CXX object CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp.o[0m
+[4.113s] [100%] [32m[1mLinking CXX executable frontal_vision_node[0m
+[4.275s] [100%] Built target frontal_vision_node
+[4.282s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg -- -j16 -l16
+[4.300s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg
+[4.304s] -- Install configuration: ""
+[4.304s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/lib/frontal_vision_pkg/frontal_vision_node
+[4.304s] -- Set runtime path of "/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/lib/frontal_vision_pkg/frontal_vision_node" to ""
+[4.304s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/ament_index/resource_index/package_run_dependencies/frontal_vision_pkg
+[4.304s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/ament_index/resource_index/parent_prefix_path/frontal_vision_pkg
+[4.304s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/environment/ament_prefix_path.sh
+[4.304s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/environment/ament_prefix_path.dsv
+[4.304s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/environment/path.sh
+[4.304s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/environment/path.dsv
+[4.305s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/local_setup.bash
+[4.305s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/local_setup.sh
+[4.305s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/local_setup.zsh
+[4.305s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/local_setup.dsv
+[4.305s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/package.dsv
+[4.305s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/ament_index/resource_index/packages/frontal_vision_pkg
+[4.305s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/cmake/frontal_vision_pkgConfig.cmake
+[4.305s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/cmake/frontal_vision_pkgConfig-version.cmake
+[4.305s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/package.xml
+[4.306s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg' returned '0': CMAKE_PREFIX_PATH=/opt/ros/iron /usr/bin/cmake --install /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg

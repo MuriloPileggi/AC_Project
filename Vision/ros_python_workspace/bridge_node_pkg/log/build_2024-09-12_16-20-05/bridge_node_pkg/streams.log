@@ -1,0 +1,24 @@
+[0.293s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg': PYTHONPATH=/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/build/bridge_node_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/install/bridge_node_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/bridge_node_pkg build --build-base /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/build/bridge_node_pkg/build install --record /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/build/bridge_node_pkg/install.log --single-version-externally-managed install_data
+[0.405s] running egg_info
+[0.405s] writing build/bridge_node_pkg/bridge_node_pkg.egg-info/PKG-INFO
+[0.405s] writing dependency_links to build/bridge_node_pkg/bridge_node_pkg.egg-info/dependency_links.txt
+[0.405s] writing entry points to build/bridge_node_pkg/bridge_node_pkg.egg-info/entry_points.txt
+[0.405s] writing requirements to build/bridge_node_pkg/bridge_node_pkg.egg-info/requires.txt
+[0.405s] writing top-level names to build/bridge_node_pkg/bridge_node_pkg.egg-info/top_level.txt
+[0.406s] reading manifest file 'build/bridge_node_pkg/bridge_node_pkg.egg-info/SOURCES.txt'
+[0.406s] writing manifest file 'build/bridge_node_pkg/bridge_node_pkg.egg-info/SOURCES.txt'
+[0.406s] running build
+[0.406s] running build_py
+[0.406s] copying bridge_node_pkg/bridge_node.py -> /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/build/bridge_node_pkg/build/lib/bridge_node_pkg
+[0.407s] running install
+[0.407s] running install_lib
+[0.407s] copying /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/build/bridge_node_pkg/build/lib/bridge_node_pkg/bridge_node.py -> /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/install/bridge_node_pkg/lib/python3.10/site-packages/bridge_node_pkg
+[0.407s] byte-compiling /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/install/bridge_node_pkg/lib/python3.10/site-packages/bridge_node_pkg/bridge_node.py to bridge_node.cpython-310.pyc
+[0.408s] running install_data
+[0.408s] running install_egg_info
+[0.409s] removing '/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/install/bridge_node_pkg/lib/python3.10/site-packages/bridge_node_pkg-0.0.1-py3.10.egg-info' (and everything under it)
+[0.409s] Copying build/bridge_node_pkg/bridge_node_pkg.egg-info to /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/install/bridge_node_pkg/lib/python3.10/site-packages/bridge_node_pkg-0.0.1-py3.10.egg-info
+[0.409s] running install_scripts
+[0.420s] Installing bridge_node script to /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/install/bridge_node_pkg/lib/bridge_node_pkg
+[0.420s] writing list of installed files to '/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/build/bridge_node_pkg/install.log'
+[0.433s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg' returned '0': PYTHONPATH=/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/build/bridge_node_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/install/bridge_node_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/bridge_node_pkg build --build-base /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/build/bridge_node_pkg/build install --record /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/build/bridge_node_pkg/install.log --single-version-externally-managed install_data

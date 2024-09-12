@@ -1,27 +1,63 @@
 #include <iostream>
-#include "../../Serial/src/serialCommunication.cpp"
 #include "frame_processing.cpp"
+#include "guidance_system.cpp"
 #include "opencv2/videoio.hpp"
+#include "rclcpp/rclcpp/rclcpp.hpp"
 #include "../ai_libraries/mlpp.hpp"
+#include "std_msgs/std_msgs/msg/bool.hpp"
+#include "std_srvs/std_srvs/srv/trigger.hpp"
 
 using namespace std;
+using namespace std::chrono_literals;
+using namespace MLPP;
 
-int main()
+// Timer callback function
+void timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
+						rclcpp::Node::SharedPtr node, std::shared_ptr<bool> stop_sign_detected)
 {
-	// Create handle to serial communication class
-	serialCommunication serial;
-	std::string stop = "Stop";
-	int loopIterationsSinceLastWrite = 0;
-	int writeInterval = 10;
+    auto message = std_msgs::msg::Bool();
+    message.data = *stop_sign_detected;
+    RCLCPP_INFO(node->get_logger(), "Publishing: '%s'", message.data ? "true" : "false");
+    publisher->publish(message);
+}
+
+int main(int argc, char * argv[])
+{
+	#pragma region ROS INITIALIZATION
+	// Initialize ROS 2
+	rclcpp::init(argc, argv);
+	// Create a ROS 2 node
+	auto node = std::make_shared<rclcpp::Node>("frontal_vision");
+	// Create a ROS 2 publisher
+	auto publisher = node->create_publisher<std_msgs::msg::Bool>("frontal_vision_topic", 10);
+	// Create a ROS 2 service client
+	//auto client = node->create_client<std_srvs::srv::Trigger>("trigger_action");
+	// Create a shared variable for steering angle
+    auto stop_sign_detected = std::make_shared<bool>(false);
+	// Create a timer with a lambda function, so we publish steering angle every 20 ms (50Hz)
+    auto timer = node->create_wall_timer(
+        50ms, 
+        [publisher, node, stop_sign_detected]() {
+            timer_callback(publisher, node, stop_sign_detected);
+        }
+    );
+
+	// Start road vision node on a separate thread from video while loop
+	thread spin_thread([&]() 
+	{
+		rclcpp::spin(node);
+	});
+
+	#pragma endregion
 
 	// Set desired resolution to resize received footage
-	int width = 360;
-	int height = 240;
+	int width = 500;
+	int height = 500;
 
 	// Loading haar cascade xml files for object detection
 	cv::CascadeClassifier stopSignCascade;
 	//cv::CascadeClassifier trafficLightCascade;
-	stopSignCascade.load("../../Vision/data/Pre_Trained_Models/Stopsign_HAAR_19Stages.xml");
+	stopSignCascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/Stopsign_HAAR_19Stages.xml");
 	//trafficLightCascade.load("../Data/Pre_Trained_Models/TrafficLight_HAAR_16Stages.xml");
 
     // Open default camera
@@ -45,24 +81,25 @@ int main()
     double fps;
     cv::TickMeter tm;
 
-    while (true)
+	// Frame processing class constructor
+	FrameProcessing frame_processing;
+
+    while (cap.isOpened())
     {
 		tm.start();
 
 		// Capture frame-by-frame
-		cv::Mat* frame = new cv::Mat();
-		cap >> *frame;
+		cv::Mat frame;
+		cap >> frame;
 
 		// If the frame is empty, break immediately
-		if (frame->empty())
+		if (frame.empty())
 		{
 			break;
 		}
 
-		// Convert the frame to grayscale
-		cv::Mat* gray = new cv::Mat();
-		cvtColor(*frame, *gray, cv::COLOR_BGR2GRAY);
-
+		frame_processing.resize_frame(frame, width, height);
+		frame_processing.apply_gray_scale_to_frame(frame);
 		// Detect traffic lights
 		/*
 		vector<cv::Rect> trafficLights;
@@ -78,26 +115,15 @@ int main()
 
 		// Detect stop signs in the frame
 		vector<cv::Rect> stopSigns;
-		stopSignCascade.detectMultiScale(*gray, stopSigns, 1.1, 5);
+		stopSignCascade.detectMultiScale(frame, stopSigns, 1.1, 5);
 
 		// Draw bounding boxes around detected stop signs
-		bool stopSignDetected = !stopSigns.empty();
+		*stop_sign_detected = !stopSigns.empty();
 		for (const auto& rect : stopSigns)
 		{
-			cv::rectangle(*frame, rect, cv::Scalar(255, 0, 0), 2);
-			cv::putText(*frame, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
-		}
-
-		// Send signal to arduino to stop motors
-        if (loopIterationsSinceLastWrite >= writeInterval) {
-            // Send signal to Arduino to stop motors only if writeToSerialPort
-            // method has not been called yet
-            serial.writeToSerialPort(stop, stopSignDetected);
-            loopIterationsSinceLastWrite = 0; // Reset counter
-        } 
-		else {
-            loopIterationsSinceLastWrite++; // Increment counter
-        }
+			cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
+			cv::putText(frame, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+		} 
 
         // Calculate FPS
 		tm.stop();
@@ -105,19 +131,16 @@ int main()
 		tm.reset();
 
 		// Put FPS text on the frame
-		cv::putText(*frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
+		cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
 
 		// Dispay the resulting frame
-		cv::imshow("Video Stream", *frame);
+		cv::imshow("Video Stream", frame);
 
 		// Press q to exit the loop
 		if (cv::waitKey(1) == 'q')
 		{			
 			break;
 		}	
-
-		delete frame;
-		delete gray;
     }
 
 	// Whene everything is done, release the video capture and video writer objects
@@ -126,5 +149,11 @@ int main()
     // Close all windows
 	cv::destroyAllWindows();
 
-    return 0;	
+ 	// Shut down ROS 2
+	rclcpp::shutdown();
+	
+	// Join the spin thread before exiting
+    spin_thread.join();
+
+	return 0;
 }

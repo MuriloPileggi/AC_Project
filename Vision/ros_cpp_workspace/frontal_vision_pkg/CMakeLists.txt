@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.8)
 
 list(APPEND CMAKE_PREFIX_PATH "/opt/ros/iron")
 
-#project(general_vision)
 project(frontal_vision_pkg)
 
 find_package(ament_cmake REQUIRED)
@@ -13,17 +12,14 @@ find_package(OpenCV REQUIRED)
 
 include_directories(${OpenCV_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR}/src)
 
-#add_executable(general_vision ../src/main_general.cpp)
 add_executable(frontal_vision_node ../../src/main_frontal_vision_node.cpp)
 
-#target_link_libraries(general_vision ${OpenCV_LIBS})
 target_link_libraries(frontal_vision_node ${OpenCV_LIBS})
 
 #ament_target_dependencies(general_vision rclcpp std_msgs)
 ament_target_dependencies(frontal_vision_node rclcpp std_msgs std_srvs)
 
 install(TARGETS
-  #general_vision
   frontal_vision_node
   DESTINATION lib/${PROJECT_NAME}
 )

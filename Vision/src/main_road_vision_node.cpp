@@ -4,7 +4,7 @@
 #include "opencv2/videoio.hpp"
 #include "rclcpp/rclcpp/rclcpp.hpp"
 #include "../ai_libraries/mlpp.hpp"
-#include "std_msgs/std_msgs/msg/string.hpp"
+#include "std_msgs/std_msgs/msg/float32.hpp"
 #include "std_srvs/std_srvs/srv/trigger.hpp"
 
 using namespace std;
@@ -12,12 +12,12 @@ using namespace std::chrono_literals;
 using namespace MLPP;
 
 // Timer callback function
-void timer_callback(rclcpp::Publisher<std_msgs::msg::String>::SharedPtr publisher,
-						rclcpp::Node::SharedPtr node, std::shared_ptr<double> steering_angle)
+void timer_callback(rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr publisher,
+						rclcpp::Node::SharedPtr node, std::shared_ptr<float> steering_angle)
 {
-    auto message = std_msgs::msg::String();
-    message.data = to_string(*steering_angle);
-    RCLCPP_INFO(node->get_logger(), "Publishing: '%s'", message.data.c_str());
+    auto message = std_msgs::msg::Float32();
+    message.data = *steering_angle;
+    RCLCPP_INFO(node->get_logger(), "Publishing: '%f'", message.data);
     publisher->publish(message);
 }
 
@@ -27,13 +27,13 @@ int main(int argc, char * argv[])
 	// Initialize ROS 2
 	rclcpp::init(argc, argv);
 	// Create a ROS 2 node
-	auto node = std::make_shared<rclcpp::Node>("vision_talker_1");
+	auto node = std::make_shared<rclcpp::Node>("road_vision");
 	// Create a ROS 2 publisher
-	auto publisher = node->create_publisher<std_msgs::msg::String>("frame_classification", 10);
+	auto publisher = node->create_publisher<std_msgs::msg::Float32>("road_vision_topic", 10);
 	// Create a ROS 2 service client
 	//auto client = node->create_client<std_srvs::srv::Trigger>("trigger_action");
 	// Create a shared variable for steering angle
-    auto steering_angle = std::make_shared<double>(0.0);
+    auto steering_angle = std::make_shared<float>(0.0f);
 	// Create a timer with a lambda function, so we publish steering angle every 20 ms (50Hz)
     auto timer = node->create_wall_timer(
         50ms, 

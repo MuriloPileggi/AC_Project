@@ -886,10 +886,10 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
   /opt/ros/iron/include/rclcpp/rclcpp/parameter_map.hpp \
   /opt/ros/iron/include/rclcpp/rclcpp/parameter_event_handler.hpp \
   /opt/ros/iron/include/rclcpp/rclcpp/parameter_service.hpp \
-  /opt/ros/iron/include/std_msgs/std_msgs/msg/string.hpp \
-  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
-  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
-  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/float32.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/float32__struct.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/float32__builder.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/float32__traits.hpp \
   /opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp \
   /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp \
   /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp \
@@ -897,8 +897,6 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
 
 
 /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp:
-
-/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__traits.hpp:
 
 /opt/ros/iron/include/rclcpp/rclcpp/parameter_service.hpp:
 
@@ -1486,6 +1484,8 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
 
 /usr/include/c++/11/bits/locale_facets.h:
 
+/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/float32__builder.hpp:
+
 /opt/ros/iron/include/rosidl_runtime_c/rosidl_runtime_c/type_description/field__struct.h:
 
 /usr/include/c++/11/bits/exception.h:
@@ -1714,8 +1714,6 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
-/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__builder.hpp:
-
 /usr/include/c++/11/ostream:
 
 /usr/include/c++/11/bits/ostream_insert.h:
@@ -1920,6 +1918,8 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
 
 /opt/ros/iron/include/rcutils/rcutils/types.h:
 
+/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/float32__struct.hpp:
+
 /opt/ros/iron/include/rclcpp/rclcpp/publisher_factory.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
@@ -2037,8 +2037,6 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
 /usr/include/c++/11/bits/locale_classes.h:
 
 /usr/local/include/opencv4/opencv2/features2d.hpp:
-
-/opt/ros/iron/include/std_msgs/std_msgs/msg/string.hpp:
 
 /usr/include/math.h:
 
@@ -2202,8 +2200,6 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
 
 /opt/ros/iron/include/rclcpp/rclcpp/rclcpp.hpp:
 
-/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/string__struct.hpp:
-
 /usr/include/c++/11/sstream:
 
 /usr/local/include/opencv4/opencv2/core/utility.hpp:
@@ -2323,6 +2319,8 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
 /usr/include/c++/11/bits/ios_base.h:
 
 /usr/local/include/opencv4/opencv2/flann/kdtree_index.h:
+
+/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/float32__traits.hpp:
 
 /usr/local/include/opencv4/opencv2/flann/dynamic_bitset.h:
 
@@ -2643,6 +2641,8 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
 /opt/ros/iron/include/rmw/rmw/events_statuses/liveliness_changed.h:
 
 /opt/ros/iron/include/rmw/rmw/events_statuses/liveliness_lost.h:
+
+/opt/ros/iron/include/std_msgs/std_msgs/msg/float32.hpp:
 
 /opt/ros/iron/include/tracetools/tracetools/tracetools.h:
 

@@ -5,17 +5,23 @@ import rclpy
 import serial
 import time
 from rclpy.node import Node
-from std_msgs.msg import String
+from std_msgs.msg import Float32
+from std_msgs.msg import Bool
 from std_srvs.srv import Trigger
 
 class FrameClassificationSubscriber(Node):
     def __init__(self):
-        super().__init__('frame_classification_subscriber')
+        super().__init__('bridge_node')
         self.subscription = self.create_subscription(
-            String,
-            'frame_classification',
-            self.listener_callback,
+            Float32,
+            'road_vision_topic',
+            self.road_vision_callback,
             10)
+        #self.subscription = self.create_subscription(
+            #Bool,
+            #'frontal_vision_topic',
+            #self.frontal_vision_callback,
+            #10)
         #self.subscription  # prevent unused variable warning
 
         #self.service = self.create_service(Trigger, 'trigger_action', self.handle_trigger_action)
@@ -31,21 +37,25 @@ class FrameClassificationSubscriber(Node):
             #self.get_logger().error('Failed to initialize serial connection')
             #return
         #time.sleep(2)  # Wait for the connection to settle
-        self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-        if self.serial_port is None:
-            self.get_logger().error('Failed to initialize serial connection')
-            return
-        time.sleep(2)  # Wait for the connection to settle
+        #self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+        #if self.serial_port is None:
+        #    self.get_logger().error('Failed to initialize serial connection')
+        #    return
+        #time.sleep(2)  # Wait for the connection to settle
   
-    def listener_callback(self, msg):
+    def road_vision_callback(self, msg):
+        #self.get_logger().info('Received: "%s"' % msg.data)
+        self.received_data = msg.data
+    
+    def frontal_vision_callback(self, msg):
         #self.get_logger().info('Received: "%s"' % msg.data)
         self.received_data = msg.data
     
     def timer_callback(self):
         # This method will run at 50 Hz
         if self.received_data is not None:
-            self.get_logger().info('Timer triggered, sending data: %s' % str(self.received_data))
-            self.send_to_arduino(self.received_data)  # Uncomment to send data
+            self.get_logger().info('Timer triggered, sending data: %f' % self.received_data)
+            #self.send_to_arduino(self.received_data)  # Uncomment to send data
         else:
             self.get_logger().info('Timer triggered, but no message received yet.')
 
