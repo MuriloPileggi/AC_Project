@@ -46,6 +46,9 @@ public:
     // Method to apply gaussian smoothing 
     void apply_smoothing_to_frame(cv::Mat& frame);
 
+    // Method to call all pre processing methods
+    void apply_pre_processing_to_frame(cv::Mat& frame);
+
     // Display only method that blends image and allows us to see how well lane detection is going
     cv::Mat blend_frame(const cv::Mat& frame, const LineParameters& positive_line_parameters, const LineParameters& negative_line_parameters);
 

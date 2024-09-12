@@ -63,6 +63,15 @@ void FrameProcessing::apply_smoothing_to_frame(cv::Mat& frame)
     cv::GaussianBlur(frame, frame, cv::Size(kernel_size, kernel_size), 0, 0);
 }
 
+// Implementation of apply pre processing method
+void FrameProcessing::apply_pre_processing_to_frame(cv::Mat& frame)
+{
+    apply_gray_scale_to_frame(frame);
+    apply_smoothing_to_frame(frame);
+    apply_edge_detection_to_frame(frame);
+    apply_mask_to_frame(frame);
+}
+
 // Implementation of blend frame method
 cv::Mat FrameProcessing::blend_frame(const cv::Mat& frame, const LineParameters& positive_line_parameters, const LineParameters& negative_line_parameters)
 {

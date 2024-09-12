@@ -33,7 +33,7 @@ int main(int argc, char * argv[])
 	// Create a ROS 2 service client
 	//auto client = node->create_client<std_srvs::srv::Trigger>("trigger_action");
 	// Create a shared variable for steering angle
-    auto steering_angle = std::make_shared<float>(0.0f);
+    auto steering_angle = std::make_shared<float>((90.0f));
 	// Create a timer with a lambda function, so we publish steering angle every 20 ms (50Hz)
     auto timer = node->create_wall_timer(
         50ms, 
@@ -56,7 +56,7 @@ int main(int argc, char * argv[])
 	
     // Open video file
     //cv::VideoCapture cap(0);
-	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/Pista/Reta_2.mp4");
+	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/Pista/Reta_2_2.mp4");
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -98,10 +98,7 @@ int main(int argc, char * argv[])
 
 		frame_processing.resize_frame(frame, height, width);
 		frame_processing.resize_frame(p_frame, height, width);
-		frame_processing.apply_gray_scale_to_frame(p_frame);
-		frame_processing.apply_smoothing_to_frame(p_frame);
-		frame_processing.apply_edge_detection_to_frame(p_frame);
-		frame_processing.apply_mask_to_frame(p_frame);
+		frame_processing.apply_pre_processing_to_frame(p_frame);
 		auto h_lines = frame_processing.extract_hough_lines(p_frame);
 
 		if (!h_lines.empty() && h_lines.size() > 2) {
