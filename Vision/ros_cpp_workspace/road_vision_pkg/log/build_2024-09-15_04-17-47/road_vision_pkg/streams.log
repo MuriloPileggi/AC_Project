@@ -1,0 +1,31 @@
+[0.006s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg -- -j16 -l16
+[0.032s] [35m[1mConsolidate compiler generated dependencies of target road_vision_node[0m
+[0.044s] [ 50%] [32mBuilding CXX object CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o[0m
+[0.915s] In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:2[m[K:
+[0.915s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:[m[K In member function ‘[01m[Kstd::vector<double, std::allocator<double> > FrameProcessing::get_x_intercept_coordinates(const cv::Mat&, MLPP::Mat3d<double>&)[m[K’:
+[0.915s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:688:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[0.915s]   688 | [01;35m[K}[m[K
+[0.915s]       | [01;35m[K^[m[K
+[3.427s] [100%] [32m[1mLinking CXX executable road_vision_node[0m
+[3.592s] [100%] Built target road_vision_node
+[3.599s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg -- -j16 -l16
+[3.620s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --install /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg
+[3.624s] -- Install configuration: ""
+[3.624s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/lib/road_vision_pkg/road_vision_node
+[3.625s] -- Set runtime path of "/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/lib/road_vision_pkg/road_vision_node" to ""
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/ament_index/resource_index/package_run_dependencies/road_vision_pkg
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/ament_index/resource_index/parent_prefix_path/road_vision_pkg
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/environment/ament_prefix_path.sh
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/environment/ament_prefix_path.dsv
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/environment/path.sh
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/environment/path.dsv
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/local_setup.bash
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/local_setup.sh
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/local_setup.zsh
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/local_setup.dsv
+[3.625s] -- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/package.dsv
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/ament_index/resource_index/packages/road_vision_pkg
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/cmake/road_vision_pkgConfig.cmake
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/cmake/road_vision_pkgConfig-version.cmake
+[3.625s] -- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/package.xml
+[3.626s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --install /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg

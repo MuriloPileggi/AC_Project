@@ -3,16 +3,18 @@
 
 Servo myservo;  // create servo object to control a servo
 
-int center_pos = 90 * 0.7;    // variable to store the servo position
-int angle; // Variable to store the angle value
+int center_pos = 90;    // variable to store the servo position
+int corrected_angle;
+String angle_correction_str; // Variable to store the angle value
 unsigned long previousMillis = 0; // Variable to store the last time the serial was read
-const long interval = 50; // 20 ms interval to match 50 Hz frequency
+const long interval = 20; // 20 ms interval to match 50 Hz frequency
 
 void setup() 
 {
-  Serial.begin(9600);
-  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
-  myservo.write(center_pos);
+  Serial.begin(115200);
+  myservo.attach(53);  // attaches the servo on pin 9 to the servo object
+  //current_angle = center_pos * 0.7;
+  myservo.write(center_pos * 0.7);
 }
 
 void loop() 
@@ -24,9 +26,10 @@ void loop()
     previousMillis = currentMillis; // Update the time of the last read
 
     if (Serial.available() > 0) { // Check if data is available on the serial port
-      angle = Serial.parseInt(); // Read the integer input from the serial monitor
-      myservo.write(angle + center_pos);
-      Serial.flush();
+      angle_correction_str = Serial.readStringUntil(','); // Read the integer input from the serial monitor
+      int angle_correction_int = angle_correction_str.toInt();
+      corrected_angle = (center_pos + angle_correction_int) * 0.7;
+      myservo.write(corrected_angle);
     }
     
   }

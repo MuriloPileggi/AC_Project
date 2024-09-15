@@ -25,19 +25,20 @@ void FrameProcessing::apply_mask_to_frame(cv::Mat& frame)
 
     // Define the points for the mask
 	// Use cv::Point type for x,y points
-	//cv::Point bottom_left = cv::Point(0, frame.rows);
-	//cv::Point top_left = cv::Point(0, frame.rows/5);
-	//cv::Point top_right = cv::Point(frame.cols, frame.rows/5);
-	//cv::Point bottom_right = cv::Point(frame.cols, frame.rows);
-    cv::Point bottom = cv::Point(frame.cols/2, frame.rows);
-	cv::Point top_left_1 = cv::Point(frame.cols/5, frame.rows/3 + 100);
-    cv::Point top_left_2 = cv::Point(frame.cols/5, frame.rows/3);
-    cv::Point top_right_2 = cv::Point(frame.cols, frame.rows/3);
-	cv::Point top_right_1 = cv::Point(frame.cols, frame.rows/3 + 100);
+	cv::Point bottom_left = cv::Point(10, frame.rows);
+	cv::Point top_left = cv::Point(10, frame.rows/2);
+	cv::Point top_right = cv::Point(frame.cols - 10, frame.rows/2);
+	cv::Point bottom_right = cv::Point(frame.cols - 10, frame.rows);
+    //cv::Point bottom = cv::Point(frame.cols/2, frame.rows);
+	//cv::Point top_left_1 = cv::Point(frame.cols/5, frame.rows/3 + 100);
+    //cv::Point top_left_2 = cv::Point(frame.cols/5, frame.rows/3);
+    //cv::Point top_right_2 = cv::Point(frame.cols - frame.cols/10, frame.rows/3);
+	//cv::Point top_right_1 = cv::Point(frame.cols - frame.cols/10, frame.rows/3 + 100);
     
 
     // create vector from array with points we just defined
-	cv::Point vertices1[] = {bottom,top_left_1,top_left_2,top_right_2,top_right_1};
+	//cv::Point vertices1[] = {bottom,top_left_1,top_left_2,top_right_2,top_right_1};
+    cv::Point vertices1[] = {bottom_left, top_left, top_right, bottom_right};
 	std::vector<cv::Point> vertices (vertices1, vertices1 + sizeof(vertices1) / sizeof(cv::Point));
 
     // Create vector of vectors, add the vertices we defined above
@@ -634,6 +635,8 @@ std::vector<double>  FrameProcessing::get_x_intercept_coordinates(const cv::Mat&
         }
     }
 
+    
+
     // Get mean x intercept value for positive slope lines
     double positive_x_intercept_mean = x_intercept_positive_sum / valid_positive_x_intercept_values.size();
 
@@ -650,10 +653,15 @@ std::vector<double>  FrameProcessing::get_x_intercept_coordinates(const cv::Mat&
         double slope = slope_lines[1][i][4];
         double y_intercept = y1 - slope * x1; // Y intercept of current line
         double x_intercept = -y_intercept/slope; // Find x intercept based off y = mx+b
+
         // Check for nan
         if (std::isnan(x_intercept) == 0) {
             negative_slope_lines_x_intercept_coordinates.push_back(x_intercept); // Add value to vector
         }
+    }
+
+    if (negative_slope_lines_x_intercept_coordinates.empty()) {
+        negative_slope_lines_x_intercept_coordinates.push_back(500);
     }
 
     // Get median of X intercepts for negative slope lines
@@ -682,8 +690,8 @@ std::vector<double>  FrameProcessing::get_x_intercept_coordinates(const cv::Mat&
 
     //std::cout << positive_x_intercept_mean << std::endl;
     //std::cout << negative_x_intercept_mean << std::endl;
-    
-    return std::vector<double> { positive_x_intercept_mean, negative_x_intercept_mean };
+
+    return std::vector<double> { positive_x_intercept_mean, negative_x_intercept_mean };;
 }
 
 // Calculate median method
@@ -728,44 +736,64 @@ double FrameProcessing::median(std::vector<double> vector)
 void FrameProcessing::plot_lane_lines(const cv::Mat& frame, const std::vector<float>& avrg_slope_lines, const std::vector<double>& x_intercept_coord, 
                             LineParameters& positive_slope_parameters, LineParameters& negative_slope_parameters)
 {
-    // Positive Slope Line
-    float positive_slope = avrg_slope_lines[0];
-    double positive_x1  = x_intercept_coord[0];
-    int positive_y1 = 0;
-    double positive_y2 = frame.rows - (frame.rows - frame.rows * 0.35);
-    double positive_x2  = (positive_y2 - positive_y1) / positive_slope + positive_x1;
+    if (!avrg_slope_lines.empty() && !x_intercept_coord.empty()) {
+        // Positive Slope Line
+        float positive_slope = avrg_slope_lines[0];
+        double positive_x1  = x_intercept_coord[0];
 
-    positive_x1 = int(positive_x1 + 0.5);
-    positive_x2 = int(positive_x2 + 0.5);
-    positive_y1 = int(positive_y1 + 0.5);
-    positive_y2 = int(positive_y2 + 0.5);
+        if (positive_x1 < 0 || std::isnan(positive_x1) || std::isinf(positive_x1)) {
+            positive_x1 = 0;
+        }
 
-    positive_slope_parameters.slope = positive_slope;
-    positive_slope_parameters.x1 = positive_x1;
-    positive_slope_parameters.x2 = positive_x2;
-    positive_slope_parameters.y1 = positive_y1;
-    positive_slope_parameters.y2 = positive_y2;
+        int positive_y1 = 0;
+        double positive_y2 = frame.rows - (frame.rows - frame.rows * 0.35);
+        double positive_x2  = (positive_y2 - positive_y1) / positive_slope + positive_x1;
 
-    cv::line(frame, cv::Point(positive_x1, frame.size().height-positive_y1), cv::Point(positive_x2, frame.size().height - positive_y2), cv::Scalar(0,255,0), 3, 8 );
+        if (positive_x2 < 0 || std::isnan(positive_x2) || std::isinf(positive_x2)) {
+            positive_x2 = 10;
+        }
 
-    // Negative Slope Line
-    float negative_slope = avrg_slope_lines[1];
-    double negative_x1  = x_intercept_coord[1];
-    int negative_y1 = 0;
-    double negative_y2 = frame.rows - (frame.rows - frame.rows * 0.35);
-    double negative_x2  = (negative_y2 - negative_y1) / negative_slope + negative_x1;
+        positive_x1 = int(positive_x1 + 0.5);
+        positive_x2 = int(positive_x2 + 0.5);
+        positive_y1 = int(positive_y1 + 0.5);
+        positive_y2 = int(positive_y2 + 0.5);
 
-    negative_x1 = int(negative_x1 + 0.5);
-    negative_x2 = int(negative_x2 + 0.5);
-    negative_y1 = int(negative_y1 + 0.5);
+        positive_slope_parameters.slope = positive_slope;
+        positive_slope_parameters.x1 = positive_x1;
+        positive_slope_parameters.x2 = positive_x2;
+        positive_slope_parameters.y1 = positive_y1;
+        positive_slope_parameters.y2 = positive_y2;
 
-    negative_slope_parameters.slope = negative_slope;
-    negative_slope_parameters.x1 = negative_x1;
-    negative_slope_parameters.x2 = negative_x2;
-    negative_slope_parameters.y1 = negative_y1;
-    negative_slope_parameters.y2 = negative_y2;
+        //cv::line(frame, cv::Point(positive_x1, frame.size().height-positive_y1), cv::Point(positive_x2, frame.size().height - positive_y2), cv::Scalar(0,255,0), 3, 8 );
 
-    cv::line(frame, cv::Point(negative_x1, frame.size().height-negative_y1), cv::Point(negative_x2, frame.size().height - negative_y2), cv::Scalar(0,255,0), 3, 8 );
+        // Negative Slope Line
+        float negative_slope = avrg_slope_lines[1];
+        double negative_x1  = x_intercept_coord[1];
+
+        if (negative_x1 > frame.cols || std::isnan(negative_x1) || std::isinf(negative_x1)) {
+            negative_x1 = frame.cols;
+        }
+
+        int negative_y1 = 0;
+        double negative_y2 = frame.rows - (frame.rows - frame.rows * 0.35);
+        double negative_x2  = (negative_y2 - negative_y1) / negative_slope + negative_x1;
+
+        if (negative_x2 > frame.cols ||std::isnan(negative_x2) || std::isinf(negative_x2)) {
+            negative_x2 = frame.cols -10;
+        }
+
+        negative_x1 = int(negative_x1 + 0.5);
+        negative_x2 = int(negative_x2 + 0.5);
+        negative_y1 = int(negative_y1 + 0.5);
+
+        negative_slope_parameters.slope = negative_slope;
+        negative_slope_parameters.x1 = negative_x1;
+        negative_slope_parameters.x2 = negative_x2;
+        negative_slope_parameters.y1 = negative_y1;
+        negative_slope_parameters.y2 = negative_y2;
+
+        //cv::line(frame, cv::Point(negative_x1, frame.size().height-negative_y1), cv::Point(negative_x2, frame.size().height - negative_y2), cv::Scalar(0,255,0), 3, 8 );
+    }
 
     // Plot positive and negative lane lines
 	//cv::imshow("Lane lines on image", frame);

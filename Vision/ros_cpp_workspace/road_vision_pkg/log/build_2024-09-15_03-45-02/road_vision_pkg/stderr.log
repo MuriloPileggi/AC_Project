@@ -1,0 +1,12 @@
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:2[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:[m[K In member function ‘[01m[Kvoid FrameProcessing::apply_mask_to_frame(cv::Mat&)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:42:9:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[Kstd[m[K’
+   42 |         [01;31m[Kstd[m[K::vector<cv::Point> vertices (vertices1, vertices1 + sizeof(vertices1) / sizeof(cv::Point));
+      |         [01;31m[K^~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:47:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kvertices[m[K’ was not declared in this scope; did you mean ‘[01m[Kvertices1[m[K’?
+   47 |         vertices_to_fill.push_back([01;31m[Kvertices[m[K);
+      |                                    [01;31m[K^~~~~~~~[m[K
+      |                                    [32m[Kvertices1[m[K
+gmake[2]: *** [CMakeFiles/road_vision_node.dir/build.make:76: CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,16 @@
+[0.005s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg -- -j16 -l16
+[0.035s] [35m[1mConsolidate compiler generated dependencies of target road_vision_node[0m
+[0.046s] [ 50%] [32mBuilding CXX object CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o[0m
+[0.911s] In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:2[m[K:
+[0.911s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:[m[K In member function ‘[01m[Kvoid FrameProcessing::apply_mask_to_frame(cv::Mat&)[m[K’:
+[0.911s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:42:9:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[Kstd[m[K’
+[0.911s]    42 |         [01;31m[Kstd[m[K::vector<cv::Point> vertices (vertices1, vertices1 + sizeof(vertices1) / sizeof(cv::Point));
+[0.911s]       |         [01;31m[K^~~[m[K
+[0.921s] [01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:47:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kvertices[m[K’ was not declared in this scope; did you mean ‘[01m[Kvertices1[m[K’?
+[0.921s]    47 |         vertices_to_fill.push_back([01;31m[Kvertices[m[K);
+[0.921s]       |                                    [01;31m[K^~~~~~~~[m[K
+[0.921s]       |                                    [32m[Kvertices1[m[K
+[2.794s] gmake[2]: *** [CMakeFiles/road_vision_node.dir/build.make:76: CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o] Error 1
+[2.794s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_node.dir/all] Error 2
+[2.795s] gmake: *** [Makefile:146: all] Error 2
+[2.796s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/iron /usr/bin/cmake --build /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg -- -j16 -l16

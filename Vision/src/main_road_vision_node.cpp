@@ -13,10 +13,10 @@ using namespace MLPP;
 
 // Timer callback function
 void timer_callback(rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr publisher,
-						rclcpp::Node::SharedPtr node, std::shared_ptr<float> steering_angle)
+						rclcpp::Node::SharedPtr node, std::shared_ptr<float> angle_correction)
 {
     auto message = std_msgs::msg::Float32();
-    message.data = *steering_angle;
+    message.data = *angle_correction;
     RCLCPP_INFO(node->get_logger(), "Publishing: '%f'", message.data);
     publisher->publish(message);
 }
@@ -33,12 +33,12 @@ int main(int argc, char * argv[])
 	// Create a ROS 2 service client
 	//auto client = node->create_client<std_srvs::srv::Trigger>("trigger_action");
 	// Create a shared variable for steering angle
-    auto steering_angle = std::make_shared<float>((90.0f));
+    auto angle_correction = std::make_shared<float>(63.0f);
 	// Create a timer with a lambda function, so we publish steering angle every 20 ms (50Hz)
     auto timer = node->create_wall_timer(
         50ms, 
-        [publisher, node, steering_angle]() {
-            timer_callback(publisher, node, steering_angle);
+        [publisher, node, angle_correction]() {
+            timer_callback(publisher, node, angle_correction);
         }
     );
 
@@ -56,7 +56,7 @@ int main(int argc, char * argv[])
 	
     // Open video file
     //cv::VideoCapture cap(0);
-	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/Pista/Reta_2_2.mp4");
+	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -80,6 +80,8 @@ int main(int argc, char * argv[])
 	FrameProcessing frame_processing;
 	// Guidance System class constructor
 	GuidanceSystem guidance_system;
+	// PID Controller class constructor
+	PIDController pid_controller(0.3, 0.005, 0.01);
 
     while (cap.isOpened())
     {
@@ -120,7 +122,11 @@ int main(int argc, char * argv[])
 													positive_slope_line_parameters, negative_slope_line_parameters);
 
 				// Calculate steering angle based on plotted lane lines
-				*steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
+				double steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
+
+				// Get the correction value to be passed to servo motor
+				double dt = pid_controller.get_dt();
+				*angle_correction = pid_controller.compute_error(steering_angle, dt);
 
 				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 
@@ -189,7 +195,7 @@ int main2()
 	int width = 500;
 	int height = 500;
 	
-	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/Pista/Curva_interior_esquerda_2.mp4");
+	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
 
 	// Check if camera opened successfully
     if (!cap.isOpened())
@@ -209,6 +215,8 @@ int main2()
 	FrameProcessing frame_processing;
 	// Guidance System class constructor
 	GuidanceSystem guidance_system;
+	// PID Controller class constructor
+	PIDController pid_controller(0.15, 0.001, 0.005);
 
 	while (cap.isOpened())
 	{
@@ -234,7 +242,7 @@ int main2()
 			// Separate Hough lines into posistive and negative sloped lines
 			Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(p_frame, h_lines);
 
-			if (!positive_and_negative_h_lines.empty()) {
+			if (!positive_and_negative_h_lines[0].empty() && !positive_and_negative_h_lines[1].empty()) {
 				// Get average of positive of and negative sloped hough lines
 				std::vector<float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
 				// Get X intercet coordinates for average positive and negative sloped hough lines 
@@ -252,8 +260,15 @@ int main2()
 				//std::cout << negative_slope_line_parameters.x1 << std::endl;
 
 				// Calculate steering angle based on plotted lane lines
-				double steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
-				std::cout << steering_angle << std::endl;
+				double angle_correction = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
+				std::cout << "~~~~~~~~~~~~~" << std::endl;
+				std::cout << angle_correction << std::endl;
+
+				// Get delta time
+				double dt = pid_controller.get_dt();
+				double error = pid_controller.compute_error(angle_correction, dt);
+				std::cout << error << std::endl;
+				std::cout << "~~~~~~~~~~~~~" << std::endl;
 				
 				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 
@@ -275,6 +290,8 @@ int main2()
 		if (cv::waitKey(1) == 'q') {
 			break;
 		}
+
+		//cv::waitKey(50);
 	}
 
 	return 0;
@@ -286,7 +303,7 @@ int main3()
 	GuidanceSystem guidance_system;
 
 	cv::Mat image = cv::imread(
-        "/home/muzaodamassa/Downloads/WhatsApp Image 2024-09-12 at 02.24.02(3).jpeg"); // read the image into mat type variable, image, if
+        "/home/muzaodamassa/Downloads/WhatsApp Image 2024-09-12 at 02.24.02(4).jpeg"); // read the image into mat type variable, image, if
                         // funning from cmd line, path is ../src/1.jpg
 
     // Check for failure in reading the image
@@ -383,8 +400,8 @@ int main3()
 		frame_processing.plot_lane_lines(allLinesIm, avrg_pos_and_neg_lines, x_intercept_coordinates, 
 												positive_slope_line_parameters, negative_slope_line_parameters);
  
-		double steering_angle = guidance_system.calc_steering_angle(image, positive_slope_line_parameters, negative_slope_line_parameters);
-		std::cout << steering_angle << std::endl;
+		double angle_correction = guidance_system.calc_steering_angle(image, positive_slope_line_parameters, negative_slope_line_parameters);
+		std::cout << angle_correction << std::endl;
 
 		cv::Mat blended_image = frame_processing.blend_frame(image, positive_slope_line_parameters, negative_slope_line_parameters);
 
