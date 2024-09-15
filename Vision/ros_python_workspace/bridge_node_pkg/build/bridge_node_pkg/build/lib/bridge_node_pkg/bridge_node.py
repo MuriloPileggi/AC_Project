@@ -5,31 +5,25 @@ import rclpy
 import serial
 import time
 from rclpy.node import Node
-from std_msgs.msg import Float32
-from std_msgs.msg import Bool
-from std_srvs.srv import Trigger
+from std_msgs.msg import Float32, Bool
 
-class FrameClassificationSubscriber(Node):
+class BridgeNode(Node):
     def __init__(self):
+        # Start ROS Node along with necessary variables
         super().__init__('bridge_node')
-        self.subscription = self.create_subscription(
-            Float32,
-            'road_vision_topic',
-            self.road_vision_callback,
-            10)
-        #self.subscription = self.create_subscription(
-            #Bool,
-            #'frontal_vision_topic',
-            #self.frontal_vision_callback,
-            #10)
-        #self.subscription  # prevent unused variable warning
+        self.angle_correction = 0.0
+        self.stop_sign_detected = False
+        self.stop_time = 0
+        
+        # Start node subscriptions
+        self.subscription = self.create_subscription(Float32,'road_vision_topic',self.road_vision_callback,10)
+        self.subscription = self.create_subscription(Bool,'frontal_vision_topic',self.frontal_vision_callback,10)
 
-        #self.service = self.create_service(Trigger, 'trigger_action', self.handle_trigger_action)
+        #self.service = self.createservice(Trigger, 'trigger_action', self.handle_trigger_action)
         self.received_data = None
 
         # Create a timer to execute callback every 20 ms (50 Hz)
-        self.timer_period = 0.05  # 20 ms
-        self.timer = self.create_timer(self.timer_period, self.timer_callback)
+        self.timer = self.create_timer(0.05, self.timer_callback)
 
         # Initialize serial connection
         #self.serial_port =  serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
@@ -45,52 +39,35 @@ class FrameClassificationSubscriber(Node):
   
     def road_vision_callback(self, msg):
         #self.get_logger().info('Received: "%s"' % msg.data)
-        self.received_data = msg.data
+        self.angle_correction = msg.data
     
     def frontal_vision_callback(self, msg):
         #self.get_logger().info('Received: "%s"' % msg.data)
-        self.received_data = msg.data
+        self.stop_sign_detected = msg.data
+        if self.stop_sign_detected:
+            self.stop_time = self.get_clock().now().to_msg().sec
     
     def timer_callback(self):
         # This method will run at 50 Hz
-        if self.received_data is not None:
-            self.get_logger().info('Timer triggered, sending data: %f' % self.received_data)
-            self.send_to_arduino(self.received_data)  # Uncomment to send data
+        # Get current time so we can properly apply stop sign detection
+        current_time = self.get_clock().now().to_msg().sec
+        
+        # Stop the car for 5 seconds if a stop sign has been detected
+        if self.stop_sign_detected and current_time - self.stop_time < 5:
+            return
         else:
-            self.get_logger().info('Timer triggered, but no message received yet.')
-
-    def handle_trigger_action(self, request, response):
-        self.get_logger().info('Action Triggered!')
-        
-        # Simulate action being performed
-        self.get_logger().info(f'Processing data: {self.received_data}')
-        
-        # Send the received data to the Arduino
-        #self.send_to_arduino(self.received_data)
-        
-        # Wait for a response from the Arduino
-        #arduino_response = self.receive_from_arduino()
-
-        #if arduino_response is not None:
-        #    self.get_logger().info(f'Received from Arduino: {arduino_response}')
-        #    if arduino_response == "success":
-        #        response.success = True
-        #        response.message = 'Action Completed Successfully'
-        #    else:
-        #        response.success = False
-        #        response.message = 'Action Failed'
-        #else:
-        #    response.success = False
-        #    response.message = 'No response from Arduino'
-
-        #return response
+            # Resume normal operation
+            self.stop_sign_detected = False
+            data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0}\n"
+            self.get_logger().info('Timer triggered, sending data: %s' % data_to_send)
+            self.send_to_arduino(data_to_send) 
     
     def send_to_arduino(self, data):
         if self.serial_port is None:
             self.get_logger().error('Serial port not initialized')
             return
         try:
-            self.serial_port.write((str(data) + ",").encode('utf-8'))
+            self.serial_port.write((str(data)).encode('utf-8'))
             self.get_logger().info('Sent to Arduino: "%s"' % data)
         except serial.SerialException as e:
             self.get_logger().error('Failed to send data to Arduino: %s' % str(e))
@@ -116,9 +93,9 @@ class FrameClassificationSubscriber(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    subscriber = FrameClassificationSubscriber()
-    rclpy.spin(subscriber)
-    subscriber.destroy_node()
+    node = BridgeNode()
+    rclpy.spin(node)
+    node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
