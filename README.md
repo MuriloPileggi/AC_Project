@@ -10,6 +10,9 @@
 
 **Install Opencv on Linux:** https://www.geeksforgeeks.org/how-to-install-opencv-in-c-on-linux/
 
+**Thermal Cam:** https://github.com/Muzinho862/Caro
+
+
 **NOT USED LINKS**
 
 **Install OpenCV on Linux:** https://docs.opencv.org/4.7.0/index.html
