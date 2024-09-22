@@ -4,20 +4,19 @@
 #include "opencv2/videoio.hpp"
 #include "rclcpp/rclcpp/rclcpp.hpp"
 #include "../ai_libraries/mlpp.hpp"
-#include "std_msgs/std_msgs/msg/float32.hpp"
-#include "std_srvs/std_srvs/srv/trigger.hpp"
+#include "std_msgs/std_msgs/msg/int8.hpp"
 
 using namespace std;
 using namespace std::chrono_literals;
 using namespace MLPP;
 
 // Timer callback function
-void timer_callback(rclcpp::Publisher<std_msgs::msg::Float32>::SharedPtr publisher,
-						rclcpp::Node::SharedPtr node, std::shared_ptr<float> angle_correction)
+void timer_callback(rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr publisher,
+						rclcpp::Node::SharedPtr node, std::shared_ptr<int8_t> angle_correction)
 {
-    auto message = std_msgs::msg::Float32();
+    auto message = std_msgs::msg::Int8();
     message.data = *angle_correction;
-    RCLCPP_INFO(node->get_logger(), "Publishing: '%f'", message.data);
+    RCLCPP_INFO(node->get_logger(), "Publishing: '%i'", message.data);
     publisher->publish(message);
 }
 
@@ -29,14 +28,14 @@ int main(int argc, char * argv[])
 	// Create a ROS 2 node
 	auto node = std::make_shared<rclcpp::Node>("road_vision");
 	// Create a ROS 2 publisher
-	auto publisher = node->create_publisher<std_msgs::msg::Float32>("road_vision_topic", 10);
+	auto publisher = node->create_publisher<std_msgs::msg::Int8>("road_vision_topic", 10);
 	// Create a ROS 2 service client
 	//auto client = node->create_client<std_srvs::srv::Trigger>("trigger_action");
 	// Create a shared variable for steering angle
-    auto angle_correction = std::make_shared<float>(63.0f);
+    auto angle_correction = std::make_shared<int8_t>(0);
 	// Create a timer with a lambda function, so we publish steering angle every 20 ms (50Hz)
     auto timer = node->create_wall_timer(
-        50ms, 
+        100ms, 
         [publisher, node, angle_correction]() {
             timer_callback(publisher, node, angle_correction);
         }
@@ -81,7 +80,9 @@ int main(int argc, char * argv[])
 	// Guidance System class constructor
 	GuidanceSystem guidance_system;
 	// PID Controller class constructor
-	PIDController pid_controller(0.3, 0.005, 0.01);
+	PIDController pid_controller(0.3, 0.01, 0.01);
+	// PI Controller class constructor
+	//PIController pi_controller(0.1, 0.01);
 
     while (cap.isOpened())
     {

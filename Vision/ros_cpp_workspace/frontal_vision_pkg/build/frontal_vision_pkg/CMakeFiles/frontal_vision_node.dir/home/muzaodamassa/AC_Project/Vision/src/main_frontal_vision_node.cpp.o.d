@@ -369,12 +369,12 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
  /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/random \
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/numeric \
+ /usr/include/c++/11/bits/stl_numeric.h \
+ /usr/include/c++/11/pstl/glue_numeric_defs.h /usr/include/c++/11/random \
  /usr/include/c++/11/bits/random.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
- /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/numeric \
- /usr/include/c++/11/bits/stl_numeric.h \
- /usr/include/c++/11/pstl/glue_numeric_defs.h /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/random.tcc /usr/include/c++/11/thread \
  /usr/include/c++/11/bits/std_thread.h \
  /usr/include/c++/11/bits/this_thread_sleep.h \
  /usr/include/c++/11/valarray /usr/include/c++/11/bits/valarray_array.h \
@@ -814,8 +814,4 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
  /opt/ros/iron/include/std_msgs/std_msgs/msg/bool.hpp \
  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp \
  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp \
- /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp \
- /opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp \
- /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp \
- /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp \
- /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp
+ /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp

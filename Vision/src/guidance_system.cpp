@@ -46,7 +46,10 @@ double GuidanceSystem::calc_steering_angle(const cv::Mat& frame, FrameProcessing
    return angle_degrees;
 }
 
-// PID Controller compute error method implementation
+
+#pragma region PID
+
+// PID Controller1 compute error method implementation
 double PIDController::compute_error(double& steering_angle, double& dt)
 {
     // Get error 
@@ -96,3 +99,5 @@ void PIDController::set_parameters(double& p, double& i, double& d)
     m_ki = i;
     m_kd = d;
 }
+
+#pragma endregion

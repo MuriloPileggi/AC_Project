@@ -887,12 +887,12 @@ CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_roa
  /opt/ros/iron/include/rclcpp/rclcpp/parameter_map.hpp
  /opt/ros/iron/include/rclcpp/rclcpp/parameter_event_handler.hpp
  /opt/ros/iron/include/rclcpp/rclcpp/parameter_service.hpp
- /opt/ros/iron/include/std_msgs/std_msgs/msg/float32.hpp
- /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/float32__struct.hpp
- /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/float32__builder.hpp
- /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/float32__traits.hpp
  /opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp
  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp
  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp
  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp
+ /opt/ros/iron/include/std_msgs/std_msgs/msg/int8.hpp
+ /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__struct.hpp
+ /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__builder.hpp
+ /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__traits.hpp
 

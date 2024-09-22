@@ -1,0 +1,10 @@
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:75:16:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kstd::thread spin_thread[m[K’
+   75 |         thread [01;31m[Kspin_thread[m[K([&]()
+      |                [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:69:16:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::thread spin_thread[m[K’ previously declared here
+   69 |         thread [01;36m[Kspin_thread[m[K([&]()
+      |                [01;36m[K^~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/frontal_vision_node.dir/build.make:76: CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/frontal_vision_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

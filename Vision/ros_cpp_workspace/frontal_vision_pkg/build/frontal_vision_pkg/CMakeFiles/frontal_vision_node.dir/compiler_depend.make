@@ -435,13 +435,13 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
   /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/c++/11/numeric \
+  /usr/include/c++/11/bits/stl_numeric.h \
+  /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/random \
   /usr/include/c++/11/bits/random.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h \
   /usr/include/c++/11/bits/random.tcc \
-  /usr/include/c++/11/numeric \
-  /usr/include/c++/11/bits/stl_numeric.h \
-  /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/thread \
   /usr/include/c++/11/bits/std_thread.h \
   /usr/include/c++/11/bits/this_thread_sleep.h \
@@ -889,14 +889,8 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
   /opt/ros/iron/include/std_msgs/std_msgs/msg/bool.hpp \
   /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp \
   /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp \
-  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp \
-  /opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp \
-  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp \
-  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp \
-  /opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp
 
-
-/opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__struct.hpp:
 
 /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp:
 
@@ -2066,8 +2060,6 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 
 /usr/include/linux/limits.h:
 
-/opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__traits.hpp:
-
 /usr/include/c++/11/bits/shared_ptr_base.h:
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
@@ -2252,8 +2244,6 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 
 /usr/include/c++/11/bits/stl_map.h:
 
-/opt/ros/iron/include/std_srvs/std_srvs/srv/detail/trigger__builder.hpp:
-
 /opt/ros/iron/include/rosidl_dynamic_typesupport/rosidl_dynamic_typesupport/identifier.h:
 
 /usr/local/include/opencv4/opencv2/dnn/layer.hpp:
@@ -2361,8 +2351,6 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 /opt/ros/iron/include/rmw/rmw/qos_policy_kind.h:
 
 /usr/local/include/opencv4/opencv2/flann/lsh_index.h:
-
-/opt/ros/iron/include/std_srvs/std_srvs/srv/trigger.hpp:
 
 /usr/include/c++/11/bits/locale_facets_nonio.h:
 
@@ -2500,13 +2488,13 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 
 /usr/include/c++/11/bits/fstream.tcc:
 
+/usr/include/c++/11/numeric:
+
 /opt/ros/iron/include/rmw/rmw/events_statuses/message_lost.h:
 
 /usr/include/c++/11/random:
 
 /usr/include/c++/11/bits/random.h:
-
-/usr/include/c++/11/numeric:
 
 /opt/ros/iron/include/rcutils/rcutils/snprintf.h:
 

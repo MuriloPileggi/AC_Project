@@ -5,14 +5,13 @@
 #include "rclcpp/rclcpp/rclcpp.hpp"
 #include "../ai_libraries/mlpp.hpp"
 #include "std_msgs/std_msgs/msg/bool.hpp"
-#include "std_srvs/std_srvs/srv/trigger.hpp"
 
 using namespace std;
 using namespace std::chrono_literals;
 using namespace MLPP;
 
-// Timer callback function
-void timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
+// Stop sign detection timer callback function
+void stop_sign_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
 						rclcpp::Node::SharedPtr node, std::shared_ptr<bool> stop_sign_detected)
 {
     auto message = std_msgs::msg::Bool();
@@ -21,32 +20,66 @@ void timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
     publisher->publish(message);
 }
 
+// Obstacle detection timer callback function
+void obstacle_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
+						rclcpp::Node::SharedPtr node, std::shared_ptr<bool> obstacle_detected)
+{
+    auto message = std_msgs::msg::Bool();
+    message.data = *obstacle_detected;
+    RCLCPP_INFO(node->get_logger(), "Publishing: '%s'", message.data ? "true" : "false");
+    publisher->publish(message);
+}
+
 int main(int argc, char * argv[])
 {
 	#pragma region ROS INITIALIZATION
+
 	// Initialize ROS 2
 	rclcpp::init(argc, argv);
-	// Create a ROS 2 node
-	auto node = std::make_shared<rclcpp::Node>("frontal_vision");
-	// Create a ROS 2 publisher
-	auto publisher = node->create_publisher<std_msgs::msg::Bool>("frontal_vision_topic", 10);
-	// Create a ROS 2 service client
-	//auto client = node->create_client<std_srvs::srv::Trigger>("trigger_action");
-	// Create a shared variable for steering angle
+	// Create a ROS 2 node that will publish data relevant to stop sign detection
+	auto stop_sign_detection_node = std::make_shared<rclcpp::Node>("stop_sign_detection");
+	// Create stop sign detection ROS 2 publisher
+	auto stop_sign_publisher = stop_sign_detection_node->create_publisher<std_msgs::msg::Bool>("stop_sign_detection_topic", 10);
+	// Create a shared variable for stop sign detection
     auto stop_sign_detected = std::make_shared<bool>(false);
-	// Create a timer with a lambda function, so we publish steering angle every 20 ms (50Hz)
-    auto timer = node->create_wall_timer(
-        50ms, 
-        [publisher, node, stop_sign_detected]() {
-            timer_callback(publisher, node, stop_sign_detected);
+	// Create a timer with a lambda function, so we publish stop sign detection status every 100 ms 
+    auto stop_sign_timer = stop_sign_detection_node->create_wall_timer(
+        100ms, 
+        [stop_sign_publisher, stop_sign_detection_node, stop_sign_detected]() {
+            stop_sign_timer_callback(stop_sign_publisher, stop_sign_detection_node, stop_sign_detected);
+        }
+    );
+	// Start stop sign detection node on a separate thread 
+	thread stop_sign_thread([&]() 
+	{
+		rclcpp::spin(stop_sign_detection_node);
+		
+	});
+
+	auto stop_debugging = std::make_shared<bool>(false);
+
+	/* OBSTACLE DETECTION NODE
+
+	// Create a ROS 2 node that will publish data relevant to obstacle detection
+	auto obstacle_detection_node = std::make_shared<rclcpp::Node>("obstacle_detection");
+	// Create stop sign detection ROS 2 publisher
+	auto obstacle_detection_publisher = obstacle_detection_node->create_publisher<std_msgs::msg::Bool>("obstacle_detection_topic", 10);
+	// Create a shared variable for stop sign detection
+    auto obstacle_detected = std::make_shared<bool>(false);
+	// Create a timer with a lambda function, so we publish obstacle detection status every 100 ms 
+    auto obstacle_detection_timer = obstacle_detection_node->create_wall_timer(
+        100ms, 
+        [obstacle_detection_publisher, obstacle_detection_node, obstacle_detected]() {
+            obstacle_detection_timer_callback(obstacle_detection_publisher, obstacle_detection_node, obstacle_detected);
         }
     );
 
-	// Start road vision node on a separate thread from video while loop
-	thread spin_thread([&]() 
+	// Start stop sign detection node on a separate thread 
+	thread obstacles_thread([&]() 
 	{
-		rclcpp::spin(node);
-	});
+		rclcpp::spin(obstacle_detection_node);
+		
+	}); */
 
 	#pragma endregion
 
@@ -55,10 +88,8 @@ int main(int argc, char * argv[])
 	int height = 500;
 
 	// Loading haar cascade xml files for object detection
-	cv::CascadeClassifier stopSignCascade;
-	//cv::CascadeClassifier trafficLightCascade;
-	stopSignCascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/Stopsign_HAAR_19Stages.xml");
-	//trafficLightCascade.load("../Data/Pre_Trained_Models/TrafficLight_HAAR_16Stages.xml");
+	cv::CascadeClassifier stop_sign_detection_cascade;
+	stop_sign_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/Stopsign_HAAR_19Stages.xml");
 
     // Open default camera
     cv::VideoCapture cap(0);
@@ -83,6 +114,10 @@ int main(int argc, char * argv[])
 
 	// Frame processing class constructor
 	FrameProcessing frame_processing;
+	// Neural network constructor from MLPP
+	//NeuralNetwork cnn;
+	// Load pre trained model into class
+	//cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/stop_sign_detection_25.bin");
 
     while (cap.isOpened())
     {
@@ -98,28 +133,34 @@ int main(int argc, char * argv[])
 			break;
 		}
 
-		frame_processing.resize_frame(frame, width, height);
-		frame_processing.apply_gray_scale_to_frame(frame);
-		// Detect traffic lights
-		/*
-		vector<cv::Rect> trafficLights;
-		trafficLightCascade.detectMultiScale(gray, trafficLights, 1.1, 5, cv::CASCADE_SCALE_IMAGE, cv::Size(30, 30), cv::Size(100, 100));
+		//cv::Mat* processed_frame = new cv::Mat(frame);
 
-		// Draw bounding boxes around detected traffic lights
-		for (const auto& rect : trafficLights)
-		{
-			cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
-			cv::putText(frame, "Traffic Light", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
-		}
-		*/
+		// Visual/Debugging
+		frame_processing.resize_frame(frame, width, height);
+		//frame_processing.apply_gray_scale_to_frame(frame);
+
+		// Process frame
+		//frame_processing.resize_frame(*processed_frame, 32, 32);
+		//frame_processing.apply_gray_scale_to_frame(*processed_frame);
+
+		// Convert frame into MLPP matrix 
+		//Mat3d<double>* mlpp_frame = OpenCvIntegration::convert_gray_image<double>(processed_frame);
+		// Normalize frame data
+		//Mat3d<double> normalized_frame = ComputerVision::normalize_pixels<double>(mlpp_frame);
+		// Apply inference to normalized frame data using loaded model to store predicted class
+		//size_t predicted_frame_class = cnn.predict_frame<double>(normalized_frame);
+		// If predicted class is 1, i.e, there was some sort of obstacle in frame
+		// We assign shared pointer data to true, else it remains false
+		//*stop_debugging = predicted_frame_class == 1 ? true : false;	
+		//std::cout << std::to_string(*stop_debugging) << std::endl;
 
 		// Detect stop signs in the frame
-		vector<cv::Rect> stopSigns;
-		stopSignCascade.detectMultiScale(frame, stopSigns, 1.1, 5);
+		vector<cv::Rect> stop_signs;
+		stop_sign_detection_cascade.detectMultiScale(frame, stop_signs, 1.1, 5);
+		*stop_sign_detected = !stop_signs.empty();
 
 		// Draw bounding boxes around detected stop signs
-		*stop_sign_detected = !stopSigns.empty();
-		for (const auto& rect : stopSigns)
+		for (const auto& rect : stop_signs)
 		{
 			cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
 			cv::putText(frame, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
@@ -153,7 +194,8 @@ int main(int argc, char * argv[])
 	rclcpp::shutdown();
 	
 	// Join the spin thread before exiting
-    spin_thread.join();
+    stop_sign_thread.join();
+	//obstacles_thread.join();
 
 	return 0;
 }
