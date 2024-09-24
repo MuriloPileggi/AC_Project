@@ -56,7 +56,7 @@ int main(int argc, char * argv[])
 		
 	});
 
-	auto stop_debugging = std::make_shared<bool>(false);
+	auto obstacle_detection_debug = std::make_shared<bool>(false);
 
 	/* OBSTACLE DETECTION NODE
 
@@ -89,7 +89,9 @@ int main(int argc, char * argv[])
 
 	// Loading haar cascade xml files for object detection
 	cv::CascadeClassifier stop_sign_detection_cascade;
+	cv::CascadeClassifier pedestrian_detection_cascade;
 	stop_sign_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/Stopsign_HAAR_19Stages.xml");
+	pedestrian_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/haarcascade_fullbody.xml");
 
     // Open default camera
     cv::VideoCapture cap(0);
@@ -137,6 +139,7 @@ int main(int argc, char * argv[])
 
 		// Visual/Debugging
 		frame_processing.resize_frame(frame, width, height);
+		frame_processing.apply_smoothing_to_frame(frame);
 		//frame_processing.apply_gray_scale_to_frame(frame);
 
 		// Process frame
@@ -164,6 +167,20 @@ int main(int argc, char * argv[])
 		{
 			cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
 			cv::putText(frame, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+		} 
+
+		// Detect pedestrians in the frame
+		vector<cv::Rect> obstacles;
+		pedestrian_detection_cascade.detectMultiScale(frame, obstacles, 1.1, 5);
+		*obstacle_detection_debug = !pedestrians.empty();
+
+		std::cout << std::to_string(*obstacle_detection_debug) << std::endl;
+
+		// Draw bounding boxes around detected stop signs
+		for (const auto& rect : obstacles)
+		{
+			cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
+			cv::putText(frame, "Obstacle", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
 		} 
 
         // Calculate FPS
