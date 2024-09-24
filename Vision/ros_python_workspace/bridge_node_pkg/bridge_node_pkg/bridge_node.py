@@ -28,11 +28,11 @@ class BridgeNode(Node):
         self.timer = self.create_timer(0.1, self.timer_callback)
 
         # Initialize serial connection
-        #self.serial_port =  serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
-        #if self.serial_port is None:
-            #self.get_logger().error('Failed to initialize serial connection')
-            #return
-        #time.sleep(2)  # Wait for the connection to settle
+        self.serial_port =  serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
+        if self.serial_port is None:
+            self.get_logger().error('Failed to initialize serial connection')
+            return
+        time.sleep(2)  # Wait for the connection to settle
         #self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
         #if self.serial_port is None:
             #self.get_logger().error('Failed to initialize serial connection')
@@ -87,7 +87,7 @@ class BridgeNode(Node):
             data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0}\n"
             #data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0},{1 if self.obstacle_detected else 0}\n"
             self.get_logger().info('Timer triggered, sending data: %s' % data_to_send)
-            #self.send_to_arduino(data_to_send) 
+            self.send_to_arduino(data_to_send) 
     
     def send_to_arduino(self, data):
         if self.serial_port is None:

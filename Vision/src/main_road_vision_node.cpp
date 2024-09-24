@@ -54,8 +54,8 @@ int main(int argc, char * argv[])
 	int height = 500;
 	
     // Open video file
-    //cv::VideoCapture cap(0);
-	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
+    cv::VideoCapture cap(0);
+	//cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
 
     // Check if camera opened successfully
     if (!cap.isOpened())

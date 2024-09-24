@@ -1,5 +1,0 @@
-In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:2[m[K:
-[01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:[m[K In member function ‘[01m[Kstd::vector<double, std::allocator<double> > FrameProcessing::get_x_intercept_coordinates(const cv::Mat&, MLPP::Mat3d<double>&)[m[K’:
-[01m[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:688:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
-  688 | [01;35m[K}[m[K
-      | [01;35m[K^[m[K
