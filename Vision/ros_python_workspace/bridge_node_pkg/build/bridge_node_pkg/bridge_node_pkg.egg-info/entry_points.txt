@@ -1,0 +1,3 @@
+[console_scripts]
+bridge_node = bridge_node_pkg.bridge_node:main
+

@@ -35,8 +35,8 @@ class BridgeNode(Node):
         time.sleep(2)  # Wait for the connection to settle
         #self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
         #if self.serial_port is None:
-            #self.get_logger().error('Failed to initialize serial connection')
-            #return
+        #   self.get_logger().error('Failed to initialize serial connection')
+        #   return
         #time.sleep(2)  # Wait for the connection to settle
   
     def road_vision_callback(self, msg):
@@ -88,6 +88,7 @@ class BridgeNode(Node):
             #data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0},{1 if self.obstacle_detected else 0}\n"
             self.get_logger().info('Timer triggered, sending data: %s' % data_to_send)
             self.send_to_arduino(data_to_send) 
+            #self.receive_from_arduino()
     
     def send_to_arduino(self, data):
         if self.serial_port is None:
@@ -108,6 +109,7 @@ class BridgeNode(Node):
             while True:
                 if self.serial_port.in_waiting > 0:
                     ard = self.serial_port.readline().decode().strip()
+                    self.get_logger().info('Received from Arduino: "%s"' % ard)
                     if ard:
                         return ard
         except serial.SerialException as e:

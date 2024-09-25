@@ -29,11 +29,20 @@ double GuidanceSystem::calc_steering_angle(const cv::Mat& frame, FrameProcessing
     return theta_angle_degrees;
     */
 
+   // Bottom Mask coordinates
+   //int a_x = frame.cols/2;
+   //int a_y = frame.rows;
+   //int b_x = frame.cols/2;
+   //int c_x = (left_line_parameters.x2 + right_line_parameters.x2)/2;
+   //int c_y = frame.rows - left_line_parameters.y2;
+   //int b_y = c_y;
+
+   // Top Mask Coordinate
    int a_x = frame.cols/2;
-   int a_y = frame.rows;
+   int a_y = frame.rows/2;
    int b_x = frame.cols/2;
    int c_x = (left_line_parameters.x2 + right_line_parameters.x2)/2;
-   int c_y = frame.rows - left_line_parameters.y2;
+   int c_y = frame.rows/2 - left_line_parameters.y2;
    int b_y = c_y;
 
    int adjacent_cathet = a_y - b_y;

@@ -23,17 +23,19 @@ void FrameProcessing::apply_mask_to_frame(cv::Mat& frame)
 	// 3rd arg is CV_<bit-depth>{U|S|F}C(<number_of_channels>), so this is 8bit, unsigned int, channels: 1
 	cv::Mat mask(frame.rows, frame.cols, CV_8UC1, cv::Scalar(0));
 
-    // Define the points for the mask
-	// Use cv::Point type for x,y points
+    // Define the points for the mask - Bottom Mask
+	// Use cv::Point type for x,y points 
+    //cv::Point bottom_left = cv::Point(125, frame.rows);
+	//cv::Point top_left = cv::Point(125, frame.rows/2);
+	//cv::Point top_right = cv::Point(frame.cols - 25, frame.rows/2);
+	//cv::Point bottom_right = cv::Point(frame.cols - 25, frame.rows);
+
+    // Define the points for the mask - Top Mask
+    // Use cv::Point type for x,y points 
 	cv::Point bottom_left = cv::Point(25, frame.rows/2);
 	cv::Point top_left = cv::Point(25, 0);
 	cv::Point top_right = cv::Point(frame.cols - 25, 0);
 	cv::Point bottom_right = cv::Point(frame.cols - 25, frame.rows/2);
-    //cv::Point bottom = cv::Point(frame.cols/2, frame.rows);
-	//cv::Point top_left_1 = cv::Point(frame.cols/5, frame.rows/3 + 100);
-    //cv::Point top_left_2 = cv::Point(frame.cols/5, frame.rows/3);
-    //cv::Point top_right_2 = cv::Point(frame.cols - frame.cols/10, frame.rows/3);
-	//cv::Point top_right_1 = cv::Point(frame.cols - frame.cols/10, frame.rows/3 + 100);
     
 
     // create vector from array with points we just defined
@@ -79,11 +81,16 @@ cv::Mat FrameProcessing::blend_frame(const cv::Mat& frame, const LineParameters&
     // Create image, lane lines on real image
     cv::Mat lane_filled_image = frame.clone();
 
-    // Use cv::Point type for x,y points
+    // Use cv::Point type for x,y points - Bottom Mask
     cv::Point v1 = cv::Point(positive_line_parameters.x1, frame.rows - positive_line_parameters.y1);
     cv::Point v2 = cv::Point(positive_line_parameters.x2, frame.rows - positive_line_parameters.y2);
     cv::Point v3 = cv::Point(negative_line_parameters.x1, frame.rows - negative_line_parameters.y1);
     cv::Point v4 = cv::Point(negative_line_parameters.x2, frame.rows - negative_line_parameters.y2);
+    // Use cv::Point type for x,y points - Top Mask
+    //cv::Point v1 = cv::Point(positive_line_parameters.x1, frame.rows/2 - positive_line_parameters.y1);
+    //cv::Point v2 = cv::Point(positive_line_parameters.x2, frame.rows/2 - positive_line_parameters.y2);
+    //cv::Point v3 = cv::Point(negative_line_parameters.x1, frame.rows/2 - negative_line_parameters.y1);
+    //cv::Point v4 = cv::Point(negative_line_parameters.x2, frame.rows/2 - negative_line_parameters.y2);
 
     // create vector from array of corner points of lane
     cv::Point vertices_blend[] = {v1, v3, v4, v2}; 
@@ -101,20 +108,34 @@ cv::Mat FrameProcessing::blend_frame(const cv::Mat& frame, const LineParameters&
     cv::Mat blended_image;
     cv::addWeighted(lane_filled_image, opacity, frame, 1 - opacity, 0, blended_image);
 
-    int get_middle_line_x = (positive_line_parameters.x2 + negative_line_parameters.x2)/2;
+    int middle_line_x = (positive_line_parameters.x2 + negative_line_parameters.x2)/2;
 
-    // Plot lane lines
-    cv::line(blended_image, cv::Point(positive_line_parameters.x1, frame.rows - positive_line_parameters.y1),
-                cv::Point(positive_line_parameters.x2, frame.rows - positive_line_parameters.y2),
+    // Plot lane lines - Bottom Mask
+    //cv::line(blended_image, cv::Point(positive_line_parameters.x1, frame.rows - positive_line_parameters.y1),
+    //            cv::Point(positive_line_parameters.x2, frame.rows - positive_line_parameters.y2),
+    //                cv::Scalar(0, 255, 0), 8, 8);
+    //cv::line(blended_image, cv::Point(negative_line_parameters.x1, frame.rows - negative_line_parameters.y1),
+    //                 cv::Point(negative_line_parameters.x2, frame.rows - negative_line_parameters.y2),
+    //                 cv::Scalar(0, 255, 0), 8, 8);
+    //cv::line(blended_image, cv::Point(middle_line_x, frame.rows),
+    //                 cv::Point(middle_line_x, frame.rows - negative_line_parameters.y2),
+    //                 cv::Scalar(0, 0, 255), 5, 8);
+    //cv::line(blended_image, cv::Point(frame.cols/2, frame.rows),
+    //                 cv::Point(frame.cols/2, frame.rows - negative_line_parameters.y2),
+    //                 cv::Scalar(0, 0, 0), 5, 8);
+
+    // Plot lane lines - Top Mask
+    cv::line(blended_image, cv::Point(positive_line_parameters.x1, frame.rows/2 - positive_line_parameters.y1),
+                cv::Point(positive_line_parameters.x2, frame.rows/2 - positive_line_parameters.y2),
                     cv::Scalar(0, 255, 0), 8, 8);
-    cv::line(blended_image, cv::Point(negative_line_parameters.x1, frame.rows - negative_line_parameters.y1),
-                     cv::Point(negative_line_parameters.x2, frame.rows - negative_line_parameters.y2),
+    cv::line(blended_image, cv::Point(negative_line_parameters.x1, frame.rows/2 - negative_line_parameters.y1),
+                     cv::Point(negative_line_parameters.x2, frame.rows/2 - negative_line_parameters.y2),
                      cv::Scalar(0, 255, 0), 8, 8);
-    cv::line(blended_image, cv::Point(get_middle_line_x, frame.rows),
-                     cv::Point(get_middle_line_x, frame.rows - negative_line_parameters.y2),
+    cv::line(blended_image, cv::Point(middle_line_x, frame.rows/2),
+                     cv::Point(middle_line_x, frame.rows/2 - negative_line_parameters.y2),
                      cv::Scalar(0, 0, 255), 5, 8);
-    cv::line(blended_image, cv::Point(frame.cols/2, frame.rows),
-                     cv::Point(frame.cols/2, frame.rows - negative_line_parameters.y2),
+    cv::line(blended_image, cv::Point(frame.cols/2, frame.rows/2),
+                     cv::Point(frame.cols/2, frame.rows/2 - negative_line_parameters.y2),
                      cv::Scalar(0, 0, 0), 5, 8);
 
     return blended_image;
@@ -132,7 +153,7 @@ MLPP::Mat3d<double> FrameProcessing::classify_hough_lines(const cv::Mat& frame, 
     std::vector<float> angles;
     float frame_center = frame.cols/2.0f;
     float frame_height = static_cast<float>(frame.rows);
-
+    
     std::vector<cv::Vec4i> positive_lines;
     std::vector<cv::Vec4i> negative_lines;
 
@@ -183,10 +204,13 @@ MLPP::Mat3d<double> FrameProcessing::classify_hough_lines(const cv::Mat& frame, 
     result.push_back(positive_slope_lines);
     result.push_back(negative_slope_lines);
 
-    return result;
+    return result; 
 
     /* 
     std::vector<float> y_values; // Vector to store all y values
+
+    int positive_counter = 0;
+    int negative_counter = 0;
 
     // keep track of if we added one of each, want at least one of each to proceed
 	bool added_positive = false;
@@ -303,32 +327,28 @@ MLPP::Mat3d<double> FrameProcessing::classify_hough_lines(const cv::Mat& frame, 
                 float tan_theta = std::tan((std::abs(y2 - y1))/(std::abs(x2 - x1))); // tan(theta) value
                 float angle = std::atan(tan_theta) * 180/pi;
 
-                // Only pass good line angles,  dont want
-                // verticalish/horizontalish lines
-                if (std::abs(angle) < 85 && std::abs(angle) > 15) {
-                    // Add a row to the matrix
-                    positive_slope_lines.resize(negative_counter + 1);
+                // Add a row to the matrix
+                positive_slope_lines.resize(negative_counter + 1);
 
-                    // Reshape current row to 5 columns [x1, y1, x2, y2, slope]
-                    positive_slope_lines[negative_counter].resize(5);
+                // Reshape current row to 5 columns [x1, y1, x2, y2, slope]
+                positive_slope_lines[negative_counter].resize(5);
 
-                    // Add values to row
-                    negative_slope_lines[negative_counter][0] = x1;
-                    negative_slope_lines[negative_counter][1] = y1;
-                    negative_slope_lines[negative_counter][2] = x2;
-                    negative_slope_lines[negative_counter][3] = y2;
-                    negative_slope_lines[negative_counter][4] = -slope;
+                // Add values to row
+                negative_slope_lines[negative_counter][0] = x1;
+                negative_slope_lines[negative_counter][1] = y1;
+                negative_slope_lines[negative_counter][2] = x2;
+                negative_slope_lines[negative_counter][3] = y2;
+                negative_slope_lines[negative_counter][4] = -slope;
 
-                    // add yValues
-                    y_values.push_back(y1);
-                    y_values.push_back(y2);
+                // add yValues
+                y_values.push_back(y1);
+                y_values.push_back(y2);
 
-                    // Note that we added a positive slope line
-                    added_positive = true;
+                // Note that we added a positive slope line
+                added_positive = true;
 
-                    // iterate the counter
-                    negative_counter++;
-                }
+                // iterate the counter
+                negative_counter++;
             }
         }
     }
@@ -356,32 +376,28 @@ MLPP::Mat3d<double> FrameProcessing::classify_hough_lines(const cv::Mat& frame, 
                 float tan_theta = std::tan((std::abs(y2 - y1))/(std::abs(x2 - x1))); // tan(theta) value
                 float angle = std::atan(tan_theta) * 180 / pi;
 
-                // Only pass good line angles,  dont want
-                // verticalish/horizontalish lines
-                if (std::abs(angle) < 85 && std::abs(angle) > 15) {
-                    // Add a row to the matrix
-                    positive_slope_lines.resize(positive_counter + 1);
+                // Add a row to the matrix
+                positive_slope_lines.resize(positive_counter + 1);
 
-                    // Reshape current row to 5 columns [x1, y1, x2, y2, slope]
-                    positive_slope_lines[positive_counter].resize(5);
+                // Reshape current row to 5 columns [x1, y1, x2, y2, slope]
+                positive_slope_lines[positive_counter].resize(5);
 
-                    // Add values to row
-                    positive_slope_lines[positive_counter][0] = x1;
-                    positive_slope_lines[positive_counter][1] = y1;
-                    positive_slope_lines[positive_counter][2] = x2;
-                    positive_slope_lines[positive_counter][3] = y2;
-                    positive_slope_lines[positive_counter][4] = -slope;
+                // Add values to row
+                positive_slope_lines[positive_counter][0] = x1;
+                positive_slope_lines[positive_counter][1] = y1;
+                positive_slope_lines[positive_counter][2] = x2;
+                positive_slope_lines[positive_counter][3] = y2;
+                positive_slope_lines[positive_counter][4] = -slope;
 
-                    // add yValues
-                    y_values.push_back(y1);
-                    y_values.push_back(y2);
+                // add yValues
+                y_values.push_back(y1);
+                y_values.push_back(y2);
 
-                    // Note that we added a positive slope line
-                    added_negative = true;
+                // Note that we added a positive slope line
+                added_negative = true;
 
-                    // iterate the counter
-                    positive_counter++;
-                }
+                // iterate the counter
+                positive_counter++;
             }
         }
     } 
@@ -391,9 +407,14 @@ MLPP::Mat3d<double> FrameProcessing::classify_hough_lines(const cv::Mat& frame, 
         std::cout << "Not enough lines found" << std::endl;
         return MLPP::Mat3d<double>();
     }
-   */
-   
-   /*  for (const auto& line : h_lines)
+
+    MLPP::Mat3d<double> result;
+    result.push_back(positive_slope_lines);
+    result.push_back(negative_slope_lines);
+
+    return result; */
+
+    /* for (const auto& line : h_lines)
     {
         float x1 = line[0];
         float y1 = line[1];
@@ -458,11 +479,8 @@ MLPP::Mat3d<double> FrameProcessing::classify_hough_lines(const cv::Mat& frame, 
 
         ransac_filter(positive_slope_lines, median_angle);
         ransac_filter(negative_slope_lines, -median_angle);
-    }
+    } */
     
-    */
-
-   
 }
 
 // Implementation of extract hough lines method
@@ -499,10 +517,15 @@ std::vector<float> FrameProcessing::get_average_positive_and_negative_slopes_lin
 
     float negative_slope_mean = negative_sum / negative_slopes.size(); 
 
-    return std::vector<float> { positive_slope_mean, negative_slope_mean }; 
+    return std::vector<float> { positive_slope_mean, negative_slope_mean };  
 
-    /*
-
+    /* 
+    // Add positive slopes from slope_lines[0] into a vector positive slopes
+    std::vector<float> positive_slopes;
+    for (size_t i = 0; i != slope_lines[0].size(); ++i) {
+        positive_slopes.push_back(slope_lines[0][i][4]);
+    }
+    
     // Get median of positive slopes
     std::sort(positive_slopes.begin(), positive_slopes.end()); // sort slopes
     int middle_positive; // Define middle value
@@ -532,7 +555,7 @@ std::vector<float> FrameProcessing::get_average_positive_and_negative_slopes_lin
     {
         // Check difference between current slope and the median
         // If difference is too big we consider it an outlier and ignore
-        if (std::abs(positive_slopes[i] - positive_slope_median) < positive_slope_median * 0.2) {
+        if (std::abs(positive_slopes[i] - positive_slope_median) < positive_slope_median ) {
             valid_positive_slopes.push_back(positive_slopes[i]); // Add slope to valid slopes vector
             positive_sum += positive_slopes[i]; // Add to sum
         }
@@ -569,7 +592,7 @@ std::vector<float> FrameProcessing::get_average_positive_and_negative_slopes_lin
         negative_slope_median = negative_slopes[middle_negative];
     }
 
-    /* // Define vector of valid negative slopes, outliers are discarded
+     // Define vector of valid negative slopes, outliers are discarded
     std::vector<float> valid_negative_slopes;
     float negative_sum {0.0}; // Initialize sum so we can get the mean
 
@@ -585,9 +608,10 @@ std::vector<float> FrameProcessing::get_average_positive_and_negative_slopes_lin
     }
 
     // Get mean of valid positive slopes
-    float negative_slope_mean = negative_sum / valid_negative_slopes.size(); */
-
-    //return std::make_pair(positive_slope_median, negative_slope_median); 
+    float negative_slope_mean = negative_sum / valid_negative_slopes.size();
+    
+    return std::vector<float> { positive_slope_mean, negative_slope_mean }; */
+    
 }
 
 // Implementation of get X intercept coordinates method
@@ -634,8 +658,6 @@ std::vector<double>  FrameProcessing::get_x_intercept_coordinates(const cv::Mat&
             x_intercept_positive_sum += x_intercept;
         }
     }
-
-    
 
     // Get mean x intercept value for positive slope lines
     double positive_x_intercept_mean = x_intercept_positive_sum / valid_positive_x_intercept_values.size();

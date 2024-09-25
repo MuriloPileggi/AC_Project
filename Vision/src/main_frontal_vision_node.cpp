@@ -56,11 +56,9 @@ int main(int argc, char * argv[])
 		
 	});
 
-	auto obstacle_detection_debug = std::make_shared<bool>(false);
+	//OBSTACLE DETECTION NODE
 
-	/* OBSTACLE DETECTION NODE
-
-	// Create a ROS 2 node that will publish data relevant to obstacle detection
+	/* // Create a ROS 2 node that will publish data relevant to obstacle detection
 	auto obstacle_detection_node = std::make_shared<rclcpp::Node>("obstacle_detection");
 	// Create stop sign detection ROS 2 publisher
 	auto obstacle_detection_publisher = obstacle_detection_node->create_publisher<std_msgs::msg::Bool>("obstacle_detection_topic", 10);
@@ -79,7 +77,7 @@ int main(int argc, char * argv[])
 	{
 		rclcpp::spin(obstacle_detection_node);
 		
-	}); */
+	});  */
 
 	#pragma endregion
 
@@ -89,9 +87,7 @@ int main(int argc, char * argv[])
 
 	// Loading haar cascade xml files for object detection
 	cv::CascadeClassifier stop_sign_detection_cascade;
-	cv::CascadeClassifier pedestrian_detection_cascade;
 	stop_sign_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/Stopsign_HAAR_19Stages.xml");
-	pedestrian_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/haarcascade_fullbody.xml");
 
     // Open default camera
     cv::VideoCapture cap(0);
@@ -119,7 +115,7 @@ int main(int argc, char * argv[])
 	// Neural network constructor from MLPP
 	//NeuralNetwork cnn;
 	// Load pre trained model into class
-	//cnn.load_model("/home/muzaodamassa/AC_Project/Vision/models/stop_sign_detection_25.bin");
+	//cnn.load_model("Vision/models/pedestrian_detection_25_2.bin");
 
     while (cap.isOpened())
     {
@@ -138,13 +134,13 @@ int main(int argc, char * argv[])
 		//cv::Mat* processed_frame = new cv::Mat(frame);
 
 		// Visual/Debugging
+		frame_processing.apply_gray_scale_to_frame(frame);
 		frame_processing.resize_frame(frame, width, height);
-		frame_processing.apply_smoothing_to_frame(frame);
-		//frame_processing.apply_gray_scale_to_frame(frame);
+		//frame_processing.apply_smoothing_to_frame(frame);
 
 		// Process frame
-		//frame_processing.resize_frame(*processed_frame, 32, 32);
 		//frame_processing.apply_gray_scale_to_frame(*processed_frame);
+		//frame_processing.resize_frame(*processed_frame, 128, 128);
 
 		// Convert frame into MLPP matrix 
 		//Mat3d<double>* mlpp_frame = OpenCvIntegration::convert_gray_image<double>(processed_frame);
@@ -154,8 +150,7 @@ int main(int argc, char * argv[])
 		//size_t predicted_frame_class = cnn.predict_frame<double>(normalized_frame);
 		// If predicted class is 1, i.e, there was some sort of obstacle in frame
 		// We assign shared pointer data to true, else it remains false
-		//*stop_debugging = predicted_frame_class == 1 ? true : false;	
-		//std::cout << std::to_string(*stop_debugging) << std::endl;
+		//*obstacle_detected = predicted_frame_class == 1 ? true : false;	
 
 		// Detect stop signs in the frame
 		vector<cv::Rect> stop_signs;
@@ -167,20 +162,6 @@ int main(int argc, char * argv[])
 		{
 			cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
 			cv::putText(frame, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
-		} 
-
-		// Detect pedestrians in the frame
-		vector<cv::Rect> obstacles;
-		pedestrian_detection_cascade.detectMultiScale(frame, obstacles, 1.1, 5);
-		*obstacle_detection_debug = !pedestrians.empty();
-
-		std::cout << std::to_string(*obstacle_detection_debug) << std::endl;
-
-		// Draw bounding boxes around detected stop signs
-		for (const auto& rect : obstacles)
-		{
-			cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
-			cv::putText(frame, "Obstacle", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
 		} 
 
         // Calculate FPS

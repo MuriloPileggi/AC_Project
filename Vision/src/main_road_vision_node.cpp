@@ -12,10 +12,10 @@ using namespace MLPP;
 
 // Timer callback function
 void timer_callback(rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr publisher,
-						rclcpp::Node::SharedPtr node, std::shared_ptr<int8_t> angle_correction)
+						rclcpp::Node::SharedPtr node, std::shared_ptr<int8_t> servo_angle)
 {
     auto message = std_msgs::msg::Int8();
-    message.data = *angle_correction;
+    message.data = *servo_angle;
     RCLCPP_INFO(node->get_logger(), "Publishing: '%i'", message.data);
     publisher->publish(message);
 }
@@ -32,12 +32,12 @@ int main(int argc, char * argv[])
 	// Create a ROS 2 service client
 	//auto client = node->create_client<std_srvs::srv::Trigger>("trigger_action");
 	// Create a shared variable for steering angle
-    auto angle_correction = std::make_shared<int8_t>(0);
+    auto servo_angle = std::make_shared<int8_t>(0);
 	// Create a timer with a lambda function, so we publish steering angle every 20 ms (50Hz)
     auto timer = node->create_wall_timer(
         100ms, 
-        [publisher, node, angle_correction]() {
-            timer_callback(publisher, node, angle_correction);
+        [publisher, node, servo_angle]() {
+            timer_callback(publisher, node, servo_angle);
         }
     );
 
@@ -54,8 +54,8 @@ int main(int argc, char * argv[])
 	int height = 500;
 	
     // Open video file
-    cv::VideoCapture cap(0);
-	//cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
+    //cv::VideoCapture cap(0);
+	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -66,6 +66,9 @@ int main(int argc, char * argv[])
 
     // Create a window to display the video
     cv::namedWindow("Video Stream", cv::WINDOW_NORMAL);
+
+	// Create a window to display the video
+    cv::namedWindow("Debug Stream", cv::WINDOW_NORMAL);
     
 	// Set capture resolution
 	cap.set(cv::CAP_PROP_FRAME_WIDTH, width);
@@ -80,9 +83,7 @@ int main(int argc, char * argv[])
 	// Guidance System class constructor
 	GuidanceSystem guidance_system;
 	// PID Controller class constructor
-	PIDController pid_controller(0.3, 0.01, 0.01);
-	// PI Controller class constructor
-	//PIController pi_controller(0.1, 0.01);
+	PIDController pid_controller(0.5, 0.02, 0.001);
 
     while (cap.isOpened())
     {
@@ -102,6 +103,9 @@ int main(int argc, char * argv[])
 		frame_processing.resize_frame(frame, height, width);
 		frame_processing.resize_frame(p_frame, height, width);
 		frame_processing.apply_pre_processing_to_frame(p_frame);
+
+		cv::imshow("Debug Stream", p_frame); // Show processed frame
+		
 		auto h_lines = frame_processing.extract_hough_lines(p_frame);
 
 		if (!h_lines.empty() && h_lines.size() > 2) {
@@ -127,7 +131,9 @@ int main(int argc, char * argv[])
 
 				// Get the correction value to be passed to servo motor
 				double dt = pid_controller.get_dt();
-				*angle_correction = pid_controller.compute_error(steering_angle, dt);
+				double angle_correction = pid_controller.compute_error(steering_angle, dt);
+
+				*servo_angle = angle_correction;
 
 				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 
@@ -304,7 +310,7 @@ int main3()
 	GuidanceSystem guidance_system;
 
 	cv::Mat image = cv::imread(
-        "/home/muzaodamassa/Downloads/WhatsApp Image 2024-09-12 at 02.24.02(4).jpeg"); // read the image into mat type variable, image, if
+        "/home/muzaodamassa/Downloads/High_Angle_Straight.jpg"); // read the image into mat type variable, image, if
                         // funning from cmd line, path is ../src/1.jpg
 
     // Check for failure in reading the image

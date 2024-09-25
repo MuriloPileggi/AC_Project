@@ -1,0 +1,16 @@
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/lib/road_vision_pkg/road_vision_node
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/ament_index/resource_index/package_run_dependencies/road_vision_pkg
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/ament_index/resource_index/parent_prefix_path/road_vision_pkg
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/environment/ament_prefix_path.sh
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/environment/ament_prefix_path.dsv
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/environment/path.sh
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/environment/path.dsv
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/local_setup.bash
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/local_setup.sh
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/local_setup.zsh
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/local_setup.dsv
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/package.dsv
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/ament_index/resource_index/packages/road_vision_pkg
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/cmake/road_vision_pkgConfig.cmake
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/cmake/road_vision_pkgConfig-version.cmake
+/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/install/road_vision_pkg/share/road_vision_pkg/package.xml
