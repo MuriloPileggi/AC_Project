@@ -12,10 +12,10 @@ using namespace MLPP;
 
 // Timer callback function
 void timer_callback(rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr publisher,
-						rclcpp::Node::SharedPtr node, std::shared_ptr<int8_t> servo_angle)
+						rclcpp::Node::SharedPtr node, std::shared_ptr<int8_t> servo_angle_correction)
 {
     auto message = std_msgs::msg::Int8();
-    message.data = *servo_angle;
+    message.data = *servo_angle_correction;
     RCLCPP_INFO(node->get_logger(), "Publishing: '%i'", message.data);
     publisher->publish(message);
 }
@@ -32,12 +32,12 @@ int main(int argc, char * argv[])
 	// Create a ROS 2 service client
 	//auto client = node->create_client<std_srvs::srv::Trigger>("trigger_action");
 	// Create a shared variable for steering angle
-    auto servo_angle = std::make_shared<int8_t>(0);
+    auto servo_angle_correction = std::make_shared<int8_t>(0);
 	// Create a timer with a lambda function, so we publish steering angle every 20 ms (50Hz)
     auto timer = node->create_wall_timer(
         100ms, 
-        [publisher, node, servo_angle]() {
-            timer_callback(publisher, node, servo_angle);
+        [publisher, node, servo_angle_correction]() {
+            timer_callback(publisher, node, servo_angle_correction);
         }
     );
 
@@ -54,8 +54,8 @@ int main(int argc, char * argv[])
 	int height = 500;
 	
     // Open video file
-    //cv::VideoCapture cap(0);
-	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
+    cv::VideoCapture cap(0);
+	//cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -83,7 +83,7 @@ int main(int argc, char * argv[])
 	// Guidance System class constructor
 	GuidanceSystem guidance_system;
 	// PID Controller class constructor
-	PIDController pid_controller(0.5, 0.02, 0.001);
+	PIDController pid_controller(0.35, 0.01, 0.001);
 
     while (cap.isOpened())
     {
@@ -130,10 +130,8 @@ int main(int argc, char * argv[])
 				double steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
 
 				// Get the correction value to be passed to servo motor
-				double dt = pid_controller.get_dt();
-				double angle_correction = pid_controller.compute_error(steering_angle, dt);
-
-				*servo_angle = angle_correction;
+				double dt = 0.1;
+				*servo_angle_correction = pid_controller.compute_error(steering_angle, dt);
 
 				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 

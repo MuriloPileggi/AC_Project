@@ -1,0 +1,153 @@
+[0.000000] (-) TimerEvent: {}
+[0.000679] (road_vision_pkg) JobQueued: {'identifier': 'road_vision_pkg', 'dependencies': OrderedDict()}
+[0.001073] (road_vision_pkg) JobStarted: {'identifier': 'road_vision_pkg'}
+[0.010922] (road_vision_pkg) JobProgress: {'identifier': 'road_vision_pkg', 'progress': 'cmake'}
+[0.012076] (road_vision_pkg) JobProgress: {'identifier': 'road_vision_pkg', 'progress': 'build'}
+[0.013203] (road_vision_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg', '--', '-j4', '-l4'], 'cwd': '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'muzaodamassa'), ('LC_TIME', 'pt_BR.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib'), ('HOME', '/home/muzaodamassa'), ('OLDPWD', '/home/muzaodamassa'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('SYSTEMD_EXEC_PID', '1768'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'iron'), ('LOGNAME', 'muzaodamassa'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'muzaodamassa'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('PATH', '/opt/ros/iron/bin:/home/muzaodamassa/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/muzaodamassa-MacBookAir:@/tmp/.ICE-unix/1743,unix/muzaodamassa-MacBookAir:/tmp/.ICE-unix/1743'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/3bfe5a9a_a669_48cf_983b_ed9f8b5a2c62'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.IMOXU2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.109'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/iron'), ('SHELL', '/bin/bash'), ('LC_NAME', 'pt_BR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('ROS_AUTOMATIC_DISCOVERY_RANGE', 'SUBNET'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg/build/road_vision_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/iron/lib/python3.10/site-packages'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('LC_PAPER', 'pt_BR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/iron')]), 'shell': False}
+[0.072151] (road_vision_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target road_vision_node\x1b[0m\n'}
+[0.099669] (-) TimerEvent: {}
+[0.102091] (road_vision_pkg) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o\x1b[0m\n'}
+[0.199785] (-) TimerEvent: {}
+[0.300209] (-) TimerEvent: {}
+[0.400656] (-) TimerEvent: {}
+[0.501110] (-) TimerEvent: {}
+[0.601564] (-) TimerEvent: {}
+[0.701969] (-) TimerEvent: {}
+[0.802386] (-) TimerEvent: {}
+[0.902828] (-) TimerEvent: {}
+[1.003247] (-) TimerEvent: {}
+[1.103673] (-) TimerEvent: {}
+[1.204091] (-) TimerEvent: {}
+[1.304512] (-) TimerEvent: {}
+[1.404931] (-) TimerEvent: {}
+[1.505349] (-) TimerEvent: {}
+[1.605775] (-) TimerEvent: {}
+[1.706187] (-) TimerEvent: {}
+[1.806608] (-) TimerEvent: {}
+[1.907026] (-) TimerEvent: {}
+[2.007472] (-) TimerEvent: {}
+[2.107895] (-) TimerEvent: {}
+[2.208326] (-) TimerEvent: {}
+[2.308760] (-) TimerEvent: {}
+[2.409188] (-) TimerEvent: {}
+[2.509626] (-) TimerEvent: {}
+[2.610044] (-) TimerEvent: {}
+[2.710487] (-) TimerEvent: {}
+[2.810898] (-) TimerEvent: {}
+[2.911307] (-) TimerEvent: {}
+[3.011699] (-) TimerEvent: {}
+[3.112092] (-) TimerEvent: {}
+[3.212511] (-) TimerEvent: {}
+[3.312951] (-) TimerEvent: {}
+[3.413374] (-) TimerEvent: {}
+[3.513895] (-) TimerEvent: {}
+[3.614308] (-) TimerEvent: {}
+[3.714731] (-) TimerEvent: {}
+[3.815134] (-) TimerEvent: {}
+[3.915555] (-) TimerEvent: {}
+[4.015966] (-) TimerEvent: {}
+[4.116389] (-) TimerEvent: {}
+[4.216787] (-) TimerEvent: {}
+[4.317187] (-) TimerEvent: {}
+[4.417602] (-) TimerEvent: {}
+[4.518001] (-) TimerEvent: {}
+[4.618416] (-) TimerEvent: {}
+[4.718822] (-) TimerEvent: {}
+[4.819236] (-) TimerEvent: {}
+[4.919662] (-) TimerEvent: {}
+[5.020059] (-) TimerEvent: {}
+[5.120476] (-) TimerEvent: {}
+[5.220898] (-) TimerEvent: {}
+[5.321311] (-) TimerEvent: {}
+[5.421727] (-) TimerEvent: {}
+[5.522125] (-) TimerEvent: {}
+[5.622515] (-) TimerEvent: {}
+[5.722902] (-) TimerEvent: {}
+[5.823481] (-) TimerEvent: {}
+[5.924216] (-) TimerEvent: {}
+[6.025242] (-) TimerEvent: {}
+[6.125663] (-) TimerEvent: {}
+[6.184439] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:15:95:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KInt8\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kstd_msgs::msg::Int8\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.184809] (road_vision_pkg) StderrLine: {'line': b'   15 |                                                 rclcpp::Node::SharedPtr node, std::shared_ptr<\x1b[01;31m\x1b[KInt8\x1b[m\x1b[K> servo_angle_correction)\n'}
+[6.185019] (road_vision_pkg) StderrLine: {'line': b'      |                                                                                               \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[6.185220] (road_vision_pkg) StderrLine: {'line': b'      |                                                                                               \x1b[32m\x1b[Kstd_msgs::msg::Int8\x1b[m\x1b[K\n'}
+[6.185429] (road_vision_pkg) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/iron/include/std_msgs/std_msgs/msg/int8.hpp:7\x1b[m\x1b[K,\n'}
+[6.185631] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:7\x1b[m\x1b[K:\n'}
+[6.185796] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__struct.hpp:122:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kstd_msgs::msg::Int8\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[6.185964] (road_vision_pkg) StderrLine: {'line': b'  122 | using \x1b[01;36m\x1b[KInt8\x1b[m\x1b[K =\n'}
+[6.186130] (road_vision_pkg) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[6.186288] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:15:99:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[6.186464] (road_vision_pkg) StderrLine: {'line': b'   15 |                                                 rclcpp::Node::SharedPtr node, std::shared_ptr<Int8\x1b[01;31m\x1b[K>\x1b[m\x1b[K servo_angle_correction)\n'}
+[6.186644] (road_vision_pkg) StderrLine: {'line': b'      |                                                                                                   \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[6.188934] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid timer_callback(rclcpp::Publisher<std_msgs::msg::Int8_<std::allocator<void> > >::SharedPtr, rclcpp::Node::SharedPtr, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.189206] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:18:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid type argument of unary \xe2\x80\x98\x1b[01m\x1b[K*\x1b[m\x1b[K\xe2\x80\x99 (have \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99)\n'}
+[6.189416] (road_vision_pkg) StderrLine: {'line': b'   18 |     message.data = \x1b[01;31m\x1b[K*servo_angle_correction\x1b[m\x1b[K;\n'}
+[6.189619] (road_vision_pkg) StderrLine: {'line': b'      |                    \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.196003] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kint main(int, char**)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[6.196670] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:35:52:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KInt8\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kstd_msgs::msg::Int8\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[6.196878] (road_vision_pkg) StderrLine: {'line': b'   35 |     auto servo_angle_correction = std::make_shared<\x1b[01;31m\x1b[KInt8\x1b[m\x1b[K>(0);\n'}
+[6.197073] (road_vision_pkg) StderrLine: {'line': b'      |                                                    \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[6.197267] (road_vision_pkg) StderrLine: {'line': b'      |                                                    \x1b[32m\x1b[Kstd_msgs::msg::Int8\x1b[m\x1b[K\n'}
+[6.197472] (road_vision_pkg) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/iron/include/std_msgs/std_msgs/msg/int8.hpp:7\x1b[m\x1b[K,\n'}
+[6.197673] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:7\x1b[m\x1b[K:\n'}
+[6.197861] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__struct.hpp:122:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kstd_msgs::msg::Int8\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[6.198052] (road_vision_pkg) StderrLine: {'line': b'  122 | using \x1b[01;36m\x1b[KInt8\x1b[m\x1b[K =\n'}
+[6.198242] (road_vision_pkg) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[6.198460] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:35:57:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kmake_shared<<expression error> >(int)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[6.198658] (road_vision_pkg) StderrLine: {'line': b'   35 |     auto servo_angle_correction = \x1b[01;31m\x1b[Kstd::make_shared<Int8>(0)\x1b[m\x1b[K;\n'}
+[6.198859] (road_vision_pkg) StderrLine: {'line': b'      |                                   \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[6.199046] (road_vision_pkg) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/memory:77\x1b[m\x1b[K,\n'}
+[6.199232] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/opencv4/opencv2/core/cvstd_wrapper.hpp:11\x1b[m\x1b[K,\n'}
+[6.199450] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/opencv4/opencv2/core/cvstd.hpp:81\x1b[m\x1b[K,\n'}
+[6.199776] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/opencv4/opencv2/core/base.hpp:58\x1b[m\x1b[K,\n'}
+[6.199960] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/opencv4/opencv2/core.hpp:53\x1b[m\x1b[K,\n'}
+[6.200162] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/local/include/opencv4/opencv2/opencv.hpp:52\x1b[m\x1b[K,\n'}
+[6.200345] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.hpp:8\x1b[m\x1b[K,\n'}
+[6.200566] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/frame_processing.cpp:1\x1b[m\x1b[K,\n'}
+[6.200754] (road_vision_pkg) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:2\x1b[m\x1b[K:\n'}
+[6.200937] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/shared_ptr.h:875:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class _Tp, class ... _Args> std::shared_ptr<_Tp> std::make_shared(_Args&& ...)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[6.201119] (road_vision_pkg) StderrLine: {'line': b'  875 |     \x1b[01;36m\x1b[Kmake_shared\x1b[m\x1b[K(_Args&&... __args)\n'}
+[6.201298] (road_vision_pkg) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.201511] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/shared_ptr.h:875:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[6.201700] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:35:57:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[6.201882] (road_vision_pkg) StderrLine: {'line': b'   35 |     auto servo_angle_correction = \x1b[01;31m\x1b[Kstd::make_shared<Int8>(0)\x1b[m\x1b[K;\n'}
+[6.202063] (road_vision_pkg) StderrLine: {'line': b'      |                                   \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[6.202242] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:\x1b[m\x1b[K In lambda function:\n'}
+[6.202432] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:40:45:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kservo_angle_correction\x1b[m\x1b[K\xe2\x80\x99 is not captured\n'}
+[6.202627] (road_vision_pkg) StderrLine: {'line': b'   40 |             timer_callback(publisher, node, \x1b[01;31m\x1b[Kservo_angle_correction\x1b[m\x1b[K);\n'}
+[6.202794] (road_vision_pkg) StderrLine: {'line': b'      |                                             \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.202982] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:39:49:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kthe lambda has no capture-default\n'}
+[6.203163] (road_vision_pkg) StderrLine: {'line': b'   39 |         [publisher, node, servo_angle_correction\x1b[01;36m\x1b[K]\x1b[m\x1b[K() {\n'}
+[6.203333] (road_vision_pkg) StderrLine: {'line': b'      |                                                 \x1b[01;36m\x1b[K^\x1b[m\x1b[K\n'}
+[6.203507] (road_vision_pkg) StderrLine: {'line': b'\x1b[01m\x1b[K/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp:35:10:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[K<typeprefixerror>servo_angle_correction\x1b[m\x1b[K\xe2\x80\x99 declared here\n'}
+[6.203676] (road_vision_pkg) StderrLine: {'line': b'   35 |     auto \x1b[01;36m\x1b[Kservo_angle_correction\x1b[m\x1b[K = std::make_shared<Int8>(0);\n'}
+[6.203827] (road_vision_pkg) StderrLine: {'line': b'      |          \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[6.225780] (-) TimerEvent: {}
+[6.326317] (-) TimerEvent: {}
+[6.426852] (-) TimerEvent: {}
+[6.527382] (-) TimerEvent: {}
+[6.627934] (-) TimerEvent: {}
+[6.728338] (-) TimerEvent: {}
+[6.828748] (-) TimerEvent: {}
+[6.929151] (-) TimerEvent: {}
+[7.029564] (-) TimerEvent: {}
+[7.129977] (-) TimerEvent: {}
+[7.230386] (-) TimerEvent: {}
+[7.330799] (-) TimerEvent: {}
+[7.431210] (-) TimerEvent: {}
+[7.531627] (-) TimerEvent: {}
+[7.632038] (-) TimerEvent: {}
+[7.732442] (-) TimerEvent: {}
+[7.832839] (-) TimerEvent: {}
+[7.933247] (-) TimerEvent: {}
+[8.033658] (-) TimerEvent: {}
+[8.134078] (-) TimerEvent: {}
+[8.234477] (-) TimerEvent: {}
+[8.334899] (-) TimerEvent: {}
+[8.435308] (-) TimerEvent: {}
+[8.436080] (road_vision_pkg) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/road_vision_node.dir/build.make:76: CMakeFiles/road_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_road_vision_node.cpp.o] Error 1\n'}
+[8.436495] (road_vision_pkg) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/road_vision_node.dir/all] Error 2\n'}
+[8.436791] (road_vision_pkg) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[8.439929] (road_vision_pkg) CommandEnded: {'returncode': 2}
+[8.485873] (road_vision_pkg) JobEnded: {'identifier': 'road_vision_pkg', 'rc': 2}
+[8.497172] (-) EventReactorShutdown: {}

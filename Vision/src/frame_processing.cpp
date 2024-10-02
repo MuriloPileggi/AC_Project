@@ -32,10 +32,10 @@ void FrameProcessing::apply_mask_to_frame(cv::Mat& frame)
 
     // Define the points for the mask - Top Mask
     // Use cv::Point type for x,y points 
-	cv::Point bottom_left = cv::Point(25, frame.rows/2);
-	cv::Point top_left = cv::Point(25, 0);
-	cv::Point top_right = cv::Point(frame.cols - 25, 0);
-	cv::Point bottom_right = cv::Point(frame.cols - 25, frame.rows/2);
+	cv::Point bottom_left = cv::Point(50, frame.rows/2);
+	cv::Point top_left = cv::Point(50, 0);
+	cv::Point top_right = cv::Point(frame.cols - 50, 0);
+	cv::Point bottom_right = cv::Point(frame.cols - 50, frame.rows/2);
     
 
     // create vector from array with points we just defined
@@ -82,15 +82,15 @@ cv::Mat FrameProcessing::blend_frame(const cv::Mat& frame, const LineParameters&
     cv::Mat lane_filled_image = frame.clone();
 
     // Use cv::Point type for x,y points - Bottom Mask
-    cv::Point v1 = cv::Point(positive_line_parameters.x1, frame.rows - positive_line_parameters.y1);
-    cv::Point v2 = cv::Point(positive_line_parameters.x2, frame.rows - positive_line_parameters.y2);
-    cv::Point v3 = cv::Point(negative_line_parameters.x1, frame.rows - negative_line_parameters.y1);
-    cv::Point v4 = cv::Point(negative_line_parameters.x2, frame.rows - negative_line_parameters.y2);
+    //cv::Point v1 = cv::Point(positive_line_parameters.x1, frame.rows - positive_line_parameters.y1);
+    //cv::Point v2 = cv::Point(positive_line_parameters.x2, frame.rows - positive_line_parameters.y2);
+    //cv::Point v3 = cv::Point(negative_line_parameters.x1, frame.rows - negative_line_parameters.y1);
+    //cv::Point v4 = cv::Point(negative_line_parameters.x2, frame.rows - negative_line_parameters.y2);
     // Use cv::Point type for x,y points - Top Mask
-    //cv::Point v1 = cv::Point(positive_line_parameters.x1, frame.rows/2 - positive_line_parameters.y1);
-    //cv::Point v2 = cv::Point(positive_line_parameters.x2, frame.rows/2 - positive_line_parameters.y2);
-    //cv::Point v3 = cv::Point(negative_line_parameters.x1, frame.rows/2 - negative_line_parameters.y1);
-    //cv::Point v4 = cv::Point(negative_line_parameters.x2, frame.rows/2 - negative_line_parameters.y2);
+    cv::Point v1 = cv::Point(positive_line_parameters.x1, frame.rows/2 - positive_line_parameters.y1);
+    cv::Point v2 = cv::Point(positive_line_parameters.x2, frame.rows/2 - positive_line_parameters.y2);
+    cv::Point v3 = cv::Point(negative_line_parameters.x1, frame.rows/2 - negative_line_parameters.y1);
+    cv::Point v4 = cv::Point(negative_line_parameters.x2, frame.rows/2 - negative_line_parameters.y2);
 
     // create vector from array of corner points of lane
     cv::Point vertices_blend[] = {v1, v3, v4, v2}; 
