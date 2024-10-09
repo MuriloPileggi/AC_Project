@@ -54,7 +54,7 @@ int main(int argc, char * argv[])
 	int height = 500;
 	
     // Open video file
-    cv::VideoCapture cap(0);
+    cv::VideoCapture cap(2);
 	//cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
 
     // Check if camera opened successfully
@@ -65,7 +65,7 @@ int main(int argc, char * argv[])
     }
 
     // Create a window to display the video
-    cv::namedWindow("Video Stream", cv::WINDOW_NORMAL);
+    cv::namedWindow("Road Vision Stream", cv::WINDOW_NORMAL);
 
 	// Create a window to display the video
     cv::namedWindow("Debug Stream", cv::WINDOW_NORMAL);
@@ -112,7 +112,7 @@ int main(int argc, char * argv[])
 			// Separate Hough lines into posistive and negative sloped lines
 			Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(p_frame, h_lines);
 
-			if (!positive_and_negative_h_lines.empty()) {
+			if (!positive_and_negative_h_lines[0].empty() && !positive_and_negative_h_lines[1].empty()) {
 				// Get average of positive of and negative sloped hough lines
 				std::vector<float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
 				// Get X intercet coordinates for average positive and negative sloped hough lines 
@@ -144,7 +144,7 @@ int main(int argc, char * argv[])
 				cv::putText(blended_frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
 
 				// Show final frame
-				cv::imshow("Video Stream", blended_frame);
+				cv::imshow("Road Vision Stream", blended_frame);
 			}
 			else {
 				// Calculate FPS
@@ -156,7 +156,7 @@ int main(int argc, char * argv[])
 				cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
 
 				// Dispay the resulting frame
-				cv::imshow("Video Stream", frame);
+				cv::imshow("Road Vision Stream", frame);
 			}
         }
 		else {
@@ -169,7 +169,7 @@ int main(int argc, char * argv[])
 			cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
 			
 			// Dispay the resulting frame
-			cv::imshow("Video Stream", frame);
+			cv::imshow("Road Vision Stream", frame);
 		}
 
 		// Press q to exit the loop

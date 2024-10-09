@@ -100,7 +100,7 @@ int main(int argc, char * argv[])
     }
 
     // Create a window to display the video
-    cv::namedWindow("Video Stream", cv::WINDOW_NORMAL);
+    cv::namedWindow("Frontal Vision Stream", cv::WINDOW_NORMAL);
     
 	// Set capture resolution
 	cap.set(cv::CAP_PROP_FRAME_WIDTH, width);
@@ -173,7 +173,7 @@ int main(int argc, char * argv[])
 		cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
 
 		// Dispay the resulting frame
-		cv::imshow("Video Stream", frame);
+		cv::imshow("Frontal Vision Stream", frame);
 
 		// Press q to exit the loop
 		if (cv::waitKey(1) == 'q')

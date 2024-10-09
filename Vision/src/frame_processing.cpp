@@ -505,8 +505,15 @@ std::vector<float> FrameProcessing::get_average_positive_and_negative_slopes_lin
     }
 
     // Get mean of valid positive slopes
-    float positive_slope_mean = positive_sum / positive_slopes.size(); 
+    float positive_slope_mean;
 
+    if (positive_slopes.empty()) {
+        positive_slope_mean = positive_sum;
+    }
+    else {
+        positive_slope_mean = positive_sum / positive_slopes.size();
+    }
+ 
     // Add negative slopes from slope_lines[1] into a vector negative slopes
     std::vector<float> negative_slopes;
     float negative_sum {0.0}; // Initialize sum so we can get the mean
@@ -516,6 +523,13 @@ std::vector<float> FrameProcessing::get_average_positive_and_negative_slopes_lin
     }
 
     float negative_slope_mean = negative_sum / negative_slopes.size(); 
+
+    if (negative_slopes.empty()) {
+        negative_slope_mean = negative_sum;
+    }
+    else {
+        negative_slope_mean = negative_sum / negative_slopes.size();
+    }
 
     return std::vector<float> { positive_slope_mean, negative_slope_mean };  
 
@@ -637,9 +651,13 @@ std::vector<double>  FrameProcessing::get_x_intercept_coordinates(const cv::Mat&
         }
     }
 
+    if (positive_slope_lines_x_intercept_coordinates.empty()) {
+        positive_slope_lines_x_intercept_coordinates.push_back(0);
+    }
+
     // Get median of X intercepts for positive slope lines
     double x_intercept_positive_median = median(positive_slope_lines_x_intercept_coordinates);
-    
+
     // Define vector for storing valid X intercept values, outliers are discarded
     std::vector<double> valid_positive_x_intercept_values;
     double x_intercept_positive_sum; // Necessary for finding average
@@ -709,9 +727,6 @@ std::vector<double>  FrameProcessing::get_x_intercept_coordinates(const cv::Mat&
 
     // Get mean x intercept value for negative slope lines
     double negative_x_intercept_mean = x_intercept_negative_sum / valid_negative_x_intercept_values.size();
-
-    //std::cout << positive_x_intercept_mean << std::endl;
-    //std::cout << negative_x_intercept_mean << std::endl;
 
     return std::vector<double> { positive_x_intercept_mean, negative_x_intercept_mean };;
 }
