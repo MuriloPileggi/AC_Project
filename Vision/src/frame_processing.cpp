@@ -32,10 +32,10 @@ void FrameProcessing::apply_mask_to_frame(cv::Mat& frame)
 
     // Define the points for the mask - Top Mask
     // Use cv::Point type for x,y points 
-	cv::Point bottom_left = cv::Point(50, frame.rows/2);
-	cv::Point top_left = cv::Point(50, 0);
-	cv::Point top_right = cv::Point(frame.cols - 50, 0);
-	cv::Point bottom_right = cv::Point(frame.cols - 50, frame.rows/2);
+	cv::Point bottom_left = cv::Point(0, frame.rows/2);
+	cv::Point top_left = cv::Point(0, 0);
+	cv::Point top_right = cv::Point(frame.cols, 0);
+	cv::Point bottom_right = cv::Point(frame.cols, frame.rows/2);
     
 
     // create vector from array with points we just defined

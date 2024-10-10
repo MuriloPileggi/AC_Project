@@ -82,8 +82,8 @@ int main(int argc, char * argv[])
 	#pragma endregion
 
 	// Set desired resolution to resize received footage
-	int width = 500;
-	int height = 500;
+	int width = 320;
+	int height = 240;
 
 	// Loading haar cascade xml files for object detection
 	cv::CascadeClassifier stop_sign_detection_cascade;
@@ -105,6 +105,7 @@ int main(int argc, char * argv[])
 	// Set capture resolution
 	cap.set(cv::CAP_PROP_FRAME_WIDTH, width);
 	cap.set(cv::CAP_PROP_FRAME_HEIGHT, height);
+	cap.set(cv::CAP_PROP_FPS, 15);
 
 	// Variables for fps calculation
     double fps;
