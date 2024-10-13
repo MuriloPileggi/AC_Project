@@ -888,6 +888,10 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
   /opt/ros/iron/include/rclcpp/rclcpp/parameter_map.hpp \
   /opt/ros/iron/include/rclcpp/rclcpp/parameter_event_handler.hpp \
   /opt/ros/iron/include/rclcpp/rclcpp/parameter_service.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/int8.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__struct.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__builder.hpp \
+  /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__traits.hpp \
   /opt/ros/iron/include/std_msgs/std_msgs/msg/bool.hpp \
   /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__struct.hpp \
   /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp \
@@ -897,6 +901,10 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__traits.hpp:
 
 /opt/ros/iron/include/std_msgs/std_msgs/msg/detail/bool__builder.hpp:
+
+/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__traits.hpp:
+
+/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__builder.hpp:
 
 /opt/ros/iron/include/rclcpp/rclcpp/parameter_service.hpp:
 
@@ -2374,6 +2382,8 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 
 /usr/include/c++/11/bits/locale_facets_nonio.tcc:
 
+/opt/ros/iron/include/std_msgs/std_msgs/msg/int8.hpp:
+
 /usr/include/c++/11/bits/locale_conv.h:
 
 /opt/ros/iron/include/libstatistics_collector/libstatistics_collector/collector/collector.hpp:
@@ -2407,6 +2417,8 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 /opt/ros/iron/include/rmw/rmw/qos_string_conversions.h:
 
 /usr/local/include/opencv4/opencv2/ml.hpp:
+
+/opt/ros/iron/include/std_msgs/std_msgs/msg/detail/int8__struct.hpp:
 
 /opt/ros/iron/include/rcutils/rcutils/time.h:
 

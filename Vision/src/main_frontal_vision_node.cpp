@@ -5,6 +5,7 @@
 #include "object_detector.cpp"
 #include "opencv2/videoio.hpp"
 #include "rclcpp/rclcpp/rclcpp.hpp"
+#include "std_msgs/std_msgs/msg/int8.hpp"
 #include "std_msgs/std_msgs/msg/bool.hpp"
 
 using namespace std;
@@ -30,13 +31,23 @@ void person_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::Sha
     publisher->publish(message);
 }
 
+// Obstacle detection timer callback function
+void traffic_light_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr publisher,
+						rclcpp::Node::SharedPtr node, std::shared_ptr<int8_t> traffic_light_status)
+{
+    auto message = std_msgs::msg::Int8();
+    message.data = *traffic_light_status;
+    RCLCPP_INFO(node->get_logger(), "Publishing: '%i'", message.data);
+    publisher->publish(message);
+}
+
 int main(int argc, char * argv[])
 {
 	#pragma region ROS INITIALIZATION
 	// Initialize ROS 2
 	rclcpp::init(argc, argv);
 	
-	/* STOP SIGN DETECTION NODE
+	//STOP SIGN DETECTION NODE
 	// Create a ROS 2 node that will publish data relevant to stop sign detection
 	auto stop_sign_detection_node = std::make_shared<rclcpp::Node>("stop_sign_detection");
 	// Create stop sign detection ROS 2 publisher
@@ -55,10 +66,9 @@ int main(int argc, char * argv[])
 	{
 		rclcpp::spin(stop_sign_detection_node);
 		
-	}); */
+	}); 
 
 	//PERSON DETECTION NODE
-
 	// Create a ROS 2 node that will publish data relevant to person detection
 	auto person_detection_node = std::make_shared<rclcpp::Node>("person_detection");
 	// Create stop sign detection ROS 2 publisher
@@ -66,7 +76,7 @@ int main(int argc, char * argv[])
 	// Create a shared variable for person detection
     auto person_detected = std::make_shared<bool>(false);
 	// Create a timer with a lambda function, so we publish person detection status every 100 ms 
-    auto obstacle_detection_timer = person_detection_node->create_wall_timer(
+    auto person_detection_timer = person_detection_node->create_wall_timer(
         100ms, 
         [person_detection_publisher, person_detection_node, person_detected]() {
             person_detection_timer_callback(person_detection_publisher, person_detection_node, person_detected);
@@ -77,6 +87,28 @@ int main(int argc, char * argv[])
 	thread person_detection_thread([&]() 
 	{
 		rclcpp::spin(person_detection_node);
+		
+	});  
+
+	// TRAFFIC LIGHT DETECTION NODE
+	// Create a ROS 2 node that will publish data relevant to traffic light detection
+	auto traffic_light_detection_node = std::make_shared<rclcpp::Node>("traffic_light_detection");
+	// Create stop sign detection ROS 2 publisher
+	auto traffic_light_detection_publisher = traffic_light_detection_node->create_publisher<std_msgs::msg::Int8>("traffic_light_detection_topic", 10);
+	// Create a shared variable for person detection
+    auto traffic_light_status = std::make_shared<int8_t>(0);
+	// Create a timer with a lambda function, so we publish person detection status every 100 ms 
+    auto traffic_light_detection_timer = traffic_light_detection_node->create_wall_timer(
+        100ms, 
+        [traffic_light_detection_publisher, traffic_light_detection_node, traffic_light_status]() {
+            traffic_light_detection_timer_callback(traffic_light_detection_publisher, traffic_light_detection_node, traffic_light_status);
+        }
+    );
+
+	// Start person detection node on a separate thread 
+	thread traffic_light_detection_thread([&]() 
+	{
+		rclcpp::spin(traffic_light_detection_node);
 		
 	});  
 
@@ -138,6 +170,8 @@ int main(int argc, char * argv[])
 
             // Check for any persons in frame
             *person_detected = detector.person_detected();
+			*stop_sign_detected = detector.stop_sign_detected();
+			*traffic_light_status = detector.get_traffic_light_status();
 
             // Calculate FPS
             tm.stop();
@@ -167,8 +201,9 @@ int main(int argc, char * argv[])
 		rclcpp::shutdown();
 		
 		// Join the spin thread before exiting
-		//stop_sign_thread.join();
+		stop_sign_thread.join();
 		person_detection_thread.join();
+		traffic_light_detection_thread.join();
 
 		return 0;
 	}

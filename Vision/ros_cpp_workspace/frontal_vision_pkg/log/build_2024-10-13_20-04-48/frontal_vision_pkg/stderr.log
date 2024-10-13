@@ -1,0 +1,5 @@
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:5[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/object_detector.cpp:[m[K In member function ‘[01m[KObjectDetector::TrafficLightStatus ObjectDetector::set_traffic_light_status(const cv::Mat&)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/object_detector.cpp:114:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+  114 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K

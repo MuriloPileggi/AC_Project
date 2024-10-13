@@ -1,0 +1,5 @@
+  File "/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg/install/bridge_node_pkg/lib/python3.10/site-packages/bridge_node_pkg/bridge_node.py", line 94
+    data_to_send = f"{self.angle_correction},{1 if self.person_detected else 0},
+                   ^
+SyntaxError: unterminated string literal (detected at line 94)
+

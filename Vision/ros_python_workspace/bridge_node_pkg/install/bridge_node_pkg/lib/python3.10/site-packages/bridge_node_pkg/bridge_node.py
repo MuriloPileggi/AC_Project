@@ -15,14 +15,16 @@ class BridgeNode(Node):
         self.angle_correction = 0
         self.stop_sign_count = 0
         self.stop_sign_detected = False
-        self.obstacle_detected = False
+        self.person_detected = False
+        self.traffic_light_status = 0
         self.threads = []
         #self.stop_time = 0
         
         # Start node subscriptions
         self.subscription = self.create_subscription(Int8,'road_vision_topic',self.road_vision_callback,10)
+        self.subscription = self.create_subscription(Bool,'person_detection_topic',self.person_detection_callback,10)
         self.subscription = self.create_subscription(Bool,'stop_sign_detection_topic',self.stop_sign_detection_callback,10)
-        #self.subscription = self.create_subscription(Bool,'obstacle_detection_topic',self.obstacle_detection_callback,10)
+        self.subscription = self.create_subscription(Int8,'traffic_light_detection_topic',self.traffic_light_detection_callback,10)
 
         # Create a timer to execute callback every X ms
         self.timer = self.create_timer(0.1, self.timer_callback)
@@ -33,12 +35,16 @@ class BridgeNode(Node):
         #    self.get_logger().error('Failed to initialize serial connection')
         #    return
         #time.sleep(2)  # Wait for the connection to settle
-        self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-        if self.serial_port is None:
-           self.get_logger().error('Failed to initialize serial connection')
-           return
-        time.sleep(2)  # Wait for the connection to settle
-  
+        #self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+        #if self.serial_port is None:
+        #   self.get_logger().error('Failed to initialize serial connection')
+        #   return
+        #time.sleep(2)  # Wait for the connection to settle
+    
+    def person_detection_callback(self, msg):
+        #self.get_logger().info('Received: "%s"' % msg.data)
+        self.person_detected = msg.data
+    
     def road_vision_callback(self, msg):
         #self.get_logger().info('Received: "%s"' % msg.data)
         self.angle_correction = msg.data
@@ -47,9 +53,9 @@ class BridgeNode(Node):
         #self.get_logger().info('Received: "%s"' % msg.data)
         self.stop_sign_detected = msg.data
     
-    def obstacle_detection_callback(self, msg):
+    def traffic_light_detection_callback(self, msg):
         #self.get_logger().info('Received: "%s"' % msg.data)
-        self.obstacle_detected = msg.data
+        self.traffic_light_status = msg.data 
     
     # We call this method to reset stop sign counter method on a different thread
     # This way, we can stop the car for 5 seconds for the stop sign, and only after
@@ -72,7 +78,7 @@ class BridgeNode(Node):
         # If an obstacle is detected in front of the car, we immediately stop sending data
         # to our arduino, and continue to do so as long as we have something obstructing our
         # way
-        if self.obstacle_detected:
+        if self.person_detected or self.traffic_light_status == 1:
             return
         # Stop the car for 5 seconds if a stop sign has been detected
         elif self.stop_sign_detected and self.stop_sign_count < 1:
@@ -83,12 +89,12 @@ class BridgeNode(Node):
             return
         else:
             # Resume normal operation
-            self.stop_sign_detected = False
-            data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0}\n"
-            #data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0},{1 if self.obstacle_detected else 0}\n"
+            #self.stop_sign_detected = False
+            #data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0}\n"
+            data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0},{1 if self.traffic_light_status else 0}\n"
             self.get_logger().info('Timer triggered, sending data: %s' % data_to_send)
-            self.send_to_arduino(data_to_send) 
-            self.receive_from_arduino()
+            #self.send_to_arduino(data_to_send) 
+            #self.receive_from_arduino()
     
     def send_to_arduino(self, data):
         if self.serial_port is None:

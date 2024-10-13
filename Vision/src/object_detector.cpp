@@ -51,9 +51,68 @@ void ObjectDetector::detect(cv::Mat& frame)
     // Reset member variables for new frame
     m_person_detected = false;
     m_stop_sign_detected = false;
-    m_traffic_light_detected = false;
+    m_traffic_light_status = NONE;
 
     post_process(frame, outs);
+}
+
+// Get traffic light status method implementation
+int8_t ObjectDetector::get_traffic_light_status()
+{
+    return static_cast<int8_t>(m_traffic_light_status);
+}
+
+// Set traffic light status method implementation
+ObjectDetector::TrafficLightStatus ObjectDetector::set_traffic_light_status(const cv::Mat& roi)
+{
+    // Convert the received region of interest to HSV color space
+    cv::Mat hsv;
+    cv::cvtColor(roi, hsv, cv::COLOR_BGR2HSV);
+
+    // Apply color masks for red, yellow and green
+    cv::Mat red_mask, yellow_mask, green_mask;
+
+    // Red (Using two ranges to cover the wrap-around of red in HSV)
+    cv::Mat red_mask_1, red_mask_2;
+    cv::inRange(hsv, cv::Scalar(0,100,100), cv::Scalar(10,255,255), red_mask_1);
+    cv::inRange(hsv, cv::Scalar(160,100,100), cv::Scalar(180,255,255), red_mask_2);
+    cv::bitwise_or(red_mask_1, red_mask_2, red_mask); // Combine both masks into one
+
+    // Yellow
+    cv::inRange(hsv, cv::Scalar(20,100,100), cv::Scalar(30,255,255), yellow_mask);
+
+    // Green
+    cv::inRange(hsv, cv::Scalar(35,100,100), cv::Scalar(85,255,255), green_mask);
+
+    // Apply morphological operations for each mask
+    cv::erode(red_mask, red_mask, cv::Mat());
+    cv::dilate(red_mask, red_mask, cv::Mat());
+
+    cv::erode(yellow_mask, yellow_mask, cv::Mat());
+    cv::dilate(yellow_mask, yellow_mask, cv::Mat());
+
+    cv::erode(green_mask, green_mask, cv::Mat());
+    cv::dilate(green_mask, green_mask, cv::Mat());
+
+    // Count number of colored pixels in each mask, if it's not in defined range
+    // pixels were changed to black during maks application
+    int total_pixels = roi.rows * roi.cols;
+    int red_ratio = (cv::countNonZero(red_mask) * 100) / total_pixels;
+    int yellow_ratio = (cv::countNonZero(yellow_mask) * 100) / total_pixels;
+    int green_ratio = (cv::countNonZero(green_mask) * 100) / total_pixels;
+
+    // Determine which color has the highest ratio and return current status
+    if (red_ratio > yellow_ratio && red_ratio > green_ratio && red_ratio > 10) {
+        return RED;
+    }
+    if (yellow_ratio > red_ratio && yellow_ratio > green_ratio && yellow_ratio > 10) {
+        return YELLOW;
+    }
+    if (green_ratio > red_ratio && green_ratio > yellow_ratio && green_ratio > 10) {
+        return GREEN;
+    }
+
+    return NONE;
 }
 
 // Draw predictions method implementation
@@ -110,10 +169,24 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
         cv::Rect box = boxes[id_x];
         int class_id = class_ids[id_x];
 
-        // Check for a person in the frame
+        // Check for classes of interest in frame
         if (m_classes[class_id] == "person")
         {
             m_person_detected = true;
+        }
+        else if(m_classes[class_id] == "stop sign") {
+            m_stop_sign_detected = true;
+        }
+        else if (m_classes[class_id] == "traffic light") {
+            // Ensure the bounding box is within the frame dimensions
+            cv::Rect box_copy;
+            box_copy.x = std::max(0, box.x);
+            box_copy.y = std::max(0, box.y);
+            box_copy.width = std::min(box.width, frame.cols - box.x);
+            box_copy.height = std::min(box.height, frame.rows - box.y);
+
+            cv::Mat roi = frame(box_copy);
+            m_traffic_light_status = set_traffic_light_status(roi);
         }
         
         draw_predictions(class_ids[id_x], confidences[id_x], box.x, box.y,
@@ -131,11 +204,5 @@ bool ObjectDetector::person_detected()
 bool ObjectDetector::stop_sign_detected() 
 {
     return m_stop_sign_detected;
-}
-
-// Traffic light detected method implementation
-bool ObjectDetector::traffic_light_detected() 
-{
-    return m_traffic_light_detected;
 }
 
