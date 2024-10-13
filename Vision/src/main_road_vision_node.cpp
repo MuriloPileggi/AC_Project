@@ -12,14 +12,10 @@ using namespace MLPP;
 
 // Timer callback function
 void timer_callback(rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr publisher, rclcpp::Node::SharedPtr node, 
-						std::shared_ptr<int8_t> steering_angle, PIDController pid)
+						std::shared_ptr<int8_t> angle_correction)
 {
     auto message = std_msgs::msg::Int8();
-
-	// Get the correction value to be passed to servo motor
-	double dt = 0.1;
-	double angle = *steering_angle;
-	message.data = pid.compute_error(angle, dt);
+	message.data = *angle_correction;
     RCLCPP_INFO(node->get_logger(), "Publishing: '%i'", message.data);
     publisher->publish(message);
 }
@@ -33,15 +29,13 @@ int main(int argc, char * argv[])
 	auto node = std::make_shared<rclcpp::Node>("road_vision");
 	// Create a ROS 2 publisher
 	auto publisher = node->create_publisher<std_msgs::msg::Int8>("road_vision_topic", 10);
-	// PID Controller class constructor
-	PIDController pid_controller(0.35, 0.01, 0);
 	// Create a shared variable for steering angle
-    auto steering_angle = std::make_shared<int8_t>(0);
+    auto angle_correction = std::make_shared<int8_t>(0);
 	// Create a timer with a lambda function, so we publish steering angle every 100 ms 
     auto timer = node->create_wall_timer(
         100ms, 
-        [publisher, node, steering_angle, pid_controller]() {
-            timer_callback(publisher, node, steering_angle, pid_controller);
+        [publisher, node, angle_correction]() {
+            timer_callback(publisher, node, angle_correction);
         }
     );
 
@@ -87,6 +81,8 @@ int main(int argc, char * argv[])
 	FrameProcessing frame_processing;
 	// Guidance System class constructor
 	GuidanceSystem guidance_system;
+	// PID Controller class constructor
+	PIDController pid_controller(0.35, 0.01, 0);
 
     while (cap.isOpened())
     {
@@ -115,7 +111,7 @@ int main(int argc, char * argv[])
 			// Separate Hough lines into posistive and negative sloped lines
 			Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(p_frame, h_lines);
 
-			if (!positive_and_negative_h_lines[0].empty() && !positive_and_negative_h_lines[1].empty()) {
+			if (!positive_and_negative_h_lines.empty()) {
 				// Get average of positive of and negative sloped hough lines
 				std::vector<float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
 				// Get X intercet coordinates for average positive and negative sloped hough lines 
@@ -130,7 +126,10 @@ int main(int argc, char * argv[])
 													positive_slope_line_parameters, negative_slope_line_parameters);
 
 				// Calculate steering angle based on plotted lane lines
-				*steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
+				double steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
+				double dt = 0.1; // 100 ms
+				double error = pid_controller.compute_error(steering_angle, dt);
+				*angle_correction = pid_controller.get_angle_correction(error);
 
 				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 

@@ -101,6 +101,12 @@ double PIDController::get_dt()
     return dt.count();
 }
 
+// PID Controller get angle correction method implementation
+int8_t PIDController::get_angle_correction(const double& error)
+{
+    return static_cast<int8_t>((error * m_set_point) / 100);
+}
+
 // PID Controller set parameters method implementation
 void PIDController::set_parameters(double& p, double& i, double& d)
 {

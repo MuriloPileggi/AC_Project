@@ -41,6 +41,9 @@ public:
     // Method to keep track of delta time between computations
     double get_dt();
 
+    // Method to get angle correction based on error
+    int8_t get_angle_correction(const double& error);
+
     // Method to change controller parameters after initialization
     void set_parameters(double& p, double& i, double& d); 
 };

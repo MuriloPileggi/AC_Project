@@ -701,7 +701,7 @@ std::vector<double>  FrameProcessing::get_x_intercept_coordinates(const cv::Mat&
     }
 
     if (negative_slope_lines_x_intercept_coordinates.empty()) {
-        negative_slope_lines_x_intercept_coordinates.push_back(500);
+        negative_slope_lines_x_intercept_coordinates.push_back(frame.cols);
     }
 
     // Get median of X intercepts for negative slope lines
