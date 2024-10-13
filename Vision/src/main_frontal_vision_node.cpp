@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 #include "frame_processing.cpp"
 #include "guidance_system.cpp"
 #include "object_detector.cpp"
@@ -96,7 +97,7 @@ int main(int argc, char * argv[])
     }
 
     // Create a window to display the video
-    //cv::namedWindow("Frontal Vision Stream", cv::WINDOW_NORMAL);
+    cv::namedWindow("Frontal Vision Stream", cv::WINDOW_NORMAL);
     
 	// Set capture resolution
 	cap.set(cv::CAP_PROP_FRAME_WIDTH, width);
@@ -116,50 +117,61 @@ int main(int argc, char * argv[])
 
 		cv::Mat frame;
 
+		const int delay = 100; // Delay in milliseconds
+    	auto previous_time = std::chrono::steady_clock::now();
+
 		while (cap.isOpened())
 		{
-			tm.start();
+			auto current_time = std::chrono::steady_clock::now();
+        	auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - previous_time).count();
 
-			// Capture frame-by-frame
-			cap >> frame;
+			if (elapsed_time >= delay) {
+				//tm.start();
 
-			// If the frame is empty, break immediately
-			if (frame.empty())
-			{
-				break;
+				// Capture frame-by-frame
+				cap >> frame;
+
+				// If the frame is empty, break immediately
+				if (frame.empty())
+				{
+					break;
+				}
+
+				frame_processing.resize_frame(frame, width, height);
+
+				// Apply detection to frame based on loaded model
+				detector.detect(frame);
+
+				// Check for any persons in frame
+				*person_detected = detector.person_detected();	
+			
+				// Calculate FPS
+				//tm.stop();
+				//fps = 1.0 / tm.getTimeSec();
+				//tm.reset();
+
+				// Put FPS text on the frame
+				//cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
+
+				// Dispay the resulting frame
+				cv::imshow("Frontal Vision Stream", frame);
+
+				previous_time = current_time;
+
 			}
-
-			frame_processing.resize_frame(frame, width, height);
-
-			// Apply detection to frame based on loaded model
-			detector.detect(frame);
-
-			// Check for any persons in frame
-			*person_detected = detector.person_detected();	
-		
-			// Calculate FPS
-			tm.stop();
-			fps = 1.0 / tm.getTimeSec();
-			tm.reset();
-
-			// Put FPS text on the frame
-			//cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
-
-			// Dispay the resulting frame
-			//cv::imshow("Frontal Vision Stream", frame);
-
+			
 			// Press q to exit the loop
-			/* if (cv::waitKey(1) == 'q')
+			if (cv::waitKey(1) == 'q')
 			{			
 				break;
-			}	 */
+			}	 
 		}
 
 		// Whene everything is done, release the video capture and video writer objects
 		cap.release();
 
 		// Close all windows
-		//cv::destroyAllWindows();
+		cv::destroyAllWindows();
 
 		// Shut down ROS 2
 		rclcpp::shutdown();
