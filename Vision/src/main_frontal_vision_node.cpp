@@ -113,7 +113,7 @@ int main(int argc, char * argv[])
 
 	try
 	{
-		ObjectDetector detector("/home/muzaodamassa/Downloads/YOLO/yolov3.cfg", "/home/muzaodamassa/Downloads/YOLO/yolov3.weights", "/home/muzaodamassa/Downloads/YOLO/coco.names");
+		ObjectDetector detector("/home/muzaodamassa/Downloads/YOLO/yolov4-tiny.cfg", "/home/muzaodamassa/Downloads/YOLO/yolov4-tiny.weights", "/home/muzaodamassa/Downloads/YOLO/coco.names");
 
 		cv::Mat frame;
 
