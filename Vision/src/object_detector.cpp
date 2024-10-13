@@ -41,13 +41,14 @@ ObjectDetector::ObjectDetector(const std::string& model_config, const std::strin
 void ObjectDetector::detect(cv::Mat& frame) 
 {
     cv::Mat blob;
-    cv::dnn::blobFromImage(frame, blob, 1/255.0, cv::Size(416, 416), cv::Scalar(0,0,0), true, false);
+    cv::dnn::blobFromImage(frame, blob, 1/255.0, cv::Size(320, 320), cv::Scalar(0,0,0), true, false);
     
     m_net.setInput(blob);
     
     std::vector<cv::Mat> outs;
     m_net.forward(outs, m_net.getUnconnectedOutLayersNames());
     
+    m_person_detected = false; // Resets for new frame
     post_process(frame, outs);
 }
 
@@ -103,8 +104,22 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
     for (size_t i = 0; i < indices.size(); ++i) {
         int id_x = indices[i];
         cv::Rect box = boxes[id_x];
+        int class_id = class_ids[id_x];
+
+        // Check for a person in the frame
+        if (m_classes[class_id] == "person")
+        {
+            m_person_detected = true;
+        }
+        
         draw_predictions(class_ids[id_x], confidences[id_x], box.x, box.y,
                  box.x + box.width, box.y + box.height, frame);
     }
+}
+
+// Is person detected method implementation
+bool ObjectDetector::person_detected() 
+{
+    return m_person_detected;
 }
 

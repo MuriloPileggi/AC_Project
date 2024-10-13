@@ -20,11 +20,11 @@ void stop_sign_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr 
 }
 
 // Obstacle detection timer callback function
-void obstacle_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
-						rclcpp::Node::SharedPtr node, std::shared_ptr<bool> obstacle_detected)
+void person_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
+						rclcpp::Node::SharedPtr node, std::shared_ptr<bool> person_detected)
 {
     auto message = std_msgs::msg::Bool();
-    message.data = *obstacle_detected;
+    message.data = *person_detected;
     RCLCPP_INFO(node->get_logger(), "Publishing: '%s'", message.data ? "true" : "false");
     publisher->publish(message);
 }
@@ -32,9 +32,10 @@ void obstacle_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::S
 int main(int argc, char * argv[])
 {
 	#pragma region ROS INITIALIZATION
-
 	// Initialize ROS 2
 	rclcpp::init(argc, argv);
+	
+	/* STOP SIGN DETECTION NODE
 	// Create a ROS 2 node that will publish data relevant to stop sign detection
 	auto stop_sign_detection_node = std::make_shared<rclcpp::Node>("stop_sign_detection");
 	// Create stop sign detection ROS 2 publisher
@@ -53,36 +54,36 @@ int main(int argc, char * argv[])
 	{
 		rclcpp::spin(stop_sign_detection_node);
 		
-	});
+	}); */
 
-	//OBSTACLE DETECTION NODE
+	//PERSON DETECTION NODE
 
-	/* // Create a ROS 2 node that will publish data relevant to obstacle detection
-	auto obstacle_detection_node = std::make_shared<rclcpp::Node>("obstacle_detection");
+	// Create a ROS 2 node that will publish data relevant to person detection
+	auto person_detection_node = std::make_shared<rclcpp::Node>("person_detection");
 	// Create stop sign detection ROS 2 publisher
-	auto obstacle_detection_publisher = obstacle_detection_node->create_publisher<std_msgs::msg::Bool>("obstacle_detection_topic", 10);
-	// Create a shared variable for stop sign detection
-    auto obstacle_detected = std::make_shared<bool>(false);
-	// Create a timer with a lambda function, so we publish obstacle detection status every 100 ms 
-    auto obstacle_detection_timer = obstacle_detection_node->create_wall_timer(
+	auto person_detection_publisher = person_detection_node->create_publisher<std_msgs::msg::Bool>("person_detection_topic", 10);
+	// Create a shared variable for person detection
+    auto person_detected = std::make_shared<bool>(false);
+	// Create a timer with a lambda function, so we publish person detection status every 100 ms 
+    auto obstacle_detection_timer = person_detection_node->create_wall_timer(
         100ms, 
-        [obstacle_detection_publisher, obstacle_detection_node, obstacle_detected]() {
-            obstacle_detection_timer_callback(obstacle_detection_publisher, obstacle_detection_node, obstacle_detected);
+        [person_detection_publisher, person_detection_node, person_detected]() {
+            person_detection_timer_callback(person_detection_publisher, person_detection_node, person_detected);
         }
     );
 
-	// Start stop sign detection node on a separate thread 
-	thread obstacles_thread([&]() 
+	// Start person detection node on a separate thread 
+	thread person_detection_thread([&]() 
 	{
-		rclcpp::spin(obstacle_detection_node);
+		rclcpp::spin(person_detection_node);
 		
-	});  */
+	});  
 
 	#pragma endregion
 
 	// Set desired resolution to resize received footage
 	int width = 320;
-	int height = 240;
+	int height = 320;
 
     // Open default camera
     cv::VideoCapture cap(0);
@@ -95,12 +96,12 @@ int main(int argc, char * argv[])
     }
 
     // Create a window to display the video
-    cv::namedWindow("Frontal Vision Stream", cv::WINDOW_NORMAL);
+    //cv::namedWindow("Frontal Vision Stream", cv::WINDOW_NORMAL);
     
 	// Set capture resolution
 	cap.set(cv::CAP_PROP_FRAME_WIDTH, width);
 	cap.set(cv::CAP_PROP_FRAME_HEIGHT, height);
-	cap.set(cv::CAP_PROP_FPS, 15);
+	//cap.set(cv::CAP_PROP_FPS, 15);
 
 	// Variables for fps calculation
     double fps;
@@ -111,7 +112,7 @@ int main(int argc, char * argv[])
 
 	try
 	{
-		ObjectDetector detector("/home/muzaodamassa/Downloads/yolov3.cfg", "/home/muzaodamassa/Downloads/yolov3.weights", "/home/muzaodamassa/Downloads/coco.names");
+		ObjectDetector detector("/home/muzaodamassa/Downloads/YOLO/yolov3.cfg", "/home/muzaodamassa/Downloads/YOLO/yolov3.weights", "/home/muzaodamassa/Downloads/YOLO/coco.names");
 
 		cv::Mat frame;
 
@@ -130,7 +131,11 @@ int main(int argc, char * argv[])
 
 			frame_processing.resize_frame(frame, width, height);
 
+			// Apply detection to frame based on loaded model
 			detector.detect(frame);
+
+			// Check for any persons in frame
+			*person_detected = detector.person_detected();	
 		
 			// Calculate FPS
 			tm.stop();
@@ -138,30 +143,30 @@ int main(int argc, char * argv[])
 			tm.reset();
 
 			// Put FPS text on the frame
-			cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
+			//cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
 
 			// Dispay the resulting frame
-			cv::imshow("Frontal Vision Stream", frame);
+			//cv::imshow("Frontal Vision Stream", frame);
 
 			// Press q to exit the loop
-			if (cv::waitKey(1) == 'q')
+			/* if (cv::waitKey(1) == 'q')
 			{			
 				break;
-			}	
+			}	 */
 		}
 
 		// Whene everything is done, release the video capture and video writer objects
 		cap.release();
 
 		// Close all windows
-		cv::destroyAllWindows();
+		//cv::destroyAllWindows();
 
 		// Shut down ROS 2
 		rclcpp::shutdown();
 		
 		// Join the spin thread before exiting
-		stop_sign_thread.join();
-		//obstacles_thread.join();
+		//stop_sign_thread.join();
+		person_detection_thread.join();
 
 		return 0;
 	}

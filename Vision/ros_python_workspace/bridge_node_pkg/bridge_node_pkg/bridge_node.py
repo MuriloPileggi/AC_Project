@@ -21,8 +21,8 @@ class BridgeNode(Node):
         
         # Start node subscriptions
         self.subscription = self.create_subscription(Int8,'road_vision_topic',self.road_vision_callback,10)
-        self.subscription = self.create_subscription(Bool,'stop_sign_detection_topic',self.stop_sign_detection_callback,10)
-        #self.subscription = self.create_subscription(Bool,'obstacle_detection_topic',self.obstacle_detection_callback,10)
+        #self.subscription = self.create_subscription(Bool,'stop_sign_detection_topic',self.stop_sign_detection_callback,10)
+        #self.subscription = self.create_subscription(Bool,'person_detection_topic',self.obstacle_detection_callback,10)
 
         # Create a timer to execute callback every X ms
         self.timer = self.create_timer(0.1, self.timer_callback)
