@@ -16,6 +16,8 @@ private:
     float m_confidence_threshold; // Minimun confidence to make accurate predictions
     float m_nms_threshold; // Non-Maximum Suppression algorithm threshold 
     bool m_person_detected = false;
+    bool m_stop_sign_detected = false;
+    bool m_traffic_light_detected = false;
 
     void post_process(cv::Mat& frame, const std::vector<cv::Mat>& outs);
     void draw_predictions(int classId, float confidence, int left, int top, int right, int bottom, cv::Mat& frame);
@@ -31,4 +33,10 @@ public:
     // Method to return member boolean variable is person detected
     // Will return true if a person is detected in frame, if not always false
     bool person_detected();
+    // Method to return member boolean variable stop sign detected
+    // Will return true if a stop sign is detected in frame, if not always false
+    bool stop_sign_detected();
+    // Method to return member boolean variable is person detected
+    // Will return true if a traffic light is detected in frame, if not always false
+    bool traffic_light_detected();
 };

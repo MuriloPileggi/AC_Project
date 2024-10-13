@@ -47,8 +47,12 @@ void ObjectDetector::detect(cv::Mat& frame)
     
     std::vector<cv::Mat> outs;
     m_net.forward(outs, m_net.getUnconnectedOutLayersNames());
-    
-    m_person_detected = false; // Resets for new frame
+
+    // Reset member variables for new frame
+    m_person_detected = false;
+    m_stop_sign_detected = false;
+    m_traffic_light_detected = false;
+
     post_process(frame, outs);
 }
 
@@ -117,9 +121,21 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
     }
 }
 
-// Is person detected method implementation
+// Person detected method implementation
 bool ObjectDetector::person_detected() 
 {
     return m_person_detected;
+}
+
+// Stop sign detected method implementation
+bool ObjectDetector::stop_sign_detected() 
+{
+    return m_stop_sign_detected;
+}
+
+// Traffic light detected method implementation
+bool ObjectDetector::traffic_light_detected() 
+{
+    return m_traffic_light_detected;
 }
 

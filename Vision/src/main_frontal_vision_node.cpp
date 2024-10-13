@@ -117,50 +117,38 @@ int main(int argc, char * argv[])
 
 		cv::Mat frame;
 
-		const int delay = 100; // Delay in milliseconds
-    	auto previous_time = std::chrono::steady_clock::now();
-
 		while (cap.isOpened())
 		{
-			auto current_time = std::chrono::steady_clock::now();
-        	auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - previous_time).count();
+			tm.start();
 
-			if (elapsed_time >= delay) {
-				//tm.start();
+            // Capture frame-by-frame
+            cap >> frame;
 
-				// Capture frame-by-frame
-				cap >> frame;
+            // If the frame is empty, break immediately
+            if (frame.empty()) {
+                break;
+            }
 
-				// If the frame is empty, break immediately
-				if (frame.empty())
-				{
-					break;
-				}
+            frame_processing.resize_frame(frame, width, height);
 
-				frame_processing.resize_frame(frame, width, height);
+            // Apply detection to frame based on loaded model
+            detector.detect(frame);
 
-				// Apply detection to frame based on loaded model
-				detector.detect(frame);
+            // Check for any persons in frame
+            *person_detected = detector.person_detected();
 
-				// Check for any persons in frame
-				*person_detected = detector.person_detected();	
-			
-				// Calculate FPS
-				//tm.stop();
-				//fps = 1.0 / tm.getTimeSec();
-				//tm.reset();
+            // Calculate FPS
+            tm.stop();
+            fps = 1.0 / tm.getTimeSec();
+            tm.reset();
 
-				// Put FPS text on the frame
-				//cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
+            // Put FPS text on the frame
+            cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
 
-				// Dispay the resulting frame
-				cv::imshow("Frontal Vision Stream", frame);
+            // Dispay the resulting frame
+            cv::imshow("Frontal Vision Stream", frame);
 
-				previous_time = current_time;
-
-			}
-			
-			// Press q to exit the loop
+            // Press q to exit the loop
 			if (cv::waitKey(1) == 'q')
 			{			
 				break;
