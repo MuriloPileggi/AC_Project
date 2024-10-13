@@ -458,6 +458,8 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
  /usr/include/c++/11/bits/indirect_array.h
  /home/muzaodamassa/AC_Project/Vision/src/guidance_system.cpp
  /home/muzaodamassa/AC_Project/Vision/src/guidance_system.hpp
+ /home/muzaodamassa/AC_Project/Vision/src/object_detector.cpp
+ /home/muzaodamassa/AC_Project/Vision/src/object_detector.hpp
  /opt/ros/iron/include/rclcpp/rclcpp/rclcpp.hpp
  /usr/include/c++/11/csignal
  /usr/include/signal.h

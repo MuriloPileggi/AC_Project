@@ -1,14 +1,13 @@
 #include <iostream>
 #include "frame_processing.cpp"
 #include "guidance_system.cpp"
+#include "object_detector.cpp"
 #include "opencv2/videoio.hpp"
 #include "rclcpp/rclcpp/rclcpp.hpp"
-#include "../ai_libraries/mlpp.hpp"
 #include "std_msgs/std_msgs/msg/bool.hpp"
 
 using namespace std;
 using namespace std::chrono_literals;
-using namespace MLPP;
 
 // Stop sign detection timer callback function
 void stop_sign_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
@@ -85,10 +84,6 @@ int main(int argc, char * argv[])
 	int width = 320;
 	int height = 240;
 
-	// Loading haar cascade xml files for object detection
-	cv::CascadeClassifier stop_sign_detection_cascade;
-	stop_sign_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/Stopsign_HAAR_19Stages.xml");
-
     // Open default camera
     cv::VideoCapture cap(0);
 
@@ -113,88 +108,66 @@ int main(int argc, char * argv[])
 
 	// Frame processing class constructor
 	FrameProcessing frame_processing;
-	// Neural network constructor from MLPP
-	//NeuralNetwork cnn;
-	// Load pre trained model into class
-	//cnn.load_model("Vision/models/pedestrian_detection_25_2.bin");
 
-    while (cap.isOpened())
-    {
-		tm.start();
+	try
+	{
+		ObjectDetector detector("/home/muzaodamassa/Downloads/yolov3.cfg", "/home/muzaodamassa/Downloads/yolov3.weights", "/home/muzaodamassa/Downloads/coco.names");
 
-		// Capture frame-by-frame
 		cv::Mat frame;
-		cap >> frame;
 
-		// If the frame is empty, break immediately
-		if (frame.empty())
+		while (cap.isOpened())
 		{
-			break;
+			tm.start();
+
+			// Capture frame-by-frame
+			cap >> frame;
+
+			// If the frame is empty, break immediately
+			if (frame.empty())
+			{
+				break;
+			}
+
+			frame_processing.resize_frame(frame, width, height);
+
+			detector.detect(frame);
+		
+			// Calculate FPS
+			tm.stop();
+			fps = 1.0 / tm.getTimeSec();
+			tm.reset();
+
+			// Put FPS text on the frame
+			cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
+
+			// Dispay the resulting frame
+			cv::imshow("Frontal Vision Stream", frame);
+
+			// Press q to exit the loop
+			if (cv::waitKey(1) == 'q')
+			{			
+				break;
+			}	
 		}
 
-		//cv::Mat* processed_frame = new cv::Mat(frame);
+		// Whene everything is done, release the video capture and video writer objects
+		cap.release();
 
-		// Visual/Debugging
-		frame_processing.apply_gray_scale_to_frame(frame);
-		frame_processing.resize_frame(frame, width, height);
-		//frame_processing.apply_smoothing_to_frame(frame);
+		// Close all windows
+		cv::destroyAllWindows();
 
-		// Process frame
-		//frame_processing.apply_gray_scale_to_frame(*processed_frame);
-		//frame_processing.resize_frame(*processed_frame, 128, 128);
+		// Shut down ROS 2
+		rclcpp::shutdown();
+		
+		// Join the spin thread before exiting
+		stop_sign_thread.join();
+		//obstacles_thread.join();
 
-		// Convert frame into MLPP matrix 
-		//Mat3d<double>* mlpp_frame = OpenCvIntegration::convert_gray_image<double>(processed_frame);
-		// Normalize frame data
-		//Mat3d<double> normalized_frame = ComputerVision::normalize_pixels<double>(mlpp_frame);
-		// Apply inference to normalized frame data using loaded model to store predicted class
-		//size_t predicted_frame_class = cnn.predict_frame<double>(normalized_frame);
-		// If predicted class is 1, i.e, there was some sort of obstacle in frame
-		// We assign shared pointer data to true, else it remains false
-		//*obstacle_detected = predicted_frame_class == 1 ? true : false;	
-
-		// Detect stop signs in the frame
-		vector<cv::Rect> stop_signs;
-		stop_sign_detection_cascade.detectMultiScale(frame, stop_signs, 1.1, 5);
-		*stop_sign_detected = !stop_signs.empty();
-
-		// Draw bounding boxes around detected stop signs
-		for (const auto& rect : stop_signs)
-		{
-			cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
-			cv::putText(frame, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
-		} 
-
-        // Calculate FPS
-		tm.stop();
-		fps = 1.0 / tm.getTimeSec();
-		tm.reset();
-
-		// Put FPS text on the frame
-		cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(0, 255, 0), 2);
-
-		// Dispay the resulting frame
-		cv::imshow("Frontal Vision Stream", frame);
-
-		// Press q to exit the loop
-		if (cv::waitKey(1) == 'q')
-		{			
-			break;
-		}	
-    }
-
-	// Whene everything is done, release the video capture and video writer objects
-	cap.release();
-
-    // Close all windows
-	cv::destroyAllWindows();
-
- 	// Shut down ROS 2
-	rclcpp::shutdown();
-	
-	// Join the spin thread before exiting
-    stop_sign_thread.join();
-	//obstacles_thread.join();
-
-	return 0;
+		return 0;
+	}
+	catch(const exception& e)
+	{
+		cerr << "Error: " << e.what() << endl;
+		return -1;
+	}   
 }

@@ -457,6 +457,8 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
   /usr/include/c++/11/bits/indirect_array.h \
   /home/muzaodamassa/AC_Project/Vision/src/guidance_system.cpp \
   /home/muzaodamassa/AC_Project/Vision/src/guidance_system.hpp \
+  /home/muzaodamassa/AC_Project/Vision/src/object_detector.cpp \
+  /home/muzaodamassa/AC_Project/Vision/src/object_detector.hpp \
   /opt/ros/iron/include/rclcpp/rclcpp/rclcpp.hpp \
   /usr/include/c++/11/csignal \
   /usr/include/signal.h \
@@ -1134,8 +1136,6 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 
 /opt/ros/iron/include/rclcpp/rclcpp/network_flow_endpoint.hpp:
 
-/opt/ros/iron/include/rmw/rmw/impl/config.h:
-
 /usr/include/x86_64-linux-gnu/c++/11/bits/cxxabi_tweaks.h:
 
 /opt/ros/iron/include/rmw/rmw/error_handling.h:
@@ -1303,6 +1303,8 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 /opt/ros/iron/include/rosidl_runtime_c/rosidl_runtime_c/message_type_support_struct.h:
 
 /opt/ros/iron/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h:
+
+/opt/ros/iron/include/rcl_yaml_param_parser/rcl_yaml_param_parser/types.h:
 
 /opt/ros/iron/include/rmw/rmw/publisher_options.h:
 
@@ -1475,6 +1477,10 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 /usr/include/c++/11/bits/locale_facets.tcc:
 
 /usr/include/c++/11/bits/this_thread_sleep.h:
+
+/opt/ros/iron/include/rcl/rcl/init_options.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
 
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
@@ -2434,6 +2440,10 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 
 /usr/local/include/opencv4/opencv2/stitching/detail/warpers.hpp:
 
+/opt/ros/iron/include/rmw/rmw/impl/config.h:
+
+/home/muzaodamassa/AC_Project/Vision/src/object_detector.cpp:
+
 /opt/ros/iron/include/rcpputils/rcpputils/thread_safety_annotations.hpp:
 
 /opt/ros/iron/include/rclcpp/rclcpp/topic_statistics/subscription_topic_statistics.hpp:
@@ -2459,6 +2469,8 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 /usr/include/c++/11/bits/deque.tcc:
 
 /usr/local/include/opencv4/opencv2/stitching/detail/camera.hpp:
+
+/home/muzaodamassa/AC_Project/Vision/src/object_detector.hpp:
 
 /usr/local/include/opencv4/opencv2/stitching/detail/blenders.hpp:
 
@@ -2647,9 +2659,3 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
 /usr/include/libintl.h:
 
 /opt/ros/iron/include/rmw/rmw/time.h:
-
-/opt/ros/iron/include/rcl_yaml_param_parser/rcl_yaml_param_parser/types.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
-
-/opt/ros/iron/include/rcl/rcl/init_options.h:
