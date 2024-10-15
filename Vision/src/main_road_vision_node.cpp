@@ -127,8 +127,9 @@ int main(int argc, char * argv[])
 
 				// Calculate steering angle based on plotted lane lines
 				double steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
-				double dt = 0.1; // 100 ms
-				//double dt = pid_controller.get_dt();
+				//double dt = 0.1; // 100 ms
+				double dt = pid_controller.get_dt();
+				std::cout << dt << std::endl;
 				*angle_correction = pid_controller.compute_error(steering_angle, dt);
 
 				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
@@ -143,8 +144,6 @@ int main(int argc, char * argv[])
 
 				// Show final frame
 				cv::imshow("Road Vision Stream", blended_frame);
-
-				std::cout << "Here" << std::endl;
 			}
 			else {
 				// Calculate FPS
