@@ -22,9 +22,9 @@ class BridgeNode(Node):
         
         # Start node subscriptions
         self.subscription = self.create_subscription(Int8,'road_vision_topic',self.road_vision_callback,10)
-        self.subscription = self.create_subscription(Bool,'person_detection_topic',self.person_detection_callback,10)
-        self.subscription = self.create_subscription(Bool,'stop_sign_detection_topic',self.stop_sign_detection_callback,10)
-        self.subscription = self.create_subscription(Int8,'traffic_light_detection_topic',self.traffic_light_detection_callback,10)
+        #self.subscription = self.create_subscription(Bool,'person_detection_topic',self.person_detection_callback,10)
+        #self.subscription = self.create_subscription(Bool,'stop_sign_detection_topic',self.stop_sign_detection_callback,10)
+        #self.subscription = self.create_subscription(Int8,'traffic_light_detection_topic',self.traffic_light_detection_callback,10)
 
         # Create a timer to execute callback every X ms
         self.timer = self.create_timer(0.1, self.timer_callback)
@@ -90,8 +90,8 @@ class BridgeNode(Node):
         else:
             # Resume normal operation
             #self.stop_sign_detected = False
-            #data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0}\n"
-            data_to_send = f"{self.angle_correction},{1 if self.stop_sign_detected else 0},{self.traffic_light_status}\n"
+            data_to_send = f"{self.angle_correction}\n"
+            #data_to_send = f"{self.angle_correction},{self.traffic_light_status}\n"
             self.get_logger().info('Timer triggered, sending data: %s' % data_to_send)
             #self.send_to_arduino(data_to_send) 
             #self.receive_from_arduino()

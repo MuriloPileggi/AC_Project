@@ -48,12 +48,12 @@ int main(int argc, char * argv[])
 	#pragma endregion
 
 	// Set desired resolution to resize received footage
-	int width = 320;
+	int width = 240;
 	int height = 240;
 	
     // Open video file
-    cv::VideoCapture cap(-1);
-	//cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
+    //cv::VideoCapture cap(-1);
+	cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -128,8 +128,8 @@ int main(int argc, char * argv[])
 				// Calculate steering angle based on plotted lane lines
 				double steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
 				double dt = 0.1; // 100 ms
-				double error = pid_controller.compute_error(steering_angle, dt);
-				*angle_correction = pid_controller.get_angle_correction(error);
+				//double dt = pid_controller.get_dt();
+				*angle_correction = pid_controller.compute_error(steering_angle, dt);
 
 				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 
@@ -143,6 +143,8 @@ int main(int argc, char * argv[])
 
 				// Show final frame
 				cv::imshow("Road Vision Stream", blended_frame);
+
+				std::cout << "Here" << std::endl;
 			}
 			else {
 				// Calculate FPS
