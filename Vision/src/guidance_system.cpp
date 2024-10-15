@@ -40,7 +40,7 @@ double GuidanceSystem::calc_steering_angle(const cv::Mat& frame, FrameProcessing
    // Top Mask Coordinate
    int a_x = frame.cols/2;
    int a_y = frame.rows/2;
-   int b_x = (left_line_parameters.x1 + right_line_parameters.x1)/2;
+   int b_x = (left_line_parameters.x2 + right_line_parameters.x2)/2;
    int b_y = frame.rows/2;
    int c_x = b_x;
    int c_y = 0;

@@ -12,10 +12,10 @@ using namespace MLPP;
 
 // Timer callback function
 void timer_callback(rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr publisher, rclcpp::Node::SharedPtr node, 
-						std::shared_ptr<int8_t> angle_correction)
+						std::shared_ptr<int8_t> servo_steering_angle)
 {
     auto message = std_msgs::msg::Int8();
-	message.data = *angle_correction;
+	message.data = *servo_steering_angle;
     RCLCPP_INFO(node->get_logger(), "Publishing: '%i'", message.data);
     publisher->publish(message);
 }
@@ -30,12 +30,12 @@ int main(int argc, char * argv[])
 	// Create a ROS 2 publisher
 	auto publisher = node->create_publisher<std_msgs::msg::Int8>("road_vision_topic", 10);
 	// Create a shared variable for steering angle
-    auto angle_correction = std::make_shared<int8_t>(0);
+    auto servo_steering_angle = std::make_shared<int8_t>(0);
 	// Create a timer with a lambda function, so we publish steering angle every 100 ms 
     auto timer = node->create_wall_timer(
         100ms, 
-        [publisher, node, angle_correction]() {
-            timer_callback(publisher, node, angle_correction);
+        [publisher, node, servo_steering_angle]() {
+            timer_callback(publisher, node, servo_steering_angle);
         }
     );
 
@@ -71,7 +71,7 @@ int main(int argc, char * argv[])
 	// Set capture resolution
 	cap.set(cv::CAP_PROP_FRAME_WIDTH, width);
 	cap.set(cv::CAP_PROP_FRAME_HEIGHT, height);
-	cap.set(cv::CAP_PROP_FPS, 15);
+	//cap.set(cv::CAP_PROP_FPS, 15);
 
 	// Variables for fps calculation
     double fps;
@@ -83,6 +83,11 @@ int main(int argc, char * argv[])
 	GuidanceSystem guidance_system;
 	// PID Controller class constructor
 	PIDController pid_controller(0.35, 0.01, 0);
+
+	// Constants for actual servo calculations
+	const double servo_error = 0.7;
+	const double servo_compensation = 3.5;
+	const int servo_center_anlge = 90;
 
     while (cap.isOpened())
     {
@@ -127,10 +132,19 @@ int main(int argc, char * argv[])
 
 				// Calculate steering angle based on plotted lane lines
 				double steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
+				
+			
+				// Get error correction with PID
 				//double dt = 0.1; // 100 ms
-				double dt = pid_controller.get_dt();
-				std::cout << dt << std::endl;
-				*angle_correction = pid_controller.compute_error(steering_angle, dt);
+				//double dt = pid_controller.get_dt();
+				//double error = pid_controller.compute_error(steering_angle, dt);
+				// Make necessary adjustments to compensate for servo
+				//double new_servo_angle = (((error * servo_compensation) + servo_center_anlge) * 0.7);
+				//*servo_steering_angle = static_cast<int8_t>(new_servo_angle);
+
+				// Get error correction without PID
+				double angle_correction = (servo_center_anlge - steering_angle) * servo_compensation;
+				*servo_steering_angle = (servo_center_anlge + angle_correction) * servo_error;
 
 				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 
