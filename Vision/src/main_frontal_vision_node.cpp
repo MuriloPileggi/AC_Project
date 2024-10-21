@@ -21,17 +21,7 @@ void stop_sign_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr 
     publisher->publish(message);
 }
 
-// Obstacle detection timer callback function
-void person_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
-						rclcpp::Node::SharedPtr node, std::shared_ptr<bool> person_detected)
-{
-    auto message = std_msgs::msg::Bool();
-    message.data = *person_detected;
-    RCLCPP_INFO(node->get_logger(), "Publishing: '%s'", message.data ? "true" : "false");
-    publisher->publish(message);
-}
-
-// Obstacle detection timer callback function
+// Traffic light detection timer callback function
 void traffic_light_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr publisher,
 						rclcpp::Node::SharedPtr node, std::shared_ptr<int8_t> traffic_light_status)
 {
@@ -61,32 +51,11 @@ int main(int argc, char * argv[])
             stop_sign_timer_callback(stop_sign_publisher, stop_sign_detection_node, stop_sign_detected);
         }
     );
+
 	// Start stop sign detection node on a separate thread 
 	thread stop_sign_thread([&]() 
 	{
 		rclcpp::spin(stop_sign_detection_node);
-		
-	}); 
-
-	//PERSON DETECTION NODE
-	// Create a ROS 2 node that will publish data relevant to person detection
-	auto person_detection_node = std::make_shared<rclcpp::Node>("person_detection");
-	// Create stop sign detection ROS 2 publisher
-	auto person_detection_publisher = person_detection_node->create_publisher<std_msgs::msg::Bool>("person_detection_topic", 10);
-	// Create a shared variable for person detection
-    auto person_detected = std::make_shared<bool>(false);
-	// Create a timer with a lambda function, so we publish person detection status every 100 ms 
-    auto person_detection_timer = person_detection_node->create_wall_timer(
-        100ms, 
-        [person_detection_publisher, person_detection_node, person_detected]() {
-            person_detection_timer_callback(person_detection_publisher, person_detection_node, person_detected);
-        }
-    );
-
-	// Start person detection node on a separate thread 
-	thread person_detection_thread([&]() 
-	{
-		rclcpp::spin(person_detection_node);
 		
 	});  
 
@@ -97,7 +66,7 @@ int main(int argc, char * argv[])
 	auto traffic_light_detection_publisher = traffic_light_detection_node->create_publisher<std_msgs::msg::Int8>("traffic_light_detection_topic", 10);
 	// Create a shared variable for person detection
     auto traffic_light_status = std::make_shared<int8_t>(0);
-	// Create a timer with a lambda function, so we publish person detection status every 100 ms 
+	// Create a timer with a lambda function, so we publish traffic light status every 100 ms 
     auto traffic_light_detection_timer = traffic_light_detection_node->create_wall_timer(
         100ms, 
         [traffic_light_detection_publisher, traffic_light_detection_node, traffic_light_status]() {
@@ -105,7 +74,7 @@ int main(int argc, char * argv[])
         }
     );
 
-	// Start person detection node on a separate thread 
+	// Start traffic light detection node on a separate thread 
 	thread traffic_light_detection_thread([&]() 
 	{
 		rclcpp::spin(traffic_light_detection_node);
@@ -145,9 +114,18 @@ int main(int argc, char * argv[])
 
 	try
 	{
-		ObjectDetector detector("/home/muzaodamassa/AC_Project/Vision/models/YOLO/yolov4-tiny.cfg",
-								"/home/muzaodamassa/AC_Project/Vision/models/YOLO/yolov4-tiny.weights", 
-								"/home/muzaodamassa/AC_Project/Vision/models/YOLO/coco.names");
+		ObjectDetector detector("/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.cfg",
+								"/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.weights", 
+								"/home/atom3/AC_Project/Vision/models/YOLO/coco.names", 0.3, 0.3);
+
+		
+		// Haar Cascade Logic
+		// Loading haar cascade xml files for object detection
+		//cv::CascadeClassifier stop_sign_detection_cascade;
+		//stop_sign_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/Stopsign_HAAR_19Stages.xml");
+		//cv::CascadeClassifier traffic_light_detection_cascade;
+		//traffic_light_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/TrafficLight_HAAR_16Stages.xml");
+		
 
 		cv::Mat frame;
 
@@ -168,10 +146,38 @@ int main(int argc, char * argv[])
             // Apply detection to frame based on loaded model
             detector.detect(frame);
 
-            // Check for any persons in frame
-            *person_detected = detector.person_detected();
+            // Check for any  in frame
 			*stop_sign_detected = detector.stop_sign_detected();
 			*traffic_light_status = detector.get_traffic_light_status();
+
+			/* // Haar Cascade Logic
+
+			// Detect stop signs in the frame
+			vector<cv::Rect> stop_signs;
+			stop_sign_detection_cascade.detectMultiScale(frame, stop_signs, 1.1, 5);
+			*stop_sign_detected = !stop_signs.empty();
+
+			// Draw bounding boxes around detected stop signs
+			for (const auto& rect : stop_signs)
+			{
+				cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
+				cv::putText(frame, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+			} 
+
+			// Detect traffic lights in the frame
+			vector<cv::Rect> traffic_lights;
+			traffic_light_detection_cascade.detectMultiScale(frame, traffic_lights, 1.1, 5);
+			*traffic_light_status = !traffic_lights.empty();
+
+			// Draw bounding boxes around detected stop signs
+			for (const auto& rect : traffic_lights)
+			{
+				cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
+				cv::putText(frame, "Traffic Light", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
+			} 
+			*/
+
+			
 
             // Calculate FPS
             tm.stop();
@@ -202,7 +208,6 @@ int main(int argc, char * argv[])
 		
 		// Join the spin thread before exiting
 		stop_sign_thread.join();
-		person_detection_thread.join();
 		traffic_light_detection_thread.join();
 
 		return 0;

@@ -241,7 +241,6 @@ CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_
  /usr/local/include/opencv4/opencv2/core/matx.hpp \
  /usr/local/include/opencv4/opencv2/core/saturate.hpp \
  /usr/local/include/opencv4/opencv2/core/fast_math.hpp \
- /usr/local/include/opencv4/opencv2/core/matx.inl.hpp \
  /usr/local/include/opencv4/opencv2/core/types.hpp \
  /usr/include/c++/11/cfloat \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \

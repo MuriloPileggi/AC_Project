@@ -23,7 +23,6 @@ private:
     std::vector<std::string> m_classes; // Classes vector
     float m_confidence_threshold; // Minimun confidence to make accurate predictions
     float m_nms_threshold; // Non-Maximum Suppression algorithm threshold 
-    bool m_person_detected = false;
     bool m_stop_sign_detected = false;
     TrafficLightStatus m_traffic_light_status = NONE;
 
@@ -43,10 +42,6 @@ public:
     // Method that returns traffic light status as a int_8t, so we can publish results
     // with ROS to our bridge node
     int8_t get_traffic_light_status();
-
-    // Method to return member boolean variable is person detected
-    // Will return true if a person is detected in frame, if not always false
-    bool person_detected();
 
     // Method to return member boolean variable stop sign detected
     // Will return true if a stop sign is detected in frame, if not always false

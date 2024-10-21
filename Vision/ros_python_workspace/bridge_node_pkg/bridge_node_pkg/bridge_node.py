@@ -15,14 +15,12 @@ class BridgeNode(Node):
         self.angle_correction = 0
         self.stop_sign_count = 0
         self.stop_sign_detected = False
-        self.person_detected = False
         self.traffic_light_status = 0 # 0 = None, 1 = Red, 2 = Yellow, 3 = Green
         self.threads = []
         #self.stop_time = 0
         
         # Start node subscriptions
         self.subscription = self.create_subscription(Int8,'road_vision_topic',self.road_vision_callback,10)
-        #self.subscription = self.create_subscription(Bool,'person_detection_topic',self.person_detection_callback,10)
         #self.subscription = self.create_subscription(Bool,'stop_sign_detection_topic',self.stop_sign_detection_callback,10)
         self.subscription = self.create_subscription(Int8,'traffic_light_detection_topic',self.traffic_light_detection_callback,10)
 
@@ -41,10 +39,6 @@ class BridgeNode(Node):
         #   self.get_logger().error('Failed to initialize serial connection')
         #   return
         #time.sleep(2)  # Wait for the connection to settle
-    
-    def person_detection_callback(self, msg):
-        #self.get_logger().info('Received: "%s"' % msg.data)
-        self.person_detected = msg.data
     
     def road_vision_callback(self, msg):
         #self.get_logger().info('Received: "%s"' % msg.data)
@@ -72,14 +66,10 @@ class BridgeNode(Node):
     
     # This method will run at specified frequency
     def timer_callback(self):
-        # Get current time so we can properly apply stop sign detection
-        
-        #current_time = self.get_clock().now().to_msg().sec
-        
         # If an obstacle is detected in front of the car, we immediately stop sending data
         # to our arduino, and continue to do so as long as we have something obstructing our
         # way
-        if self.person_detected or self.traffic_light_status == 1:
+        if self.traffic_light_status == 1:
             return
         # Stop the car for 5 seconds if a stop sign has been detected
         elif self.stop_sign_detected and self.stop_sign_count < 1:

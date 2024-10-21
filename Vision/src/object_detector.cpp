@@ -49,7 +49,6 @@ void ObjectDetector::detect(cv::Mat& frame)
     m_net.forward(outs, m_net.getUnconnectedOutLayersNames());
 
     // Reset member variables for new frame
-    m_person_detected = false;
     m_stop_sign_detected = false;
     m_traffic_light_status = NONE;
 
@@ -170,11 +169,7 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
         int class_id = class_ids[id_x];
 
         // Check for classes of interest in frame
-        if (m_classes[class_id] == "person")
-        {
-            m_person_detected = true;
-        }
-        else if(m_classes[class_id] == "stop sign") {
+        if(m_classes[class_id] == "stop sign") {
             m_stop_sign_detected = true;
         }
         else if (m_classes[class_id] == "traffic light") {
@@ -192,12 +187,6 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
         draw_predictions(class_ids[id_x], confidences[id_x], box.x, box.y,
                  box.x + box.width, box.y + box.height, frame);
     }
-}
-
-// Person detected method implementation
-bool ObjectDetector::person_detected() 
-{
-    return m_person_detected;
 }
 
 // Stop sign detected method implementation
