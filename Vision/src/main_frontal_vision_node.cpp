@@ -116,17 +116,8 @@ int main(int argc, char * argv[])
 	{
 		ObjectDetector detector("/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.cfg",
 								"/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.weights", 
-								"/home/atom3/AC_Project/Vision/models/YOLO/coco.names", 0.3, 0.3);
-
+								"/home/atom3/AC_Project/Vision/models/YOLO/coco.names", 0.3);
 		
-		// Haar Cascade Logic
-		// Loading haar cascade xml files for object detection
-		//cv::CascadeClassifier stop_sign_detection_cascade;
-		//stop_sign_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/Stopsign_HAAR_19Stages.xml");
-		//cv::CascadeClassifier traffic_light_detection_cascade;
-		//traffic_light_detection_cascade.load("/home/muzaodamassa/AC_Project/Vision/data/Pre_Trained_Models/TrafficLight_HAAR_16Stages.xml");
-		
-
 		cv::Mat frame;
 
 		while (cap.isOpened())
@@ -149,35 +140,6 @@ int main(int argc, char * argv[])
             // Check for any  in frame
 			*stop_sign_detected = detector.stop_sign_detected();
 			*traffic_light_status = detector.get_traffic_light_status();
-
-			/* // Haar Cascade Logic
-
-			// Detect stop signs in the frame
-			vector<cv::Rect> stop_signs;
-			stop_sign_detection_cascade.detectMultiScale(frame, stop_signs, 1.1, 5);
-			*stop_sign_detected = !stop_signs.empty();
-
-			// Draw bounding boxes around detected stop signs
-			for (const auto& rect : stop_signs)
-			{
-				cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
-				cv::putText(frame, "Stop Sign", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
-			} 
-
-			// Detect traffic lights in the frame
-			vector<cv::Rect> traffic_lights;
-			traffic_light_detection_cascade.detectMultiScale(frame, traffic_lights, 1.1, 5);
-			*traffic_light_status = !traffic_lights.empty();
-
-			// Draw bounding boxes around detected stop signs
-			for (const auto& rect : traffic_lights)
-			{
-				cv::rectangle(frame, rect, cv::Scalar(255, 0, 0), 2);
-				cv::putText(frame, "Traffic Light", cv::Point(rect.x, rect.y - 10), cv::FONT_HERSHEY_SIMPLEX, 0.9, cv::Scalar(255, 0, 0), 2);
-			} 
-			*/
-
-			
 
             // Calculate FPS
             tm.stop();

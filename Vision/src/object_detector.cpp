@@ -1,10 +1,13 @@
 #include "object_detector.hpp"
 
 // Constructor implementation
-ObjectDetector::ObjectDetector(const std::string& model_config, const std::string& model_weights, 
-               const std::string& classes_file, float confidence_threshold, float nms_threshold) :
+ObjectDetector::ObjectDetector(const std::string& model_config, const std::string& model_weights, const std::string& classes_file, 
+                                float confidence_threshold, float nms_threshold, float min_proximity_threshold) :
     m_confidence_threshold(confidence_threshold),
-    m_nms_threshold(nms_threshold) 
+    m_nms_threshold(nms_threshold),
+    m_min_proximity_threshold(min_proximity_threshold),
+    m_stop_sign_size_ratio(0.0f),
+    m_traffic_light_size_ratio(0.0f)
 {
     try {
         // Load the network
@@ -37,6 +40,15 @@ ObjectDetector::ObjectDetector(const std::string& model_config, const std::strin
     }
 }
 
+// Calculate size ratio method implementation
+float ObjectDetector::calc_size_ratio(const cv::Rect& box, const cv::Mat& frame)
+{
+    // Calculate the area of the bounding box relative to the frame
+    float box_area = static_cast<float>(box.width * box.height);
+    float frame_area = static_cast<float>(frame.cols * frame.rows);
+    return box_area / frame_area;
+}
+
 // Detection method implementation
 void ObjectDetector::detect(cv::Mat& frame) 
 {
@@ -58,7 +70,10 @@ void ObjectDetector::detect(cv::Mat& frame)
 // Get traffic light status method implementation
 int8_t ObjectDetector::get_traffic_light_status()
 {
-    return static_cast<int8_t>(m_traffic_light_status);
+    if (m_traffic_light_size_ratio >= m_min_proximity_threshold) {
+        return static_cast<int8_t>(m_traffic_light_status);
+    }
+    return NONE;
 }
 
 // Set traffic light status method implementation
@@ -115,15 +130,15 @@ ObjectDetector::TrafficLightStatus ObjectDetector::set_traffic_light_status(cons
 }
 
 // Draw predictions method implementation
-void ObjectDetector::draw_predictions(int class_id, float conf, int left, int top, int right, int bottom, cv::Mat& frame) 
+void ObjectDetector::draw_predictions(int class_id, float conf, int left, int top, int right, int bottom, cv::Mat& frame, const std::string& label) 
 {
     cv::rectangle(frame, cv::Point(left, top), cv::Point(right, bottom), cv::Scalar(0, 255, 0), 2);
         
-    std::string label = cv::format("%.2f", conf);
-    if (!m_classes.empty()) {
-        CV_Assert(class_id < (int)m_classes.size());
-        label = m_classes[class_id] + ": " + label;
-    }
+    //std::string label = cv::format("%.2f", conf);
+    //if (!m_classes.empty()) {
+    //    CV_Assert(class_id < (int)m_classes.size());
+    //    label = m_classes[class_id] + ": " + label;
+    //}
     
     int baseLine;
     cv::Size labelSize = cv::getTextSize(label, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseLine);
@@ -160,6 +175,10 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
             }
         }
     }
+
+    // Reset size ratios at the start of processing
+    m_stop_sign_size_ratio = 0.0f;
+    m_traffic_light_size_ratio = 0.0f;
     
     std::vector<int> indices;
     cv::dnn::NMSBoxes(boxes, confidences, m_confidence_threshold, m_nms_threshold, indices);
@@ -168,9 +187,13 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
         cv::Rect box = boxes[id_x];
         int class_id = class_ids[id_x];
 
+        // Get current box size ratio
+        float current_size_ratio = calc_size_ratio(box, frame);
+
         // Check for classes of interest in frame
         if(m_classes[class_id] == "stop sign") {
             m_stop_sign_detected = true;
+            m_stop_sign_size_ratio = current_size_ratio;
         }
         else if (m_classes[class_id] == "traffic light") {
             // Ensure the bounding box is within the frame dimensions
@@ -182,16 +205,27 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
 
             cv::Mat roi = frame(box_copy);
             m_traffic_light_status = set_traffic_light_status(roi);
+            m_traffic_light_size_ratio = current_size_ratio;
         }
         
+        // Add size ratio to the label if it's a stop sign or traffic light
+        std::string label = cv::format("%.2f", confidences[id_x]);
+        if (!m_classes.empty()) {
+            CV_Assert(class_id < (int)m_classes.size());
+            label = m_classes[class_id] + ": " + label;
+            if (m_classes[class_id] == "stop sign" || m_classes[class_id] == "traffic light") {
+                label += cv::format(" (Size: %.1f%%)", current_size_ratio * 100);
+            }
+        }
+
         draw_predictions(class_ids[id_x], confidences[id_x], box.x, box.y,
-                 box.x + box.width, box.y + box.height, frame);
+                 box.x + box.width, box.y + box.height, frame, label);
     }
 }
 
 // Stop sign detected method implementation
 bool ObjectDetector::stop_sign_detected() 
 {
-    return m_stop_sign_detected;
+    return m_stop_sign_detected && (m_stop_sign_size_ratio >= m_min_proximity_threshold);
 }
 

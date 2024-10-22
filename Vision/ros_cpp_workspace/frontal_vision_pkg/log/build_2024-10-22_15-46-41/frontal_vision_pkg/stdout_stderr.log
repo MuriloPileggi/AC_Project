@@ -1,0 +1,10 @@
+[35m[1mConsolidate compiler generated dependencies of target frontal_vision_node[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp.o[0m
+In file included from [01m[K/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp:5[m[K:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/object_detector.cpp:[m[K In member function ‘[01m[Kvoid ObjectDetector::draw_predictions(int, float, int, int, int, int, cv::Mat&)[m[K’:
+[01m[K/home/muzaodamassa/AC_Project/Vision/src/object_detector.cpp:144:42:[m[K [01;31m[Kerror: [m[K‘[01m[Klabel[m[K’ was not declared in this scope
+  144 |     cv::Size labelSize = cv::getTextSize([01;31m[Klabel[m[K, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseLine);
+      |                                          [01;31m[K^~~~~[m[K
+gmake[2]: *** [CMakeFiles/frontal_vision_node.dir/build.make:76: CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/frontal_vision_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
