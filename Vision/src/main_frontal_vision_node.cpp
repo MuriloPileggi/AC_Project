@@ -88,7 +88,7 @@ int main(int argc, char * argv[])
 	int height = 320;
 
     // Open default camera
-    cv::VideoCapture cap(0);
+    cv::VideoCapture cap(2);
 
     // Check if camera opened successfully
     if (!cap.isOpened())
@@ -116,7 +116,7 @@ int main(int argc, char * argv[])
 	{
 		ObjectDetector detector("/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.cfg",
 								"/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.weights", 
-								"/home/atom3/AC_Project/Vision/models/YOLO/coco.names", 0.3);
+								"/home/atom3/AC_Project/Vision/models/YOLO/coco.names", 0.25);
 		
 		cv::Mat frame;
 

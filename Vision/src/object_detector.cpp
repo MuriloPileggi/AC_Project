@@ -195,7 +195,7 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
             m_stop_sign_detected = true;
             m_stop_sign_size_ratio = current_size_ratio;
         }
-        else if (m_classes[class_id] == "traffic light") {
+        if (m_classes[class_id] == "traffic light") {
             // Ensure the bounding box is within the frame dimensions
             cv::Rect box_copy;
             box_copy.x = std::max(0, box.x);

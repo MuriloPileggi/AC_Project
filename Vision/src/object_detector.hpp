@@ -37,7 +37,7 @@ private:
 public:
     // Class constructor
     ObjectDetector(const std::string& model_config, const std::string& model_weights, const std::string& classes_file, 
-                    float confidence_threshold = 0.5, float nms_threshold = 0.4, float min_proximity_threshold = 0.15);
+                    float confidence_threshold = 0.5, float nms_threshold = 0.4, float min_proximity_threshold = 0.02);
 
     
     // Make detection on received frame
