@@ -52,7 +52,7 @@ int main(int argc, char * argv[])
 	int height = 240;
 	
     // Open video file
-    cv::VideoCapture cap(-1);
+    cv::VideoCapture cap(2);
 	//cv::VideoCapture cap("/home/muzaodamassa/Downloads/VideosPista/WIN_20240819_17_34_14_Pro.mp4");
 
     // Check if camera opened successfully

@@ -84,7 +84,7 @@ class BridgeNode(Node):
             #data_to_send = f"{self.angle_correction}\n"
             data_to_send = f"{self.angle_correction},{self.traffic_light_status}\n"
             self.get_logger().info('Timer triggered, sending data: %s' % data_to_send)
-            #self.send_to_arduino(data_to_send) 
+            self.send_to_arduino(data_to_send) 
             #self.receive_from_arduino()
     
     def send_to_arduino(self, data):
