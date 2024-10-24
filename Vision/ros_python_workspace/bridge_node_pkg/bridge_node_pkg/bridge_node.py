@@ -5,6 +5,7 @@ import rclpy
 import serial
 import time
 import threading
+import RPi.GPIO as GPIO
 from rclpy.node import Node
 from std_msgs.msg import Int8, Bool
 
@@ -16,8 +17,18 @@ class BridgeNode(Node):
         self.stop_sign_count = 0
         self.stop_sign_detected = False
         self.traffic_light_status = 0 # 0 = None, 1 = Red, 2 = Yellow, 3 = Green
+        self.obstacle_detected = False
+        self.ultrasonic_running = True # Flag to keep reading data from ultrasonic sensor
         self.threads = []
         #self.stop_time = 0
+
+        # GPIO Setup for ultrasonic sensor
+        self.TRIG_PIN = 23  # You can change these pin numbers
+        self.ECHO_PIN = 24  # according to your setup
+        self.setup_ultrasonic_sensor()
+
+        # Start ultrasonic sensor thread
+        self.start_ultrasonic_thread()
         
         # Start node subscriptions
         self.subscription = self.create_subscription(Int8,'road_vision_topic',self.road_vision_callback,10)
@@ -40,6 +51,64 @@ class BridgeNode(Node):
         #   return
         #time.sleep(2)  # Wait for the connection to settle
     
+
+    def setup_ultrasonic_sensor(self):
+        """Initialize GPIO pins for the ultrasonic sensor"""
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.TRIG_PIN, GPIO.OUT)
+        GPIO.setup(self.ECHO_PIN, GPIO.IN)
+        GPIO.output(self.TRIG_PIN, False)
+        time.sleep(2)  # Let the sensor settle
+
+    def measure_distance(self):
+        """Measure distance using HC-SR04 sensor"""
+        try:
+            # Trigger pulse
+            GPIO.output(self.TRIG_PIN, True)
+            time.sleep(0.00001)  # 10 microseconds
+            GPIO.output(self.TRIG_PIN, False)
+
+            # Wait for echo to start
+            pulse_start = time.time()
+            timeout_start = pulse_start
+            while GPIO.input(self.ECHO_PIN) == 0:
+                pulse_start = time.time()
+                if pulse_start - timeout_start > 0.1:  # 100ms timeout
+                    return float('inf')
+
+            # Wait for echo to end
+            pulse_end = time.time()
+            timeout_start = pulse_end
+            while GPIO.input(self.ECHO_PIN) == 1:
+                pulse_end = time.time()
+                if pulse_end - timeout_start > 0.1:  # 100ms timeout
+                    return float('inf')
+
+            # Calculate distance
+            pulse_duration = pulse_end - pulse_start
+            distance = (pulse_duration * 34300) / 2  # Speed of sound = 343 m/s
+            return round(distance, 2)  # Return distance in cm
+
+        except Exception as e:
+            self.get_logger().error(f'Error measuring distance: {str(e)}')
+            return float('inf')
+
+    def ultrasonic_loop(self):
+        """Continuous loop for reading ultrasonic sensor"""
+        while self.ultrasonic_running:
+            distance_cm = self.measure_distance()
+            self.obstacle_detected = distance_cm < 60
+            if self.obstacle_detected:
+                self.get_logger().debug('Obstacle detected')
+            
+
+    def start_ultrasonic_thread(self):
+        """Start the ultrasonic sensor reading thread"""
+        ultrasonic_thread = threading.Thread(target=self.ultrasonic_loop)
+        ultrasonic_thread.daemon = True  # Thread will stop when main program stops
+        self.threads.append(ultrasonic_thread)
+        ultrasonic_thread.start()
+
     def road_vision_callback(self, msg):
         #self.get_logger().info('Received: "%s"' % msg.data)
         self.angle_correction = msg.data
@@ -69,7 +138,7 @@ class BridgeNode(Node):
         # If an obstacle is detected in front of the car, we immediately stop sending data
         # to our arduino, and continue to do so as long as we have something obstructing our
         # way
-        if self.traffic_light_status == 1:
+        if self.traffic_light_status == 1 or self.obstacle_detected:
             return
         # Stop the car for 5 seconds if a stop sign has been detected
         elif self.stop_sign_detected and self.stop_sign_count < 1:
@@ -119,7 +188,10 @@ class BridgeNode(Node):
         self.threads = []
 
     def cleanup(self):
+        """Clean up GPIO and threads"""
+        self.ultrasonic_running = False  # Stop the ultrasonic thread
         self.join_threads()
+        GPIO.cleanup()  # Clean up GPIO
         
     def __del__(self):
         self.cleanup()

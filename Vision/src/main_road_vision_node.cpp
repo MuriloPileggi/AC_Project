@@ -63,7 +63,7 @@ int main(int argc, char * argv[])
     }
 
     // Create a window to display the video
-    cv::namedWindow("Road Vision Stream", cv::WINDOW_NORMAL);
+    //cv::namedWindow("Road Vision Stream", cv::WINDOW_NORMAL);
 
 	// Create a window to display the video
     cv::namedWindow("Debug Stream", cv::WINDOW_NORMAL);
@@ -74,8 +74,8 @@ int main(int argc, char * argv[])
 	//cap.set(cv::CAP_PROP_FPS, 15);
 
 	// Variables for fps calculation
-    double fps;
-    cv::TickMeter tm;
+    //double fps;
+    //cv::TickMeter tm;
 
 	// Frame Processing class constructor
 	FrameProcessing frame_processing;
@@ -86,12 +86,12 @@ int main(int argc, char * argv[])
 
 	// Constants for actual servo calculations
 	const double servo_error = 0.7;
-	const double servo_compensation = 3.5;
+	const double servo_compensation = 3.0;
 	const int servo_center_anlge = 90;
 
     while (cap.isOpened())
     {
-		tm.start();
+		//tm.start();
 
 		// Capture frame-by-frame
 		cv::Mat frame;
@@ -102,36 +102,36 @@ int main(int argc, char * argv[])
 			break;
 		}
 
-		cv::Mat p_frame = frame.clone();
+		//cv::Mat p_frame = frame.clone();
 
+		//frame_processing.resize_frame(frame, height, width);
 		frame_processing.resize_frame(frame, height, width);
-		frame_processing.resize_frame(p_frame, height, width);
-		frame_processing.apply_pre_processing_to_frame(p_frame);
+		frame_processing.apply_pre_processing_to_frame(frame);
 
-		cv::imshow("Debug Stream", p_frame); // Show processed frame
+		cv::imshow("Debug Stream", frame); // Show processed frame
 		
-		auto h_lines = frame_processing.extract_hough_lines(p_frame);
+		auto h_lines = frame_processing.extract_hough_lines(frame);
 
 		if (!h_lines.empty() && h_lines.size() > 2) {
 			// Separate Hough lines into posistive and negative sloped lines
-			Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(p_frame, h_lines);
+			Mat3d<double> positive_and_negative_h_lines = frame_processing.classify_hough_lines(frame, h_lines);
 
 			if (!positive_and_negative_h_lines.empty()) {
 				// Get average of positive of and negative sloped hough lines
 				std::vector<float> avrg_pos_and_neg_lines = frame_processing.get_average_positive_and_negative_slopes_lines(positive_and_negative_h_lines);
 				// Get X intercet coordinates for average positive and negative sloped hough lines 
-				std::vector<double> x_intercept_coordinates = frame_processing.get_x_intercept_coordinates(p_frame, positive_and_negative_h_lines);
+				std::vector<double> x_intercept_coordinates = frame_processing.get_x_intercept_coordinates(frame, positive_and_negative_h_lines);
 
 				// Initialize structs to hold positive and negative sloped line parameters
 				FrameProcessing::LineParameters positive_slope_line_parameters;
 				FrameProcessing::LineParameters negative_slope_line_parameters;
 				
 				// Fill structs constructed above with x1,y1,x2,y2 and slope values for positive and negative slope lines
-				frame_processing.plot_lane_lines(p_frame, avrg_pos_and_neg_lines, x_intercept_coordinates, 
+				frame_processing.plot_lane_lines(frame, avrg_pos_and_neg_lines, x_intercept_coordinates, 
 													positive_slope_line_parameters, negative_slope_line_parameters);
 
 				// Calculate steering angle based on plotted lane lines
-				double steering_angle = guidance_system.calc_steering_angle(p_frame, positive_slope_line_parameters, negative_slope_line_parameters);
+				double steering_angle = guidance_system.calc_steering_angle(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 				
 			
 				// Get error correction with PID
@@ -146,43 +146,43 @@ int main(int argc, char * argv[])
 				double angle_correction = (servo_center_anlge - steering_angle) * servo_compensation;
 				*servo_steering_angle = (servo_center_anlge + angle_correction) * servo_error;
 
-				cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
+				//cv::Mat blended_frame = frame_processing.blend_frame(frame, positive_slope_line_parameters, negative_slope_line_parameters);
 
 				// Calculate FPS
-				tm.stop();
-				fps = 1.0 / tm.getTimeSec();
-				tm.reset();
+				//tm.stop();
+				//fps = 1.0 / tm.getTimeSec();
+				//tm.reset();
 
 				// Put FPS text on the frame
-				cv::putText(blended_frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
+				//cv::putText(blended_frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
 
 				// Show final frame
-				cv::imshow("Road Vision Stream", blended_frame);
+				//cv::imshow("Road Vision Stream", blended_frame);
 			}
 			else {
 				// Calculate FPS
-				tm.stop();
-				fps = 1.0 / tm.getTimeSec();
-				tm.reset();
+				//tm.stop();
+				//fps = 1.0 / tm.getTimeSec();
+				//tm.reset();
 
 				// Put FPS text on the frame
-				cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
+				//cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
 
 				// Dispay the resulting frame
-				cv::imshow("Road Vision Stream", frame);
+				//cv::imshow("Road Vision Stream", frame);
 			}
         }
 		else {
 			// Calculate FPS
-			tm.stop();
-			fps = 1.0 / tm.getTimeSec();
-			tm.reset();
+			//tm.stop();
+			//fps = 1.0 / tm.getTimeSec();
+			//tm.reset();
 
 			// Put FPS text on the frame
-			cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
+			//cv::putText(frame, "FPS: " + to_string(fps), cv::Point(10, 30), cv::FONT_HERSHEY_SIMPLEX, 1, cv::Scalar(255, 255, 255), 2);
 			
 			// Dispay the resulting frame
-			cv::imshow("Road Vision Stream", frame);
+			//cv::imshow("Road Vision Stream", frame);
 		}
 
 		// Press q to exit the loop
