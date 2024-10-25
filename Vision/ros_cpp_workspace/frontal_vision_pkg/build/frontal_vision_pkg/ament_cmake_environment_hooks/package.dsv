@@ -1,0 +1,4 @@
+source;share/frontal_vision_pkg/local_setup.bash
+source;share/frontal_vision_pkg/local_setup.dsv
+source;share/frontal_vision_pkg/local_setup.sh
+source;share/frontal_vision_pkg/local_setup.zsh

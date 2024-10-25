@@ -1,0 +1,3 @@
+[console_scripts]
+init_node = init_pkg.init_node:main
+

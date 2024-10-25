@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>road_vision_pkg</name>
+  <version>0.0.1</version>
+  <description>Package responsible for processing road facing webcam data</description>
+
+  <!-- Maintainership information -->
+  <maintainer email="MuzaoDaMassa@gmail.com">MuzaoDaMassa</maintainer>
+  <license>MIT</license>
+
+  <!-- Dependencies -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- ROS 2 core dependencies -->
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>std_srvs</depend>
+
+  <!-- Include other dependencies your project might need -->
+  <!-- Example: <depend>opencv</depend> -->
+
+  <!-- Test dependencies -->
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <!-- Export information -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

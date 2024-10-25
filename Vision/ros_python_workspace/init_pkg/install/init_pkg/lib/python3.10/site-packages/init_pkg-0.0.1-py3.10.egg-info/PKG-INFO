@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: init-pkg
+Version: 0.0.1
+Summary: A package for Python ROS 2 to initialize all other ROS 2 packages.
+Home-page: UNKNOWN
+Maintainer: muzaodamassa
+Maintainer-email: MuzaoDaMassaGames@gmail.com
+License: MIT
+Platform: UNKNOWN
+
+UNKNOWN
+
