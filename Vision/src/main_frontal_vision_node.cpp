@@ -21,6 +21,16 @@ void stop_sign_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr 
     publisher->publish(message);
 }
 
+// Person detection timer callback function
+void person_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr publisher,
+						rclcpp::Node::SharedPtr node, std::shared_ptr<bool> person_detected)
+{
+    auto message = std_msgs::msg::Bool();
+    message.data = *person_detected;
+    RCLCPP_INFO(node->get_logger(), "Publishing: '%s'", message.data ? "true" : "false");
+    publisher->publish(message);
+}
+
 // Traffic light detection timer callback function
 void traffic_light_detection_timer_callback(rclcpp::Publisher<std_msgs::msg::Int8>::SharedPtr publisher,
 						rclcpp::Node::SharedPtr node, std::shared_ptr<int8_t> traffic_light_status)
@@ -81,6 +91,28 @@ int main(int argc, char * argv[])
 		
 	});  
 
+	// PERSON DETECTION NODE
+	// Create a ROS 2 node that will publish data relevant to traffic light detection
+	auto person_detection_node = std::make_shared<rclcpp::Node>("person_detection");
+	// Create stop sign detection ROS 2 publisher
+	auto person_detection_publisher = person_detection_node->create_publisher<std_msgs::msg::Bool>("person_detection_topic", 10);
+	// Create a shared variable for person detection
+    auto person_detected = std::make_shared<bool>(false);
+	// Create a timer with a lambda function, so we publish traffic light status every 100 ms 
+    auto person_detection_timer = person_detection_node->create_wall_timer(
+        100ms, 
+        [person_detection_publisher, person_detection_node, person_detected]() {
+            person_detection_timer_callback(person_detection_publisher, person_detection_node, person_detected);
+        }
+    );
+
+	// Start traffic light detection node on a separate thread 
+	thread person_detection_thread([&]() 
+	{
+		rclcpp::spin(person_detection_node);
+		
+	});  
+
 	#pragma endregion
 
 	// Set desired resolution to resize received footage
@@ -116,7 +148,7 @@ int main(int argc, char * argv[])
 	{
 		ObjectDetector detector("/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.cfg",
 								"/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.weights", 
-								"/home/atom3/AC_Project/Vision/models/YOLO/coco.names", 0.25);
+								"/home/atom3/AC_Project/Vision/models/YOLO/coco.names", 0.3, 0.3);
 		
 		cv::Mat frame;
 
@@ -140,6 +172,7 @@ int main(int argc, char * argv[])
             // Check for any  in frame
 			*stop_sign_detected = detector.stop_sign_detected();
 			*traffic_light_status = detector.get_traffic_light_status();
+			//*person_detected = detector.person_detected();
 
             // Calculate FPS
             tm.stop();

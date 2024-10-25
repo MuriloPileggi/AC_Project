@@ -18,25 +18,16 @@ class BridgeNode(Node):
         self.stop_sign_detected = False
         self.traffic_light_status = 0 # 0 = None, 1 = Red, 2 = Yellow, 3 = Green
         self.obstacle_detected = False
+        self.person_detected = False
         self.ultrasonic_running = True # Flag to keep reading data from ultrasonic sensor
         self.threads = []
         #self.stop_time = 0
 
         # GPIO Setup for ultrasonic sensor
-        self.TRIG_PIN = 23  # You can change these pin numbers
-        self.ECHO_PIN = 24  # according to your setup
+        self.TRIG_PIN = 23 
+        self.ECHO_PIN = 24  
         self.setup_ultrasonic_sensor()
-
-        # Start ultrasonic sensor thread
-        self.start_ultrasonic_thread()
-        
-        # Start node subscriptions
-        self.subscription = self.create_subscription(Int8,'road_vision_topic',self.road_vision_callback,10)
-        self.subscription = self.create_subscription(Bool,'stop_sign_detection_topic',self.stop_sign_detection_callback,10)
-        self.subscription = self.create_subscription(Int8,'traffic_light_detection_topic',self.traffic_light_detection_callback,10)
-
-        # Create a timer to execute callback every X ms
-        self.timer = self.create_timer(0.1, self.timer_callback)
+        self.last_ultrasonic_read = time.time() # Limit 
 
         # Initialize serial connection
         self.serial_port =  serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
@@ -45,12 +36,17 @@ class BridgeNode(Node):
             return
         time.sleep(2)  # Wait for the connection to settle
         
-        #self.serial_port =  serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-        #if self.serial_port is None:
-        #   self.get_logger().error('Failed to initialize serial connection')
-        #   return
-        #time.sleep(2)  # Wait for the connection to settle
-    
+        # Start node subscriptions
+        self.subscription = self.create_subscription(Int8,'road_vision_topic',self.road_vision_callback,10)
+        self.subscription = self.create_subscription(Int8,'traffic_light_detection_topic',self.traffic_light_detection_callback,10)
+        self.subscription = self.create_subscription(Bool,'stop_sign_detection_topic',self.stop_sign_detection_callback,10)
+        #self.subscription = self.create_subscription(Bool,'person_detection_topic',self.person_detection_callback,10)
+
+        # Create a timer to execute callback every X ms
+        self.timer = self.create_timer(0.1, self.timer_callback)
+
+        # Start ultrasonic sensor thread
+        self.start_ultrasonic_thread()
 
     def setup_ultrasonic_sensor(self):
         """Initialize GPIO pins for the ultrasonic sensor"""
@@ -73,22 +69,21 @@ class BridgeNode(Node):
             timeout_start = pulse_start
             while GPIO.input(self.ECHO_PIN) == 0:
                 pulse_start = time.time()
-                if pulse_start - timeout_start > 0.1:  # 100ms timeout
-                    return float('inf')
+                if pulse_start - timeout_start > 0.02:  # 20ms timeout
+                    return 400
 
             # Wait for echo to end
             pulse_end = time.time()
             timeout_start = pulse_end
             while GPIO.input(self.ECHO_PIN) == 1:
                 pulse_end = time.time()
-                if pulse_end - timeout_start > 0.1:  # 100ms timeout
-                    return float('inf')
+                if pulse_end - timeout_start > 0.02:  # 20ms timeout
+                    return 400
 
             # Calculate distance
             pulse_duration = pulse_end - pulse_start
             distance = (pulse_duration * 34300) / 2  # Speed of sound = 343 m/s
-            return round(distance, 2)  # Return distance in cm
-
+            return min(round(distance, 2), 400) # Return distance in cm
         except Exception as e:
             self.get_logger().error(f'Error measuring distance: {str(e)}')
             return float('inf')
@@ -96,12 +91,22 @@ class BridgeNode(Node):
     def ultrasonic_loop(self):
         """Continuous loop for reading ultrasonic sensor"""
         while self.ultrasonic_running:
-            distance_cm = self.measure_distance()
-            self.obstacle_detected = distance_cm < 60
-            if self.obstacle_detected:
-                self.get_logger().debug('Obstacle detected')
-            
-
+            try:
+                current_time = time.time()
+                if current_time - self.last_ultrasonic_read >= 0.05:  # Limit to 20Hz
+                    distance_cm = self.measure_distance()
+                    self.obstacle_detected = distance_cm < 60
+                    self.last_ultrasonic_read = current_time
+                    
+                    # Debug logging
+                    if self.obstacle_detected:
+                        self.get_logger().info(f'Obstacle detected at {distance_cm}cm')
+                        
+                time.sleep(0.01)  # Small sleep to prevent CPU hogging   
+            except Exception as e:
+                self.get_logger().error(f'Error in ultrasonic loop: {str(e)}')
+                time.sleep(0.1)
+          
     def start_ultrasonic_thread(self):
         """Start the ultrasonic sensor reading thread"""
         ultrasonic_thread = threading.Thread(target=self.ultrasonic_loop)
@@ -117,6 +122,10 @@ class BridgeNode(Node):
         #self.get_logger().info('Received: "%s"' % msg.data)
         self.stop_sign_detected = msg.data
     
+    def person_detection_callback(self, msg):
+        #self.get_logger().info('Received: "%s"' % msg.data)
+        self.person_detected = msg.data 
+
     def traffic_light_detection_callback(self, msg):
         #self.get_logger().info('Received: "%s"' % msg.data)
         self.traffic_light_status = msg.data 
@@ -130,7 +139,7 @@ class BridgeNode(Node):
         reset_thread.start()
 
     def reset_stop_sign_counter(self):
-        time.sleep(30)
+        time.sleep(25)
         self.stop_sign_count = 0
     
     # This method will run at specified frequency
@@ -190,6 +199,7 @@ class BridgeNode(Node):
     def cleanup(self):
         """Clean up GPIO and threads"""
         self.ultrasonic_running = False  # Stop the ultrasonic thread
+        time.sleep(0.1)
         self.join_threads()
         GPIO.cleanup()  # Clean up GPIO
         

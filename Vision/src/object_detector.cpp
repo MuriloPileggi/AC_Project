@@ -179,6 +179,7 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
     // Reset size ratios at the start of processing
     m_stop_sign_size_ratio = 0.0f;
     m_traffic_light_size_ratio = 0.0f;
+    //m_person_size_ratio = 0.0f;
     
     std::vector<int> indices;
     cv::dnn::NMSBoxes(boxes, confidences, m_confidence_threshold, m_nms_threshold, indices);
@@ -191,6 +192,10 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
         float current_size_ratio = calc_size_ratio(box, frame);
 
         // Check for classes of interest in frame
+        //if(m_classes[class_id] == "person") {
+        //    m_person_detected = true;
+        //    m_person_size_ratio = current_size_ratio;
+        //}
         if(m_classes[class_id] == "stop sign") {
             m_stop_sign_detected = true;
             m_stop_sign_size_ratio = current_size_ratio;
@@ -221,6 +226,12 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
         draw_predictions(class_ids[id_x], confidences[id_x], box.x, box.y,
                  box.x + box.width, box.y + box.height, frame, label);
     }
+}
+
+// Stop sign detected method implementation
+bool ObjectDetector::person_detected() 
+{
+    return m_person_detected && (m_person_size_ratio >= m_min_proximity_threshold);
 }
 
 // Stop sign detected method implementation

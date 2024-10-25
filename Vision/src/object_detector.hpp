@@ -26,7 +26,9 @@ private:
     float m_min_proximity_threshold; // Minimun size of detected object to check for distance relative to car
     float m_stop_sign_size_ratio; // Member variable to store ratio of detected stop sign each frame it's detected 
     float m_traffic_light_size_ratio; // Member variable to store ratio of detected traffic light each frame it's detected 
+    float m_person_size_ratio; // Member variable to store ratio of detected person each frame it's detected 
     bool m_stop_sign_detected = false;
+    bool m_person_detected = false;
     TrafficLightStatus m_traffic_light_status = NONE;
 
     float calc_size_ratio(const cv::Rect& box, const cv::Mat& frame);
@@ -47,8 +49,11 @@ public:
     // with ROS to our bridge node
     int8_t get_traffic_light_status();
 
+    // Method to return member boolean variable person detected
+    // Will return true if a person is detected in frame, if not always false
+    bool person_detected();
+
     // Method to return member boolean variable stop sign detected
     // Will return true if a stop sign is detected in frame, if not always false
     bool stop_sign_detected();
-    
 };
