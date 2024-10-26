@@ -91,6 +91,7 @@ int main(int argc, char * argv[])
 		
 	});  
 
+	/*
 	// PERSON DETECTION NODE
 	// Create a ROS 2 node that will publish data relevant to traffic light detection
 	auto person_detection_node = std::make_shared<rclcpp::Node>("person_detection");
@@ -112,6 +113,7 @@ int main(int argc, char * argv[])
 		rclcpp::spin(person_detection_node);
 		
 	});  
+	*/
 
 	#pragma endregion
 
@@ -146,9 +148,9 @@ int main(int argc, char * argv[])
 
 	try
 	{
-		ObjectDetector detector("/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.cfg",
-								"/home/atom3/AC_Project/Vision/models/YOLO/yolov4-tiny.weights", 
-								"/home/atom3/AC_Project/Vision/models/YOLO/coco.names", 0.3, 0.3);
+		ObjectDetector detector("/home/muzaodamassa/AC_Project/Vision/models/YOLO/yolov4-tiny.cfg",
+								"/home/muzaodamassa/AC_Project/Vision/models/YOLO/yolov4-tiny.weights", 
+								"/home/muzaodamassa/AC_Project/Vision/models/YOLO/coco.names", 0.3, 0.3, 0.02);
 		
 		cv::Mat frame;
 
@@ -204,6 +206,7 @@ int main(int argc, char * argv[])
 		// Join the spin thread before exiting
 		stop_sign_thread.join();
 		traffic_light_detection_thread.join();
+		//person_detection_thread.join();
 
 		return 0;
 	}

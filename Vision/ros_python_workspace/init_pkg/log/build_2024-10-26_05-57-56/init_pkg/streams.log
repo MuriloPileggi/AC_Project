@@ -1,0 +1,21 @@
+[0.887s] Invoking command in '/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg': PYTHONPATH=/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/build/init_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/install/init_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/init_pkg build --build-base /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/build/init_pkg/build install --record /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/build/init_pkg/install.log --single-version-externally-managed install_data
+[1.273s] running egg_info
+[1.274s] writing build/init_pkg/init_pkg.egg-info/PKG-INFO
+[1.275s] writing dependency_links to build/init_pkg/init_pkg.egg-info/dependency_links.txt
+[1.275s] writing entry points to build/init_pkg/init_pkg.egg-info/entry_points.txt
+[1.275s] writing requirements to build/init_pkg/init_pkg.egg-info/requires.txt
+[1.275s] writing top-level names to build/init_pkg/init_pkg.egg-info/top_level.txt
+[1.279s] reading manifest file 'build/init_pkg/init_pkg.egg-info/SOURCES.txt'
+[1.281s] writing manifest file 'build/init_pkg/init_pkg.egg-info/SOURCES.txt'
+[1.281s] running build
+[1.281s] running build_py
+[1.281s] running install
+[1.282s] running install_lib
+[1.284s] running install_data
+[1.284s] running install_egg_info
+[1.287s] removing '/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/install/init_pkg/lib/python3.10/site-packages/init_pkg-0.0.1-py3.10.egg-info' (and everything under it)
+[1.288s] Copying build/init_pkg/init_pkg.egg-info to /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/install/init_pkg/lib/python3.10/site-packages/init_pkg-0.0.1-py3.10.egg-info
+[1.290s] running install_scripts
+[1.319s] Installing init_node script to /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/install/init_pkg/lib/init_pkg
+[1.319s] writing list of installed files to '/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/build/init_pkg/install.log'
+[1.355s] Invoked command in '/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg' returned '0': PYTHONPATH=/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/build/init_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/install/init_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base build/init_pkg build --build-base /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/build/init_pkg/build install --record /home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/build/init_pkg/install.log --single-version-externally-managed install_data

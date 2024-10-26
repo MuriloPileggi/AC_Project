@@ -1,0 +1,147 @@
+[0.000000] (-) TimerEvent: {}
+[0.000761] (frontal_vision_pkg) JobQueued: {'identifier': 'frontal_vision_pkg', 'dependencies': OrderedDict()}
+[0.001049] (frontal_vision_pkg) JobStarted: {'identifier': 'frontal_vision_pkg'}
+[0.017392] (frontal_vision_pkg) JobProgress: {'identifier': 'frontal_vision_pkg', 'progress': 'cmake'}
+[0.018312] (frontal_vision_pkg) JobProgress: {'identifier': 'frontal_vision_pkg', 'progress': 'build'}
+[0.019570] (frontal_vision_pkg) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg', '--', '-j4', '-l4'], 'cwd': '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'muzaodamassa'), ('LC_TIME', 'pt_BR.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib'), ('HOME', '/home/muzaodamassa'), ('OLDPWD', '/home/muzaodamassa'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('SYSTEMD_EXEC_PID', '1795'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'iron'), ('LOGNAME', 'muzaodamassa'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'muzaodamassa'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('PATH', '/opt/ros/iron/bin:/home/muzaodamassa/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/muzaodamassa-MacBookAir:@/tmp/.ICE-unix/1777,unix/muzaodamassa-MacBookAir:/tmp/.ICE-unix/1777'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/4d643d77_85e0_4848_a0db_7affd296b5c3'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.FMLSV2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.752'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/iron'), ('SHELL', '/bin/bash'), ('LC_NAME', 'pt_BR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('ROS_AUTOMATIC_DISCOVERY_RANGE', 'SUBNET'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/iron/lib/python3.10/site-packages'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('LC_PAPER', 'pt_BR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/iron')]), 'shell': False}
+[0.082772] (frontal_vision_pkg) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target frontal_vision_node\x1b[0m\n'}
+[0.099477] (-) TimerEvent: {}
+[0.110976] (frontal_vision_pkg) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/frontal_vision_node.dir/home/muzaodamassa/AC_Project/Vision/src/main_frontal_vision_node.cpp.o\x1b[0m\n'}
+[0.199686] (-) TimerEvent: {}
+[0.300173] (-) TimerEvent: {}
+[0.401215] (-) TimerEvent: {}
+[0.501648] (-) TimerEvent: {}
+[0.602045] (-) TimerEvent: {}
+[0.702454] (-) TimerEvent: {}
+[0.803047] (-) TimerEvent: {}
+[0.903484] (-) TimerEvent: {}
+[1.003864] (-) TimerEvent: {}
+[1.104219] (-) TimerEvent: {}
+[1.204579] (-) TimerEvent: {}
+[1.304948] (-) TimerEvent: {}
+[1.405322] (-) TimerEvent: {}
+[1.505696] (-) TimerEvent: {}
+[1.606068] (-) TimerEvent: {}
+[1.706459] (-) TimerEvent: {}
+[1.806839] (-) TimerEvent: {}
+[1.907215] (-) TimerEvent: {}
+[2.007599] (-) TimerEvent: {}
+[2.107984] (-) TimerEvent: {}
+[2.208387] (-) TimerEvent: {}
+[2.308768] (-) TimerEvent: {}
+[2.409214] (-) TimerEvent: {}
+[2.509630] (-) TimerEvent: {}
+[2.610044] (-) TimerEvent: {}
+[2.710477] (-) TimerEvent: {}
+[2.810889] (-) TimerEvent: {}
+[2.911312] (-) TimerEvent: {}
+[3.011726] (-) TimerEvent: {}
+[3.112160] (-) TimerEvent: {}
+[3.212577] (-) TimerEvent: {}
+[3.312995] (-) TimerEvent: {}
+[3.413436] (-) TimerEvent: {}
+[3.513830] (-) TimerEvent: {}
+[3.614236] (-) TimerEvent: {}
+[3.714651] (-) TimerEvent: {}
+[3.815058] (-) TimerEvent: {}
+[3.915497] (-) TimerEvent: {}
+[4.015912] (-) TimerEvent: {}
+[4.116339] (-) TimerEvent: {}
+[4.216753] (-) TimerEvent: {}
+[4.317196] (-) TimerEvent: {}
+[4.417670] (-) TimerEvent: {}
+[4.518209] (-) TimerEvent: {}
+[4.618631] (-) TimerEvent: {}
+[4.719070] (-) TimerEvent: {}
+[4.819525] (-) TimerEvent: {}
+[4.919955] (-) TimerEvent: {}
+[5.020431] (-) TimerEvent: {}
+[5.120899] (-) TimerEvent: {}
+[5.221339] (-) TimerEvent: {}
+[5.321800] (-) TimerEvent: {}
+[5.422236] (-) TimerEvent: {}
+[5.522646] (-) TimerEvent: {}
+[5.623054] (-) TimerEvent: {}
+[5.723460] (-) TimerEvent: {}
+[5.823842] (-) TimerEvent: {}
+[5.924253] (-) TimerEvent: {}
+[6.024663] (-) TimerEvent: {}
+[6.125107] (-) TimerEvent: {}
+[6.225548] (-) TimerEvent: {}
+[6.325980] (-) TimerEvent: {}
+[6.426435] (-) TimerEvent: {}
+[6.526886] (-) TimerEvent: {}
+[6.627365] (-) TimerEvent: {}
+[6.727785] (-) TimerEvent: {}
+[6.828244] (-) TimerEvent: {}
+[6.928664] (-) TimerEvent: {}
+[7.029071] (-) TimerEvent: {}
+[7.129501] (-) TimerEvent: {}
+[7.229918] (-) TimerEvent: {}
+[7.330338] (-) TimerEvent: {}
+[7.430729] (-) TimerEvent: {}
+[7.531168] (-) TimerEvent: {}
+[7.631571] (-) TimerEvent: {}
+[7.733537] (-) TimerEvent: {}
+[7.833947] (-) TimerEvent: {}
+[7.934381] (-) TimerEvent: {}
+[8.034785] (-) TimerEvent: {}
+[8.135198] (-) TimerEvent: {}
+[8.235612] (-) TimerEvent: {}
+[8.336027] (-) TimerEvent: {}
+[8.436458] (-) TimerEvent: {}
+[8.536872] (-) TimerEvent: {}
+[8.637294] (-) TimerEvent: {}
+[8.737728] (-) TimerEvent: {}
+[8.838144] (-) TimerEvent: {}
+[8.938576] (-) TimerEvent: {}
+[9.039019] (-) TimerEvent: {}
+[9.139471] (-) TimerEvent: {}
+[9.239835] (-) TimerEvent: {}
+[9.340220] (-) TimerEvent: {}
+[9.440619] (-) TimerEvent: {}
+[9.541008] (-) TimerEvent: {}
+[9.641413] (-) TimerEvent: {}
+[9.741811] (-) TimerEvent: {}
+[9.842221] (-) TimerEvent: {}
+[9.942631] (-) TimerEvent: {}
+[10.043026] (-) TimerEvent: {}
+[10.143441] (-) TimerEvent: {}
+[10.243832] (-) TimerEvent: {}
+[10.344232] (-) TimerEvent: {}
+[10.444634] (-) TimerEvent: {}
+[10.545114] (-) TimerEvent: {}
+[10.602470] (frontal_vision_pkg) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable frontal_vision_node\x1b[0m\n'}
+[10.645265] (-) TimerEvent: {}
+[10.745758] (-) TimerEvent: {}
+[10.846197] (-) TimerEvent: {}
+[10.946677] (-) TimerEvent: {}
+[11.047253] (-) TimerEvent: {}
+[11.147713] (-) TimerEvent: {}
+[11.211623] (frontal_vision_pkg) StdoutLine: {'line': b'[100%] Built target frontal_vision_node\n'}
+[11.226527] (frontal_vision_pkg) CommandEnded: {'returncode': 0}
+[11.247818] (-) TimerEvent: {}
+[11.256713] (frontal_vision_pkg) JobProgress: {'identifier': 'frontal_vision_pkg', 'progress': 'install'}
+[11.269998] (frontal_vision_pkg) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg'], 'cwd': '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'muzaodamassa'), ('LC_TIME', 'pt_BR.UTF-8'), ('XDG_SESSION_TYPE', 'wayland'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/iron/opt/rviz_ogre_vendor/lib:/opt/ros/iron/lib/x86_64-linux-gnu:/opt/ros/iron/lib'), ('HOME', '/home/muzaodamassa'), ('OLDPWD', '/home/muzaodamassa'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'pt_BR.UTF-8'), ('LC_CTYPE', 'pt_BR.UTF-8'), ('SYSTEMD_EXEC_PID', '1795'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'iron'), ('LOGNAME', 'muzaodamassa'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'muzaodamassa'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('PATH', '/opt/ros/iron/bin:/home/muzaodamassa/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/muzaodamassa-MacBookAir:@/tmp/.ICE-unix/1777,unix/muzaodamassa-MacBookAir:/tmp/.ICE-unix/1777'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'pt_BR.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/4d643d77_85e0_4848_a0db_7affd296b5c3'), ('GNOME_SETUP_DISPLAY', ':1'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'pt_BR.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/.mutter-Xwaylandauth.FMLSV2'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.752'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/iron'), ('SHELL', '/bin/bash'), ('LC_NAME', 'pt_BR.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'pt_BR.UTF-8'), ('LC_IDENTIFICATION', 'pt_BR.UTF-8'), ('ROS_AUTOMATIC_DISCOVERY_RANGE', 'SUBNET'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/build/frontal_vision_pkg'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/iron/lib/python3.10/site-packages'), ('LC_NUMERIC', 'pt_BR.UTF-8'), ('LC_PAPER', 'pt_BR.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/iron')]), 'shell': False}
+[11.281978] (frontal_vision_pkg) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[11.283499] (frontal_vision_pkg) StdoutLine: {'line': b'-- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/lib/frontal_vision_pkg/frontal_vision_node\n'}
+[11.288789] (frontal_vision_pkg) StdoutLine: {'line': b'-- Set runtime path of "/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/lib/frontal_vision_pkg/frontal_vision_node" to ""\n'}
+[11.289217] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/ament_index/resource_index/package_run_dependencies/frontal_vision_pkg\n'}
+[11.289948] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/ament_index/resource_index/parent_prefix_path/frontal_vision_pkg\n'}
+[11.290349] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/environment/ament_prefix_path.sh\n'}
+[11.290644] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/environment/ament_prefix_path.dsv\n'}
+[11.290845] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/environment/path.sh\n'}
+[11.291114] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/environment/path.dsv\n'}
+[11.291401] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/local_setup.bash\n'}
+[11.292270] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/local_setup.sh\n'}
+[11.292561] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/local_setup.zsh\n'}
+[11.292928] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/local_setup.dsv\n'}
+[11.293127] (frontal_vision_pkg) StdoutLine: {'line': b'-- Installing: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/package.dsv\n'}
+[11.293820] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/ament_index/resource_index/packages/frontal_vision_pkg\n'}
+[11.294043] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/cmake/frontal_vision_pkgConfig.cmake\n'}
+[11.294287] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/cmake/frontal_vision_pkgConfig-version.cmake\n'}
+[11.294490] (frontal_vision_pkg) StdoutLine: {'line': b'-- Up-to-date: /home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg/install/frontal_vision_pkg/share/frontal_vision_pkg/package.xml\n'}
+[11.296610] (frontal_vision_pkg) CommandEnded: {'returncode': 0}
+[11.347906] (-) TimerEvent: {}
+[11.363557] (frontal_vision_pkg) JobEnded: {'identifier': 'frontal_vision_pkg', 'rc': 0}
+[11.364627] (-) EventReactorShutdown: {}

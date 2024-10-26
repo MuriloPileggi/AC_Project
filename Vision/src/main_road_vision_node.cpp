@@ -30,7 +30,7 @@ int main(int argc, char * argv[])
 	// Create a ROS 2 publisher
 	auto publisher = node->create_publisher<std_msgs::msg::Int8>("road_vision_topic", 10);
 	// Create a shared variable for steering angle
-    auto servo_steering_angle = std::make_shared<int8_t>(0);
+    auto servo_steering_angle = std::make_shared<int8_t>(90 * 0.7);
 	// Create a timer with a lambda function, so we publish steering angle every 100 ms 
     auto timer = node->create_wall_timer(
         100ms, 

@@ -7,7 +7,8 @@ ObjectDetector::ObjectDetector(const std::string& model_config, const std::strin
     m_nms_threshold(nms_threshold),
     m_min_proximity_threshold(min_proximity_threshold),
     m_stop_sign_size_ratio(0.0f),
-    m_traffic_light_size_ratio(0.0f)
+    m_traffic_light_size_ratio(0.0f),
+    m_person_size_ratio(0.0f)
 {
     try {
         // Load the network
@@ -187,6 +188,10 @@ void ObjectDetector::post_process(cv::Mat& frame, const std::vector<cv::Mat>& ou
         int id_x = indices[i];
         cv::Rect box = boxes[id_x];
         int class_id = class_ids[id_x];
+
+        if (m_classes[class_id] != "stop_sign" && m_classes[class_id] != "traffic_light") {
+            continue;
+        }
 
         // Get current box size ratio
         float current_size_ratio = calc_size_ratio(box, frame);
