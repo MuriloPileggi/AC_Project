@@ -5,6 +5,7 @@ import cv2
 import mediapipe as mp
 import subprocess
 import time
+import os
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 
@@ -21,9 +22,9 @@ class GestureDetectorNode(Node):
         )
 
         self.pkg_directories = [
-            "/home/atom3/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg",
-            "/home/atom3/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg",
-            "/home/atom3/AC_Project/Vision/ros_python_workspace/bridge_node_pkg"
+            "/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/road_vision_pkg",
+            "/home/muzaodamassa/AC_Project/Vision/ros_cpp_workspace/frontal_vision_pkg",
+            "/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/bridge_node_pkg"
         ]
 
         self.road_vision_node_terminal_commands = [
@@ -94,20 +95,35 @@ class GestureDetectorNode(Node):
         return False
 
     def launch_packages(self):
-        command_string = f"cd {self.pkg_directories[0]}; " + "; ".join(self.road_vision_node_terminal_commands) + "; exec bash"
-        subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command_string])
-
-        time.sleep(1)
-
-        command_string = f"cd {self.pkg_directories[1]}; " + "; ".join(self.frontal_vision_node_terminal_commands) + "; exec bash"
-        subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command_string])
-
-        time.sleep(1)
-
-        command_string = f"cd {self.pkg_directories[2]}; " + "; ".join(self.bridge_node_terminal_commands) + "; exec bash"
-        subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command_string])
+        # Check if DISPLAY is available (i.e., if we're running with GUI)
+        display_available = os.environ.get('DISPLAY')
         
-
+        if display_available:
+            # GUI version - launch with separate terminal windows
+            command_string = f"cd {self.pkg_directories[0]}; " + "; ".join(self.road_vision_node_terminal_commands) + "; exec bash"
+            subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command_string])
+            time.sleep(1)
+            
+            command_string = f"cd {self.pkg_directories[1]}; " + "; ".join(self.frontal_vision_node_terminal_commands) + "; exec bash"
+            subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command_string])
+            time.sleep(1)
+            
+            command_string = f"cd {self.pkg_directories[2]}; " + "; ".join(self.bridge_node_terminal_commands) + "; exec bash"
+            subprocess.Popen(["gnome-terminal", "--", "bash", "-c", command_string])
+            time.sleep(1)
+        else:
+            # Headless version - run without terminal windows
+            command_string = f"bash -c 'source /opt/ros/humble/setup.bash && cd {self.pkg_directories[0]} && " + " && ".join(self.road_vision_node_terminal_commands) + "'"
+            subprocess.Popen(command_string, shell=True, start_new_session=True)
+            time.sleep(1)
+            
+            command_string = f"bash -c 'source /opt/ros/humble/setup.bash && cd {self.pkg_directories[1]} && " + " && ".join(self.frontal_vision_node_terminal_commands) + "'"
+            subprocess.Popen(command_string, shell=True, start_new_session=True)
+            time.sleep(1)
+            
+            command_string = f"bash -c 'source /opt/ros/humble/setup.bash && cd {self.pkg_directories[2]} && " + " && ".join(self.bridge_node_terminal_commands) + "'"
+            subprocess.Popen(command_string, shell=True, start_new_session=True)
+            time.sleep(1)
 
 def main(args=None):
     rclpy.init(args=args)

@@ -1,0 +1,5 @@
+  File "/home/muzaodamassa/AC_Project/Vision/ros_python_workspace/init_pkg/install/init_pkg/lib/python3.10/site-packages/init_pkg/init_node.py", line 109
+    subprocess.Popen(command_string, shell=True, start_new_session=True)'
+                                                                        ^
+SyntaxError: unterminated string literal (detected at line 109)
+
